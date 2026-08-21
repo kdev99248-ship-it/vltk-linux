@@ -53,6 +53,10 @@ env_get() {
 PUBLIC_IP="${PUBLIC_IP:-$(env_get PUBLIC_IP)}"
 SSH_PORT="${SSH_PORT:-$(env_get SSH_PORT)}"; SSH_PORT="${SSH_PORT:-22}"
 ALLOW_CLIENT_IPS="${ALLOW_CLIENT_IPS:-$(env_get ALLOW_CLIENT_IPS)}"
+# jx_linux_y BINDS its game port to IntranetIp, so that must be a local
+# container address, NOT the public IP. It has to match GAME_PUBLIC_IP in
+# docker-compose.yml, where the gateway forwards the published game port.
+GAME_BIND_IP="${GAME_BIND_IP:-$(env_get GAME_BIND_IP)}"; GAME_BIND_IP="${GAME_BIND_IP:-10.211.55.2}"
 
 valid_ipv4() {
   local ip="$1" o
@@ -100,12 +104,21 @@ patch_ip() {
   )
   for f in "${advertised[@]}"; do [ -f "$f" ] && backup_once "$f"; done
 
-  # FixIp advertised to clients (both Internet/Intranet -> public, so a remote
-  # client always receives a reachable address regardless of classification).
-  for f in "$GW/bishop.cfg" "$GW/goddess.cfg" "$GW/s3relay/relay_config.ini" \
-           "$SV/servercfg.ini" "$SV/servercf0.ini"; do
+  # bishop/goddess/relay bind INADDR_ANY, so both FixIp fields -> public only
+  # changes what they advertise to clients, never what they bind.
+  for f in "$GW/bishop.cfg" "$GW/goddess.cfg" "$GW/s3relay/relay_config.ini"; do
     set_key "$f" "InternetIp" "$PUBLIC_IP"
     set_key "$f" "IntranetIp" "$PUBLIC_IP"
+  done
+
+  # The game server is different: jx_linux_y BINDS its listen port to IntranetIp,
+  # so IntranetIp must be a local container address (== GAME_PUBLIC_IP, where the
+  # gateway's socat forwards the published port). Setting it to the public IP
+  # makes bind() fail with "Failed to open service on port[6666]" and the gateway
+  # crash-loops. Only InternetIp (advertised to clients) becomes the public IP.
+  for f in "$SV/servercfg.ini" "$SV/servercf0.ini"; do
+    set_key "$f" "InternetIp" "$PUBLIC_IP"
+    set_key "$f" "IntranetIp" "$GAME_BIND_IP"
   done
 
   # In-game server list the client connects to (0_Address, 1_Address, ...).
