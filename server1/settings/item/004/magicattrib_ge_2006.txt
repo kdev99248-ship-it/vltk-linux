@@ -1,0 +1,416 @@
+Ð§¹û	ÊÇ·ñÇ°×º	ÎåÐÐÒªÇó	µÈ¼¶ÒªÇó	ÊôÐÔµ÷ÕûÀà±ð	²ÎÊý1×îÐ¡Öµ	²ÎÊý1×î´óÖµ	²ÎÊý2×îÐ¡Öµ	²ÎÊý2×î´óÖµ	²ÎÊý3×îÐ¡Öµ	²ÎÊý3×î´óÖµ	Ð§¹ûËµÃ÷
+Sinh lùc 1				85	-50	50	-1	-1	0	0	0
+Sinh lùc 2				85	120	200	-1	-1	0	0	0
+Sinh lùc 3				85	160	240	-1	-1	0	0	0
+Sinh lùc 4				85	300	400	-1	-1	0	0	0
+Néi lùc1				89	-50	50	-1	-1	0	0	0
+Néi lùc2				89	120	200	-1	-1	0	0	0
+Néi lùc3				89	160	240	-1	-1	0	0	0
+Néi lùc4				89	300	400	-1	-1	0	0	0
+ThÓ lùc 1				93	-50	50	-1	-1	0	0	0
+ThÓ lùc 2				93	120	200	-1	-1	0	0	0
+ThÓ lùc 3				93	160	240	-1	-1	0	0	0
+ThÓ lùc 4				93	300	400	-1	-1	0	0	0
+Phôc håi Néi lùc1				92	-2	2	-1	-1	0	0	0
+Phôc håi Néi lùc2				92	3	6	-1	-1	0	0	0
+Phôc håi Néi lùc3				92	5	8	-1	-1	0	0	0
+Phôc håi Néi lùc4				92	9	12	-1	-1	0	0	0
+Phôc håi Sinh lùc 1				88	-2	2	-1	-1	0	0	0
+Phôc håi Sinh lùc 2				88	3	6	-1	-1	0	0	0
+Phôc håi Sinh lùc 3				88	5	8	-1	-1	0	0	0
+Phôc håi Sinh lùc 4				88	9	12	-1	-1	0	0	0
+Phôc håi thÓ lùc 1				96	-2	2	-1	-1	0	0	0
+Phôc håi thÓ lùc 2				96	3	6	-1	-1	0	0	0
+Phôc håi thÓ lùc 3				96	5	8	-1	-1	0	0	0
+Phôc håi thÓ lùc 4				96	9	12	-1	-1	0	0	0
+Gi¶m thêi gian tróng ®éc 1				108	-10	10	-1	-1	0	0	0
+Gi¶m thêi gian tróng ®éc 2				108	25	40	-1	-1	0	0	0
+Gi¶m thêi gian tróng ®éc 3				108	35	50	-1	-1	0	0	0
+Gi¶m thêi gian tróng ®éc 4				108	60	80	-1	-1	0	0	0
+Gi¶m cho¸ng 1				110	-10	10	-1	-1	0	0	0
+Gi¶m cho¸ng 2				110	25	40	-1	-1	0	0	0
+Gi¶m cho¸ng 3				110	40	50	-1	-1	0	0	0
+Gi¶m cho¸ng 4				110	60	80	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 1				106	-10	10	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 2				106	25	40	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 3				106	35	50	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 4				106	60	80	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 1				113	20	30	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 2				113	25	40	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 3				113	35	50	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 4				113	40	60	-1	-1	0	0	0
+Tèc ®é c«ng kÝch ngo¹i c«ng 1				115	10	20	-1	-1	0	0	0
+Tèc ®é c«ng kÝch ngo¹i c«ng 2				115	20	40	-1	-1	0	0	0
+Tèc ®é c«ng kÝch ngo¹i c«ng 3				115	25	40	-1	-1	0	0	0
+Tèc ®é c«ng kÝch ngo¹i c«ng 4				115	30	60	-1	-1	0	0	0
+Phßng thñ 1%				126	-25	25	-1	-1	6	6	0
+Phßng thñ 2%				126	50	100	-1	-1	6	6	0
+Phßng thñ 3%				126	80	120	-1	-1	6	6	0
+Phßng thñ 4%				126	100	150	-1	-1	6	6	0
+ChÝnh x¸c 1				166	-100	100	-1	-1	0	0	0
+ChÝnh x¸c 2				166	180	300	-1	-1	0	0	0
+ChÝnh x¸c 3				166	240	360	-1	-1	0	0	0
+ChÝnh x¸c 4				166	450	600	-1	-1	0	0	0
+Søc m¹nh 1				97	-15	5	-1	-1	0	0	0
+Søc m¹nh 2				97	12	20	-1	-1	0	0	0
+Søc m¹nh 3				97	16	24	-1	-1	0	0	0
+Søc m¹nh 4				97	30	40	-1	-1	0	0	0
+Sinh khÝ 1				99	-15	5	-1	-1	0	0	0
+Sinh khÝ 2				99	12	20	-1	-1	0	0	0
+Sinh khÝ 3				99	16	24	-1	-1	0	0	0
+Sinh khÝ 4				99	30	40	-1	-1	0	0	0
+Néi c«ng 1				100	-15	5	-1	-1	0	0	0
+Néi c«ng 2				100	12	20	-1	-1	0	0	0
+Néi c«ng 3				100	16	24	-1	-1	0	0	0
+Néi c«ng 4				100	30	40	-1	-1	0	0	0
+Th©n ph¸p 1				98	-15	5	-1	-1	0	0	0
+Th©n ph¸p 2				98	12	20	-1	-1	0	0	0
+Th©n ph¸p 3				98	16	24	-1	-1	0	0	0
+Th©n ph¸p 4				98	30	40	-1	-1	0	0	0
+§iÓm phßng thñ ngo¹i c«ng  1				121	30	50	-1	-1	0	0	0
+§iÓm phßng thñ ngo¹i c«ng  2				121	40	60	-1	-1	0	0	0
+§iÓm phßng thñ ngo¹i c«ng  3				121	50	60	-1	-1	0	0	0
+§iÓm b¨ng s¸t ngo¹i c«ng 1				123	60	100	-1	-1	0	0	0
+§iÓm b¨ng s¸t ngo¹i c«ng 2				123	80	120	-1	-1	0	0	0
+§iÓm b¨ng s¸t ngo¹i c«ng 3				123	150	200	-1	-1	0	0	0
+§iÓm ®éc s¸t ngo¹i c«ng 1				125	20	30	-1	-1	0	0	0
+§iÓm ®éc s¸t ngo¹i c«ng 2				125			-1	-1	0	0	0
+§iÓm ®éc s¸t ngo¹i c«ng 3				125			-1	-1	0	0	0
+Kh¸ng háa 1				102	-5	5	-1	-1	0	0	0
+Kh¸ng háa 2				102	20	25	-1	-1	0	0	0
+Kh¸ng háa 3				102	20	30	-1	-1	0	0	0
+Kh¸ng háa 4				102	35	50	-1	-1	0	0	0
+Kh¸ng hµn 1				105	-5	5	-1	-1	0	0	0
+Kh¸ng hµn 2				105	15	25	-1	-1	0	0	0
+Kh¸ng hµn 3				105	20	30	-1	-1	0	0	0
+Kh¸ng hµn 4				105	35	50	-1	-1	0	0	0
+Kh¸ng l«i 1				103	-5	5	-1	-1	0	0	0
+Kh¸ng l«i 2				103	15	25	-1	-1	0	0	0
+Kh¸ng l«i 3				103	25	30	-1	-1	0	0	0
+Kh¸ng l«i 4				103	35	50	-1	-1	0	0	0
+Kh¸ng ®éc 1				101	-5	5	-1	-1	0	0	0
+Kh¸ng ®éc 2				101	15	25	-1	-1	0	0	0
+Kh¸ng ®éc 3				101	20	30	-1	-1	0	0	0
+Kh¸ng ®éc 4				101	35	50	-1	-1	0	0	0
+Phßng thñ 1				104	-5	5	-1	-1	0	0	0
+Phßng thñ 2				104	15	25	-1	-1	0	0	0
+Phßng thñ 3				104	20	30	-1	-1	0	0	0
+Phßng thñ 4				104	30	50	-1	-1	0	0	0
+May m¾n 1				135	6	10	-1	-1	0	0	0
+May m¾n 2				135	8	12	-1	-1	0	0	0
+May m¾n 3				135	15	25	-1	-1	0	0	0
+Tèc ®é ch¹y 1				111	-10	10	-1	-1	0	0	0
+Tèc ®é ch¹y 2				111	25	40	-1	-1	0	0	0
+Tèc ®é ch¹y 3				111	35	50	-1	-1	0	0	0
+Tèc ®é ch¹y 4				111	40	50	-1	-1	0	0	0
+Phßng thñ 1				114	-5	5	-1	-1	0	0	0
+Phßng thñ 2				114	12	20	-1	-1	0	0	0
+Phßng thñ 3				114	16	24	-1	-1	0	0	0
+Phßng thñ 4				114	30	40	-1	-1	0	0	0
+Hót Sinh lùc 1				136	2	6	-1	-1	0	0	0
+Hót Sinh lùc 2				136	4	8	-1	-1	0	0	0
+Hót Sinh lùc 3				136	6	10	-1	-1	0	0	0
+Hót Néi lùc1				137	2	10	-1	-1	0	0	0
+Hót Néi lùc2				137	4	8	-1	-1	0	0	0
+Hót Néi lùc3				137	8	12	-1	-1	0	0	0
+Kh¸ng s¸t th­¬ng vËt lý 1				134	1	1	-1	-1	0	0	0
+Kh¸ng s¸t th­¬ng vËt lý 2				134	1	1	-1	-1	0	0	0
+Kh¸ng s¸t th­¬ng vËt lý 3				134	1	1	-1	-1	0	0	0
+Kh¸ng B¨ng s¸t 1				134	1	1	-1	-1	0	0	0
+Kh¸ng B¨ng s¸t 2				134	1	1	-1	-1	0	0	0
+Kh¸ng B¨ng s¸t 3				134	1	1	-1	-1	0	0	0
+Kh¸ng Ho¶ s¸t 1				134	1	1	-1	-1	0	0	0
+Kh¸ng Ho¶ s¸t 2				134	1	1	-1	-1	0	0	0
+Kh¸ng Ho¶ s¸t 3				134	1	1	-1	-1	0	0	0
+Kh¸ng L«i s¸t 1				134	1	1	-1	-1	0	0	0
+Kh¸ng L«i s¸t 2				134	1	1	-1	-1	0	0	0
+Kh¸ng L«i s¸t 3				134	1	1	-1	-1	0	0	0
+Gi¶m thêi gian tróng ®éc				164	10	20	-1	-1	0	0	0
+Gi¶m tèc ®é xuÊt chiªu				116	24	36	-1	-1	0	0	0
+Kh«ng thÓ ph¸ hñy				43	1	1	-1	-1	0	0	0
+Toµn bé kü n¨ng 1				139	1	1	-1	-1	0	0	0
+Toµn bé kü n¨ng 2				139	2	2	-1	-1	0	0	0
+Toµn bé kü n¨ng 3				139	3	3	-1	-1	0	0	0
+Tû lÖ chÝnh x¸c 1				146	5	10	-1	-1	0	0	0
+Tû lÖ chÝnh x¸c 2				146	8	12	-1	-1	0	0	0
+Bá qua nÐ tr¸nh 1				58	1	2	-1	-1	0	0	0
+Bá qua nÐ tr¸nh 2				58	8	12	-1	-1	0	0	0
+Ph¶n ®ßn vËt lý 1				117	5	10	-1	-1	0	0	0
+Ph¶n ®ßn vËt lý 2				117	8	12	-1	-1	0	0	0
+Ph¶n ®ßn vËt lý 3				117	12	16	-1	-1	0	0	0
+S¸t th­¬ng vËt lý néi c«ng 1				168			-1	-1	0	0	0
+S¸t th­¬ng vËt lý néi c«ng 2				168			-1	-1	0	0	0
+S¸t th­¬ng vËt lý néi c«ng 3				168			-1	-1	0	0	0
+§éc s¸t néi c«ng 1				172	20	30	-1	-1	0	0	0
+§éc s¸t néi c«ng 2				172			-1	-1	0	0	0
+§éc s¸t néi c«ng 3				172			-1	-1	0	0	0
+B¨ng s¸t néi c«ng 1				169	120	200	-1	-1	0	0	0
+B¨ng s¸t néi c«ng 2				169	160	240	-1	-1	0	0	0
+B¨ng s¸t néi c«ng 3				169	200	300	-1	-1	0	0	0
+Ho¶ s¸t néi c«ng 1				170			-1	-1	0	0	0
+Ho¶ s¸t néi c«ng 2				170	80	120	-1	-1	0	0	0
+Ho¶ s¸t néi c«ng 3				170	120	200	-1	-1	0	0	0
+L«i s¸t néi c«ng 1				171			-1	-1	0	0	0
+L«i s¸t néi c«ng 2				171	100	150	-1	-1	0	0	0
+L«i s¸t néi c«ng 3				171	120	180	-1	-1	0	0	0
+Nh­ Lai Thiªn DiÖp 				139	1	3	-1	-1	273	273	0
+Thiªn V­¬ng ChiÕn ý 				139	1	3	-1	-1	36	36	0
+PhËt Ph¸p V« Biªn 				139	1	3	-1	-1	252	252	0
+PhËt T©m Tõ H÷u				139	1	3	-1	-1	92	92	0
+B¨ng Cèt TuyÕt T©m				139	1	3	-1	-1	114	114	0
+Ngò §éc Kú Kinh				139	1	3	-1	-1	75	75	0
+Xuyªn T©m §éc ThÝch				139	1	3	-1	-1	72	72	0
+T©m Nh·n 				139	1	3	-1	-1	48	48	0
+Hµn B¨ng ThÝch 				139	1	3	-1	-1	345	345	0
+Tóy §iÖp Cuång Vò 				139	1	3	-1	-1	130	130	0
+Thiªn Ma Gi¶i ThÓ 				139	1	3	-1	-1	150	150	0
+Bi T« Thanh Phong 				139	1	3	-1	-1	364	364	0
+Th¸i Cùc ThÇn C«ng 				139	1	3	-1	-1	166	166	0
+S­¬ng Ng¹o C«n L«n 				139	1	3	-1	-1	275	275	0
+Ki B¸n phï 				139	1	3	-1	-1	174	174	0
+ThiÕu L©m QuyÒn Ph¸p				139	1	3	-1	-1	8	8	0
+Long Tr¶o Hæ Tr¶o				139	1	3	-1	-1	271	271	0
+Hµng Long BÊt Vò  				139	1	3	-1	-1	14	14	0
+La H¸n TrËn				139	1	3	-1	-1	16	16	0
+DÞch C©n kinh				139	1	3	-1	-1	21	21	0
+ThiÕu L©m C«n ph¸p				139	1	3	-1	-1	4	4	0
+Hoµnh T¶o Lôc Hîp				139	1	3	-1	-1	11	11	0
+Kim Cang Phôc Ma				139	1	3	-1	-1	10	10	0
+ThiÕu L©m §ao ph¸p				139	1	3	-1	-1	6	6	0
+Ma Ha V« L­îng				139	1	3	-1	-1	19	19	0
+Thiªn V­¬ng  Chïy Ph¸p				139	1	3	-1	-1	26	26	0
+V« T©m Tr¶m 				139	1	3	-1	-1	32	32	0
+Kinh L«i Tr¶m 				139	1	3	-1	-1	34	34	0
+B¸t Phong Tr¶m				139	1	3	-1	-1	37	37	0
+Kim Chung Tr¸o				139	1	3	-1	-1	42	42	0
+Thiªn V­¬ng  Th­¬ng ph¸p				139	1	3	-1	-1	23	23	0
+HuyÕt ChiÕn B¸t Ph­¬ng				139	1	3	-1	-1	41	41	0
+Thiªn V­¬ng  §ao ph¸p				139	1	3	-1	-1	24	24	0
+Håi Phong L¹c Nh¹n				139	1	3	-1	-1	30	30	0
+D­¬ng Quan Tam §iÖp				139	1	3	-1	-1	35	35	0
+Thõa Long QuyÕt 				139	1	3	-1	-1	324	324	0
+Tr¶m Long quyÕt				139	1	3	-1	-1	29	29	0
+Hµng V©n QuyÕt				139	1	3	-1	-1	31	31	0
+Nga Mi KiÕm ph¸p				139	1	3	-1	-1	77	77	0
+BÊt DiÖt BÊt TuyÖt				139	1	3	-1	-1	88	88	0
+Phiªu TuyÕt Xuyªn V©n 				139	1	3	-1	-1	80	80	0
+NhÊt DiÖp Tri Thu				139	1	3	-1	-1	85	85	0
+L­u Thñy 				139	1	3	-1	-1	86	86	0
+Nga Mi Ch­ëng ph¸p				139	1	3	-1	-1	79	79	0
+Tø T­îng §ång Quy				139	1	3	-1	-1	82	82	0
+PhËt Quang Phæ ChiÕu				139	1	3	-1	-1	91	91	0
+Thanh ¢m Ph¹n X­íng				139	1	3	-1	-1	282	282	0
+Kim §Ønh PhËt Quang 				139	1	3	-1	-1	82	82	0
+Tõ Hµng Phæ D				139	1	3	-1	-1	93	93	0
+Thóy Yªn §ao ph¸p				139	1	3	-1	-1	95	95	0
+Môc D· L­u Tinh				139	1	3	-1	-1	108	108	0
+Phong Hoa TuyÕt NguyÖt				139	1	3	-1	-1	99	99	0
+Vò §¶ Lª Hoa				139	1	3	-1	-1	105	105	0
+§¹p TuyÕt V« Ng©n 				139	1	3	-1	-1	270	270	0
+Thóy Yªn Song ®ao				139	1	3	-1	-1	97	97	0
+Phong QuyÓn Tµn TuyÕt				139	1	3	-1	-1	102	102	0
+Phï V©n T¸n TuyÕt				139	1	3	-1	-1	113	113	0
+§­êng M«n ¸m khÝ 				139	1	3	-1	-1	43	43	0
+TiÓu Lý Phi §ao				139	1	3	-1	-1	249	249	0
+TÝch LÞch ®¬n				139	1	3	-1	-1	45	45	0
+Truy T©m TiÔn				139	1	3	-1	-1	50	50	0
+Thiªn La §Þa Vâng				139	1	3	-1	-1	58	58	0
+M¹n Thiªn Hoa Vò 				139	1	3	-1	-1	54	54	0
+T¸n Hoa Tiªu 				43	1	3	-1	-1	0	0	0
+§o¹t Hån Tiªu				139	1	3	-1	-1	47	47	0
+Ngò Hµnh H·m TÞnh				43	1	3	-1	-1	0	0	0
+§Þa DiÖm Háa 				139	1	3	-1	-1	347	347	0
+§éc ThÝch Cèt 				139	1	3	-1	-1	303	303	0
+Xuyªn T©m ThÝch 				139	1	3	-1	-1	343	343	0
+L«i KÝch ThuËt 				139	1	3	-1	-1	349	349	0
+Ngò §éc Ch­ëng Ph¸p				139	1	3	-1	-1	62	62	0
+Thiªn C­¬ng §Þa S¸t thñ 				139	1	3	-1	-1	71	71	0
+§éc Sa ch­ëng				139	1	3	-1	-1	63	63	0
+U Minh Kh« L©u				139	1	3	-1	-1	68	68	0
+V¹n §éc Thùc T©m				139	1	3	-1	-1	73	73	0
+Ngò §éc §ao ph¸p				139	1	3	-1	-1	60	60	0
+Chu C¸p Thanh Minh				139	1	3	-1	-1	74	74	0
+HuyÕt §ao §éc S¸t				139	1	3	-1	-1	65	65	0
+Xuyªn Y Ph¸ Gi¸p 				139	1	3	-1	-1	356	356	0
+Cöu Thiªn Cuång L«i 				139	1	3	-1	-1	67	67	0
+B¨ng Lam HuyÒn Tinh				139	1	3	-1	-1	64	64	0
+XÝch DiÖm Thùc Thiªn				139	1	3	-1	-1	70	70	0
+C¸i Bang Ch­ëng Ph¸p				139	1	3	-1	-1	116	116	0
+Kh¸ng Long H÷u Hèi				139	1	3	-1	-1	128	128	0
+KiÕn Nh©n ThÇn Thñ 				139	1	3	-1	-1	122	122	0
+Gi¸ng Long Ch­ëng 				139	1	3	-1	-1	274	274	0
+Ho¹t BÊt L­u Thñ 				139	1	3	-1	-1	277	277	0
+C¸i Bang Bæng ph¸p				139	1	3	-1	-1	115	115	0
+Diªn M«n Th¸c B¸t				139	1	3	-1	-1	119	119	0
+§¶ CÈu bæng				139	1	3	-1	-1	124	124	0
+Thiªn NhÉn  M©u ph¸p				139	1	3	-1	-1	132	132	0
+Th©u Thiªn Ho¸n NhËt				139	1	3	-1	-1	142	142	0
+Tµn D­¬ng Nh­ HuyÕt				139	1	3	-1	-1	135	135	0
+LiÖt Háa T×nh Thiªn 				139	1	3	-1	-1	141	141	0
+Ngò hµnh trËn				139	1	3	-1	-1	146	146	0
+Thiªn NhÉn  §ao ph¸p				139	1	3	-1	-1	131	131	0
+Ma Viªm ThÊt S¸t 				139	1	3	-1	-1	148	148	0
+§¬n ChØ LiÖt DiÖm				139	1	3	-1	-1	145	145	0
+Th«i s¬n  §iÒn H¶i				139	1	3	-1	-1	138	138	0
+LÞch Ma §o¹t Hån				139	1	3	-1	-1	143	143	0
+Háa Liªn PhÇn Hoa				139	1	3	-1	-1	136	136	0
+¶o ¶nh Phi Hå 				139	1	3	-1	-1	137	137	0
+Phi Hång V« TÝch 				139	1	3	-1	-1	140	140	0
+Vâ §ang KiÕm ph¸p				139	1	3	-1	-1	151	151	0
+Tam Hoµn Thao NguyÖt				139	1	3	-1	-1	267	267	0
+Th­¬ng H¶i Minh NguyÖt				139	1	3	-1	-1	155	155	0
+KiÕm Phi Kinh Thiªn				139	1	3	-1	-1	158	158	0
+ThÕ V©n Tung				139	1	3	-1	-1	16	16	0
+Vâ §ang QuyÒn Ph¸p				139	1	3	-1	-1	152	152	0
+V« Ng· V« KiÕm  				139	1	3	-1	-1	165	165	0
+Né L«i ChØ 				139	1	3	-1	-1	153	153	0
+B¸c CÊp Nhi Phôc				139	1	3	-1	-1	164	164	0
+C«n L«n §ao ph¸p				139	1	3	-1	-1	167	167	0
+Cuång Phong SËu §iÖn				139	1	3	-1	-1	176	176	0
+H« Phong Ph¸p				139	1	3	-1	-1	169	169	0
+NhÊt KhÝ Tam Thanh Phï 				139	1	3	-1	-1	178	178	0
+Thanh Phong phï 				139	1	3	-1	-1	171	171	0
+C«n L«n KiÕm ph¸p				139	1	3	-1	-1	168	168	0
+Ngò L«i Ch¸nh Ph¸p				139	1	3	-1	-1	182	182	0
+Cuång L«i ChÊn §Þa 				139	1	3	-1	-1	179	179	0
+Thiªn TÕ TÊn L«i  				139	1	3	-1	-1	172	172	0
+Khi Hµn Ng¹o TuyÕt				139	1	3	-1	-1	175	175	0
+Tóy Tiªn T¸ Cèt				43	1	3	-1	-1	0	0	0
+Thiªn Thanh §Þa Träc				139	1	3	-1	-1	173	173	0
+KhÝ T©m phï 				139	1	3	-1	-1	181	181	0
+§o¹n Hån ThÝch				139	1	3	-1	-1	40	40	0
+TÜnh T©m QuyÕt				139	1	3	-1	-1	33	33	0
+TuyÕt ¶nh				139	1	3	-1	-1	109	109	0
+V« H×nh §éc				139	1	3	-1	-1	69	69	0
+HuÖ Nh·n chó 				139	1	3	-1	-1	18	18	0
+Täa Väng V« Ng· 				139	1	3	-1	-1	157	157	0
+ThuÇn D­¬ng T©m ph¸p				139	1	3	-1	-1	156	156	0
+ThÊt Tinh TrËn				139	1	3	-1	-1	159	159	0
+ThÕ V©n Tung				139	1	3	-1	-1	160	160	0
+Bæng §¶ ¸c CÈu				139	1	3	-1	-1	125	125	0
+Tiªu Diªu C«ng 				43	1	3	-1	-1	0	0	0
+BÝch H¶i TriÒu Sinh				139	1	3	-1	-1	111	111	0
+Ph¶n ®ßn cËn chiÕn 1				118	5	10	-1	-1	0	0	0
+Ph¶n ®ßn cËn chiÕn 2				118	8	12	-1	-1	0	0	0
+Ph¶n ®ßn cËn chiÕn 3				118	12	16	-1	-1	0	0	0
+Ph¶n ®ßn tÇm xa 1				120	5	10	-1	-1	0	0	0
+Ph¶n ®ßn tÇm xa 2				120	8	12	-1	-1	0	0	0
+Ph¶n ®ßn tÇm xa 3				120	12	16	-1	-1	0	0	0
+Søc m¹nh 5				97	-55	5	-1	-1	0	0	0
+Sinh khÝ 5				99	-55	5	-1	-1	0	0	0
+Néi c«ng 5				100	-55	5	-1	-1	0	0	0
+Th©n ph¸p 5				98	-55	5	-1	-1	0	0	0
+Tèc ®é c«ng kÝch Néi c«ng 1				116	10	20	-1	-1	0	0	0
+Tèc ®é c«ng kÝch Néi c«ng  2				116	18	30	-1	-1	0	0	0
+Tèc ®é c«ng kÝch Néi c«ng  3				116	20	40	-1	-1	0	0	0
+Tèc ®é c«ng kÝch Néi c«ng  4				116	45	60	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 5				113	40	50	-1	-1	0	0	0
+Phßng thñ 5				104	25	30	-1	-1	0	0	0
+Tèc ®é ch¹y 5				111	36	45	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 5				106	40	50	-1	-1	0	0	0
+Phßng thñ 5				114	15	20	-1	-1	0	0	0
+Kh¸ng háa 5				102	25	30	-1	-1	0	0	0
+Kh¸ng hµn 5				105	25	30	-1	-1	0	0	0
+Kh¸ng ®éc 5				101	25	30	-1	-1	0	0	0
+Sinh lùc 5				85	80	120	-1	-1	0	0	0
+May m¾n 4				135	1	2	-1	-1	0	0	0
+May m¾n 5				135	1	3	-1	-1	0	0	0
+Phßng thñ 6				104	20	25	-1	-1	0	0	0
+Søc m¹nh 6				97	8	12	-1	-1	0	0	0
+Th©n ph¸p 6				98	8	12	-1	-1	0	0	0
+Tèc ®é ch¹y 6				111	40	60	-1	-1	0	0	0
+Kh¸ng hµn 6				105	20	25	-1	-1	0	0	0
+Kh¸ng ®éc 6				101	20	25	-1	-1	0	0	0
+BÊt ®éng Minh V­¬ng 				139	1	3	-1	-1	15	15	0
+§¹t Ma §é Giang				139	1	3	-1	-1	318	318	0
+Hoµnh T¶o Lôc Hîp				139	1	3	-1	-1	319	319	0
+V« T­íng Tr¶m 				139	1	3	-1	-1	321	321	0
+Ph¸ Thiªn Tr¶m 				139	1	3	-1	-1	322	322	0
+Th«i Song Väng NguyÖt				139	1	3	-1	-1	385	385	0
+Tam Nga TÒ TuyÕt 				139	1	3	-1	-1	328	328	0
+Phong S­¬ng To¸i ¶nh 				139	1	3	-1	-1	380	380	0
+Méng §iÖp 				139	1	3	-1	-1	89	89	0
+Phæ §é Chóng Sinh 				139	1	3	-1	-1	332	332	0
+B¨ng Tung V« ¶nh 				139	1	3	-1	-1	336	336	0
+¢m Phong Thùc Cèt 				139	1	3	-1	-1	353	353	0
+B¸ch §éc Xuyªn T©m 				139	1	3	-1	-1	384	384	0
+HuyÒn ¢m Tr¶m 				139	1	3	-1	-1	355	355	0
+§o¹n C©n Hñ Cèt 				139	1	3	-1	-1	390	390	0
+NhiÕp Hån NguyÖt ¶nh				139	1	3	-1	-1	339	339	0
+B¹o Vò Lª Hoa				139	1	3	-1	-1	302	302	0
+Cöu Cung Phi Tinh				139	1	3	-1	-1	342	342	0
+Lo¹n Hoµn KÝch				139	1	3	-1	-1	351	351	0
+Phi Long T¹i Thiªn 				139	1	3	-1	-1	357	357	0
+Thiªn H¹ V« CÈu 				139	1	3	-1	-1	359	359	0
+V©n Long KÝch				139	1	3	-1	-1	361	361	0
+Thiªn Ngo¹i L­u Tinh				139	1	3	-1	-1	362	362	0
+NhiÕp Hån Lo¹n T©m 				139	1	3	-1	-1	391	391	0
+Thiªn §Þa V« Cùc 				139	1	3	-1	-1	365	365	0
+Nh©n KiÕm Hîp NhÊt  				139	1	3	-1	-1	368	368	0
+Ng¹o TuyÕt Tiªu Phong 				139	1	3	-1	-1	372	372	0
+L«i ®éng Cöu Thiªn 				139	1	3	-1	-1	375	375	0
+Thóc Ph­îc Chó 				139	1	3	-1	-1	392	392	0
+B¾c Minh §¸o H¶i				139	1	3	-1	-1	393	393	0
+Mª Tung ¶o ¶nh				139	1	3	-1	-1	90	90	0
+Tóy Tiªn T¸ Cèt				139	1	3	-1	-1	394	394	0
+Kh¸ng l«i 5				103	6	12	-1	-1	0	0	0
+Kh¸ng l«i 6				103	6	18	-1	-1	0	0	0
+Kh¸ng háa 6				102	5	10	-1	-1	0	0	0
+Kh¸ng háa 7				102	5	15	-1	-1	0	0	0
+Phßng thñ 7				104	5	8	-1	-1	0	0	0
+Kh¸ng hµn 7				105	5	15	-1	-1	0	0	0
+Kh¸ng ®éc 7				101	5	10	-1	-1	0	0	0
+Kh¸ng ®éc 8				101	5	15	-1	-1	0	0	0
+Néi lùc5				89	80	120	-1	-1	0	0	0
+Tèc ®é ch¹y 7				111	20	30	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 6				106	20	30	-1	-1	0	0	0
+Phßng thñ 6				114	2	5	-1	-1	0	0	0
+Sinh lùc 6				85	60	80	-1	-1	0	0	0
+Néi lùc6				89	60	80	-1	-1	0	0	0
+Sinh lùc 7				85	33	33	-1	-1	0	0	0
+Phßng thñ 8				104	30	30	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 5				113	50	50	-1	-1	0	0	0
+Sinh lùc 8				85	187	187	-1	-1	0	0	0
+Phßng thñ 7				114	20	20	-1	-1	0	0	0
+Kh¸ng háa 8				102	11	11	-1	-1	0	0	0
+Néi lùc7				89	88	88	-1	-1	0	0	0
+Sinh khÝ 6				99	2	2	-1	-1	0	0	0
+ThÓ lùc 5				93	41	41	-1	-1	0	0	0
+Phßng thñ 9				104	25	25	-1	-1	0	0	0
+Sinh lùc 9				85	68	68	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 7				106	20	20	-1	-1	0	0	0
+Sinh lùc 10				85	30	30	-1	-1	0	0	0
+Kh¸ng l«i 7				103	30	30	-1	-1	0	0	0
+ThÓ lùc 6				93	96	96	-1	-1	0	0	0
+Phôc håi thÓ lùc 5				96	2	2	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 8				106	100	100	-1	-1	0	0	0
+ThÓ lùc 7				93	17	17	-1	-1	0	0	0
+Sinh lùc 11				85	41	41	-1	-1	0	0	0
+Kh¸ng háa 9				102	25	25	-1	-1	0	0	0
+Tèc ®é ch¹y 8				111	37	37	-1	-1	0	0	0
+Sinh khÝ 7				99	6	6	-1	-1	0	0	0
+Néi lùc8				89	69	69	-1	-1	0	0	0
+Sinh khÝ 8				99	4	4	-1	-1	0	0	0
+ChÝnh x¸c 5				166	249	249	-1	-1	0	0	0
+Phßng thñ 5%				126	94	94	-1	-1	6	6	0
+Phßng thñ 4				121	31	31	-1	-1	0	0	0
+Hót Sinh lùc 4				136	7	7	-1	-1	0	0	0
+§iÓm b¨ng s¸t ngo¹i c«ng 4				123	115	115	-1	-1	0	0	0
+Sinh lùc 11				85	181	181	-1	-1	0	0	0
+Phôc håi Sinh lùc 5				88	6	6	-1	-1	0	0	0
+Gi¶m thêi gian ®ãng b¨ng 9				106	40	40	-1	-1	0	0	0
+Néi lùc8				89	139	139	-1	-1	0	0	0
+Th©n ph¸p 7				98	20	20	-1	-1	0	0	0
+Phôc håi tr¹ng th¸i c«ng kÝch 6				113	40	40	-1	-1	0	0	0
+Phôc håi Sinh lùc 6				88	5	5	-1	-1	0	0	0
+Gi¶m cho¸ng 5				110	40	40	-1	-1	0	0	0
+Sinh lùc 12				85	188	188	-1	-1	0	0	0
+Sinh lùc 13				85	187	187	-1	-1	0	0	0
+Néi lùc9				89	191	191	-1	-1	0	0	0
+Sinh lùc 13				85	180	180	-1	-1	0	0	0
+Néi lùc9				89	132	132	-1	-1	0	0	0
+Tèc ®é ch¹y 9				111	40	40	-1	-1	0	0	0
+Sinh lùc 14				85	200	200	-1	-1	0	0	0
+Sinh khÝ 9				99	19	19	-1	-1	0	0	0
+Kinh nghiÖm 1				176	15	25	-1	-1	0	0	0
+Phßng thñ 8				114	8	12	-1	-1	0	0	0

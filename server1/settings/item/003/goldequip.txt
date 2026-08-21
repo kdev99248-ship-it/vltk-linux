@@ -1,0 +1,159 @@
+√˚≥∆	ItemGenre	DetailType	ParticularType	∂Øª≠Œƒº˛√˚	∂‘”¶ŒÔº˛À˜“˝	øÌ∂»	∏ﬂ∂»	Àµ√˜Œƒ◊÷	ŒÂ–– Ù–‘	º€∏Ò	µ»º∂	 «∑Òµ˛∑≈	ª˘¥° Ù–‘1¿‡–Õ	ª˘¥° Ù–‘1◊Ó–°÷µ	ª˘¥° Ù–‘1◊Ó¥Û÷µ	ª˘¥° Ù–‘2¿‡–Õ	ª˘¥° Ù–‘2◊Ó–°÷µ	ª˘¥° Ù–‘2◊Ó¥Û÷µ	ª˘¥° Ù–‘3¿‡–Õ	ª˘¥° Ù–‘3◊Ó–°÷µ	ª˘¥° Ù–‘3◊Ó¥Û÷µ	ª˘¥° Ù–‘4¿‡–Õ	ª˘¥° Ù–‘4◊Ó–°÷µ	ª˘¥° Ù–‘4◊Ó¥Û÷µ	ª˘¥° Ù–‘5¿‡–Õ	ª˘¥° Ù–‘5◊Ó–°÷µ	ª˘¥° Ù–‘5◊Ó¥Û÷µ	ª˘¥° Ù–‘6¿‡–Õ	ª˘¥° Ù–‘6◊Ó–°÷µ	ª˘¥° Ù–‘6◊Ó¥Û÷µ	ª˘¥° Ù–‘7¿‡–Õ	ª˘¥° Ù–‘7◊Ó–°÷µ	ª˘¥° Ù–‘7◊Ó¥Û÷µ	–Ë«Û Ù–‘1¿‡–Õ	–Ë«Û Ù–‘1 ˝÷µ	–Ë«Û Ù–‘2¿‡–Õ	–Ë«Û Ù–‘2 ˝÷µ	–Ë«Û Ù–‘3¿‡–Õ	–Ë«Û Ù–‘3 ˝÷µ	–Ë«Û Ù–‘4¿‡–Õ	–Ë«Û Ù–‘4 ˝÷µ	–Ë«Û Ù–‘5¿‡–Õ	–Ë«Û Ù–‘5 ˝÷µ	–Ë«Û Ù–‘6¿‡–Õ	–Ë«Û Ù–‘6 ˝÷µ	ƒß∑® Ù–‘À˜“˝1	ƒß∑® Ù–‘À˜“˝2	ƒß∑® Ù–‘À˜“˝3	ƒß∑® Ù–‘À˜“˝4	ƒß∑® Ù–‘À˜“˝5	ƒß∑® Ù–‘À˜“˝6	À˘‘⁄Ã◊◊∞
+MÈng Long Ph∏p Qu∏n	0	7	0	\spr\item\equip\cap\obj-ma-cap03-2.spr	28	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	360	360	31	60	60																36	50	32	280										130					1
+MÈng Long GiÌi Sam	0	2	0	\spr\item\equip\armor\obj-ma-cloth03-1.spr	22	2	3	Trang bﬁ Hoµng Kim	3	99999	10	0	30	720	720	31	60	60																36	90	32	280									1	96	53	39	92	174	1
+MÈng Long Nhuy‘n Thao	0	6	0	\spr\item\equip\sash\obj-sash06.spr	33	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	30	160	160	31	60	60																36	80	32	135									4	31	53	35	90	155	1
+MÈng Long HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle16.spr	34	1	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	135	135	31	60	60																36	99	32	110									46	170	133	70	65	171	1
+MÈng Long T®ng Hµi	0	5	0	\spr\item\equip\boots\obj-shoes04.spr	26	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	160	160	31	60	60																36	85	32	135									1	27	56	103	65		1
+PhÙc Ma ßÂng C´n	0	0	2	\spr\item\equip\closeweapon\obj-staff13.spr	11	1	4	Trang bﬁ Hoµng Kim	2	99999	10	0	28	69	69	29	128	128	31	60	60													36	99	32	180									1	133	47	51	110	70	2
+PhÙc Ma GiÌi Sam	0	2	0	\spr\item\equip\armor\obj-ma-cloth03-1.spr	22	2	3	Trang bﬁ Hoµng Kim	0	99999	10	0	30	630	630	31	60	60																36	95	32	260									92	176	96	39	175	173	2
+PhÙc Ma Nhuy‘n Thao	0	6	0	\spr\item\equip\sash\obj-sash07.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	140	140	31	60	60																36	80	32	110									4	31	65	35	90	155	2
+PhÙc Ma HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle17.spr	34	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	115	115	31	60	60																36	50	32	90										130					2
+PhÙc Ma T®ng Hµi	0	5	0	\spr\item\equip\boots\obj-shoes05.spr	26	2	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	140	140	31	60	60																36	85	32	110									1	43	67	103	90		2
+T˚ Kh´ng Uy ßao	0	0	1	\spr\item\equip\closeweapon\obj-blade24.spr	10	1	4	Trang bﬁ Hoµng Kim	2	99999	10	0	28	40	40	29	114	114	31	60	60													36	99	32	135									1	59	47	133	113	70	3
+T˚ Kh´ng GiÌi Sam	0	2	0	\spr\item\equip\armor\obj-ma-cloth03-1.spr	22	2	3	Trang bﬁ Hoµng Kim	0	99999	10	0	30	500	500	31	60	60																36	95	32	210									92	179	96	39	178	176	3
+T˚ Kh´ng Nhuy‘n Thao	0	6	1	\spr\item\equip\sash\obj-sash08.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	100	100	31	60	60																36	80	32	85									4	31	62	35	90	155	3
+T˚ Kh´ng HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle18.spr	34	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	90	90	31	60	60																36	85	32	80									2	27	56	43	6	60	3
+T˚ Kh´ng Ph∏p giÌi	0	3	0	\spr\item\equip\ring\obj-ring06.spr	37	1	1	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	50	32											130					3
+H∏m Thi™n Th«n ChÔy	0	0	4	\spr\item\equip\closeweapon\obj-adha04.spr	13	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	28	55	55	29	165	165	31	60	60													36	99	32	240									1	133	47	70	113	72	4
+H∏m Thi™n Chi’n Gi∏p	0	2	4	\spr\item\equip\armor\obj-ma-cloth15-3.spr	23	2	3	Trang bﬁ Hoµng Kim	0	99999	10	0	30	720	720	31	60	60																36	95	32	280									92	181	96	39	180	184	4
+H∏m Thi™n Y™u Hoµn	0	6	1	\spr\item\equip\sash\obj-sash16.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	160	160	31	60	60																36	85	32	135									4	31	53	35	90	156	4
+H∏m Thi™n HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle18.spr	34	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	135	135	31	60	60																36	50	32	110										130					4
+H∏m Thi™n Chi’n Ngoa	0	5	1	\spr\item\equip\boots\obj-shoes09.spr	26	2	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	160	160	31	60	60																36	90	32	135									1	135	56	103	66	280	4
+K’ Nghi÷p B´n L´i Toµn Long th≠¨ng	0	0	3	\spr\item\equip\closeweapon\obj-spear04.spr	12	1	4	Trang bﬁ Hoµng Kim	2	99999	10	0	28	18	18	29	158	158	31	60	60													36	99	32	165	33	165							1	51	47	69	110	73	5
+K’ Nghi÷p Chi’n Gi∏p	0	2	4	\spr\item\equip\armor\obj-ma-cloth15-3.spr	23	2	3	Trang bﬁ Hoµng Kim	0	99999	10	0	30	720	720	31	60	60																36	95	32	260	33	110							92	186	96	39	185	280	5
+K’ Nghi÷p Y™u Hoµn	0	6	1	\spr\item\equip\sash\obj-sash17.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	160	160	31	60	60																36	85	32	110	33	45							4	31	65	35	90	156	5
+K’ Nghi÷p HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle19.spr	34	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	135	135	31	60	60																36	50	32	90	33	35								130					5
+K’ Nghi÷p Chi’n Ngoa	0	5	1	\spr\item\equip\boots\obj-shoes09.spr	26	2	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	160	160	31	60	60																36	90	32	110	33	45							1	133	68	103	54	181	5
+Ng˘ Long B∂o Æao	0	0	1	\spr\item\equip\closeweapon\obj-blade24.spr	10	1	4	Trang bﬁ Hoµng Kim	2	99999	10	0	28	40	40	29	114	114	31	60	60													36	99	32	135									1	51	47	70	110	72	6
+Ng˘ Long Chi’n Gi∏p	0	2	4	\spr\item\equip\armor\obj-ma-cloth15-3.spr	23	2	3	Trang bﬁ Hoµng Kim	0	99999	10	0	30	630	630	31	60	60																36	95	32	210	33	90							92	190	96	39	187	181	6
+Ng˘ Long Y™u Hoµn	0	6	1	\spr\item\equip\sash\obj-sash18.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	140	140	31	60	60																36	85	32	85	33	35							4	31	57	35	90	156	6
+Ng˘ Long HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle20.spr	34	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	115	115	31	60	60																36	90	32	80	33	30							1	133	60	43	54	280	6
+Ng˘ Long GiÌi Chÿ 	0	3	0	\spr\item\equip\ring\obj-ring07.spr	37	1	1	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	50	32											130					6
+V´ Gian Nhuy‘n ki’m	0	0	0	\spr\item\equip\closeweapon\obj-sword24.spr	9	1	3	Trang bﬁ Hoµng Kim	1	99999	10	0	28	46	46	29	86	86	31	60	60													36	99	32	120									1	133	47	43	113	70	7
+V´ Gian Truy Y	0	2	7	\spr\item\equip\armor\obj-fm-cloth03-2.spr	22	2	3	Trang bﬁ Hoµng Kim	2	99999	10	0	30	630	630	31	60	60																36	90	32	260									81	194	96	39	193	158	7
+V´ Gian T¨ ß∏i	0	6	0	\spr\item\equip\sash\obj-sash10.spr	33	2	1	Trang bﬁ Hoµng Kim	0	99999	10	0	30	140	140	31	60	60																36	85	32	110									4	31	53	35	78	157	7
+V´ Gian HÈ Uy”n	0	8	0	\spr\item\equip\bangle\obj-bangle10.spr	35	1	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	115	115	31	60	60																36	50	32	90										130					7
+V´ Gian Nhuy‘n L˜ 	0	5	3	\spr\item\equip\boots\obj-shoes20.spr	27	2	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	140	140	31	60	60																36	80	32	110									1	56	58	103	78	197	7
+V´ Ma Ph∏p Qu∏n	0	7	7	\spr\item\equip\cap\obj-fm-cap03-2.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	275	275	31	60	60																36	50	32	110										130					8
+V´ Ma Truy Y	0	2	7	\spr\item\equip\armor\obj-fm-cloth03-2.spr	22	2	3	Trang bﬁ Hoµng Kim	4	99999	10	0	30	500	500	31	60	60																36	90	32	110									1	96	88	39	81	158	8
+V´ Ma T¨ ß∏i	0	6	0	\spr\item\equip\sash\obj-sash09.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	100	100	31	60	60																36	85	32	50									4	31	58	35	78	157	8
+V´ Ma T»y T≠Óng Ng‰c Kh u 	0	9	0	\spr\item\equip\waist\obj-waist10.spr	36	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	95	39	4									1	43	57	148	198	200	8
+V´ Ma Nhuy‘n L˜ 	0	5	3	\spr\item\equip\boots\obj-shoes19.spr	27	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	100	100	31	60	60																36	80	32	50									1	6	60	103	78	197	8
+V´ Tr«n Ph∏p Qu∏n	0	7	7	\spr\item\equip\cap\obj-fm-cap03-2.spr	28	2	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	250	250	31	60	60																36	50	32	90										130					9
+V´ Tr«n C∂nh TrÙy	0	4	0	\spr\item\equip\nick\obj-neck10.spr	36	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	90	32										1	89	8	96	58	107	9
+V´ Tr«n T¨ ß∏i	0	6	0	\spr\item\equip\sash\obj-sash08.spr	33	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	30	80	80	31	60	60																36	85	32	35									4	31	5	35	27	201	9
+V´ Tr«n Y™u PhËi	0	9	0	\spr\item\equip\waist\obj-waist09.spr	36	1	2	Trang bﬁ Hoµng Kim	0	99999	10	0	31	60	60																			36	80	32										1	158	5	197	59		9
+V´ Tr«n Nhuy‘n L˜ 	0	5	2	\spr\item\equip\boots\obj-shoes15.spr	27	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	80	80	31	60	60																36	85	32	35									1	39	59	103	86	202	9
+T™ Hoµng nhÌa ßao	0	0	1	\spr\item\equip\closeweapon\obj-blade24.spr	10	1	4	Trang bﬁ Hoµng Kim	1	99999	10	0	28	40	40	29	114	114	31	60	60													36	99	32	135									1	133	47	72	113	70	10
+T™ Hoµng Hπng Li÷m	0	4	0	\spr\item\equip\nick\obj-neck10.spr	36	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	95	32										1	96	53	107	81	282	10
+T™ Hoµng ThÛc ß∏i	0	6	0	\spr\item\equip\sash\obj-sash07.spr	33	2	1	Trang bﬁ Hoµng Kim	0	99999	10	0	30	80	80	31	60	60																36	80	32	35									4	31	53	35	78	204	10
+T™ Hoµng HÈ Uy”n	0	8	0	\spr\item\equip\bangle\obj-bangle9.spr	35	1	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	70	70	31	60	60																36	85	32	30									1	205	56	133	78	208	10
+T™ Hoµng Chÿ Hoµn	0	3	0	\spr\item\equip\ring\obj-ring08.spr	37	1	1	Trang bﬁ Hoµng Kim	3	99999	10	0	31	60	60																			36	50	32											130					10
+B›ch H∂i Uy™n ¶¨ng Li™n Hoµn Æao	0	0	5	\spr\item\equip\closeweapon\obj-adsd14.spr	14	2	3	Trang bﬁ Hoµng Kim	3	99999	10	0	28	69	69	29	128	128	31	60	60													36	95	32	70	33	90							1	128	6	129	59	291	11
+B›ch H∂i Hoµn Ch©u VÚ Li™n	0	4	0	\spr\item\equip\nick\obj-neck09.spr	36	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	90	32										1	96	5	59	81	107	11
+B›ch H∂i HÂng Linh Kim Ti Æ∏i	0	6	0	\spr\item\equip\sash\obj-sash06.spr	33	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	30	100	100	31	60	60																36	80	32	50									4	31	5	35	78	209	11
+B›ch H∂i HÂng L®ng Ba	0	9	0	\spr\item\equip\waist\obj-waist08.spr	36	1	2	Trang bﬁ Hoµng Kim	0	99999	10	0	31	60	60																			36	85	39	5									1	296	8	38	78	208	11
+B›ch H∂i Khi™n T’ Chÿ hoµn	0	3	0	\spr\item\equip\ring\obj-ring09.spr	37	1	1	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	50	32											130					11
+U Lung ß«u Qu∏n	0	7	2	\spr\item\equip\cap\obj-ma-cap08-3.spr	28	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	275	275	31	60	60																36	50	32	110										130					12
+U Lung ∏m y	0	2	16	\spr\item\equip\armor\obj-ma-cloth08-3.spr	22	2	3	Trang bﬁ Hoµng Kim	0	99999	10	0	30	500	500	31	60	60																36	90	32	110									1	96	57	39	89	160	12
+U LungY™u ß∏i	0	6	1	\spr\item\equip\sash\obj-sash20.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	100	100	31	60	60																36	80	32	50									1	31	57	35	27	225	12
+U Lung HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle16.spr	34	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	90	90	31	60	60																36	99	32	35									4	128	57	129	129	226	12
+U LungChi’n hµi	0	5	1	\spr\item\equip\boots\obj-shoes10.spr	26	2	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	100	100	31	60	60																36	85	32	50									1	127	60	103	86	229	12
+Minh Hoan ßÈc Nh…n	0	0	1	\spr\item\equip\closeweapon\obj-blade24.spr	10	1	4	Trang bﬁ Hoµng Kim	3	99999	10	0	28	40	40	29	114	114	31	60	60													36	99	32	135									1	129	47	69	86	73	13
+Minh Hoan ∏m y	0	2	16	\spr\item\equip\armor\obj-ma-cloth08-3.spr	22	2	3	Trang bﬁ Hoµng Kim	1	99999	10	0	30	500	500	31	60	60																36	95	32	210									89	231	96	39	230	161	13
+Minh Hoan Y™u ß∏i	0	6	1	\spr\item\equip\sash\obj-sash19.spr	33	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	30	100	100	31	60	60																36	80	32	85										31	53	35	27	160	13
+Minh Hoan HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle17.spr	34	1	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	90	90	31	60	60																36	50	32	80									4	130					13
+Minh Hoan Chi’n hµi	0	5	1	\spr\item\equip\boots\obj-shoes09.spr	26	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	100	100	31	60	60																36	85	32	85									1	133	56	103	86	283	13
+ChÛ Ph≠Óc ß«u Qu∏n	0	7	2	\spr\item\equip\cap\obj-ma-cap08-3.spr	28	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	250	250	31	60	60																36	50	32	90										130					14
+ChÛ Ph≠Óc C∂nh phÔ 	0	4	1	\spr\item\equip\nick\obj-neck17.spr	36	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	31	60	60																			36	90	32										1	60	61	96	89	107	14
+ChÛ Ph≠Óc Y™u ß∏i	0	6	1	\spr\item\equip\sash\obj-sash18.spr	33	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	30	80	80	31	60	60																36	80	32	35									4	31	61	35	27	235	14
+ChÛ Ph≠Óc HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle18.spr	34	1	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	70	70	31	60	60																36	82	32	30									1	161	64	233	59	234	14
+ChÛ Ph≠Óc Chi’n hµi	0	5	0	\spr\item\equip\boots\obj-shoes05.spr	26	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	80	80	31	60	60																36	85	32	35									1	96	61	130	86	236	14
+B®ng Hµn Phi ßao	0	1	1	\spr\item\equip\rangeweapon\obj-adart12.spr	15	1	1	Trang bﬁ Hoµng Kim	3	99999	10	0	28	44	44	29	100	100	31	60	60													36	99	32	119	33	130							1	129	47	72	133	70	15
+B®ng Hµn ThÛc Gi∏p	0	2	3	\spr\item\equip\armor\obj-ma-cloth11-3.spr	22	2	3	Trang bﬁ Hoµng Kim	1	99999	10	0	30	575	575	31	60	60																36	95	32	110	33	210							89	213	96	39	212	163	15
+B®ng Hµn TÛng Thao	0	6	0	\spr\item\equip\sash\obj-sash10.spr	33	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	30	120	120	31	60	60																36	80	32	50	33	85							4	31	65	35	27	162	15
+B®ng Hµn HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle16.spr	34	1	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	105	105	31	60	60																36	50	32	35	33	80								130					15
+B®ng Hµn TËc Ngoa	0	5	0	\spr\item\equip\boots\obj-shoes04.spr	26	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	120	120	31	60	60																36	85	32	50	33	85							1	133	68	103	86	224	15
+V´ quang TÙ Ti‘n	0	1	2	\spr\item\equip\rangeweapon\obj-adart26.spr	17	2	2	Trang bﬁ Hoµng Kim	3	99999	10	0	28	46	46	29	102	102	31	60	60													36	99	32	65	33	230							1	133	47	72	113	70	16
+V´ quang Hπng Li÷m	0	4	1	\spr\item\equip\nick\obj-neck18.spr	36	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	95	32										1	96	65	107	89	224	16
+V´ quang TÛng Thao	0	6	0	\spr\item\equip\sash\obj-sash09.spr	33	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	30	80	80	31	60	60																36	80	32	50	33	85							4	31	65	35	27	162	16
+V´ quang HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle17.spr	34	1	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	70	70	31	60	60																36	90	32	35	33	80							1	129	68	216	212	163	16
+V´ quang Ban Chÿ 	0	3	0	\spr\item\equip\ring\obj-ring10.spr	37	1	1	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	50	32											130					16
+Th©m Hoang Phi Ti™u	0	1	0	\spr\item\equip\rangeweapon\obj-adart04.spr	15	1	1	Trang bﬁ Hoµng Kim	3	99999	10	0	28	42	42	29	98	98	31	60	60													36	99	32	90	33	175							1	129	47	72	133	70	15
+Th©m Hoang ThÛc Gi∏p	0	2	3	\spr\item\equip\armor\obj-ma-cloth11-3.spr	22	2	3	Trang bﬁ Hoµng Kim	1	99999	10	0	30	575	575	31	60	60																36	95	32	110	33	210							89	218	96	39	212	163	15
+Th©m Hoang TÛng Thao	0	6	0	\spr\item\equip\sash\obj-sash08.spr	33	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	30	120	120	31	60	60																36	80	32	50	33	85							4	31	65	35	27	162	15
+Th©m Hoang HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle18.spr	34	1	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	105	105	31	60	60																36	50	32	35	33	80								130					15
+Th©m Hoang TËc Ngoa	0	5	1	\spr\item\equip\boots\obj-shoes10.spr	26	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	120	120	31	60	60																36	85	32	50	33	85							1	133	67	103	86	224	15
+ßﬁa Ph∏ch ß«u Qu∏n	0	7	3	\spr\item\equip\cap\obj-ma-cap12-3.spr	28	2	2	Trang bﬁ Hoµng Kim	4	99999	10	0	30	250	250	31	60	60																36	50	32	90										130					18
+ßﬁa Ph∏ch Hπng Li÷m	0	4	1	\spr\item\equip\nick\obj-neck19.spr	36	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	31	60	60																			36	95	32										1	96	61	129	89	107	18
+ßﬁa Ph∏ch TÛng Thao	0	6	0	\spr\item\equip\sash\obj-sash07.spr	33	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	30	80	80	31	60	60																36	90	32	35									1	35	27	129	31	223	18
+ßﬁa Ph∏ch HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle19.spr	34	1	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	70	70	31	60	60																36	80	32	30									4	222	61	129	86	163	18
+ßﬁa Ph∏ch TËc Ngoa	0	5	1	\spr\item\equip\boots\obj-shoes09.spr	26	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	80	80	31	60	60																36	85	32	35									1	129	63	103	86	224	18
+ßÂng Cıu Ph∏t C´ 	0	7	5	\spr\item\equip\cap\obj-ma-cap18-3.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	275	275	31	60	60																36	85	32	110									1	96	5	164	83	241	19
+ßÂng Cıu C∏i Sam	0	2	5	\spr\item\equip\armor\obj-ma-cloth18-3.spr	22	2	3	Trang bﬁ Hoµng Kim	4	99999	10	0	30	500	500	31	60	60																36	90	32	110									1	96	5	39	60	238	19
+ßÂng Cıu Y™u ß∏i	0	6	0	\spr\item\equip\sash\obj-sash06.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	100	100	31	60	60																36	85	32	50									4	31	5	35	57	240	19
+ßÂng Cıu HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle16.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	90	90	31	60	60																36	95	32	30									1	43	8	129	237	290	19
+ßÂng Cıu GiÌi Chÿ 	0	3	0	\spr\item\equip\ring\obj-ring07.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	50	32											130					19
+ßﬁch Kh∏i TrÛc tr≠Óng	0	0	2	\spr\item\equip\closeweapon\obj-staff13.spr	11	1	4	Trang bﬁ Hoµng Kim	4	99999	10	0	28	69	69	29	128	128	31	60	60													36	99	32	180									1	133	96	69	113	73	20
+ßﬁch Kh∏i C∏i Sam	0	2	5	\spr\item\equip\armor\obj-ma-cloth18-3.spr	22	2	3	Trang bﬁ Hoµng Kim	3	99999	10	0	30	630	630	31	60	60																36	90	32	260									1	96	53	39	60	241	20
+ßﬁch Kh∏i Y™u ß∏i	0	6	0	\spr\item\equip\sash\obj-sash05.spr	33	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	30	140	140	31	60	60																36	85	32	110									4	27	53	35	57	290	20
+ßﬁch Kh∏i HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle17.spr	34	1	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	115	115	31	60	60																36	95	32	90									1	43	56	289	242	244	20
+ßﬁch Kh∏i GiÌi Chÿ 	0	3	0	\spr\item\equip\ring\obj-ring08.spr	37	1	1	Trang bﬁ Hoµng Kim	0	99999	10	0	31	60	60																			36	50	32											130					20
+Ma S∏t Th«n Ch©m	0	0	3	\spr\item\equip\closeweapon\obj-spear04.spr	12	1	4	Trang bﬁ Hoµng Kim	4	99999	10	0	28	18	18	29	158	158	31	60	60													36	99	32	165	33	165							1	43	96	70	51	72	21
+Ma S∏t Chi’n Y	0	2	16	\spr\item\equip\armor\obj-ma-cloth09-3.spr	22	2	3	Trang bﬁ Hoµng Kim	3	99999	10	0	30	630	630	31	60	60																36	90	32	210	33	110							1	257	68	39	96	249	21
+Ma S∏t Hoµn ßi“u	0	6	1	\spr\item\equip\sash\obj-sash16.spr	33	2	1	Trang bﬁ Hoµng Kim	1	99999	10	0	30	140	140	31	60	60																36	85	32	85	33	50							4	27	53	35	65	254	21
+Ma S∏t HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle20.spr	34	1	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	115	115	31	60	60																36	95	32	80	33	35							1	133	56	246	245	166	21
+Ma S∏t Chÿ Hoµn	0	3	0	\spr\item\equip\ring\obj-ring09.spr	37	1	1	Trang bﬁ Hoµng Kim	0	99999	10	0	31	60	60																			36	50	32											130					21
+Ma Hoµng Kim Gi∏p Kh´i	0	7	2	\spr\item\equip\cap\obj-ma-cap09-3.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	250	250	31	60	60																36	50	32	90										130					22
+Ma Hoµng ∏n Xu t HÊ Hπng Khuy™n	0	4	1	\spr\item\equip\nick\obj-neck16.spr	36	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	95	39	7									4	60	62	95	87	107	22
+Ma Hoµng Kh™ CËc ThÛc y™u Æ∏i	0	6	1	\spr\item\equip\sash\obj-sash17.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	80	80	31	60	60																36	80	32	35									1	31	5	35	27	256	22
+Ma Hoµng Huy’t Y ThÛ Trπc	0	8	1	\spr\item\equip\bangle\obj-bangle19.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	70	70	31	60	60																36	90	32	30									1	129	5	251	250	255	22
+Ma Hoµng ß®ng ßπp Ngoa	0	5	0	\spr\item\equip\boots\obj-shoes05.spr	26	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	80	80	31	60	60																36	85	32	35									1	43	8	103	57	254	22
+Ma Thﬁ ß«u Qu∏n	0	7	2	\spr\item\equip\cap\obj-ma-cap09-3.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	250	250	31	60	60																36	50	32	90										130					23
+Ma Thﬁ Hπng Li÷m	0	4	1	\spr\item\equip\nick\obj-neck20.spr	36	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	95	32										4	60	62	96	83	107	23
+Ma Thﬁ Hoµn ßi“u	0	6	1	\spr\item\equip\sash\obj-sash18.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	80	80	31	60	60																36	80	32	35									1	31	5	35	27	166	23
+Ma Thﬁ HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle18.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	70	70	31	60	60																36	85	32	30									1	257	5	166	254	256	23
+Ma Thﬁ Chi’n Ngoa	0	5	0	\spr\item\equip\boots\obj-shoes04.spr	26	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	80	80	31	60	60																36	90	32	35									1	96	8	103	57	255	23
+L®ng Nhπc Ch©n VÚ Ki’m	0	0	0	\spr\item\equip\closeweapon\obj-sword24.spr	9	1	3	Trang bﬁ Hoµng Kim	0	99999	10	0	28	46	46	29	86	86	31	60	60													36	99	32	120									1	133	96	69	51	73	24
+L®ng Nhπc ßπo bµo	0	2	15	\spr\item\equip\armor\obj-ma-cloth06-3.spr	24	2	3	Trang bﬁ Hoµng Kim	4	99999	10	0	30	720	720	31	60	60																36	90	32	260	33	110							68	39	92	129	96	288	24
+L®ng Nhπc Ph∏p Thao	0	6	0	\spr\item\equip\sash\obj-sash09.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	160	160	31	60	60																36	85	32	110	33	50							65	31	56	35	7	286	24
+L®ng Nhπc HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle20.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	135	135	31	60	60																36	80	32	90	33	35							4	287	53	259	258	157	24
+L®ng Nhπc Ban Chÿ 	0	3	0	\spr\item\equip\ring\obj-ring10.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	50	32	110	33	50								130					24
+C p Phong Chi NgÚ Long Qu∏n	0	7	1	\spr\item\equip\cap\obj-ma-cap06-1.spr	28	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	250	250	31	60	60																36	80	32	90									2	129	61	129	129	129	25
+CÀp Phong Tam Thanh PhÔ 	0	4	1	\spr\item\equip\nick\obj-neck17.spr	36	2	1	Trang bﬁ Hoµng Kim	0	99999	10	0	31	60	60																			36	95	39	8									2	84	62	96	89	107	25
+CÀp Phong Huy“n Ti Tam ßoπn c»m	0	6	0	\spr\item\equip\sash\obj-sash10.spr	33	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	30	80	80	31	60	60																36	85	32	35									4	31	62	35	27	286	25
+CÀp Phong ThÛy Ng‰c Huy“n Hoµng BÈi	0	9	1	\spr\item\equip\waist\obj-waist20.spr	36	1	2	Trang bﬁ Hoµng Kim	3	99999	10	0	30	70	70	31	60	60																36	90	32										1	129	64	264	263	157	25
+C p Phong Chi Ph∏p giÌi	0	3	0	\spr\item\equip\ring\obj-ring06.spr	37	1	1	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	50	32											130					25
+X≠¨ng Tinh Hµn Thi’t	0	0	1	\spr\item\equip\closeweapon\obj-blade24.spr	10	1	4	Trang bﬁ Hoµng Kim	0	99999	10	0	28	40	40	29	114	114	31	60	60													36	99	32	135									2	43	62	70	96	72	26
+X≠¨ng Tinh ßπo bµo	0	2	15	\spr\item\equip\armor\obj-ma-cloth05-3.spr	24	2	3	Trang bﬁ Hoµng Kim	4	99999	10	0	30	500	500	31	60	60																36	90	32	210									2	96	54	39	85	271	26
+X≠¨ng Tinh LÚ ß∏i	0	6	0	\spr\item\equip\sash\obj-sash10.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	100	100	31	60	60																36	80	32	85									4	31	53	35	27	169	26
+X≠¨ng Tinh HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle20.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	90	90	31	60	60																36	85	32	80									1	133	56	268	267	270	26
+X≠¨ng Tinh Chÿ Hoµn	0	3	0	\spr\item\equip\ring\obj-ring07.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	50	32											130					26
+L´i Kinh B∂o Ki’m	0	7	1	\spr\item\equip\cap\obj-ma-cap05-2.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	250	250	31	60	60																36	85	32	90									2	92	62	129	59	169	27
+L´i Kinh C∂nh TrÙy	0	4	1	\spr\item\equip\nick\obj-neck18.spr	36	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	95	32										2	85	62	96	59	107	27
+L´i Kinh LÚ ß∏i	0	6	0	\spr\item\equip\sash\obj-sash09.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	80	80	31	60	60																36	80	32	35									4	31	61	35	27	272	27
+L´i Kinh Y™u PhËi	0	9	1	\spr\item\equip\waist\obj-waist19.spr	36	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60																			36	90	32										1	129	64	273	272	271	27
+L´i Kinh Chÿ Hoµn	0	3	0	\spr\item\equip\ring\obj-ring08.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	80	32											130					27
+VÙ Hoan Kinh Qu∏n	0	7	1	\spr\item\equip\cap\obj-ma-cap05-2.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	250	250	31	60	60																36	85	32	90									2	39	62	271	92	279	28
+VÙ Hoan C∂nh TrÙy	0	4	1	\spr\item\equip\nick\obj-neck20.spr	36	2	1	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	95	32										2	60	62	96	85	107	28
+VÙ Hoan LÚ ß∏i	0	6	0	\spr\item\equip\sash\obj-sash08.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	80	80	31	60	60																36	80	32	35									4	31	61	35	27	276	28
+VÙ Hoan Y™u PhËi	0	9	1	\spr\item\equip\waist\obj-waist18.spr	36	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	31	60	60	31	60	60																36	85	32										1	169	64	277	82	278	28
+VÙ Hoan Chÿ Hoµn	0	3	0	\spr\item\equip\ring\obj-ring09.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	80	32											130					28
+Th´ng Linh Chÿ Hoµn	0	3	0	\spr\item\equip\ring\obj-ring09.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	60	32											130					29
+Th´ng Linh Ban Chÿ 	0	3	0	\spr\item\equip\ring\obj-ring10.spr	37	1	1	Trang bﬁ Hoµng Kim	3	99999	10	0	31	60	60																			36	60	32											130					29
+ßÈng S∏t Bπch Kim ßi™u Long GiÌi	0	3	0	\spr\item\equip\ring\obj-ring06.spr	37	1	1	Trang bﬁ Hoµng Kim	3	99999	10	0	31	60	60																			36	80	32										53	7	65	2	10	98	30
+ßÈng S∏t Bπch Ng‰c Cµn Kh´n BÈi	0	9	1	\spr\item\equip\waist\obj-waist20.spr	36	1	2	Trang bﬁ Hoµng Kim	4	99999	10	0	31	60	60																			36	80											65	6	53	2	11	99	30
+ßÈng S∏t Bπch Kim TÛ PhÙng GiÌi	0	3	0	\spr\item\equip\ring\obj-ring06.spr	37	1	1	Trang bﬁ Hoµng Kim	0	99999	10	0	31	60	60																			36	80	32										53	7	65	2	10	98	30
+ßÈng S∏t Phÿ ThÛy Ng‰c Hπng Khuy™n	0	4	1	\spr\item\equip\nick\obj-neck20.spr	36	2	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	80	32										65	7	53	3	10	99	30
+ßﬁnh Nghi÷p ß«u qu∏n	0	7	6	\spr\item\equip\cap\obj-ma-cap20-3.spr	28	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	310	310	31	60	60																36	85	32										5	4	57	85	61	31	31
+ßﬁnh Nghi÷p Chi’n bµo	0	2	20	\spr\item\equip\armor\obj-ma-cloth20-3.spr	22	2	3	Trang bﬁ Hoµng Kim	4	99999	10	0	30	630	630	31	60	60																36	85	32										6	2	62	97	57	39	31
+ßﬁnh Nghi÷p Y™u Æ∏i	0	6	1	\spr\item\equip\sash\obj-sash20.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	140	140	31	60	60																36	85	32										5	4	57	89	61	27	31
+ßﬁnh Nghi÷p HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle20.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	115	115	31	60	60																36	85	32										62	3	6	81	57	35	31
+ßﬁnh Nghi÷p Chi’n ngoa	0	5	1	\spr\item\equip\boots\obj-shoes10.spr	26	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	140	140	31	60	60																36	85	32										61	60	6	93	2	103	31
+ßﬁnh Nghi÷p Ban chÿ 	0	3	0	\spr\item\equip\ring\obj-ring08.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	85	32										2	130					31
+ßﬁnh QuËc ß«u qu∏n	0	7	4	\spr\item\equip\cap\obj-ma-cap15-3.spr	31	2	2	Trang bﬁ Hoµng Kim	0	99999	10	0	30	350	350	31	60	60																36	99	32										6	85	63	4	59	31	32
+ßﬁnh QuËc Chi’n bµo	0	2	18	\spr\item\equip\armor\obj-ma-cloth14-1.spr	23	2	3	Trang bﬁ Hoµng Kim	4	99999	10	0	30	720	720	31	60	60																36	99	32										6	97	63	4	59	39	32
+ßﬁnh QuËc Y™u c´ 	0	6	0	\spr\item\equip\sash\obj-sash10.spr	33	2	1	Trang bﬁ Hoµng Kim	3	99999	10	0	30	160	160	31	60	60																36	99	32										6	89	63	4	59	27	32
+ßﬁnh QuËc HÈ Uy”n	0	8	1	\spr\item\equip\bangle\obj-bangle19.spr	34	1	2	Trang bﬁ Hoµng Kim	1	99999	10	0	30	135	135	31	60	60																36	99	32										6	81	63	4	59	35	32
+ßﬁnh QuËc Chi’n ngoa	0	5	1	\spr\item\equip\boots\obj-shoes09.spr	26	2	2	Trang bﬁ Hoµng Kim	2	99999	10	0	30	160	160	31	60	60																36	99	32										6	93	63	4	59	103	32
+ßﬁnh QuËc Ban chÿ 	0	3	0	\spr\item\equip\ring\obj-ring09.spr	37	1	1	Trang bﬁ Hoµng Kim	2	99999	10	0	31	60	60																			36	99	32										3	130					32

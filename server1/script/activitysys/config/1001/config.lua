@@ -1,0 +1,102 @@
+Include("\\script\\activitysys\\config\\1001\\variables.lua")
+tbConfig = {}
+tbConfig[1] = --Sè trËn tèng kim 2000 ®iÓm trong tuÇn
+{
+	nId = 1,
+	szMessageType = "FinishSongJin",
+	szName = "Tèng kim cao cÊp 2000 ®iÓm",
+	nStartDate = nil,
+	nEndDate  = nil,
+	tbMessageParam = {-2,"3"},
+	tbCondition = 
+	{
+		{"PlayerFunLib:CheckBT_PL_BATTLEPOINT",	{2000,">="} },
+	},
+	tbActition = 
+	{
+		{"ThisActivity:VngAddWeeklyTask", {nTSK_TONGKIM_WEEKLY_MATCH_COUNT, 1}},
+	},
+}
+tbConfig[2] =
+{
+	nId = 2,
+	szMessageType = "Chuanguan",
+	szName = "Hoµn thµnh v­ît ¶i trong tuÇn",
+	nStartDate = nil,
+	nEndDate  = nil,
+	tbMessageParam = {"28"},
+	tbCondition = 
+	{
+	},
+	tbActition = 
+	{
+		{"ThisActivity:VngAddWeeklyTask", {nTSK_VUOTAI_WEEKLY_MATCH_COUNT, 1}},
+		{"PlayerFunLib:GetItem",	{{tbProp={6,1,2744,1,0,0}, nExpiredTime=24*60,},1,"ChiaKhoaNhuY", "VuotAi28"} },
+	},
+}
+tbConfig[3] = --Viªm ®Õ
+{
+	nId = 3,
+	szMessageType = "YDBZguoguan",
+	szName = "V­ît qua ¶i Viªm §Õ thø 5",
+	nStartDate = nil,
+	nEndDate  = nil,
+	tbMessageParam = {5},
+	tbCondition = 
+	{
+	},
+	tbActition = 
+	{
+		{"ThisActivity:VngAddWeeklyTask", {nTSK_VIEMDE_WEEKLY_MATCH_COUNT, 1}},
+		{"PlayerFunLib:GetItem",	{{tbProp={6,1,30163,1,0,0}, nExpiredTime=24*60,},1,"KyNang150", "VuotAiViemDe5"} },
+	},
+}
+tbConfig[4] =		--V­ît ¶i 17
+{
+	nId = 4,
+	szMessageType = "Chuanguan",
+	szName = "V­ît qua ¶i 17",
+	nStartDate = nil,
+	nEndDate  = nil,
+	tbMessageParam = {"17"},
+	tbCondition = 
+	{
+	},
+	tbActition = 
+	{
+		{"PlayerFunLib:GetItem",	{{tbProp={6,1,2744,1,0,0}, nExpiredTime=24*60,},1,"ChiaKhoaNhuY", "VuotAi17"} },
+	},
+}
+tbConfig[5] = --Viªm ®Õ - v­ît ¶i thø 10
+{
+	nId = 5,
+	szMessageType = "YDBZguoguan",
+	szName = "V­ît qua ¶i Viªm §Õ thø 10",
+	nStartDate = nil,
+	nEndDate  = nil,
+	tbMessageParam = {10},
+	tbCondition = 
+	{
+	},
+	tbActition = 
+	{
+		{"PlayerFunLib:GetItem",	{{tbProp={6,1,30163,1,0,0}, nExpiredTime=24*60,},1,"KyNang150", "VuotAiViemDe10"} },
+	},
+}
+
+tbConfig[6] =
+{
+	nId = 6,
+	szMessageType = "Chuanguan",
+	szName = "V­ît qua ¶i 9",
+	nStartDate = nil,
+	nEndDate  = nil,
+	tbMessageParam = {"9"},
+	tbCondition = 
+	{
+	},
+	tbActition = 
+	{
+		{"PlayerFunLib:GetItem", {{tbProp={6,1,2744,1,0,0}, nExpiredTime=24*60,},1,"ChiaKhoaNhuY", "VuotAi9"} },
+	},
+}

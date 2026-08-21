@@ -1,0 +1,175 @@
+Num	Name	Quality	Genre	Detail	Particular	Level	GoodsFive	Magiclevel	TaskValue
+100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+500	L­u Tinh. §ao ph¸p	0	6	1	36	0	1	0	10000
+500	Th¸i Cùc Quy?n Phæ. QuyÓn 3	0	6	1	33	0	1	0	10000
+500	C¸i Bang Ch­ëng Ph¸p	0	6	1	54	0	1	0	10000
+500	Th¸i Cùc Ki?m Phæ. QuyÓn 2	0	6	1	34	0	1	0	10000
+500	Nga Mi  PhËt Quang Ch­ëng MËt T?ch	0	6	1	43	0	1	0	10000
+500	Thiªn V­¬ng Th­¬ng ph¸p. QuyÓn 2	0	6	1	38	0	1	0	10000
+500	DiÖt Ki?m MËt T?ch	0	6	1	42	0	1	0	10000
+500	C¸i Bang C«n ph¸p	0	6	1	55	0	1	0	10000
+500	Tô TiÔn thuËt. B¹o V? Lª Hoa	0	6	1	27	0	1	0	10000
+500	Phi §ao thuËt. Nhi?p Hån NguyÖt ¶nh	0	6	1	45	0	1	0	10000
+500	Thiªn V­¬ng Chïy Ph¸p. QuyÓn 1	0	6	1	37	0	1	0	10000
+500	Thóy Yªn §ao ph¸p	0	6	1	40	0	1	0	10000
+500	Thóy Yªn Song ®ao	0	6	1	41	0	1	0	10000
+500	Phi Tiªu thuËt. Cöu Cung Phi Tinh	0	6	1	46	0	1	0	10000
+500	Ng? §éc Ch­ëng Ph¸p. QuyÓn 1	0	6	1	47	0	1	0	10000
+500	Ngù L«i thuËt	0	6	1	51	0	1	0	10000
+500	Ngù Phong thuËt	0	6	1	50	0	1	0	10000
+500	V©n Long K?ch. M©u ph¸p	0	6	1	35	0	1	0	10000
+500	Thiªn V­¬ng §ao ph¸p.QuyÓn 3	0	6	1	39	0	1	0	10000
+500	Ng? §éc §ao ph¸p. QuyÓn 2	0	6	1	48	0	1	0	10000
+500	Thi?u L©m §ao ph¸p. QuyÓn 3	0	6	1	58	0	1	0	10000
+500	H·m TÜnh thuËt.Lo¹n Hoµn K?ch	0	6	1	28	0	1	0	10000
+500	Ng? §éc Nhi?p T©m thuËt. QuyÓn 3	0	6	1	49	0	1	0	10000
+500	Ngù T©m thuËt	0	6	1	52	0	1	0	10000
+500	Nhi?p Hån. Chó thuËt	0	6	1	53	0	1	0	10000
+500	Thi?u L©m Quy?n Ph¸p. QuyÓn 1	0	6	1	56	0	1	0	10000
+500	Thi?u L©m C«n ph¸p. QuyÓn 2	0	6	1	57	0	1	0	10000
+500	Phæ §é MËt T?ch	0	6	1	59	0	1	0	10000
+600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1000	Tö Thñy Tinh	0	4	239	1	0	1	0	10000
+1000	Lam Thñy Tinh	0	4	238	1	0	1	0	10000
+1000	Lôc Thñy Tinh	0	4	240	1	0	1	0	10000
+1000	§¹i Thµnh B? K?p 90	0	6	1	2424	0	1	0	10000
+1100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1500	§¹i Thµnh B? K?p 120	0	6	1	2425	0	1	0	10000
+1600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+1900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2000	Tinh Hång B¶o Th¹ch	0	4	353	1	0	1	0	10000
+2100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2500	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+2900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3000	§?nh Quèc ¤ Sa Ph¸t Qu¸n	1	160	0	0	0	1	0	10000
+3000	§?nh Quèc Thanh Sa Tr­êng Sam	1	159	0	0	0	1	0	10000
+3000	§?nh Quèc Tö §»ng Hé uyÓn	1	162	0	0	0	1	0	10000
+3000	§?nh Quèc X?ch Quyªn NhuyÔn Ngoa	1	161	0	0	0	1	0	10000
+3000	§?nh Quèc Ng©n Tµm Yªu ®¸i	1	163	0	0	0	1	0	10000
+3100	Bµn Nh­îc T©m Kinh	0	6	1	12	0	1	0	10000
+3200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3500	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+3900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4000	TÈy Tñy Kinh	0	6	1	22	0	1	0	10000
+4100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4500	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+4900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5000	Vâ L©m MËt T?ch	0	6	1	26	0	1	0	10000
+5100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5500	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+5900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6000	An Bang B¨ng Tinh Th¹ch H¹ng Liªn	1	164	0	0	0	1	0	10000
+6000	An Bang Kª Huy?t Th¹ch Giíi ChØ 	1	167	0	0	0	1	0	10000
+6000	An Bang §i?n Hoµng Th¹ch Ngäc Béi	1	166	0	0	0	1	0	10000
+6000	An Bang Cóc Hoa Th¹ch ChØ hoµn	1	165	0	0	0	1	0	10000
+6100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6500	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+6900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7000	Méng Long Kim Ti Ch?nh Hång Cµ Sa	1	2	0	0	0	1	0	10000
+7000	Phôc Ma Tö Kim C«n	1	6	0	0	0	1	0	10000
+7000	Tø Kh«ng Gi¸ng Ma Giíi ®ao	1	11	0	0	0	1	0	10000
+7000	H¸m Thiªn Kim Hoµn §¹i Nh·n ThÇn Chïy	1	16	0	0	0	1	0	10000
+7000	K? NghiÖp B«n L«i Toµn Long th­¬ng	1	21	0	0	0	1	0	10000
+7000	K? NghiÖp Huy?n V? Hoµng Kim Kh¶i	1	22	0	0	0	1	0	10000
+7000	Ngù Long L­îng Ng©n B¶o ®ao	1	26	0	0	0	1	0	10000
+7000	V« Gian û Thiªn Ki?m	1	31	0	0	0	1	0	10000
+7000	V« Ma TÈy T­îng Ngäc KhÊu 	1	39	0	0	0	1	0	10000
+7000	V« Ma Hång Truy NhuyÔn Th¸p hµi	1	40	0	0	0	1	0	10000
+7000	V« TrÇn Thanh T©m H­íng ThiÖn Ch©u	1	42	0	0	0	1	0	10000
+7000	Tª Hoµng Phông Nghi ®ao	1	46	0	0	0	1	0	10000
+7000	B?ch H¶i Uyªn ¦¬ng Liªn Hoµn ®ao	1	51	0	0	0	1	0	10000
+7000	B?ch H¶i Hång L¨ng Ba	1	54	0	0	0	1	0	10000
+7000	U Lung Kim Xµ Ph¸t ®¸i	1	56	0	0	0	1	0	10000
+7000	U Lung MÆc Thï NhuyÔn L? 	1	60	0	0	0	1	0	10000
+7000	Minh ¶o Tµ S¸t §éc NhËn	1	61	0	0	0	1	0	10000
+7000	Chó Ph­îc DiÖt L«i C¶nh Phï 	1	67	0	0	0	1	0	10000
+7000	B¨ng Hµn §¬n ChØ Phi §ao	1	71	0	0	0	1	0	10000
+7000	Thiªn Quang Hoa V? M¹n Thiªn	1	76	0	0	0	1	0	10000
+7000	S©m Hoang Phi Tinh §o¹t Hån	1	81	0	0	0	1	0	10000
+7000	§?a Ph¸ch H¾c DiÖm Xung Thiªn Liªn	1	87	0	0	0	1	0	10000
+7000	§ång C?u Gi¸ng Long C¸i Y	1	92	0	0	0	1	0	10000
+7000	§ång C?u Kh¸ng Long Hé UyÓn	1	94	0	0	0	1	0	10000
+7000	§?ch Kh¸i Lôc Ngäc Tr­îng	1	96	0	0	0	1	0	10000
+7000	Ma S¸t Quû Cèc U Minh Th­¬ng	1	101	0	0	0	1	0	10000
+7000	Ma Hoµng Kim Gi¸p Kh«i	1	106	0	0	0	1	0	10000
+7000	Ma Hoµng ¸n XuÊt Hæ H¹ng Khuyªn	1	107	0	0	0	1	0	10000
+7000	Ma Th? s¬n  H¶i Phi Hång L? 	1	115	0	0	0	1	0	10000
+7000	L¨ng Nh¹c V« Cùc Huy?n Ngäc Béi	1	119	0	0	0	1	0	10000
+7000	CËp Phong Ch©n V? Ki?m	1	121	0	0	0	1	0	10000
+7000	CËp Phong Tam Thanh Phï 	1	122	0	0	0	1	0	10000
+7000	S­¬ng Tinh Thiªn Niªn Hµn Thi?t	1	126	0	0	0	1	0	10000
+7000	L«i Khung Thiªn §?a Hé phï 	1	132	0	0	0	1	0	10000
+7000	Vô ¶o B¾c Minh §¹o qu¸n	1	136	0	0	0	1	0	10000
+7100	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7200	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7300	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7400	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7500	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7600	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7700	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7800	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+7900	Tiªn Th¶o Lé 	0	6	1	71	0	1	0	10000
+8000	[H¹n ch? thêi gian] Méng Long Tö Kim B¸t Nh· Giíi	1	769	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Phôc Ma V« L­îng Kim Cang UyÓn	1	771	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Tø Kh«ng §¹t Ma T¨ng Hµi	1	776	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Ngù Long TÊn Phong Ph¸t C¬	1	793	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] V« Gian Thanh Phong NhuyÔn K?ch	1	796	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] V« YÓm Thu Thñy L­u Quang §¸i	1	801	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] V« TrÇn T?nh ¶nh L­u T«	1	808	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Thª Hoµng HuÖ T©m Tr­êng Sinh KhÊu	1	811	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] B?ch H¶i Hoµn Ch©u Tuyªn Thanh C©n	1	816	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Minh Hoan Song Hoµn Xµ KhÊu	1	829	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Chó Phäc Trïng Cèt Ngäc Béi	1	834	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Thiªn Quang §?a Hµnh Thiªn L?  Ngoa	1	843	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] §?a Ph¸ch Phong Hµn Thóc Yªu	1	854	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] §ång C?u Ngù Long Ngäc Béi	1	855	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Ma S¸t Cö Háa Liªu Thiªn Hoµn	1	868	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Ma Hoµng Dung Kim §o¹n NhËt Giíi	1	874	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Ma Th? LÖ Ma PhÖ T©m §¸i	1	876	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] L¨ng Nh¹c V« Ng· Thóc §¸i	1	881	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] CËp Phong Thóy Ngäc Huy?n Hoµng UyÓn	1	888	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] S­¬ng Tinh L­u Tinh C¶n NguyÖt KhÊu	1	891	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] L«i Khung Linh Ngäc Èn L«i UyÓn	1	898	0	0	0	1	0	10000
+8000	[H¹n ch? thêi gian] Vô Hoan Th¸i Uyªn Ch©n V? Liªn	1	901	0	0	0	1	0	10000
+8000	V« Danh ChØ Hoµn	1	141	0	0	0	1	0	10000
+8000	V« Danh Giíi ChØ 	1	142	0	0	0	1	0	10000

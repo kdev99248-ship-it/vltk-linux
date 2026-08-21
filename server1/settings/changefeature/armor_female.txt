@@ -1,0 +1,17 @@
+Name	Feature	Price
+Sa Ni phôc	0	600
+NguyÖn B¹ch cµ sa	1	600
+ThÊt B¶o cµ sa 	2	600
+Linh Xµ y	6	600
+Hæ B× y	7	600
+Cöu VÜ B¹ch Hå trang	8	600
+CÈm Sam	9	600
+Thanh La sam	10	600
+TrÇm H­¬ng sam	11	600
+Kh¶m ThiÕt n÷ gi¸p	12	600
+XÝch Nh¹n gi¸p	13	600
+TÝch LÞch Kim Phông gi¸p	14	600
+Ph¸ Ma y	15	600
+B¹ch §iÖp quÇn	18	600
+NguyÖt Hoa quÇn	19	600
+L­u Tiªn QuÇn	20	600

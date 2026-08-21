@@ -1,0 +1,82 @@
+ÂíÆ¥±àºÅ	ÂíÆ¥²¿¼þ±àºÅ	ËµÃ÷
+1	0	Dßng thø nhÊt cho biÕt kh«ng cã trang bÞ. Cßn l¹i ®Òu v« nghÜa
+2	10	Phæ th«ng Hoµng M· 
+3	10	Phæ th«ng Hoµng M· 
+4	10	Phæ th«ng Hoµng M· 
+5	10	Phæ th«ng Hoµng M· 
+6	10	Phæ th«ng Hoµng M· 
+7	10	Phæ th«ng Hoµng M· 
+8	10	Phæ th«ng Hoµng M· 
+9	10	Phæ th«ng Hoµng M· 
+10	10	Phæ th«ng Hoµng M· 
+11	10	Phæ th«ng Hoµng M· 
+12	6	Phæ Th«ng Thanh M· 
+13	6	Phæ Th«ng Thanh M· 
+14	6	Phæ Th«ng Thanh M· 
+15	6	Phæ Th«ng Thanh M· 
+16	6	Phæ Th«ng Thanh M· 
+17	6	Phæ Th«ng Thanh M· 
+18	6	Phæ Th«ng Thanh M· 
+19	6	Phæ Th«ng Thanh M· 
+20	6	Phæ Th«ng Thanh M· 
+21	6	Phæ Th«ng Thanh M· 
+22	9	Phæ Th«ng B¹ch M· 
+23	9	Phæ Th«ng B¹ch M· 
+24	9	Phæ Th«ng B¹ch M· 
+25	9	Phæ Th«ng B¹ch M· 
+26	9	Phæ Th«ng B¹ch M· 
+27	9	Phæ Th«ng B¹ch M· 
+28	9	Phæ Th«ng B¹ch M· 
+29	9	Phæ Th«ng B¹ch M· 
+30	9	Phæ Th«ng B¹ch M· 
+31	9	Phæ Th«ng B¹ch M· 
+32	5	Phæ Th«ng H¾c M· 
+33	5	Phæ Th«ng H¾c M· 
+34	5	Phæ Th«ng H¾c M· 
+35	5	Phæ Th«ng H¾c M· 
+36	5	Phæ Th«ng H¾c M· 
+37	5	Phæ Th«ng H¾c M· 
+38	5	Phæ Th«ng H¾c M· 
+39	5	Phæ Th«ng H¾c M· 
+40	5	Phæ Th«ng H¾c M· 
+41	5	Phæ Th«ng H¾c M· 
+42	8	Phæ Th«ng Hång M· 
+43	8	Phæ Th«ng Hång M· 
+44	8	Phæ Th«ng Hång M· 
+45	8	Phæ Th«ng Hång M· 
+46	8	Phæ Th«ng Hång M· 
+47	8	Phæ Th«ng Hång M· 
+48	8	Phæ Th«ng Hång M· 
+49	8	Phæ Th«ng Hång M· 
+50	8	Phæ Th«ng Hång M· 
+51	8	Phæ Th«ng Hång M· 
+52	7	¤ V©n §¹p TuyÕt
+53	2	XÝch Thè 
+54	11	TuyÖt ¶nh
+55	4	§Ých L« 
+56	3	ChiÕu D¹ Ngäc S­ Tö 
+57	7	¤ V©n §¹p TuyÕt
+58	2	XÝch Thè 
+59	11	TuyÖt ¶nh
+60	4	§Ých L« 
+61	3	ChiÕu D¹ Ngäc S­ Tö 
+62	12	B«n Tiªu
+63	12	B«n Tiªu
+64	12	B«n Tiªu
+65	12	B«n Tiªu
+66	12	B«n Tiªu
+67	12	B«n Tiªu
+68	12	B«n Tiªu
+69	12	B«n Tiªu
+70	12	B«n Tiªu
+71	12	B«n Tiªu
+72	13	Phiªn Vò 
+73	13	Phiªn Vò 
+74	13	Phiªn Vò 
+75	13	Phiªn Vò 
+76	13	Phiªn Vò 
+77	13	Phiªn Vò 
+78	13	Phiªn Vò 
+79	13	Phiªn Vò 
+80	13	Phiªn Vò 
+81	13	Phiªn Vò 

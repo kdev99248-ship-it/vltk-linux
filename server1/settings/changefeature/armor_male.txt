@@ -1,0 +1,17 @@
+Name	Feature	Price
+Sa Di phôc	0	600
+NguyÖn B¹ch Cµ Sa 	1	600
+ThÊt B¶o Cµ Sa	2	600
+Cæn y	6	600
+Ng­ NhÉn y	7	600
+Thiªn NhÉn MËt Trang	8	600
+Th« Bè tr­êng bµo	9	600
+Ng©n T¬ Bµo	10	600
+Gi¸ng Sa Bµo	11	600
+Táa Tö gi¸p	12	600
+S¬n V¨n Tù gi¸p	13	600
+§­êng Nghª gi¸p	14	600
+Lan Bè y	15	600
+¸o v¶i th« 	18	600
+HuyÒn Hoµng ®o¶n gi¸p	19	600
+TuyÒn Long bµo	20	600

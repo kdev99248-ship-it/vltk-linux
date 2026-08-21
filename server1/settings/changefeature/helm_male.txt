@@ -1,0 +1,19 @@
+Name	Feature	Price
+Sa Di Giíi C« 	0	500
+Phï Dung M·o	1	500
+Tú L« m·o	2	500
+Tróc L¹p	6	500
+Nh©n B× DiÖn Tr¸o	7	500
+Tu La Ph¸t kÕt	8	500
+Phi YÕn Qu¸n	9	500
+Anh L¹c Qu¸n	10	500
+Th«ng Thiªn Ph¸t Qu¸n	11	500
+ThiÕt Kh«i	12	500
+Ng©n Kh«i	13	500
+YÓm NhËt kh«i	14	500
+Ph¸ Bè C©n	15	500
+Song TÇng L­u Ly Hoµn	16	500
+TrÝch Tinh hoµn	17	500
+Bè C©n	18	500
+Chu Khëi Qu¸n	19	500
+¤ Tµm M·o	20	500

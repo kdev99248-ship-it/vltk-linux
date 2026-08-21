@@ -1,0 +1,18 @@
+Ãû³Æ	ItemGenre	DetailType	ParticularType	¶¯»­ÎÄ¼şÃû	¶ÔÓ¦Îï¼şË÷Òı	¿í¶È	¸ß¶È	ËµÃ÷ÎÄ×Ö	ÎåĞĞÊôĞÔ	¼Û¸ñ	µÈ¼¶	ÊÇ·ñµş·Å	½Å±¾Ãû(²ÎÊı1)	¼¼ÄÜID£¨²ÎÊı1£©	²ÎÊı2(ÊÍ·¨ÀàĞÍ)	²ÎÊı3(ÊÇ·ñ¹ã²¥)	²ÎÊı4(ÊÇ·ñÓĞµÈ¼¶¸ÅÄî)	²ÎÊı5(ÊÇ·ñ¿É·Å¿ì½İÀ¸)
+VËt phÈm kü n¨ng	6	0	0	\spr\item\questkey\taskobj017.spr	9	1	1	Kü n¨ng ¬i! Kü n¨ng ¬i!		100	1	1	28	141	1	1	1	1
+KŞch b¶n vËt phÈm	6	1	0	\spr\item\questkey\taskobj025.spr	9	1	1	KŞch b¶n! KŞch b¶n! 		1200	2	1	\script\missions\ËÎ½ğÕ½³¡pkÕ½\ËÎ½ğÕ½³¡ËÎ·½Ö÷¹Ünpc.lua	0	1	0	0	1
+Tr­êng MÖnh hoµn	6	0	1	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, sinh lùc t¨ng tèi ®a: 500 ®iÓm		50	1	0	0	256	1	1	0	1
+Gia Bµo hoµn	6	0	2	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, tèc ®é di chuyÓn t¨ng: 20%		50	1	0	0	257	1	1	0	1
+§¹i Lùc hoµn	6	0	3	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, c«ng kİch vËt lı t¨ng: 100 ®iÓm		50	1	0	0	258	1	1	0	1
+Cao ThiÓm hoµn	6	0	4	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng ®é c«ng kİch chİnh x¸c: 500 ®iÓm		50	1	0	0	259	1	1	0	1
+Cao Trung hoµn	6	0	5	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng ®é c«ng kİch chİnh x¸c: 500 ®iÓm		50	1	0	0	260	1	1	0	1
+Phi Tèc hoµn	6	0	6	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng tèc ®éc c«ng kİch: 50%		50	1	0	0	261	1	1	0	1
+B¨ng Phßng hoµn	6	0	7	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng phßng ngù: 50%		50	1	0	0	262	1	1	0	1
+L«i Phßng hoµn	6	0	8	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng phßng L«i: 50%		50	1	0	0	263	1	1	0	1
+Háa Phßng hoµn	6	0	9	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng phßng háa: 50%		50	1	0	0	264	1	1	0	1
+§éc Phßng hoµn	6	0	10	\spr\item\medecine\obj-potion15.spr	19	1	1	Néi 5 phót, t¨ng phßng ®éc: 50%		50	1	0	0	265	1	1	0	1
+Ph¸o Hoa	6	0	11	\spr\item\magic\icon_item_baozhu.spr	334	1	1	VËt phÈm kh«ng thÓ thiÕu trong nh÷ng ngµy lÔ tiÕt		50	1	0	0	251	1	1	0	1
+Bµn Nh­îc T©m Kinh	6	1	12	\spr\item\questkey\obj_item_lection.spr	341	1	1	PhËt gia B¶o ®iÓn, th­êng xuyªn tông niÖm sÏ trõ ®­îc c¸c ®iÓm ©m kinh nghiÖm.		100	1	0	\script\item\sutra.lua	0	1	1	0	1
+§¹i Hång Bao	6	1	13	\spr\item\questkey\obj_item_burseb.spr	342	1	1	VËt phÈm kh«ng thÓ thiÕu trong nh÷ng ngµy vui.		100000	1	0	\script\item\moremoneygift.lua	0	1	1	0	1
+TiÓu Hång Bao	6	1	14	\spr\item\questkey\obj_item_burses.spr	343	1	1	VËt phÈm kh«ng thÓ thiÕu trong nh÷ng ngµy vui.		10000	1	0	\script\item\lessmoneygift.lua	0	1	1	0	1
+Phi Phong	6	1	15	\spr\item\obj_item_mantle.spr	338	1	1	Lo¹i phi tiªu nh­ng ®­îc ®iªu kh¶m rÊt ®Ñp, cã thÓ dïng ®Ó trang trİ trªn quÇn ¸o. 		1000000	1	0	\script\item\mantle.lua	0	1	1	0	0
