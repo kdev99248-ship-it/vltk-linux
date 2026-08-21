@@ -53,9 +53,10 @@ env_get() {
 PUBLIC_IP="${PUBLIC_IP:-$(env_get PUBLIC_IP)}"
 SSH_PORT="${SSH_PORT:-$(env_get SSH_PORT)}"; SSH_PORT="${SSH_PORT:-22}"
 ALLOW_CLIENT_IPS="${ALLOW_CLIENT_IPS:-$(env_get ALLOW_CLIENT_IPS)}"
-# jx_linux_y BINDS its game port to IntranetIp, so that must be a local
+# jx_linux_y BINDS its game port to InternetIp, so that must be a local
 # container address, NOT the public IP. It has to match GAME_PUBLIC_IP in
-# docker-compose.yml, where the gateway forwards the published game port.
+# docker-compose.yml, where the gateway forwards the published game port. The
+# public address clients dial comes from settings/serverlist.ini, not here.
 GAME_BIND_IP="${GAME_BIND_IP:-$(env_get GAME_BIND_IP)}"; GAME_BIND_IP="${GAME_BIND_IP:-10.211.55.2}"
 
 valid_ipv4() {
@@ -111,13 +112,14 @@ patch_ip() {
     set_key "$f" "IntranetIp" "$PUBLIC_IP"
   done
 
-  # The game server is different: jx_linux_y BINDS its listen port to IntranetIp,
-  # so IntranetIp must be a local container address (== GAME_PUBLIC_IP, where the
-  # gateway's socat forwards the published port). Setting it to the public IP
-  # makes bind() fail with "Failed to open service on port[6666]" and the gateway
-  # crash-loops. Only InternetIp (advertised to clients) becomes the public IP.
+  # The game server is different: jx_linux_y BINDS its listen port to InternetIp,
+  # so both FixIp fields must be a local container address (== GAME_PUBLIC_IP,
+  # where the gateway's socat forwards the published port). Setting InternetIp to
+  # the public IP makes bind() fail with "Failed to open service on port[6666]"
+  # and the gateway crash-loops. The public address clients actually dial for the
+  # game is set in settings/serverlist.ini (0_Address) below, not here.
   for f in "$SV/servercfg.ini" "$SV/servercf0.ini"; do
-    set_key "$f" "InternetIp" "$PUBLIC_IP"
+    set_key "$f" "InternetIp" "$GAME_BIND_IP"
     set_key "$f" "IntranetIp" "$GAME_BIND_IP"
   done
 

@@ -30,7 +30,6 @@ namespace {
 
 constexpr std::size_t kTableBytes = 0x58bc;
 constexpr std::size_t kTableWords = 0x162f;
-constexpr std::uint32_t kCipherAdd = 0x2e6d23c1;
 constexpr std::size_t kMaxFrame = 0x2000;
 constexpr std::size_t kMaxInputBuffer = 0x800000;
 // Stable wire opcodes. Keep the numeric values for protocol compatibility;
@@ -46,8 +45,11 @@ struct Config {
 };
 
 struct KeyState {
-    std::uint32_t k1 = 0;
-    std::uint32_t k2 = 0;
+    // server_key encodes server->client frames and is advertised (one's-complement)
+    // as ACCOUNT_BEGIN.ServerKey; client_key decodes client->server frames and is
+    // advertised as ACCOUNT_BEGIN.ClientKey. See queue_handshake().
+    std::uint32_t server_key = 0;
+    std::uint32_t client_key = 0;
 };
 
 struct Client {
@@ -207,33 +209,24 @@ void set_nonblocking(int fd) {
     }
 }
 
-void heaven_cipher(const std::vector<std::uint32_t>& table, std::uint8_t* data, std::size_t len, std::uint32_t seed) {
-    std::size_t words = len >> 2;
-    std::size_t rem = len & 3;
-    std::uint32_t key_state = seed;
-
-    for (std::uint32_t i = 0; i < words; ++i) {
-        std::uint32_t last = static_cast<std::uint32_t>(words - 1);
-        std::uint32_t idx = (last - i + key_state) % static_cast<std::uint32_t>(kTableWords);
-        std::uint32_t key = table[idx] + kCipherAdd;
-        auto* word = reinterpret_cast<std::uint32_t*>(data + i * 4);
-        *word ^= key;
-        key_state = key;
+void heaven_cipher(const std::vector<std::uint32_t>& table, std::uint8_t* data, std::size_t len, std::uint32_t key) {
+    // Account/relay stream cipher == the original KSG_DecodeEncode
+    // (MultiServer/Common/KSG_EncodeDecode.cpp): a constant, repeating 4-byte XOR.
+    // A 32-bit word XORed with a little-endian key equals each byte XORed with the
+    // matching key byte, so byte j is simply XORed with key byte (j % 4). The key
+    // does NOT evolve between frames -- KSG_EncodeBuf/KSG_DecodeBuf advance only a
+    // local copy, leaving the caller's key unchanged. XOR is symmetric, so this
+    // both encodes and decodes. The Heaven table is unused on the relay path.
+    (void)table;
+    const std::uint8_t kb[4] = {
+        static_cast<std::uint8_t>(key & 0xff),
+        static_cast<std::uint8_t>((key >> 8) & 0xff),
+        static_cast<std::uint8_t>((key >> 16) & 0xff),
+        static_cast<std::uint8_t>((key >> 24) & 0xff),
+    };
+    for (std::size_t j = 0; j < len; ++j) {
+        data[j] ^= kb[j & 3];
     }
-
-    if (rem != 0) {
-        std::uint32_t key = key_state ^ table[rem];
-        std::size_t base = len & ~std::size_t{3};
-        data[base] ^= key & 0xff;
-        if (rem >= 2) data[base + 1] ^= (key >> 8) & 0xff;
-        if (rem == 3) data[base + 2] ^= (key >> 16) & 0xff;
-    }
-}
-
-std::uint32_t handshake_word(std::uint32_t k) {
-    std::uint32_t mixed = __builtin_bswap32(k) & 0xff0000ffu;
-    mixed |= k & 0x00ffff00u;
-    return (0x2e6d2398u - mixed) ^ 0x2e6d23cfu;
 }
 
 void append_u16(std::vector<std::uint8_t>& out, std::uint16_t v) {
@@ -288,17 +281,26 @@ void queue_plain_frame(Client& client, const std::vector<std::uint8_t>& body) {
 
 void queue_encrypted_frame(Client& client, const std::vector<std::uint8_t>& body, const std::vector<std::uint32_t>& table) {
     std::vector<std::uint8_t> encrypted = body;
-    heaven_cipher(table, encrypted.data(), encrypted.size(), client.keys.k2);
+    heaven_cipher(table, encrypted.data(), encrypted.size(), client.keys.server_key);
     queue_plain_frame(client, encrypted);
 }
 
 void queue_handshake(Client& client) {
-    // libheaven expects a 44-byte total frame: two-byte length plus a
-    // 42-byte body. The encoded receive/send keys live at body offsets 8/17.
-    std::vector<std::uint8_t> body(0x2a, 0);
-    write_u16_at(body, 0, 0x20);
-    write_u32_at(body, 8, handshake_word(client.keys.k1));
-    write_u32_at(body, 17, handshake_word(client.keys.k2));
+    // Heaven ACCOUNT_BEGIN handshake, byte-for-byte per the original
+    // MultiServer/Common/Cipher.h struct and Heaven/ServerStage.cpp
+    // _HelperAddClient(). On-wire: WORD wLen (= 2 + 32) then a 32-byte body:
+    //   [0]      ProtocolType = 0x20
+    //   [1]      Mode         = 0            (uKeyMode)
+    //   [2..7]   Reserve1                    (random on the wire, ignored)
+    //   [8..11]  ServerKey    = ~server_key  (server's reply-encode key)
+    //   [12..15] ClientKey    = ~client_key  (server's request-decode key)
+    //   [16..31] Reserve2                    (ignored)
+    // Keys travel as one's-complement; the client complements them back.
+    std::vector<std::uint8_t> body(0x20, 0);
+    body[0] = 0x20;
+    body[1] = 0x00;
+    write_u32_at(body, 8, ~client.keys.server_key);
+    write_u32_at(body, 12, ~client.keys.client_key);
     queue_plain_frame(client, body);
 }
 
@@ -929,7 +931,7 @@ void handle_frame(Client& client,
                   ServerState& state,
                   int fd,
                   std::map<int, Client>& clients) {
-    heaven_cipher(table, body.data(), body.size(), client.keys.k1);
+    heaven_cipher(table, body.data(), body.size(), client.keys.client_key);
     if (body.size() >= 2) {
         std::cerr << "#" << client.id << " decrypted opcode bytes: 0x"
                   << std::hex << static_cast<int>(body[0]) << " 0x"
@@ -1033,11 +1035,11 @@ void event_loop(int listener, const std::vector<std::uint32_t>& table, ServerSta
                 Client client;
                 client.fd = fd;
                 client.id = next_id++;
-                client.keys.k1 = rng();
-                client.keys.k2 = rng();
+                client.keys.server_key = rng();
+                client.keys.client_key = rng();
                 queue_handshake(client);
-                std::cerr << "Relay client #" << client.id << " connected. Handshake K1=0x"
-                          << std::hex << client.keys.k1 << " K2=0x" << client.keys.k2 << std::dec << "\n";
+                std::cerr << "Relay client #" << client.id << " connected. Handshake ServerKey=0x"
+                          << std::hex << client.keys.server_key << " ClientKey=0x" << client.keys.client_key << std::dec << "\n";
                 char ip[INET_ADDRSTRLEN] = {};
                 inet_ntop(AF_INET, &peer.sin_addr, ip, sizeof(ip));
                 client.peer_ip = ip;
