@@ -22,14 +22,7 @@ Debug/
 Release/
 
 # Compiled objects and libraries
-*.o
-*.obj
-*.a
-*.so
-*.dll
-*.lib
-*.dylib
-*.pdb
+
 
 # Original executables and binary references
 *.exe
@@ -51,8 +44,7 @@ Release/
 *.bndb
 
 # Decompiled/generated bulk output
-reference/ghidra/
-reference/ida/
+
 
 # CMake generated files
 CMakeFiles/
