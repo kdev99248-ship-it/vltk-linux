@@ -121,9 +121,14 @@ services:
       GAME_PUBLIC_IP: "10.211.55.2"
       GAME_PORT: "6666"
       CAPTURE_DIR: "/captures"
-      TRACE_GODDESS_KICK: "1"
-      TRACE_BISHOP_KICK: "1"
-      TRACE_GAME_KICK: "1"
+      # Debug-only kickout tracers: when "1" the matching binary runs under
+      # `gdb -batch` (see docker/gateway/trace-*.gdb). Keep these "0" for normal
+      # play — gdb stops on signals a game server ignores (e.g. SIGPIPE) and, in
+      # batch mode, kills the process, which crash-loops the gateway. Enable one
+      # only while actively tracing that binary's kickout path.
+      TRACE_GODDESS_KICK: "0"
+      TRACE_BISHOP_KICK: "0"
+      TRACE_GAME_KICK: "0"
     depends_on:
       mysql57:
         condition: service_healthy
