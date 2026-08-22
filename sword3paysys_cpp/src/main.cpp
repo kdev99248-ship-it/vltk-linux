@@ -231,22 +231,44 @@ void set_nonblocking(int fd) {
 }
 
 void heaven_cipher(const std::vector<std::uint32_t>& table, std::uint8_t* data, std::size_t len, std::uint32_t key) {
-    // Account/relay stream cipher == the original KSG_DecodeEncode
-    // (MultiServer/Common/KSG_EncodeDecode.cpp): a constant, repeating 4-byte XOR.
-    // A 32-bit word XORed with a little-endian key equals each byte XORed with the
-    // matching key byte, so byte j is simply XORed with key byte (j % 4). The key
-    // does NOT evolve between frames -- KSG_EncodeBuf/KSG_DecodeBuf advance only a
-    // local copy, leaving the caller's key unchanged. XOR is symmetric, so this
-    // both encodes and decodes. The Heaven table is unused on the account path.
-    (void)table;
-    const std::uint8_t kb[4] = {
-        static_cast<std::uint8_t>(key & 0xff),
-        static_cast<std::uint8_t>((key >> 8) & 0xff),
-        static_cast<std::uint8_t>((key >> 16) & 0xff),
-        static_cast<std::uint8_t>((key >> 24) & 0xff),
-    };
-    for (std::size_t j = 0; j < len; ++j) {
-        data[j] ^= kb[j & 3];
+    // Rainbow/KSG account stream cipher == the original KSG_DecodeEncode
+    // (kgc/net/common/KSG_EncodeDecode.cpp): a table-based chained keystream, NOT a
+    // constant XOR. Each 32-bit word is XORed with a keystream value pulled from the
+    // Heaven public-key table (== heaven_table.bin == g_uPublicKeys, 5679 entries).
+    // For word i (0-based), a descending counter c = (numWords-1-i) is combined with the
+    // previous keystream: idx = (c + esi) % tableSize; esi = table[idx] + 0x2e6d23c1;
+    // word[i] ^= esi. esi chains from word to word (seeded with the key). Any trailing
+    // bytes are XORed with (table[rem] ^ lastKeystream), little-endian.
+    // The key is passed by value: KSG_EncodeBuf/KSG_DecodeBuf advance only a local copy,
+    // so the caller's per-connection key is unchanged between frames (each frame restarts
+    // from the same key). XOR is symmetric, so this both encodes and decodes.
+    // Verified byte-exact against live bishop_y KSG_DecodeEncode output.
+    if (table.empty()) return;
+    const std::uint32_t modulus = static_cast<std::uint32_t>(table.size());  // 5679
+    const std::uint32_t kAdd = 0x2e6d23c1u;
+    const std::size_t num_words = len >> 2;
+    const std::size_t rem = len & 3;
+    std::uint32_t esi = key;
+    for (std::size_t i = 0; i < num_words; ++i) {
+        std::uint32_t counter = static_cast<std::uint32_t>(num_words - 1 - i);
+        std::uint32_t idx = (counter + esi) % modulus;
+        esi = table[idx] + kAdd;
+        std::uint32_t word =
+            static_cast<std::uint32_t>(data[i * 4]) |
+            (static_cast<std::uint32_t>(data[i * 4 + 1]) << 8) |
+            (static_cast<std::uint32_t>(data[i * 4 + 2]) << 16) |
+            (static_cast<std::uint32_t>(data[i * 4 + 3]) << 24);
+        word ^= esi;
+        data[i * 4]     = static_cast<std::uint8_t>(word & 0xff);
+        data[i * 4 + 1] = static_cast<std::uint8_t>((word >> 8) & 0xff);
+        data[i * 4 + 2] = static_cast<std::uint8_t>((word >> 16) & 0xff);
+        data[i * 4 + 3] = static_cast<std::uint8_t>((word >> 24) & 0xff);
+    }
+    if (rem != 0) {
+        std::uint32_t tmp = table[rem % modulus] ^ esi;  // esi = last keystream, or key if num_words==0
+        for (std::size_t j = 0; j < rem; ++j) {
+            data[num_words * 4 + j] ^= static_cast<std::uint8_t>((tmp >> (8 * j)) & 0xff);
+        }
     }
 }
 
@@ -298,22 +320,44 @@ void queue_plain_frame(Client& client, const std::vector<std::uint8_t>& body) {
     queue_plain_frame(client, encrypted);
 }
 
+std::uint32_t swap_outer_bytes(std::uint32_t v) {
+    // Swap the most- and least-significant bytes; keep the middle two.
+    return ((v & 0x000000ffu) << 24) | (v & 0x00ffff00u) | ((v & 0xff000000u) >> 24);
+}
+
+std::uint32_t obfuscate_handshake_key(std::uint32_t key) {
+    // Inverse of the client's key de-obfuscation in librainbow.so
+    // KClientManager::InitializeKey, which recovers a key from the 32-bit word W
+    // read at a fixed body offset as:
+    //     key = swap_outer( ~((W ^ 0x2e6d23cf) - 0x2e6d2399) )
+    // To make the client recover a chosen key we must place on the wire:
+    //     W = (~swap_outer(key) + 0x2e6d2399) ^ 0x2e6d23cf
+    return ((~swap_outer_bytes(key)) + 0x2e6d2399u) ^ 0x2e6d23cfu;
+}
+
 void queue_handshake(Client& client) {
-    // Heaven ACCOUNT_BEGIN handshake, byte-for-byte per the original
-    // MultiServer/Common/Cipher.h struct and Heaven/ServerStage.cpp
-    // _HelperAddClient(). On-wire: WORD wLen (= 2 + 32) then a 32-byte body:
-    //   [0]      ProtocolType = 0x20
-    //   [1]      Mode         = 0            (uKeyMode)
-    //   [2..7]   Reserve1                    (random on the wire, ignored)
-    //   [8..11]  ServerKey    = ~server_key  (server's reply-encode key)
-    //   [12..15] ClientKey    = ~client_key  (server's request-decode key)
-    //   [16..31] Reserve2                    (ignored)
-    // Keys travel as one's-complement; the client complements them back.
-    std::vector<std::uint8_t> body(0x20, 0);
+    // Heaven ACCOUNT_BEGIN handshake for the LINUX Rainbow client
+    // (librainbow.so), which does NOT match the 32-byte Windows Cipher.h struct.
+    // The Linux client (KClientManager::InitializeKey) requires the EnumPack'd
+    // body length to be EXACTLY 0x2a (42) bytes and reads two OBFUSCATED keys at
+    // fixed offsets, storing them into the connection:
+    //   body[0x08] -> conn+0x1c : the key the client ENCODES its c->s frames
+    //                             with; must equal our client_key (we decode
+    //                             c->s with client_key in handle_frame()).
+    //   body[0x11] -> conn+0x20 : the key the client DECODES s->c frames with;
+    //                             must equal our server_key (we encode s->c with
+    //                             server_key in queue_encrypted_frame()).
+    //   [0]        ProtocolType = 0x20 (CIPHER_PROTOCOL_TYPE)
+    //   [1]        Mode         = 0    (uKeyMode; constant 4-byte XOR)
+    //   all other bytes are Reserve and ignored by the client.
+    // On-wire: WORD wLen (= 2 + 42 = 44) then the 42-byte body. A 32-byte body
+    // (the Windows layout / plain ~key at 8,12) makes InitializeKey return FALSE
+    // and Bishop/RootRelay disconnect without ever sending c2s_gatewayverify.
+    std::vector<std::uint8_t> body(0x2a, 0);
     body[0] = 0x20;
     body[1] = 0x00;
-    write_u32_at(body, 8, ~client.keys.server_key);
-    write_u32_at(body, 12, ~client.keys.client_key);
+    write_u32_at(body, 0x08, obfuscate_handshake_key(client.keys.client_key));
+    write_u32_at(body, 0x11, obfuscate_handshake_key(client.keys.server_key));
     queue_plain_frame(client, body);
 }
 
