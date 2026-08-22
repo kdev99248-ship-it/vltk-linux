@@ -210,22 +210,44 @@ void set_nonblocking(int fd) {
 }
 
 void heaven_cipher(const std::vector<std::uint32_t>& table, std::uint8_t* data, std::size_t len, std::uint32_t key) {
-    // Account/relay stream cipher == the original KSG_DecodeEncode
-    // (MultiServer/Common/KSG_EncodeDecode.cpp): a constant, repeating 4-byte XOR.
-    // A 32-bit word XORed with a little-endian key equals each byte XORed with the
-    // matching key byte, so byte j is simply XORed with key byte (j % 4). The key
-    // does NOT evolve between frames -- KSG_EncodeBuf/KSG_DecodeBuf advance only a
-    // local copy, leaving the caller's key unchanged. XOR is symmetric, so this
-    // both encodes and decodes. The Heaven table is unused on the relay path.
-    (void)table;
-    const std::uint8_t kb[4] = {
-        static_cast<std::uint8_t>(key & 0xff),
-        static_cast<std::uint8_t>((key >> 8) & 0xff),
-        static_cast<std::uint8_t>((key >> 16) & 0xff),
-        static_cast<std::uint8_t>((key >> 24) & 0xff),
-    };
-    for (std::size_t j = 0; j < len; ++j) {
-        data[j] ^= kb[j & 3];
+    // Rainbow/KSG relay stream cipher == the original KSG_DecodeEncode
+    // (kgc/net/common/KSG_EncodeDecode.cpp): a table-based chained keystream, NOT a
+    // constant XOR. Each 32-bit word is XORed with a keystream value pulled from the
+    // Heaven public-key table (== heaven_table.bin == g_uPublicKeys, 5679 entries).
+    // For word i (0-based), a descending counter c = (numWords-1-i) is combined with the
+    // previous keystream: idx = (c + esi) % tableSize; esi = table[idx] + 0x2e6d23c1;
+    // word[i] ^= esi. esi chains from word to word (seeded with the key). Any trailing
+    // bytes are XORed with (table[rem] ^ lastKeystream), little-endian.
+    // The key is passed by value: KSG_EncodeBuf/KSG_DecodeBuf advance only a local copy,
+    // so the caller's per-connection key is unchanged between frames (each frame restarts
+    // from the same key). XOR is symmetric, so this both encodes and decodes.
+    // Verified byte-exact against live bishop_y KSG_DecodeEncode output.
+    if (table.empty()) return;
+    const std::uint32_t modulus = static_cast<std::uint32_t>(table.size());  // 5679
+    const std::uint32_t kAdd = 0x2e6d23c1u;
+    const std::size_t num_words = len >> 2;
+    const std::size_t rem = len & 3;
+    std::uint32_t esi = key;
+    for (std::size_t i = 0; i < num_words; ++i) {
+        std::uint32_t counter = static_cast<std::uint32_t>(num_words - 1 - i);
+        std::uint32_t idx = (counter + esi) % modulus;
+        esi = table[idx] + kAdd;
+        std::uint32_t word =
+            static_cast<std::uint32_t>(data[i * 4]) |
+            (static_cast<std::uint32_t>(data[i * 4 + 1]) << 8) |
+            (static_cast<std::uint32_t>(data[i * 4 + 2]) << 16) |
+            (static_cast<std::uint32_t>(data[i * 4 + 3]) << 24);
+        word ^= esi;
+        data[i * 4]     = static_cast<std::uint8_t>(word & 0xff);
+        data[i * 4 + 1] = static_cast<std::uint8_t>((word >> 8) & 0xff);
+        data[i * 4 + 2] = static_cast<std::uint8_t>((word >> 16) & 0xff);
+        data[i * 4 + 3] = static_cast<std::uint8_t>((word >> 24) & 0xff);
+    }
+    if (rem != 0) {
+        std::uint32_t tmp = table[rem % modulus] ^ esi;  // esi = last keystream, or key if num_words==0
+        for (std::size_t j = 0; j < rem; ++j) {
+            data[num_words * 4 + j] ^= static_cast<std::uint8_t>((tmp >> (8 * j)) & 0xff);
+        }
     }
 }
 
