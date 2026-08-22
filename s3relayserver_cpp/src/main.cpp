@@ -307,22 +307,47 @@ void queue_encrypted_frame(Client& client, const std::vector<std::uint8_t>& body
     queue_plain_frame(client, encrypted);
 }
 
+std::uint32_t swap_outer_bytes(std::uint32_t v) {
+    // Swap the most- and least-significant bytes; keep the middle two.
+    return ((v & 0x000000ffu) << 24) | (v & 0x00ffff00u) | ((v & 0xff000000u) >> 24);
+}
+
+std::uint32_t obfuscate_handshake_key(std::uint32_t key) {
+    // Inverse of the client's key de-obfuscation in librainbow.so
+    // KClientManager::InitializeKey, which recovers a key from the 32-bit word W
+    // read at a fixed body offset as:
+    //     key = swap_outer( ~((W ^ 0x2e6d23cf) - 0x2e6d2399) )
+    // To make the client recover a chosen key we must place on the wire:
+    //     W = (~swap_outer(key) + 0x2e6d2399) ^ 0x2e6d23cf
+    return ((~swap_outer_bytes(key)) + 0x2e6d2399u) ^ 0x2e6d23cfu;
+}
+
 void queue_handshake(Client& client) {
-    // Heaven ACCOUNT_BEGIN handshake, byte-for-byte per the original
-    // MultiServer/Common/Cipher.h struct and Heaven/ServerStage.cpp
-    // _HelperAddClient(). On-wire: WORD wLen (= 2 + 32) then a 32-byte body:
-    //   [0]      ProtocolType = 0x20
-    //   [1]      Mode         = 0            (uKeyMode)
-    //   [2..7]   Reserve1                    (random on the wire, ignored)
-    //   [8..11]  ServerKey    = ~server_key  (server's reply-encode key)
-    //   [12..15] ClientKey    = ~client_key  (server's request-decode key)
-    //   [16..31] Reserve2                    (ignored)
-    // Keys travel as one's-complement; the client complements them back.
-    std::vector<std::uint8_t> body(0x20, 0);
+    // Heaven ACCOUNT_BEGIN handshake for the LINUX Rainbow client
+    // (librainbow.so), which does NOT match the 32-byte Windows Cipher.h struct.
+    // s3relay_y's root client uses the SAME KClientManager::InitializeKey parser
+    // as Bishop, so the RootRelay must emit the identical 42-byte handshake that
+    // the (validated) paysys reimpl sends. The Linux client requires the EnumPack'd
+    // body length to be EXACTLY 0x2a (42) bytes and reads two OBFUSCATED keys at
+    // fixed offsets, storing them into the connection:
+    //   body[0x08] -> conn+0x1c : the key the client ENCODES its c->s frames with;
+    //                             must equal our client_key (we decode c->s with
+    //                             client_key in handle_frame()).
+    //   body[0x11] -> conn+0x20 : the key the client DECODES s->c frames with;
+    //                             must equal our server_key (we encode s->c with
+    //                             server_key in queue_encrypted_frame()).
+    //   [0]        ProtocolType = 0x20 (CIPHER_PROTOCOL_TYPE)
+    //   [1]        Mode         = 0    (uKeyMode; constant 4-byte XOR)
+    //   all other bytes are Reserve and ignored by the client.
+    // On-wire: WORD wLen (= 2 + 42 = 44) then the 42-byte body. A 32-byte body
+    // (the Windows layout / plain ~key at 8,12) makes InitializeKey return FALSE
+    // and s3relay_y's root client disconnect without ever sending its verify -
+    // i.e. "cung voi RootRelay lap lien tiep bi sai".
+    std::vector<std::uint8_t> body(0x2a, 0);
     body[0] = 0x20;
     body[1] = 0x00;
-    write_u32_at(body, 8, ~client.keys.server_key);
-    write_u32_at(body, 12, ~client.keys.client_key);
+    write_u32_at(body, 0x08, obfuscate_handshake_key(client.keys.client_key));
+    write_u32_at(body, 0x11, obfuscate_handshake_key(client.keys.server_key));
     queue_plain_frame(client, body);
 }
 
