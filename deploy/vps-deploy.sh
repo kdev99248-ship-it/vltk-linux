@@ -105,11 +105,15 @@ patch_ip() {
   )
   for f in "${advertised[@]}"; do [ -f "$f" ] && backup_once "$f"; done
 
-  # bishop/goddess/relay bind INADDR_ANY, so both FixIp fields -> public only
-  # changes what they advertise to clients, never what they bind.
+  # bishop uses [FixIp].InternetIp as the SOURCE address it binds for its
+  # OUTBOUND sockets (to paysys/RootRelay) - not merely an advertised value -
+  # and s3relay_y's root client binds it too. The public IP is NOT assigned to
+  # the container, so bind() fails with EADDRNOTAVAIL and bishop/RootRelay
+  # crash-loop the gateway. Use INADDR_ANY (0.0.0.0); the address clients dial
+  # is set in serverlist.ini (0_Address) below, never here.
   for f in "$GW/bishop.cfg" "$GW/goddess.cfg" "$GW/s3relay/relay_config.ini"; do
-    set_key "$f" "InternetIp" "$PUBLIC_IP"
-    set_key "$f" "IntranetIp" "$PUBLIC_IP"
+    set_key "$f" "InternetIp" "0.0.0.0"
+    set_key "$f" "IntranetIp" "0.0.0.0"
   done
 
   # The game server is different: jx_linux_y BINDS its listen port to InternetIp,
