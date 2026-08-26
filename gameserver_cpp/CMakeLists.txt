@@ -31,9 +31,20 @@ if(JX_BUILD_32BIT)
     add_link_options(-m32)
 endif()
 
-# The tree's comments are GBK-encoded Chinese. Tell GCC so it does not choke on
-# byte sequences that are not valid UTF-8.
-add_compile_options(-finput-charset=GBK -fexec-charset=GBK)
+# Deliberately NO -finput-charset / -fexec-charset.
+#
+# The obvious move is -finput-charset=GBK, since the comments are Chinese. It is
+# wrong twice over. First, the tree is not uniformly GBK -- measured: KProtocol.h
+# is GBK, GameDataDef.h is UTF-8, and CoreUseNameDef.h decodes as neither GBK nor
+# GB18030 nor UTF-8. Naming any one charset makes GCC run iconv over every file
+# and fail hard on the first byte that does not fit ("failure to convert GBK to
+# UTF-8" at the #include line, which silently drops every type the header
+# defines and cascades into ~180 bogus errors).
+#
+# Second, even where it works it is undesirable: a charset conversion re-encodes
+# string literals, and some of those literals go on the wire. The original MSVC
+# build emitted the source bytes verbatim. Saying nothing makes GCC do the same.
+add_compile_options(-Wno-invalid-utf8)
 
 add_compile_options(
     -Wall
@@ -80,6 +91,19 @@ add_custom_command(
 
 add_executable(struct_probe "${STRUCT_PROBE_SRC}")
 target_link_libraries(struct_probe PRIVATE jx_compat)
+
+# -fpermissive, scoped to this target only and never to the port itself.
+#
+# KProtocol.h:1384 does:
+#     void AllocateBuffer(size_t size) { m_lpBuf = &std::make_unique<BYTE[]>(size); }
+# Taking the address of a temporary. MSVC accepted it; GCC rejects it. It is not
+# a portability wart -- it is a live bug: the unique_ptr dies at the end of the
+# full expression, so m_lpBuf points at freed memory and the buffer is gone.
+#
+# The probe only needs the headers to parse so it can report sizeof, so the
+# warning is downgraded here. Do NOT copy this flag to a target that actually
+# runs the code: fix the member instead when tagSHOW_MSG_SYNC gets ported.
+target_compile_options(struct_probe PRIVATE -fpermissive)
 target_include_directories(struct_probe PRIVATE
     "${JX_WIN_SOURCE}/Headers"
     "${JX_WIN_SOURCE}/Sources/Core/Src"   # GameDataDef.h, reached via the

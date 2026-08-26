@@ -87,4 +87,32 @@ typedef struct _FILETIME {
     DWORD dwHighDateTime;
 } FILETIME, *LPFILETIME;
 
+// GUID appears by value inside packed protocol structs (tagGuidableInfo and
+// five others in KProtocol.h), so this is a wire layout, not a convenience
+// typedef: it must stay exactly 16 bytes with Win32's field order and sizes.
+// Asserted below rather than trusted.
+typedef struct _GUID {
+    DWORD Data1;
+    WORD  Data2;
+    WORD  Data3;
+    BYTE  Data4[8];
+} GUID;
+
+// POINT is embedded in KMapTraffic (GameDataDef.h) and travels with it, so the
+// two LONGs and their order are fixed by the original layout.
+typedef struct tagPOINT {
+    LONG x;
+    LONG y;
+} POINT, *LPPOINT;
+
+typedef GUID UUID;
+typedef GUID* LPGUID;
+typedef const GUID* LPCGUID;
+typedef GUID IID;
+typedef GUID CLSID;
+
+#ifdef __cplusplus
+static_assert(sizeof(GUID) == 16, "GUID must be 16 bytes to match the wire format");
+#endif
+
 #endif  // JX_COMPAT_WIN_TYPES_H

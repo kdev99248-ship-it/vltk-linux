@@ -24,14 +24,15 @@ tools/        The measurement and validation tooling. All Python 3, no build
               step, because the dev host has no C++ toolchain.
 tools/symbols/  Generated data: the IDA symbol table and everything derived
                 from it.
-protocol/     Packet layout reference (Phase 0 output).
+protocol/     struct_sizes.tsv -- sizeof for all 390 packet structs, produced
+              by struct_probe. The reference the port must not drift from.
 src/          The port itself (Phase 1 onward).
 docs/         Phase notes. Start with docs/PHASE0.md.
 ```
 
 ## Building
 
-There is no host toolchain; the build runs in a container.
+The build runs in a container, on any machine with Docker:
 
 ```bash
 ./docker/gameserver-build/build.sh                     # RelWithDebInfo
@@ -41,10 +42,23 @@ There is no host toolchain; the build runs in a container.
 
 The Windows source tree is **not** vendored -- it is bind-mounted from
 `../Source/Source/SwordOnline`. Point elsewhere with `JX_WIN_SOURCE=/path/...`.
+Only `Headers/` and `Sources/Core/Src/` are needed so far (3.7 MB).
+
+The Windows dev host has no compiler and no WSL, so in practice builds happen on
+the project VPS in a scratch directory kept separate from the deployed stack --
+see `docs/PHASE0.md` for the exact commands.
 
 The build is 32-bit. That is a constraint, not a preference: `libheaven.so` and
 `librainbow.so` ship as ELF32 i386 and the server loads them, so a 64-bit build
-would mean reverse-engineering both first.
+would mean reverse-engineering both first. Verified output:
+
+```
+ELF 32-bit LSB pie executable, Intel i386, dynamically linked, with debug_info
+```
+
+**No charset flags.** `-finput-charset=GBK` looks right and breaks the build --
+the tree is mixed-encoding (`KProtocol.h` is GBK, `GameDataDef.h` is UTF-8,
+`CoreUseNameDef.h` is neither). See `docs/PHASE0.md`.
 
 ## Tools
 
@@ -96,4 +110,7 @@ bytes on the wire, so a decode bug cannot corrupt the evidence.
 
 ## Status
 
-Phase 0. See `docs/PHASE0.md` for what is done and what is not.
+Phase 0, nearly closed. The build works and produces an ELF32 i386 binary; all
+390 protocol structs compile and their sizes are recorded. The one open exit
+criterion is confirming those sizes against the shipped binary. See
+`docs/PHASE0.md`.

@@ -13,16 +13,24 @@ depends on, and builds the harness that will say whether the port is correct.
 |---|---|
 | Symbol export + worklist | **done, verified** — tooling run, output checked |
 | Lua binding inventory | **done, verified** |
-| Struct probe generator | **done, verified** — generator runs; the *generated program has never been compiled* |
+| Struct probe | **done, verified** — compiles and runs; all 390 sizes in `protocol/struct_sizes.tsv` |
 | Oracle proxy + differ | **done, verified** — 15/15 self-test checks pass, incl. the real KSG table |
-| Win32 compat layer | **written, never compiled** |
-| CMake + Docker toolchain | **written, never executed** |
+| Win32 compat layer | **compiles** — `-m32`, zero errors |
+| CMake + Docker toolchain | **verified end to end** — produces an ELF32 i386 binary |
 
-The honest headline: **no C++ in this repo has been through a compiler.** The
-dev host has Python 3.11 and nothing else — no gcc, cmake, make or docker. Every
-Python tool here has actually been run and its output inspected; the C++ and the
-build files have not. The first person with Docker should run
-`./docker/gameserver-build/build.sh Debug struct_probe` and expect to fix things.
+The dev host has Python 3.11 and no C++ toolchain, so the build runs on the
+project VPS in a container. That path now works: `build.sh` configures, compiles
+and links, and the output is
+
+```
+ELF 32-bit LSB pie executable, Intel i386, dynamically linked, with debug_info
+```
+
+which is the architecture the shipped `jx_linux_y` uses.
+
+Remaining gap: the probe reports the sizes **this build** produces. Confirming
+they match what the shipped binary expects is the other half of the criterion
+and has not been done — see *Exit criteria*.
 
 ## 1. The worklist
 
@@ -76,13 +84,17 @@ struct across the five protocol headers.
 ```
 KRelayProtocol.h    13    KProtocol.h    277
 KTongProtocol.h     66    KGmProtocol.h   34
-TOTAL              390 names -- 364 distinct layouts (26 tag/typedef alias pairs)
+TOTAL              390 names -- 365 distinct layouts (25 tag/typedef alias pairs)
 ```
 
 Both counts are real and answer different questions. 390 is how many type
-*names* must compile (code uses both spellings of an aliased struct); 364 is how
-many distinct *layouts* exist. The plan document's "365" was tracking the layout
-count.
+*names* must compile (code uses both spellings of an aliased struct); 365 is how
+many distinct *layouts* exist.
+
+**All 390 compile and their sizes are recorded in `protocol/struct_sizes.tsv`.**
+The sizes are visibly odd numbers — 5, 9, 35, 39 — which is the check that
+`#pragma pack(1)` is actually in effect. Any padding would round them to
+multiples of 4.
 
 Why this matters more than it looks: these structs are `#pragma pack(1)` and get
 `memcpy`'d straight onto the socket. The client is a compiled binary that cannot
@@ -90,10 +102,63 @@ be changed, so a struct one byte off is not a bug that shows up as a wrong value
 — it desynchronises the stream and the connection dies. Getting all 390 to
 compile and match is the Phase 0 exit criterion.
 
-`KProtocol.h` already carries an `#ifndef __linux` branch that includes
-`GameDataDef.h` directly, so `Sources/Core/Src` has to be on the include path.
-Someone started this port before. `-D__linux` in `CMakeLists.txt` takes that
-branch.
+`KProtocol.h` already switches on `__linux`: without it the include is the
+Windows relative path `../Sources/Core/src/GameDataDef.h`, with it the include
+is a plain `"GameDataDef.h"` resolved from the include path. Someone started
+this port before. `-D__linux` plus `Sources/Core/Src` on the include path takes
+that branch.
+
+Note that `KTongProtocol.h` includes nothing at all — it assumes `GameDataDef.h`
+is already in the translation unit. Include order in the probe is therefore not
+cosmetic.
+
+### What the first build actually taught us
+
+The first compile produced 184 errors. They collapsed to three causes, and two
+of them were mine.
+
+**1. The tree is not uniformly GBK, and saying it is breaks everything.** The
+obvious setting is `-finput-charset=GBK`, since the comments are Chinese. It is
+wrong. Measured:
+
+| File | Decodes as |
+|---|---|
+| `KProtocol.h` | GBK (invalid UTF-8 at 1697) |
+| `GameDataDef.h` | **UTF-8** (invalid GBK at 510) |
+| `CoreUseNameDef.h` | **neither** GBK, GB18030, nor UTF-8 |
+
+Naming a charset makes GCC run iconv over every file and fail hard on the first
+byte that does not fit. The failure surfaces as one error at the `#include`
+line — `failure to convert GBK to UTF-8` — which drops every type the header
+defines and cascades into ~180 downstream "was not declared" errors that all
+point at innocent code. Removing both charset flags fixed 178 of the 184.
+
+Passing bytes through untouched is also the *correct* behaviour, not just the
+convenient one: some of those string literals go on the wire, and the original
+MSVC build emitted the source bytes verbatim.
+
+**2. `GUID` and `POINT` were missing from compat.** Both appear by value inside
+packed structs, so they are wire layouts, not conveniences. Added with a
+`static_assert(sizeof(GUID) == 16)` rather than trusting it.
+
+**3. A real bug in the Windows source.** `KProtocol.h:1384`:
+
+```cpp
+void AllocateBuffer(std::size_t size) { m_lpBuf = &std::make_unique<BYTE[]>(size); }
+```
+
+Taking the address of a temporary. MSVC accepted it; GCC rejects it. It is not
+a portability wart — the `unique_ptr` dies at the end of the full expression, so
+`m_lpBuf` points at freed memory. The probe only needs the header to *parse*, so
+`-fpermissive` is scoped to that one target; the member gets fixed properly when
+`tagSHOW_MSG_SYNC` is ported. Worth remembering as evidence that the Windows
+tree is a source of code, not a source of truth.
+
+**4. The harvester probed a commented-out struct.** `DB_PLAYERSELECT_COMMAND`
+lives inside `/* ... */` in `KProtocol.h`. Regexes do not know about comments;
+`gen_struct_probe.py` now strips them first (preserving newlines so the
+`^`-anchored patterns still work). This is what moved the layout count from 364
+to 365.
 
 ## 3. The oracle
 
@@ -126,7 +191,7 @@ those as protocol differences.
 measurement: 55 distinct API names across 37 files that include `<windows.h>`.
 It is not a general Win32 emulation and should not become one.
 
-Decisions worth knowing:
+It compiles under `-m32` with zero errors. Decisions worth knowing:
 
 - **`CRITICAL_SECTION` is recursive.** The JX player and NPC locks re-enter. A
   non-recursive mutex deadlocks instead of failing loudly.
@@ -138,14 +203,49 @@ Decisions worth knowing:
 - **`winsock2.h` is not in the `windows.h` umbrella**, mirroring the Win32
   ordering constraint so ported includes stay honest.
 
-All unverified until it compiles.
+## Where the build runs
+
+The dev host is Windows with Python 3.11 and no compiler; WSL is not installed.
+Builds run on the project VPS in a container:
+
+```bash
+# one-time: get the sources onto the VPS build directory
+tar --exclude=__pycache__ --exclude=build -czf - gameserver_cpp docker/gameserver-build \
+    | ssh -i ~/.ssh/vltk_vps root@<vps> 'mkdir -p /root/jx-build && tar xzf - -C /root/jx-build'
+cd /path/to/SwordOnline && tar -czf - Headers Sources/Core/Src \
+    | ssh -i ~/.ssh/vltk_vps root@<vps> 'mkdir -p /root/jx-build/jxwin && tar xzf - -C /root/jx-build/jxwin'
+
+# build
+ssh -i ~/.ssh/vltk_vps root@<vps> \
+    'cd /root/jx-build && JX_WIN_SOURCE=/root/jx-build/jxwin bash docker/gameserver-build/build.sh Debug struct_probe'
+```
+
+`/root/jx-build` is deliberately **separate from the deployed `/root/vltk-linux`**,
+which carries uncommitted production config (patched IPs, runtime state). Nothing
+here touches the running stack, and nothing is installed on the VPS host — the
+toolchain lives entirely inside the image.
+
+Only `Headers/` and `Sources/Core/Src/` of the Windows tree are needed so far:
+15 + 187 files, 3.7 MB.
 
 ## Exit criteria
 
-- [ ] All 390 struct names compile under `-m32` and `sizeof` matches the binary
+- [x] All 390 struct names compile under `-m32` — sizes in `protocol/struct_sizes.tsv`
+- [ ] Those sizes are confirmed against what the shipped binary expects
 - [x] The oracle can record a session and diff two recordings
 - [x] The port's scope is measured, not estimated
-- [ ] `build.sh` produces a binary on a machine with Docker
+- [x] `build.sh` produces a binary — verified, ELF32 i386
+
+The one open item is real. The probe reports what *this* build computes; that is
+necessary but not sufficient. Two ways to close it, both available now:
+
+1. Capture live traffic with `oracle_proxy.py` and check that observed packet
+   lengths match the table. Cheap, and covers exactly the structs that matter
+   most because they are the ones actually on the wire.
+2. Cross-reference struct sizes in IDA against the shipped binary. Complete but
+   slow.
+
+Route 1 first — it uses tooling that already exists and prioritises itself.
 
 ## Next
 

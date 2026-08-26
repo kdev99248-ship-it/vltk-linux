@@ -50,6 +50,18 @@ PAIR_RE = re.compile(
     re.S)
 
 
+# Commented-out structs are still structs to a regex. KProtocol.h carries at
+# least one (`/*typedef struct {...} DB_PLAYERSELECT_COMMAND;*/`), and probing a
+# name that no longer exists fails the build. Strip comments first, replacing
+# each with the newlines it spanned so the ^-anchored patterns still see real
+# line starts.
+COMMENT_RE = re.compile(r"/\*.*?\*/|//[^\n]*", re.S)
+
+
+def strip_comments(text):
+    return COMMENT_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
+
+
 def harvest(header_dir):
     """Return ([(header, struct_name)], alias_count) in declaration order."""
     seen = set()
@@ -61,7 +73,7 @@ def harvest(header_dir):
             print(f"  ! missing {h}", file=sys.stderr)
             continue
         with open(path, "r", encoding="utf-8", errors="replace") as fh:
-            text = fh.read()
+            text = strip_comments(fh.read())
         for tag, alias in PAIR_RE.findall(text):
             if tag != alias:
                 aliases += 1
