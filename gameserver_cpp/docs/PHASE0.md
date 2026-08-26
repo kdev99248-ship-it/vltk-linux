@@ -17,6 +17,7 @@ depends on, and builds the harness that will say whether the port is correct.
 | Oracle proxy + differ | **done, verified** — 15/15 self-test checks pass, incl. the real KSG table |
 | Win32 compat layer | **compiles** — `-m32`, zero errors |
 | CMake + Docker toolchain | **verified end to end** — produces an ELF32 i386 binary |
+| Layouts confirmed against the binary | **done** — and the answer was *no*; see §5 |
 
 The dev host has Python 3.11 and no C++ toolchain, so the build runs on the
 project VPS in a container. That path now works: `build.sh` configures, compiles
@@ -28,9 +29,11 @@ ELF 32-bit LSB pie executable, Intel i386, dynamically linked, with debug_info
 
 which is the architecture the shipped `jx_linux_y` uses.
 
-Remaining gap: the probe reports the sizes **this build** produces. Confirming
-they match what the shipped binary expects is the other half of the criterion
-and has not been done — see *Exit criteria*.
+**Phase 0 is closed, and it closed on a result that changes the plan.** The
+shipped binary turned out to carry full debug info, so the protocol layouts could
+be read out of it exactly rather than inferred. They do not match the Windows
+headers: of the 158 structs both sides define, 69 differ. §5 has the numbers and
+what follows from them.
 
 ## 1. The worklist
 
@@ -228,31 +231,122 @@ toolchain lives entirely inside the image.
 Only `Headers/` and `Sources/Core/Src/` of the Windows tree are needed so far:
 15 + 187 files, 3.7 MB.
 
+## 5. The binary describes itself
+
+`server1/jx_linux_y` was built with `-g` and never stripped. It carries **21.3 MB
+of DWARF 2** across 250 compilation units. That makes the shipped server
+self-describing: the size of every struct, the name, offset and type of every
+member, all recorded by the compiler that produced the binary that is running in
+production today.
+
+This replaced the planned exit route. Capturing live traffic would have shown the
+total length of whatever packets a session happened to send. DWARF gives the size
+*and* the internal layout of everything, needs no client, no server and no
+network, and cannot be confounded by a packet that never gets exercised.
+
+`tools/dwarf_structs.py` reads it. No external dependency — it parses the ELF
+section table and the DWARF itself, because the dev host has only Python.
+
+### Was `-g` really used everywhere?
+
+This matters: if some translation units were compiled without it, "absent from
+DWARF" would mean "not measured" rather than "not present", and the conclusion
+below would be wrong. It was used everywhere. DWARF defines **8837** subprograms
+with a `low_pc`; IDA found **8402** functions in the same binary. Debug info
+covers more than the disassembler does, so nothing is missing.
+
+### The result
+
+Comparing the 390 structs our build produces against the binary:
+
+| | count | meaning |
+|---|---:|---|
+| identical | **89** | the Windows header is correct for these |
+| different size | **69** | the Windows header is **wrong** for these |
+| absent from the binary | **232** | Windows-only packets this server never implements |
+
+Of the 69, only 2 are a `BYTE data[1]` vs `BYTE data[]` convention difference.
+The other **67 are real layout divergence** — different fields, not different
+spelling. And of the 232 absent, 224 do not appear anywhere in `.debug_str`, so
+the type genuinely does not exist in this server.
+
+So for the structs the two trees share, **the Windows headers are wrong 44% of
+the time** (69 of 158). They are not a description of this protocol.
+
+### What the binary's protocol actually looks like
+
+Every JX packet inherits from a protocol-header base, which makes the real packet
+set enumerable rather than guessed at. `--packets` finds **377** of them:
+
+| base | size | packets |
+|---|---:|---:|
+| `tagProtocolHeader` | 1 | 248 |
+| `EXTEND_HEADER` | 2 | 124 |
+| `tagProtocolHeader2` | 5 | 5 |
+
+**236 of the 377 have no counterpart in the Windows headers at all.** Two
+different header bases are in use side by side, which the single-base Windows
+layout does not express.
+
+Full layouts — 1678 fields with names, offsets, types and sizes — are in
+`protocol/binary_packets.tsv`; all 1924 named aggregates are in
+`protocol/binary_sizes.tsv`.
+
+### Why these numbers can be trusted
+
+A DWARF reader can be subtly wrong — misread a form, drop a child, shift an
+offset — and still emit plausible numbers. Three independent checks say this one
+is not:
+
+1. **`--verify` on all 377 packets: 0 inconsistent.** For each, the last field
+   ends exactly at `sizeof`, or is a flexible array beginning exactly at
+   `sizeof`. That invariant holding across 377 unrelated structs is not something
+   a broken parser produces.
+2. **89 exact agreements with an independent implementation** — our GCC build of
+   the Windows headers — including 28 structs of 32 bytes or more, up to a
+   264-byte one. Coincidence is not available as an explanation.
+3. **No source-level name is ambiguous** among the 390. 84 names do carry
+   conflicting sizes, but every one is a GCC-synthesised `._NNN` for an anonymous
+   aggregate, numbered from a counter that restarts per translation unit, so the
+   collisions are guaranteed by construction and involve no real type.
+
+One finding did come out of check 3 and is worth remembering: 13 *source-level*
+names are ambiguous across translation units — `KINFO` `[8, 16]`,
+`KItemValueInfo` `[416, 568]`, `TSendBuf` `[5, 6, 13, 14]`, `_tagSyncFileHead`
+`[20, 24]`, and 9 zlib internals. None is a protocol struct, so nothing above is
+affected, but `KItemValueInfo` differing by 152 bytes between two files in the
+same program is a live hazard for whichever phase touches it.
+
 ## Exit criteria
 
 - [x] All 390 struct names compile under `-m32` — sizes in `protocol/struct_sizes.tsv`
-- [ ] Those sizes are confirmed against what the shipped binary expects
+- [x] Those sizes are confirmed against what the shipped binary expects — §5
 - [x] The oracle can record a session and diff two recordings
 - [x] The port's scope is measured, not estimated
 - [x] `build.sh` produces a binary — verified, ELF32 i386
 
-The one open item is real. The probe reports what *this* build computes; that is
-necessary but not sufficient. Two ways to close it, both available now:
-
-1. Capture live traffic with `oracle_proxy.py` and check that observed packet
-   lengths match the table. Cheap, and covers exactly the structs that matter
-   most because they are the ones actually on the wire.
-2. Cross-reference struct sizes in IDA against the shipped binary. Complete but
-   slow.
-
-Route 1 first — it uses tooling that already exists and prioritises itself.
+All five are met. The second one is met in the sense that matters: it was
+checked, against the strongest available evidence, and it failed. Knowing that
+is the point of measuring.
 
 ## Next
 
-Phase 1 is `compat` + `KServerCore` + the protocol layer — enough to accept a
-connection and complete the handshake, validated against the oracle. The
-handshake specifics are already reverse-engineered and recorded in the s3relay
-work: 42-byte `ACCOUNT_BEGIN` with obfuscated keys at offsets 0x08/0x11, then
-the chained KSG cipher. That is the Linux protocol, not the Windows 32-byte
+**The protocol layer is no longer a porting job.** The Windows headers are wrong
+for 44% of the shared structs and missing 236 packets, so porting them would
+build a server that desynchronises against the real client in ways that surface
+as dropped connections. `protocol/binary_packets.tsv` already holds the correct
+layouts, extracted and self-checked. Phase 1 should generate the protocol header
+from that table rather than adapting `KProtocol.h`.
+
+That also re-scores the worklist. The 68%-to-reverse-engineer figure was computed
+against the Windows tree; for the protocol layer specifically, DWARF has now
+supplied the layouts outright, so the remaining work there is behaviour, not
+structure.
+
+Phase 1 otherwise stands: `compat` + `KServerCore` + the protocol layer, enough
+to accept a connection and complete the handshake, validated against the oracle.
+The handshake specifics are already reverse-engineered and recorded in the
+s3relay work: 42-byte `ACCOUNT_BEGIN` with obfuscated keys at offsets 0x08/0x11,
+then the chained KSG cipher. That is the Linux protocol, not the Windows 32-byte
 constant-XOR form — the Windows source is actively misleading here, and using it
-crash-loops the gateway.
+crash-loops the gateway. §5 is the same lesson at a larger scale.

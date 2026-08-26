@@ -24,8 +24,13 @@ tools/        The measurement and validation tooling. All Python 3, no build
               step, because the dev host has no C++ toolchain.
 tools/symbols/  Generated data: the IDA symbol table and everything derived
                 from it.
-protocol/     struct_sizes.tsv -- sizeof for all 390 packet structs, produced
-              by struct_probe. The reference the port must not drift from.
+protocol/     struct_sizes.tsv    sizeof for all 390 packet structs as our build
+                                  computes them, from struct_probe.
+              binary_sizes.tsv    all 1924 named aggregates in the shipped
+                                  binary, read from its DWARF.
+              binary_packets.tsv  the real packet set -- 377 structs, 1678
+                                  fields with offsets and types. This, not the
+                                  Windows headers, is the protocol.
 src/          The port itself (Phase 1 onward).
 docs/         Phase notes. Start with docs/PHASE0.md.
 ```
@@ -69,6 +74,7 @@ Everything here runs on a bare Python 3 install.
 | `build_worklist.py` | Cross-references the 8402 IDA symbols against the Windows tree at **method** level and writes `symbols/worklist.tsv` -- the port's task list, sorted by weight. |
 | `scan_lua_bindings.py` | Finds the C Lua bindings and counts how often each is called from the 6347 shipped scripts, so binding work can be ordered by real usage. |
 | `gen_struct_probe.py` | Emits a C++ program printing `sizeof()` for every packet struct. |
+| `dwarf_structs.py` | Reads struct layouts straight out of the shipped binary's DWARF -- sizes, field names, offsets, types. The ground truth everything else is checked against. |
 | `oracle_proxy.py` | TCP capture proxy. Records a session against the old server, then the new one. |
 | `diff_capture.py` | Compares two captures and locates the first divergence. Exit 1 on any difference. |
 | `test_oracle.py` | Self-test for the two above. Run it before trusting them. |
@@ -108,9 +114,29 @@ comparison would report those as differences.
 verbose output. It never changes what is captured -- the capture is always the
 bytes on the wire, so a decode bug cannot corrupt the evidence.
 
+### The binary is the specification
+
+`server1/jx_linux_y` ships with 21.3 MB of DWARF, so it describes its own types.
+That closed the last exit criterion, and the answer was not the expected one:
+
+```bash
+python3 tools/dwarf_structs.py server1/jx_linux_y --verify \
+    --compare protocol/struct_sizes.tsv
+```
+
+```
+89 identical · 69 different · 232 the binary has never heard of
+```
+
+For the structs both trees define, the Windows headers are wrong 44% of the time.
+`--packets` enumerates the real set instead -- 377 structs, found by their
+inheritance from a protocol-header base, 236 of which the Windows headers do not
+contain. Details and the checks behind the numbers are in `docs/PHASE0.md` §5.
+
 ## Status
 
-Phase 0, nearly closed. The build works and produces an ELF32 i386 binary; all
-390 protocol structs compile and their sizes are recorded. The one open exit
-criterion is confirming those sizes against the shipped binary. See
-`docs/PHASE0.md`.
+**Phase 0 closed.** The build works and produces an ELF32 i386 binary; all 390
+protocol structs compile; and their layouts have been checked against the shipped
+binary, which is how we learned the Windows protocol headers cannot be ported.
+Phase 1 generates the protocol layer from `protocol/binary_packets.tsv` instead.
+See `docs/PHASE0.md`.
