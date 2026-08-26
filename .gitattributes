@@ -1,0 +1,43 @@
+# Line endings are load-bearing here, in both directions.
+#
+# A shell script checked out with CRLF fails inside the build container with
+# "bad interpreter: /usr/bin/env bash^M" -- the shebang carries the \r. Same for
+# a Dockerfile RUN line. Force LF on everything that a Linux tool reads.
+#
+# Binary files must never be touched at all. heaven_table.bin has to be exactly
+# 22716 bytes; a single CRLF substitution in it crash-loops paysys/s3relay with
+# "invalid size".
+
+* text=auto eol=lf
+
+*.sh        text eol=lf
+Dockerfile  text eol=lf
+*.cmake     text eol=lf
+CMakeLists.txt text eol=lf
+*.py        text eol=lf
+*.c         text eol=lf
+*.cpp       text eol=lf
+*.h         text eol=lf
+*.md        text eol=lf
+*.tsv       text eol=lf
+*.jsonl     text eol=lf
+
+*.bin       binary
+*.so        binary
+*.so.*      binary
+*.i64       binary
+*.id0       binary
+*.id1       binary
+*.id2       binary
+*.nam       binary
+*.til       binary
+*.png       binary
+*.jpg       binary
+*.gz        binary
+*.zip       binary
+*.tar       binary
+
+# The game's own data files are GBK-encoded and fixed-format. Leave them alone.
+*.txt       -text
+*.ini       -text
+*.lua       -text

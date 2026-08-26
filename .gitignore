@@ -1,1 +1,21 @@
+# IDA working files. The database is regenerated from the binary; only the
+# exported symbol table (gameserver_cpp/tools/symbols/) is worth versioning.
 *.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+*.til.bak
+
+# Build output. struct_probe.cpp lands here too -- it is generated from the
+# protocol headers on every build, so versioning it would only invite drift.
+build/
+
+# Capture files from the oracle proxy: session-specific, often large, and
+# reproducible by replaying the client. The tooling is versioned, not the data.
+captures/*.jsonl
+
+# Python
+__pycache__/
+*.pyc

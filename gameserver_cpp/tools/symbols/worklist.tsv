@@ -1,0 +1,4041 @@
+class	method	code_bytes	status	source_file
+KPlayer	TradeDecision	9269	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	KPlayer	5960	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ServerPickUpItem	5224	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	LoadPlayerItemList	4554	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	~KPlayer	4511	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	Load	2823	RE	
+KPlayer	Active	2592	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	PkPunish	2420	RE	
+KPlayer	Release	2207	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ExecuteScript	2032	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ServerThrowAwayItem	1626	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SavePlayerBaseInfo	1621	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	SavePlayerItemList	1613	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	LevelUp	1540	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddExp	1538	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddSkillPoint	1413	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddTeamMember	1398	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	UpdateDBPlayerInfo	1272	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	CheckExpiredTimeItem	1256	RE	
+KPlayer	TeamChangeCaptain	1177	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	c2sTradeReplyStart	1090	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	LoadPlayerStateList	1001	RE	
+KPlayer	SavePlayerStateList	974	RE	
+KPlayer	LoadDBPlayerInfo	940	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	AddSelfExp	860	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	TRepairEquip	792	RE	
+KPlayer	ExecuteScriptValist	759	RE	
+KPlayer	ProcessGiveItemUI	710	RE	
+KPlayer	LaunchPlayer	680	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SyncLevelUp	663	RE	
+KPlayer	SendSyncData	641	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	Revive	629	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	_ExecuteScript	629	RE	
+KPlayer	DirectAddExp	607	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ProcessChangeExtPoint	605	RE	
+KPlayer	OfflineLive	597	RE	
+KPlayer	ProcessPlayerSelectFromUI	585	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	TeamKickOne	579	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	TeamDismiss	561	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	UpdateEquipLeftUageTime	546	RE	
+KPlayer	SendCurNormalSyncData	539	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	_FillViewItemDetailInfo	522	RE	
+KPlayer	S2CSendTeamInfo	516	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ServerMoveItem	512	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	S2CSendAddTeamInfo	511	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	DialogNpc	486	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SendSelfTeamInfo	485	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddItemOnBody	482	RE	
+KPlayer	RepairItem	472	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	WriteLog	468	RE	
+KPlayer	FormatCallNotReturn	461	RE	
+KPlayer	SendSyncCurPlayer	454	RE	
+KPlayer	Add120SkillExp	453	RE	
+KPlayer	LoadPlayerTaskList	446	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	DoScript	423	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetBaseResistData	421	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SavePlayerTaskList	409	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	RepairGoldEquip	397	RE	
+KPlayer	UpdateRetScoreForGoldCoin	395	RE	
+KPlayer	LeaveTeam	389	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CancelTrade	384	RE	
+KPlayer	BuyItem	383	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	MaskItem	381	RE	
+KPlayer	SendEquipItemInfo	373	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetExpPercent	357	RE	
+KPlayer	SetFirstDamage	347	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SyncTaskValueMoreToClient	347	RE	
+KPlayer	TeamReplyInvite	340	RE	
+KPlayer	UpdateRespect	333	RE	
+KPlayer	EatItem	325	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetAboutPos	313	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	LoadPlayerFightSkillList	309	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	TobeExchangeServer	303	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddBaseEngergy	299	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddBaseVitality	299	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SendSyncData_Skill	298	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetRevivalPos	296	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ReCalcEquip	294	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SendSyncResist	291	RE	
+KPlayer	LoadPlayerLifeSkilllList	285	RE	
+KPlayer	TradeApplyOpen	285	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	StackExp	284	RE	
+KPlayer	LoginDelaySync	278	RE	
+KPlayer	TradeApplyStart	275	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	DoTransLife	274	RE	
+KPlayer	ChatTransmitApplyAddFriend	272	RE	
+KPlayer	UseSilver	269	RE	
+KPlayer	UseTownPortal	264	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ApplyBindOperate	260	RE	
+KPlayer	SellItem	257	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetFeeType	253	RE	
+KPlayer	AddBaseDexterity	252	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CheckAndReviveOnDeath	249	RE	
+KPlayer	SyncTradeState	243	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddFaction	238	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	Give	233	RE	
+KPlayer	SyncGoldCoin	228	RE	
+KPlayer	CheckPlayerAround	225	RE	
+KPlayer	NotifyUiProgressBar	224	RE	
+KPlayer	Watch	224	RE	
+KPlayer	S2CExecuteScript	223	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetTeamState	223	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	FindAroundPlayer	218	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ShowPersonInfo	218	RE	
+KPlayer	LevelAddBaseStaminaMax	210	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	UpdataCurData	205	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddBaseStrength	204	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	NewPlayerGetBaseAttribute	198	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ChatAddFriend	197	RE	
+KPlayer	AddLeadExp	194	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	DisWatch	190	RE	
+KPlayer	SetAForbitSkill	190	RE	
+KPlayer	ChatRefuseFriend	189	RE	
+KPlayer	OnDbLoaded	189	RE	
+KPlayer	Rename	187	RE	
+KPlayer	SetNpcPhysicsDamage	168	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetWeaponEnhance	160	RE	
+KPlayer	SavePlayerFightSkillList	160	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	CheckTryoutTimeout	159	RE	
+KPlayer	ChangeCurVitality	157	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ForbitUseSkill	154	RE	
+KPlayer	SetPartnerBagLevel	154	RE	
+KPlayer	ServerDivideItem	150	RE	
+KPlayer	IsCheckValueValid	149	RE	
+KPlayer	ChatFriendOnLine	147	RE	
+KPlayer	SetTaskValue	147	RE	
+KPlayer	SetLastNetOperationTime	146	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	LevelsUp	145	RE	
+KPlayer	BackToTownPortal	144	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetBaseSpeedAndRadius	140	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddBaseAttribute	139	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CheckTrade	139	RE	
+KPlayer	Save	131	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	TradeMoveMoney	125	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ForceLeaveTong	123	RE	
+KPlayer	GetRandomTaskTime	121	RE	
+KPlayer	OfflineQuit	121	RE	
+KPlayer	GetAllChannels	120	RE	
+KPlayer	OnEnterNewMap	119	RE	
+KPlayer	OnLeaveCurMap	119	RE	
+KPlayer	CanSave	118	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CurFactionOpenSkill	118	RE	
+KPlayer	LevelAddBaseLifeMax	118	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	LevelAddBaseManaMax	118	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetPK	112	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddExtPoint	109	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ActivateRandomTaskEvent	108	RE	
+KPlayer	PayExtPoint	106	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	EnterChannel	102	RE	
+KPlayer	IsOfflineTimeout	101	RE	
+KPlayer	CheckLeftTalkTimeCount	100	RE	
+KPlayer	LeaveChannel	100	RE	
+KPlayer	SendFactionData	99	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ChangeCurEngergy	98	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	OnQuit	97	RE	
+KPlayer	Dispense	96	RE	
+KPlayer	LoadPlayerBaseInfo	96	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	LeaveCurFaction	94	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CheckGlobalTrade	92	RE	
+KPlayer	SetDisabledFuncFlag	91	RE	
+KPlayer	KickOut	88	RE	
+KPlayer	SetPortrait	88	RE	
+KPlayer	ChangeCurDexterity	87	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetMateName	87	RE	
+KPlayer	SyncTaskValueToClient	85	RE	
+KPlayer	TradeApplyClose	84	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SyncIsCheckNpcBarrier	81	RE	
+KPlayer	ThrowAwayMedicineFromEquipmentRoom	79	RE	
+KPlayer	ProcessStallProtocol	78	RE	
+KPlayer	OnLogin	76	RE	
+KPlayer	PrePay	76	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetCanSwitchHorseTime	74	RE	
+KPlayer	CheckTradeFromTireSystem	72	RE	
+KPlayer	ClearAllChannels	72	RE	
+KPlayer	ConsumeLeftTalkTimeCount	70	RE	
+KPlayer	Msg2Player	70	RE	
+KPlayer	SetMateName	69	RE	
+KPlayer	GetAllEquipValue	68	RE	
+KPlayer	_AddItemToList	65	RE	
+KPlayer	DoScriptAction	62	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	IsLoginTimeOut	59	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetNpcDefence	58	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	TeamAutoChangeCaption	58	RE	
+KPlayer	LoginTimeOut	57	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CanChangeCurCamp	55	RE	
+KPlayer	ChatResendAllFriend	55	RE	
+KPlayer	FindAroundNpc	52	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetNpcAttackRating	52	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SyncBalance	50	RE	
+KPlayer	CleanConnectionStatus	49	RE	
+KPlayer	SendData	49	RE	
+KPlayer	OnOffline	48	RE	
+KPlayer	SetTimer	48	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddTempTaskValue	45	RE	
+KPlayer	ChatDeleteFriend	45	RE	
+KPlayer	ChatRedeleteFriend	45	RE	
+KPlayer	ChatSendOneFriendData	45	RE	
+KPlayer	Earn	45	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	UpdateExtPoint	45	RE	
+KPlayer	SetBaseAttackRating	44	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetCurrentMap	43	RE	
+KPlayer	CreateTeam	42	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ServerSendChat	41	RE	
+KPlayer	TaskSetSaveVal	41	RE	
+KPlayer	RegisterProcessEvent	40	RE	
+KPlayer	SetBaseDefence	40	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ChangePlayerCamp	38	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ClearScriptAnswers	38	RE	
+KPlayer	Shutdown	38	RE	
+KPlayer	Pay	36	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CheckTrading	34	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	CloseTimer	34	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetDeathRevivalPos	32	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetDisabledFuncFlag	32	RE	
+KPlayer	GetLoginRevivalPos	32	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ReCalcState	31	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetExtPoint	30	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ChatSetTakeChannel	29	RE	
+KPlayer	WaitForRemove	28	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	ChangeExpEnhanceV	26	RE	
+KPlayer	IsWaitingRemove	26	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetAccountLeftTime	26	RE	
+KPlayer	SetPlayerIndex	26	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SavePlayerLifeSkilllList	25	RE	
+KPlayer	GetMyNpc	24	RE	
+KPlayer	GetExtPoint	22	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetExtPointChanged	22	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	SetRenascenceCount	22	RE	
+KPlayer	ChangeCurStrength	21	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddProgressBar	20	RE	
+KPlayer	DelProgressBar	20	RE	
+KPlayer	GetFactionName	20	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	GetLastAddFactionName	20	RE	
+KPlayer	TaskGetClearVal	20	RE	
+KPlayer	TaskGetSaveVal	20	RE	
+KPlayer	TaskSetClearVal	20	RE	
+KPlayer	PrepareOfflineQuit	18	RE	
+KPlayer	AddBaseLucky	17	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	Change120SKillExpEnhanceP	17	RE	
+KPlayer	ChangeCurLucky	17	RE	
+KPlayer	ChangeExpEnhanceP	17	RE	
+KPlayer	GetEquipMantleLevel	16	RE	
+KPlayer	TaskClearTempVal	16	RE	
+KPlayer	GetEngergyDamage	14	RE	
+KPlayer	IsExchangingServer	14	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	IsOfflineLive	14	RE	
+KPlayer	IsOfflineQuit	14	RE	
+KPlayer	SetNpcDamageAttrib	9	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	AddDBPlayer	7	PORT	Sources/Core/Src/KPlayerDBFuns.cpp
+KPlayer	AddLuckyStar	5	RE	
+KPlayer	ProcessMsg	5	PORT	Sources/Core/Src/KPlayer.cpp
+KPlayer	RemoveLuckyStar	5	RE	
+KNpc	ReceiveDamage	4158	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetStateSkillEffect	3099	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	KNpc	2988	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CalcDamage	2693	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ChangeWorld	2538	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DeathPunish	2282	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ProcessState	2276	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetNpcCopyFromTemplate	2187	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ResetAttribWithoutEnhance	2033	RE	
+KNpc	Init	1988	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	RestoreNpcBaseInfo	1807	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoDeath	1392	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	NormalSync	1390	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	LoadDataFromTemplate	1231	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	TeamShareItemModePunish	1207	RE	
+KNpc	MovePos	1001	RE	
+KNpc	OnDeathProcess	968	RE	
+KNpc	AppendSkillEffect	955	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SendSyncData	942	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	LoseMoney	910	RE	
+KNpc	DeathCalcPKValue	891	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoKnockBack	888	RE	
+KNpc	Revive	868	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoRevive	851	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncPlayer	832	RE	
+KNpc	KilledByNpc	805	RE	
+KNpc	LoseSingleItem	794	RE	
+KNpc	DoSkill	693	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ClearStateSkillEffect	646	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	TestMovePos	633	RE	
+KNpc	ChangeFeature_Disguise	632	RE	
+KNpc	ServeMove	626	RE	
+KNpc	CastAura	582	RE	
+KNpc	DoHurt	565	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	RestoreFeature	541	RE	
+KNpc	SetPos	541	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ExecuteScript	527	RE	
+KNpc	CmdListSubLife	522	RE	
+KNpc	TurnTo	517	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	NewJump	502	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	BroadCastState	489	RE	
+KNpc	CalcPhysicsAttribDamage	488	RE	
+KNpc	AddPoisonState	476	RE	
+KNpc	SyncAttributes	473	RE	
+KNpc	AddSkillEnhance	472	RE	
+KNpc	CastMeleeSkill	447	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CmdListActive	444	RE	
+KNpc	OnJumpAttack	434	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoOrdinSkill	431	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SendDataToNearRegion	420	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	RemoveStateSkillEffect	414	RE	
+KNpc	ProcCommand	412	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CmdListCheckCmdOpeType	388	RE	
+KNpc	Activate	386	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CalcPoisonAttribDamage	374	RE	
+KNpc	ExecuteScriptWithValist	360	RE	
+KNpc	DoMovePos	343	RE	
+KNpc	PlayerDeadCreateMoneyObj	338	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ProcStatus	333	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoRun	328	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoRunAttack	323	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CalcColdAttribDamage	321	RE	
+KNpc	OnRunAttack	312	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	AppendBossProp	311	RE	
+KNpc	SyncFeatureData	311	RE	
+KNpc	UpdateNpcStateInfo	308	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncPos	307	RE	
+KNpc	DoManyAttack	306	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CalcLightAttribDamage	299	RE	
+KNpc	CheckTrap	291	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CalcFireAttribDamage	287	RE	
+KNpc	BroadCastMsg	279	RE	
+KNpc	DoJumpAttack	276	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnSkill	276	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncNotify	274	RE	
+KNpc	OnSpecial1	272	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetAuraSkill	268	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ServeJump	267	RE	
+KNpc	ClearNormalState	258	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoJump	243	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetFightMode	241	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CmdListPushCmd	227	RE	
+KNpc	DoStand	227	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnManyAttack	227	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnKnockBack	223	RE	
+KNpc	SetNextSkillCastTime	222	RE	
+KNpc	DoWalk	209	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ReCalcStateEffect	208	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoBlurAttack	206	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	Load	204	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoAttack	198	RE	
+KNpc	OnRandMove	197	RE	
+KNpc	OnHurt	195	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnRun	192	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetActiveSkill	192	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncSkillFailed	191	RE	
+KNpc	SyncNpcMinPlayer	190	RE	
+KNpc	CheckHitTarget	183	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoMagic	182	RE	
+KNpc	DoSit	179	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CheckPlayerAround	176	RE	
+KNpc	DoPlayerTalk	161	RE	
+KNpc	GetMaxResist	160	RE	
+KNpc	SearchAroundID	160	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncCastState	157	RE	
+KNpc	OnSpecial2	149	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncNoChangeSpeed	149	RE	
+KNpc	SetHide	146	RE	
+KNpc	SetCamp	144	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetCurrentCamp	144	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetCurActiveWeaponSkill	140	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ChangeFeature	138	RE	
+KNpc	AddStateInfo	122	RE	
+KNpc	Remove	120	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	Translate	120	RE	
+KNpc	SetRideHorse	118	RE	
+KNpc	GetActiveSkill	117	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	TobeExchangeServer	116	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ModifyAllMaxRes	115	RE	
+KNpc	SyncProcessAI	114	RE	
+KNpc	CmdListGetHead	108	RE	
+KNpc	Cost	105	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SyncTmpCamp	105	RE	
+KNpc	ClearHideState	101	RE	
+KNpc	CmdListPopHead	99	RE	
+KNpc	SyncNetCommand	97	RE	
+KNpc	ClearSomeMagicAttrib	94	RE	
+KNpc	GetStateSkillEffect	93	RE	
+KNpc	JumpTo	90	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	BroadCastNetCommand	89	RE	
+KNpc	OnMovePos	89	RE	
+KNpc	AppendMagicAttrib	86	RE	
+KNpc	BroadCastRevive	81	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoIdle	80	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetNameID	80	RE	
+KNpc	ModifyAttrib	80	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetImmediatelySkillEffect	80	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	AddCurStaminaMax	78	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SendCommand	78	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	AddBaseStaminaMax	77	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	CmdListClear	76	RE	
+KNpc	OnWalk	76	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetMaxResist	75	RE	
+KNpc	RankIdSync	74	RE	
+KNpc	OnDeath	73	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetNpcMangonelParam	70	RE	
+KNpc	ClearNpcState	64	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	RestoreSomeMagicAttrib	63	RE	
+KNpc	Goto	61	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnJump	61	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	RunTo	61	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ClearSkillEnhance	58	RE	
+KNpc	ModifyMissleCollsion	54	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetNpcPowerType	53	RE	
+KNpc	IsHide4Npc	53	RE	
+KNpc	CalcCurRes	51	RE	
+KNpc	BroadCastRankId	50	RE	
+KNpc	ClearProcessAI	49	RE	
+KNpc	IsReachFrame	48	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnRevive	47	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	WaitForFrame	47	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetProcessAI	46	RE	
+KNpc	SetPlayerIdx	45	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ModifyMissleMissRate	43	RE	
+KNpc	OnSit	43	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetEngergyDamage	41	RE	
+KNpc	SetNpcSiegeVoitureParam	35	RE	
+KNpc	ModifyMissleSpeed	33	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetMyPlayer	32	RE	
+KNpc	NewPath	31	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	RestoreCurrentCamp	29	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetPortrait	29	RE	
+KNpc	SetTmpCamp	28	RE	
+KNpc	AddCurLifeMax	27	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	AddCurManaMax	27	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetPhysicsDamage	26	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetPlayerIdx	24	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	IsCommandExist	23	RE	
+KNpc	SetBaseAttackRating	23	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	SetBaseDefence	23	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	IsFeatureChanged	22	RE	
+KNpc	SetSeries	21	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	AddBaseLifeMax	17	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	AddBaseManaMax	17	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	GetCurrentCamp	14	RE	
+KNpc	DoDefense	9	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoSpecial1	9	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnStand	9	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	ModifyMissleLifeTime	8	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoSpecial2	5	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoSpecial3	5	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	DoSpecial4	5	RE	
+KNpc	OnDefense	5	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnIdle	5	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnPlayerTalk	5	RE	
+KNpc	OnSpecial3	5	PORT	Sources/Core/Src/KNpc.cpp
+KNpc	OnSpecial4	5	RE	
+KNpc	RestoreLiveData	5	PORT	Sources/Core/Src/KNpc.cpp
+KItemList	ExchangeItemHand	4630	RE	
+KItemList	ThrowAwayAllMedicine	3876	RE	
+KItemList	EatMecidine	2077	RE	
+KItemList	Add	1838	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ConstantLoseItemFromEquipmentRoom	1790	RE	
+KItemList	AutoLoseItemFromEquipmentRoom	1780	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	AutoLoseEquip	1592	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	Remove	1194	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	DeactivateEquip	1132	RE	
+KItemList	Abrade	1014	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	AbradePercentInAllEquip	968	RE	
+KItemList	DivideItem	929	RE	
+KItemList	ActivateEquip	909	RE	
+KItemList	KItemList	794	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	BackupTrade	751	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	Init	669	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ConsumeItem_SameGDPLSQ	646	RE	
+KItemList	StackItem	623	RE	
+KItemList	CanUnEquip	532	RE	
+KItemList	ConsumeItem	530	RE	
+KItemList	AutoMoveMedicine	512	RE	
+KItemList	EnoughAttrib	510	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	CheckPassWord	497	RE	
+KItemList	TradeCheckCanPlace	490	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	RecoverTrade	488	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	Add_AutoStack	469	RE	
+KItemList	CheckRoomItems	462	RE	
+KItemList	GetItemCount_SameGDPLSQ	437	RE	
+KItemList	AutoEquip	426	RE	
+KItemList	WriteLog	392	RE	
+KItemList	SetImmediaObj	376	RE	
+KItemList	GetTradeRoomItemInfo	364	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	~KItemList	356	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	CheckExtEquipSuite	351	RE	
+KItemList	CheckGoldEquipSuite	337	RE	
+KItemList	AutoStackInRoom	325	RE	
+KItemList	UnloadMaterial	325	RE	
+KItemList	GetItemCount_SameGDPL	315	RE	
+KItemList	GetFeatureType	308	RE	
+KItemList	LoadMaterial	298	RE	
+KItemList	FindItemToStack	288	RE	
+KItemList	GetWeaponDamage	287	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	CheckCanPlaceInEquipment	284	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	SyncItem	283	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	CanEquip	274	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ConfirmDeactivation	274	RE	
+KItemList	InfectionNextEquip	268	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	SetItemCount	262	RE	
+KItemList	UnEquipMagicForSuite	262	RE	
+KItemList	GetEquipEnhance	259	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ReActivateExtEquip	258	RE	
+KItemList	Equip	248	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetNextItemIndexInRoom_SameGDPL	246	RE	
+KItemList	GetExtActiveCount	236	RE	
+KItemList	GetItemIndexFromPlace	236	RE	
+KItemList	RemoveItem	234	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ExchangeMoney	230	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	RemoveAll	225	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	PlayerCanclePassword	224	RE	
+KItemList	RemoveTaskItemEx	218	RE	
+KItemList	Fit	213	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	PlayerChangePassword	209	RE	
+KItemList	ActiveAllEquipHiddenAttrib	208	RE	
+KItemList	EquipResForNPC	202	RE	
+KItemList	RemoveTaskItem	202	RE	
+KItemList	SetItemMask	202	RE	
+KItemList	SearchPosition	198	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	UnequipRemove	198	RE	
+KItemList	_OnImmediaItemRemove	182	RE	
+KItemList	PlayerSetPassword	178	RE	
+KItemList	SyncItemBindState	178	RE	
+KItemList	GetTaskItemLifeTime	175	RE	
+KItemList	FindScriptItem	172	RE	
+KItemList	ActivateExtMagicAttrib	170	RE	
+KItemList	DecMoney	168	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	EquipMagicForSuite	164	RE	
+KItemList	Mantle	158	RE	
+KItemList	FindScriptItemParam2	154	RE	
+KItemList	GetItemFromPlace	153	RE	
+KItemList	Unequip	149	RE	
+KItemList	PlayerUnlock	148	RE	
+KItemList	CheckEquipHoldStatus	141	RE	
+KItemList	GMUnlock	141	RE	
+KItemList	SyncBoxParam	140	RE	
+KItemList	_CheckIsImmediaItemSkill	140	RE	
+KItemList	GetTaskItemNumEx	139	RE	
+KItemList	_CheckImmediaSameGDPItem	137	RE	
+KItemList	EquipSuitExtSkill	133	RE	
+KItemList	GetRoomItems	132	RE	
+KItemList	GetEquipPlace	129	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	IsItemExist	127	RE	
+KItemList	SearchID	127	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	_CheckImmediaExchange	124	RE	
+KItemList	GMCanclePassword	120	RE	
+KItemList	GetTaskItemNum	114	RE	
+KItemList	NotifyExtSuiteChange	113	RE	
+KItemList	ConfirmActivation	112	RE	
+KItemList	FindNext	112	RE	
+KItemList	EquipPlatinaSkill	111	RE	
+KItemList	GMLock	110	RE	
+KItemList	GMSetPassword	107	RE	
+KItemList	IsTaskItemExist	106	RE	
+KItemList	PlayerLock	105	RE	
+KItemList	PayCoin	102	RE	
+KItemList	CompareItems	98	RE	
+KItemList	CostMoney	95	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	IsMyItem	87	RE	
+KItemList	FindSame	82	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	AddMoney	80	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	SendMoneySync	77	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetEquipmentCoin	71	RE	
+KItemList	GetNextItem	65	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetItemCount_SameGDP	62	RE	
+KItemList	GetActiveAttribNum	56	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	StartTrade	56	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetItemCount_SameGD	55	RE	
+KItemList	GetFirstItem	52	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	SetMoney	49	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetItemCount_SameG	48	RE	
+KItemList	FindFree	36	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ClearRoom	35	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetWeaponParticular	35	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetWeaponType	35	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	UnEquipSuitExtSkill	34	RE	
+KItemList	SetRoomMoney	33	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetEquipMantleLevel	32	RE	
+KItemList	TradeMoveMoney	28	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	ExchangeItem	25	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	FindSameParticularInEquipment	20	RE	
+KItemList	GetMoneyAmount	20	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	GetEquipmentMoney	14	PORT	Sources/Core/Src/KItemList.cpp
+KItemList	_CheckImmediaSkill	10	RE	
+KItemList	UnequipPlatinaSkill	9	RE	
+KItemList	_SetHandIconRef	7	RE	
+KTongLogic	ProcessProtocol	4752	RE	
+KTongLogic	Tong_Add	4238	RE	
+KTongLogic	Member_Add	3192	RE	
+KTongLogic	Union_Add	1527	RE	
+KTongLogic	Tong_AddMoneyFund	1343	RE	
+KTongLogic	Union_Remove	1258	RE	
+KTongLogic	Member_Retire	1129	RE	
+KTongLogic	Workshop_SetUseLevel	951	RE	
+KTongLogic	Workshop_SetUseLevelSet	930	RE	
+KTongLogic	Union_RemoveTong	808	RE	
+KTongLogic	Member_Figure	713	RE	
+KTongLogic	Member_Delete	686	RE	
+KTongLogic	Tong_SetMapBan	681	RE	
+KTongLogic	Workshop_AppendTaskValue	645	RE	
+KTongLogic	Tong_Data	642	RE	
+KTongLogic	Tong_SetAnnouncement	630	RE	
+KTongLogic	Workshop_Degrade	608	RE	
+KTongLogic	Workshop_Upgrade	608	RE	
+KTongLogic	Member_AppendTaskValue	604	RE	
+KTongLogic	Member_Remove	600	RE	
+KTongLogic	Tong_AppendUTaskValue	584	RE	
+KTongLogic	Workshop_AppendUTaskValue	574	RE	
+KTongLogic	Member_AppendUTaskValue	572	RE	
+KTongLogic	Tong_SetTaskValue	572	RE	
+KTongLogic	Union_AppendTaskValue	569	RE	
+KTongLogic	Workshop_Remove	567	RE	
+KTongLogic	Tong_AddEventRecord	538	RE	
+KTongLogic	Workshop_SetTaskValue	529	RE	
+KTongLogic	Member_SetTaskValue	521	RE	
+KTongLogic	Tong_AppendTaskValue	517	RE	
+KTongLogic	Union_AppendUTaskValue	516	RE	
+KTongLogic	Workshop_Close	503	RE	
+KTongLogic	Workshop_Open	503	RE	
+KTongLogic	Tong_AddHistoryRecord	496	RE	
+KTongLogic	Tong_ChangeCurrentCamp	490	RE	
+KTongLogic	Member_Rename	479	RE	
+KTongLogic	Workshop_Use	472	RE	
+KTongLogic	Union_SetTaskValue	467	RE	
+KTongLogic	Workshop_Maintain	465	RE	
+KTongLogic	Member_Online	433	RE	
+KTongLogic	Union_Join_Refuse	428	RE	
+KTongLogic	Member_AddOfferEx	376	RE	
+KTongLogic	Workshop_Learn	370	RE	
+KTongLogic	Union_AddTong	363	RE	
+KTongLogic	Tong_Remove	361	RE	
+KTongLogic	Tong_SetMap	354	RE	
+KTongLogic	Tong_MapCreated	344	RE	
+KTongLogic	Member_Title	312	RE	
+KTongLogic	Tong_OnlineList	269	RE	
+KTongLogic	Member_StoreOffer2Contribution	258	RE	
+KTongLogic	Member_Data	256	RE	
+KTongLogic	Union_Join_Apply	247	RE	
+KTongLogic	Tong_SetMoneyFund	245	RE	
+KTongLogic	Tong_Upgrade	240	RE	
+KTongLogic	Tong_FemaleTitle	236	RE	
+KTongLogic	Tong_MaleTitle	236	RE	
+KTongLogic	Tong_SetStunt	236	RE	
+KTongLogic	Tong_Degrade	229	RE	
+KTongLogic	RunSuffixScript	223	RE	
+KTongLogic	CheckRight	219	RE	
+KTongLogic	Tong_CreatMap	194	RE	
+KTongLogic	Tong_Init	143	RE	
+KTongLogic	Tong_Maintain	143	RE	
+KTongLogic	Tong_WeeklyMaintain	143	RE	
+KTongLogic	Tong_DeleteMap	142	RE	
+KTongLogic	Tong_ChangeCamp	131	RE	
+KTongLogic	Member_Kick	129	RE	
+KTongLogic	Tong_BuildFund2WarFund	122	RE	
+KTongLogic	Tong_ClaimWar	122	RE	
+KTongLogic	Tong_MoneyFund2BuildFund	122	RE	
+KTongLogic	Member_AddOffer	110	RE	
+KTongLogic	Tong_GetTaskValue	106	RE	
+KTongLogic	Member_Contribution2StoreOffer	72	RE	
+KTongLogic	Tong_SetExpLevel	71	RE	
+KTongLogic	Member_Money2BuildFund	68	RE	
+KTongLogic	Union_List	61	RE	
+KTongLogic	GetScriptSuffix	10	RE	
+KTongLogic	Member_ChangeFeature	10	RE	
+KTongLogic	Member_SetOffer	10	RE	
+KTongLogic	Tong_Msg	10	RE	
+KTongLogic	FindReceiver	7	RE	
+KTongLogic	Member_Right_Assign	7	RE	
+KTongLogic	Member_Right_Award	7	RE	
+KTongLogic	Member_Right_Retract	7	RE	
+KNpcAI	GetPoorestNpc	2826	RE	
+KNpcAI	PartnerBraveFindAim2	2650	RE	
+KNpcAI	PartnerRascalFindAim2	2371	RE	
+KNpcAI	GetNearestNpc	2113	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	PartnerRecreanceFindAim2	1825	RE	
+KNpcAI	PartnerBraveFindAim	1800	RE	
+KNpcAI	PartnerRascalFindAim	1682	RE	
+KNpcAI	PartnerGuardFindAim	1670	RE	
+KNpcAI	PartnerRecreanceFindAim	1624	RE	
+KNpcAI	PartnerFindNearestEnemyNpc	1477	RE	
+KNpcAI	ProcessAIType09	1342	RE	
+KNpcAI	ProcessPartnerAIBase	1282	RE	
+KNpcAI	GetNearestNpcEx	1193	RE	
+KNpcAI	GetRandNpcByList	1137	RE	
+KNpcAI	GetNextNearestNpc	1067	RE	
+KNpcAI	GetNearestNpcByList	1050	RE	
+KNpcAI	FollowAttack	1024	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType02	802	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	KeepAttackRange	672	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType03	659	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType05	620	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	GetNpcNumber	587	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessPartnerRecreance	539	RE	
+KNpcAI	ProcessAIType01	508	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType06	494	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessPartnerRascal	468	RE	
+KNpcAI	ProcessAIType08	410	RE	
+KNpcAI	Flee	356	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType10	349	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType04	338	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	StandAttack	336	RE	
+KNpcAI	ProcessPlayer	309	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	Activate	304	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	KeepActiveRange	282	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	CommonAction	274	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	ProcessAIType07	269	RE	
+KNpcAI	ProcessPartnerGuard	215	RE	
+KNpcAI	CheckAttackTarget	206	RE	
+KNpcAI	ProcessPartnerBrave	170	RE	
+KNpcAI	GetRandomNpc	117	RE	
+KNpcAI	KNpcAI	42	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcAI	Init	5	RE	
+KServerCore	GetGameData	4682	RE	
+KServerCore	ProcessRelayLeagueProtocol	3812	RE	
+KServerCore	ProcessGameServerDoScript	3796	RE	
+KServerCore	ProcessRelayScriptResult	1692	RE	
+KServerCore	OperationRequest	1602	RE	
+KServerCore	Initialize	1374	RE	
+KServerCore	Exit	1063	RE	
+KServerCore	KServerCore	868	RE	
+KServerCore	~KServerCore	752	RE	
+KServerCore	PlayerLogoutGateway	609	RE	
+KServerCore	ProcessRelayNormalProtocol	608	RE	
+KServerCore	PayForSpeech	589	RE	
+KServerCore	ChatScreen	520	RE	
+KServerCore	UnInitialize	510	RE	
+KServerCore	Loop	509	RE	
+KServerCore	SavePlayerData	502	RE	
+KServerCore	OnClientClose	482	RE	
+KServerCore	AddCharacter	466	RE	
+KServerCore	CanSaveZhaoMuInfo	418	RE	
+KServerCore	RecoverPlayerExchange	307	RE	
+KServerCore	SetGateWayClientID	270	RE	
+KServerCore	ProcessGetApplyInfoRespond	264	RE	
+KServerCore	ExecuteScript	263	RE	
+KServerCore	ChatTeam	253	RE	
+KServerCore	PlayerDbLoading	250	RE	
+KServerCore	ProcessCheckApplyJoinTong	243	RE	
+KServerCore	CheckProtocolSize	231	RE	
+KServerCore	HookChannelMsgBefPayment	227	RE	
+KServerCore	PrintPlayerCount	217	RE	
+KServerCore	ProcessSpreaderCDKeyReturn	215	RE	
+KServerCore	ChatTong	213	RE	
+KServerCore	OfflineDestroy	206	RE	
+KServerCore	ChatFaction	205	RE	
+KServerCore	PlayerCanUseChatChannel	205	RE	
+KServerCore	ProcessClientChatRoomMsg	201	RE	
+KServerCore	Breathe	197	RE	
+KServerCore	GetZhaoMuApplyInfo	197	RE	
+KServerCore	OfflineTimeout	177	RE	
+KServerCore	HookChannelMsgAftPayment	174	RE	
+KServerCore	ChatWorld	173	RE	
+KServerCore	PlayerExchangeServer	168	RE	
+KServerCore	GroupChat	154	RE	
+KServerCore	OnRoleNameQueryResult	152	RE	
+KServerCore	ChangeGuid	148	RE	
+KServerCore	DoQueryStatIDRequest	146	RE	
+KServerCore	ProcessServerMessage	145	RE	
+KServerCore	OnTongNameChangeResult	144	RE	
+KServerCore	NotifyHostEnterGame	142	RE	
+KServerCore	AddPlayerToWorld	134	RE	
+KServerCore	AcceptOrRefuseApply	129	RE	
+KServerCore	OnTongNameQueryResult	127	RE	
+KServerCore	NotifyHostLeaveGame	124	RE	
+KServerCore	OnRoleNameChangeResult	120	RE	
+KServerCore	DoSetStatDataValueRequest	115	RE	
+KServerCore	DoUpdateStatDataRequest	115	RE	
+KServerCore	PermitPlayerLogin	115	RE	
+KServerCore	SendZhaoMuPageInfoToPlayer	106	RE	
+KServerCore	GetPlayerIndexByGuid	102	RE	
+KServerCore	NotifyGoddessEnterGame	102	RE	
+KServerCore	NotifyGoddessLeaveGame	102	RE	
+KServerCore	SendZhaoMuInfoToPlayer	99	RE	
+KServerCore	ProcessApplyJoinTongFromZhaoMu	97	RE	
+KServerCore	ReleaseMsgInterval	97	RE	
+KServerCore	NotifyBishopLeaveGame	96	RE	
+KServerCore	OnLaunch	94	RE	
+KServerCore	ClientDisconnect	93	RE	
+KServerCore	PingClient	92	RE	
+KServerCore	ProcessClientMessage	92	RE	
+KServerCore	OnChannelMsg	88	RE	
+KServerCore	CheckPlayerID	87	RE	
+KServerCore	SavePlayerDataAtOnce	87	RE	
+KServerCore	NotifyBishopEnterGame	84	RE	
+KServerCore	RemovePlayerLoginTimeOut	76	RE	
+KServerCore	RemoveQuitingPlayer	76	RE	
+KServerCore	InitServerTime	74	RE	
+KServerCore	Msg2Player	71	RE	
+KServerCore	GetGuid	67	RE	
+KServerCore	PreparePlayerForExchange	64	RE	
+KServerCore	GetLogoutType	62	RE	
+KServerCore	MessageLoop	55	RE	
+KServerCore	OnClientCreate	55	RE	
+KServerCore	CleanConnectionStatus	54	RE	
+KServerCore	InitConnectionStatus	48	RE	
+KServerCore	AddTempTaskValue	47	RE	
+KServerCore	GetExchangeMap	43	RE	
+KServerCore	IsCharacterQuiting	41	RE	
+KServerCore	IsPlayerExchangingServer	41	RE	
+KServerCore	Release	41	RE	
+KServerCore	GetSaveStatus	40	RE	
+KServerCore	GetServerCurTime	40	RE	
+KServerCore	SetSaveStatus	39	RE	
+KServerCore	AddTimer	37	RE	
+KServerCore	ProcessRelayChatRoomMsg	36	RE	
+KServerCore	PlayerPrepareQuit	31	RE	
+KServerCore	PreparePlayerForLoginFailed	31	RE	
+KServerCore	ProcessRelayBattleProtocol	31	RE	
+KServerCore	RemovePlayerForExchange	31	RE	
+KServerCore	DelTimer	28	RE	
+KServerCore	ResumeTimer	28	RE	
+KServerCore	SuspendTimer	28	RE	
+KServerCore	IsPlayerForbitTalk	25	RE	
+KServerCore	IsPlayerLoginTimeOut	25	RE	
+KServerCore	GetConnectInfo	24	RE	
+KServerCore	ProcessRoleSaved	22	RE	
+KServerCore	ProcessIBBuyItemReturn	20	RE	
+KServerCore	ProcessIBUseItemReturn	20	RE	
+KServerCore	AddTongZhaoMuInfo	16	RE	
+KServerCore	AdditionalGameProcess	16	RE	
+KServerCore	AttachPlayer	16	RE	
+KServerCore	ProcessBroadcastMessage	16	RE	
+KServerCore	ProcessExecuteMessage	16	RE	
+KServerCore	ProcessRelayAuctionProtocol	16	RE	
+KServerCore	ProcessRelayCityWarProtocol	16	RE	
+KServerCore	ProcessRelayKillerLoseway	16	RE	
+KServerCore	ProcessRelayKillerProtocol	16	RE	
+KServerCore	ProcessRelayKillerc2cProtocol	16	RE	
+KServerCore	ProcessRelayLadderRankProtocol	16	RE	
+KServerCore	ProcessRelayNationalWarProtocol	16	RE	
+KServerCore	ProcessRelayTongProtocol	16	RE	
+KServerCore	SetLadder	16	RE	
+KServerCore	TranslateRoleData	16	RE	
+KServerCore	GetGateWayClientID	10	RE	
+KServerCore	GetLoopRate	10	RE	
+KServerCore	GetServerStartTime	10	RE	
+KServerCore	OnShutdown	10	RE	
+KSkill	CastMissles	7667	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	AddMagicAttribute	1667	RE	
+KSkill	CastSpread	1411	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CanCastSkill	1358	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastZone	1088	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CreateMissle	1049	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastWall	992	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CreateMissleMagicAttribsLink	963	RE	
+KSkill	CastExtractiveLineMissle	959	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastCircle	956	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	KSkill	850	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastCreateNpc	849	RE	
+KSkill	LoadSkillLevelData	849	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastLine	839	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastInitiativeSkill	818	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	OnMissleEvent	760	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	Cast	576	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	CastInstantMissle	459	RE	
+KSkill	CastChildSkill	335	RE	
+KSkill	CastPassivitySkill	273	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	ParseString2MagicAttrib	245	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	GetMissleGenerateTime	222	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	OnStartEvent	190	RE	
+KSkill	DelStateAttribute	186	RE	
+KSkill	~KSkill	145	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	GetSkillIdFromName	142	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	AddStateAttribute	92	RE	
+KSkill	CreateMissleMagicAttribsData	60	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	Collidsion	34	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	FlyEvent	34	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	Vanish	34	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	GetDelayPerCast	29	RE	
+KSkill	GetChildSkillNum	14	PORT	Sources/Core/Src/KSkills.cpp
+KSkill	GetSkillCost	14	RE	
+KSkill	GetSkillCostType	14	RE	
+KSkill	GetSkillLevelUpScriptId	14	RE	
+KSkill	IsTargetAlly	14	RE	
+KSkill	IsTargetNoNpc	14	RE	
+KSkill	IsTargetObj	14	RE	
+KSkill	IsTargetSelf	14	RE	
+KSkill	PeaceCanUse	14	RE	
+KSkill	GetCanCastLevel	12	RE	
+KSkill	GetAttackRadius	11	RE	
+KSkill	GetSkillId	11	RE	
+KSkill	GetSkillName	11	RE	
+KSkill	GetSkillStyle	11	RE	
+KSkill	IsAura	11	RE	
+KSkill	IsExpSkill	11	RE	
+KSkill	IsTargetEnemy	11	RE	
+KSkill	IsTargetOnly	11	RE	
+KSkill	IsTargetOther	11	RE	
+KSkill	IsWeaponSkill	11	RE	
+KBuySell	ExportGoodsInfo	4191	RE	
+KBuySell	LoadDataFromFile	4056	RE	
+KBuySell	OnNotifyBuyItem	2917	RE	
+KBuySell	OnNotifyGoldCoinChangeResult	2789	RE	
+KBuySell	Buy	2240	PORT	Sources/Core/Src/KBuySell.cpp
+KBuySell	WriteLog	2000	RE	
+KBuySell	Sell	1644	PORT	Sources/Core/Src/KBuySell.cpp
+KBuySell	BuyCallBack	738	RE	
+KBuySell	AddGoodsToPlayer	680	RE	
+KBuySell	KBuySell	654	PORT	Sources/Core/Src/KBuySell.cpp
+KBuySell	OpenStores	628	RE	
+KBuySell	StoresChangeShop	571	RE	
+KBuySell	OpenItemBussinessSale	506	RE	
+KBuySell	RemoveAllData	488	RE	
+KBuySell	~KBuySell	388	PORT	Sources/Core/Src/KBuySell.cpp
+KBuySell	OpenSale	359	PORT	Sources/Core/Src/KBuySell.cpp
+KBuySell	AddShop2Stores	277	RE	
+KBuySell	CreateStores	199	RE	
+KBuySell	ItemBusinessShopName2ID	96	RE	
+KBuySell	OnFileChanged	74	RE	
+KBuySell	GetGoodsIndex	67	RE	
+KBuySell	InitItemSaleLog	46	RE	
+KBuySell	Init	45	PORT	Sources/Core/Src/KBuySell.cpp
+KBuySell	GetGoods	40	RE	
+KBuySell	OnlyForFileListChanged	10	RE	
+KPlayerTong	LoadFromTongData	4439	RE	
+KPlayerTong	AddTong	1643	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	DealLeaveUnionApply	1020	RE	
+KPlayerTong	SaveToTongData	910	RE	
+KPlayerTong	NW_Instate	767	RE	
+KPlayerTong	SendZhaoMuPageInfoToPlayer	722	RE	
+KPlayerTong	Leave	655	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	GetUnionInfo	625	RE	
+KPlayerTong	CheckCreateUnionPower	556	RE	
+KPlayerTong	NW_Dismiss	549	RE	
+KPlayerTong	Create	548	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	ChangeMoneyResult	543	RE	
+KPlayerTong	GetNwTitle	506	RE	
+KPlayerTong	SendRefuseMessage	475	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	NW_UpdateTitle	436	RE	
+KPlayerTong	OnBeKickOut	436	RE	
+KPlayerTong	TransferAddApply	424	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	BroadcastCall	398	RE	
+KPlayerTong	LoadTask	382	RE	
+KPlayerTong	CheckChangeJobCallPower	344	RE	
+KPlayerTong	Clear	322	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	AddApplyToList	297	RE	
+KPlayerTong	CheckCreateCondition	286	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	CheckChangeMoneyPower	284	RE	
+KPlayerTong	KPlayerTong	284	RE	
+KPlayerTong	BeKicked	278	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	ChangeJobCall	271	RE	
+KPlayerTong	Dismiss	263	RE	
+KPlayerTong	ApplyDispense	252	RE	
+KPlayerTong	SendSelfInfo	249	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	CheckInstatePower	247	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	AcceptOrRefuseApplyToRelay	244	RE	
+KPlayerTong	ReplyAddUnion	235	RE	
+KPlayerTong	Release	230	RE	
+KPlayerTong	ChangeAs	224	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	OnJoinTong	224	RE	
+KPlayerTong	CheckGetInstatePower	211	RE	
+KPlayerTong	SendZhaoMuInfoToPlayer	210	RE	
+KPlayerTong	GMSetAddTime	209	RE	
+KPlayerTong	SendZhaoMuApplyInfoToPlayer	206	RE	
+KPlayerTong	CheckGetMasterPower	195	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	AddTongMemberPlayerMapping	191	RE	
+KPlayerTong	CheckChangeMasterPower	171	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	ProcessApplyJoinTongFromZhaoMu	162	RE	
+KPlayerTong	FindTongMemberPlayerIdx	161	RE	
+KPlayerTong	ChangeExp	155	RE	
+KPlayerTong	CheckAddCondition	155	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	CheckLeavePower	141	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	GMSetMaster	138	RE	
+KPlayerTong	OnQuit	130	RE	
+KPlayerTong	ApplySystemMoveExp	129	RE	
+KPlayerTong	ApplyChangeExp	125	RE	
+KPlayerTong	GMSetLevel	125	RE	
+KPlayerTong	GetTitle	122	RE	
+KPlayerTong	GMSetExp	108	RE	
+KPlayerTong	ApplyChangeMoney	107	RE	
+KPlayerTong	SyncBuildClaimWarTongIDS	103	RE	
+KPlayerTong	GMDismiss	102	RE	
+KPlayerTong	BeInstated	99	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	NW_UpdatePosition	96	RE	
+KPlayerTong	ChangeMaster	87	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	GetTongName	86	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	GetJoinTimeLong	80	RE	
+KPlayerTong	ConvenePower	76	RE	
+KPlayerTong	RemoveTongMemberPlayerMapping	74	RE	
+KPlayerTong	AddOffer	72	RE	
+KPlayerTong	AddWeekGoalOffer	72	RE	
+KPlayerTong	SetWeekGoalOffer	66	RE	
+KPlayerTong	SyncClearClaimWarTongIDS	61	RE	
+KPlayerTong	SendMsgToRelayTong	59	RE	
+KPlayerTong	SetOffer	56	RE	
+KPlayerTong	GetMemberCount	55	RE	
+KPlayerTong	SetCurrentTongID	55	RE	
+KPlayerTong	SetJoinTimeLong	47	RE	
+KPlayerTong	GetCurrentTongID	45	RE	
+KPlayerTong	ApplyConvene	39	RE	
+KPlayerTong	SyncWorkshopList	37	RE	
+KPlayerTong	ApplyMsg2Tong	34	RE	
+KPlayerTong	ChangeExpResult	29	RE	
+KPlayerTong	SetWarState	28	RE	
+KPlayerTong	CheckAcceptAddApplyCondition	27	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	CanSaveTongZhaoMuInfo	26	RE	
+KPlayerTong	GetOpenFlag	26	RE	
+KPlayerTong	Active	25	RE	
+KPlayerTong	GetTongNameID	20	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	SetOpenCreateInterfaceFlag	18	RE	
+KPlayerTong	GetOffer	14	RE	
+KPlayerTong	Init	14	PORT	Sources/Core/Src/KPlayerTong.cpp
+KPlayerTong	TransmitApplyAddUnion	5	RE	
+KSubWorld	~KSubWorld	4276	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	Copy	3782	RE	
+KSubWorld	KSubWorld	3689	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	LoadMap	3426	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	TestBarrier	646	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ProcessMsg	569	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	Activate	500	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	TestBarrierMin	454	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	NpcChangeRegion	411	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ExecuteScript	370	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	CreateOneBoss	360	RE	
+KSubWorld	Mps2Map	290	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetFreeObjPos	281	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ObjChangeRegion	266	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	PlayerChangeRegion	246	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	FindNpcFromName	242	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ActivateRegion	228	RE	
+KSubWorld	FindFreeRegion	218	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	SendSyncData	204	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	CanPutObj	198	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ClearAllNpcWithName	198	RE	
+KSubWorld	GetRegionSearcher	196	RE	
+KSubWorld	Map2Mps	194	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ActivateRegions	193	RE	
+KSubWorld	MissleChangeRegion	187	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	RevivalAllNpc	178	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	AddTrap	167	RE	
+KSubWorld	ClearAllNpc	156	RE	
+KSubWorld	DelTrap	153	RE	
+KSubWorld	GetBarrier	147	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetNextPlayer	146	RE	
+KSubWorld	AddPlayer	140	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	LoadStatusList	135	RE	
+KSubWorld	BroadCast	132	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetTrap	121	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	LoadStatus	118	RE	
+KSubWorld	GetMps	114	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	RemovePlayer	114	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetFirstPlayer	107	RE	
+KSubWorld	Close	106	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	MessageLoop	99	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetNpcWithName	97	RE	
+KSubWorld	GetDistance	89	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetNpcRandLevel	80	RE	
+KSubWorld	GetNpcRandSeries	73	RE	
+KSubWorld	GetTrapCount	73	RE	
+KSubWorld	FindRegion	66	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	GetRegionIndex	64	PORT	Sources/Core/Src/KSubWorld.cpp
+KSubWorld	ClearAllObj	58	RE	
+KSubWorld	ClearAllTrap	58	RE	
+KSubWorld	LoadTemplateMap	47	RE	
+KSubWorld	CheckExportNpcData	34	RE	
+KSubWorld	LoadTrap	5	PORT	Sources/Core/Src/KSubWorld.cpp
+KProtocolProcess	KProtocolProcess	4680	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NWRelay_PositionChange	2329	RE	
+KProtocolProcess	c2sScriptProtocol	1394	RE	
+KProtocolProcess	NWClient_Instate	1205	RE	
+KProtocolProcess	NWClient_KickOut	1119	RE	
+KProtocolProcess	c2sFoundryRequest	767	RE	
+KProtocolProcess	c2sTeamProtocol	639	RE	
+KProtocolProcess	c2sApplySyncFile	536	RE	
+KProtocolProcess	ObjMouseClick	491	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NpcSkillCommand	454	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	LoadStallScriptFunctions	431	RE	
+KProtocolProcess	c2sSendDbData	402	RE	
+KProtocolProcess	c2sPKApplyEnmity	361	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	EnchaserItem	323	RE	
+KProtocolProcess	c2sSendTextCmd	309	RE	
+KProtocolProcess	LadderQuery	301	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	c2sPKApplyChangeNormalFlag	288	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NpcRequestCommand	277	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	IsPermitedInStall	265	RE	
+KProtocolProcess	IsPermitedInTrade	255	RE	
+KProtocolProcess	ProcessNetMsg	240	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	OnAddTagRequest	234	RE	
+KProtocolProcess	ItemRepair	220	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	~KProtocolProcess	216	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NWRelay_LevyAmount	209	RE	
+KProtocolProcess	NpcSitCommand	207	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	StoreMoneyCommand	194	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	c2sBoxOperate	194	RE	
+KProtocolProcess	NpcRunCommand	186	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NpcWalkCommand	186	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	IsPermitedNow	179	RE	
+KProtocolProcess	OnGetTagsRequest	179	RE	
+KProtocolProcess	c2sCloseConnection	177	RE	
+KProtocolProcess	NWRelay_SyncTask	176	RE	
+KProtocolProcess	BulletinContentQuery	171	RE	
+KProtocolProcess	c2sAutoAttackNpc	154	RE	
+KProtocolProcess	c2sViewEquip	146	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NWRelay_SyncCongratulation	143	RE	
+KProtocolProcess	OnSetCanPublishFlagRequest	138	RE	
+KProtocolProcess	c2sSetPlayerTaskValue	138	RE	
+KProtocolProcess	OnDelTagRequest	137	RE	
+KProtocolProcess	NpcJumpCommand	130	RE	
+KProtocolProcess	ProcessNationalWarMessages	127	RE	
+KProtocolProcess	c2sSelectDiceItem	125	RE	
+KProtocolProcess	PlayerEatItem	122	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	IsPermitedInTrip	116	RE	
+KProtocolProcess	NWRelay_UpdateTitle	114	RE	
+KProtocolProcess	c2sNationalWar	114	RE	
+KProtocolProcess	PlayerAddBaseAttribute	111	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerApplyAddSkillPoint	111	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NWRelay_AwardEmperor	110	RE	
+KProtocolProcess	c2sDayTimeReq	108	RE	
+KProtocolProcess	PlayerBuyItem	102	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerDropItem	102	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerSellItem	102	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	ChangeAuraSkill	98	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	c2sRequestNpcFeature	88	RE	
+KProtocolProcess	c2sSpectatorMsg	81	RE	
+KProtocolProcess	PlayerPickUpItem	78	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NWRelay_ForbidChat	77	RE	
+KProtocolProcess	PlayerMoveItem	72	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	c2sTradeReplyStart	72	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NpcReviveCommand	71	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerTalkCommand	66	RE	
+KProtocolProcess	c2sBotClientCheckResult	66	RE	
+KProtocolProcess	c2sGive	62	RE	
+KProtocolProcess	c2sOfflineRequest	57	RE	
+KProtocolProcess	PlayerDivideItem	54	RE	
+KProtocolProcess	StoresChangeShop	52	RE	
+KProtocolProcess	PermitProtocolMsg	51	RE	
+KProtocolProcess	NWRelay_Levy	49	RE	
+KProtocolProcess	NpcStateRequestCommand	45	RE	
+KProtocolProcess	ThrowAwayAllMedicine	45	RE	
+KProtocolProcess	c2sNotify	44	RE	
+KProtocolProcess	ObjRequestCommand	41	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	NWRelay_SyncNationTitle	39	RE	
+KProtocolProcess	NWRelay_SyncSealOwner	39	RE	
+KProtocolProcess	NWRelay_SyncEmperor	36	RE	
+KProtocolProcess	c2sitemmask	36	RE	
+KProtocolProcess	NWRelay_SyncHistory	35	RE	
+KProtocolProcess	NWRelay_SyncRemark	35	RE	
+KProtocolProcess	ChatAddFriend	33	RE	
+KProtocolProcess	ChatApplyAddFriend	33	RE	
+KProtocolProcess	ChatApplyReSendAllFriendName	33	RE	
+KProtocolProcess	ChatApplySendOneFriendName	33	RE	
+KProtocolProcess	ChatDeleteFriend	33	RE	
+KProtocolProcess	ChatReDeleteFriend	33	RE	
+KProtocolProcess	ChatRefuseFriend	33	RE	
+KProtocolProcess	ChatSetChannel	33	RE	
+KProtocolProcess	DialogNpc	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerApplyFactionData	33	RE	
+KProtocolProcess	PlayerApplySetPK	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerSelUI	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	PlayerSendChat	33	RE	
+KProtocolProcess	TradeApplyClose	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	TradeApplyOpen	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	TradeApplyStart	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	TradeDecision	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	TradeMoveMoney	33	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	c2sGiveItemUI	33	RE	
+KProtocolProcess	c2sstallExtend	33	RE	
+KProtocolProcess	c2sPartnerExtend	21	RE	
+KProtocolProcess	c2sAuctionExtend	16	RE	
+KProtocolProcess	c2sCityWarExtend	16	RE	
+KProtocolProcess	c2sTongExMsg	16	RE	
+KProtocolProcess	c2skillerExtend	16	RE	
+KProtocolProcess	NpcTalkCommand	5	RE	
+KProtocolProcess	RemoveRole	5	PORT	Sources/Core/Src/KProtocolProcess.cpp
+KProtocolProcess	c2sWelcome2Server	5	RE	
+KTongLogic_GameSvr_Result	Tong_WeeklyMaintain	2198	RE	
+KTongLogic_GameSvr_Result	Workshop_Learn	1837	RE	
+KTongLogic_GameSvr_Result	Member_Kick	1255	RE	
+KTongLogic_GameSvr_Result	Member_Retire	1106	RE	
+KTongLogic_GameSvr_Result	Tong_ChangeCamp	1037	RE	
+KTongLogic_GameSvr_Result	Member_Remove	1028	RE	
+KTongLogic_GameSvr_Result	Union_Join_Apply	847	RE	
+KTongLogic_GameSvr_Result	Workshop_SetUseLevelSet	808	RE	
+KTongLogic_GameSvr_Result	Tong_AddMoneyFund	763	RE	
+KTongLogic_GameSvr_Result	Tong_SetAnnouncement	714	RE	
+KTongLogic_GameSvr_Result	Workshop_Upgrade	700	RE	
+KTongLogic_GameSvr_Result	Member_AppendTaskValue	693	RE	
+KTongLogic_GameSvr_Result	Union_Join_Refuse	671	RE	
+KTongLogic_GameSvr_Result	Member_Add	660	RE	
+KTongLogic_GameSvr_Result	Workshop_Open	649	RE	
+KTongLogic_GameSvr_Result	Workshop_Remove	644	RE	
+KTongLogic_GameSvr_Result	Tong_ClaimWar	610	RE	
+KTongLogic_GameSvr_Result	Workshop_Degrade	595	RE	
+KTongLogic_GameSvr_Result	Member_SetTaskValue	581	RE	
+KTongLogic_GameSvr_Result	Member_Right_Assign	574	RE	
+KTongLogic_GameSvr_Result	Tong_Remove	566	RE	
+KTongLogic_GameSvr_Result	Tong_Add	540	RE	
+KTongLogic_GameSvr_Result	Tong_Upgrade	525	RE	
+KTongLogic_GameSvr_Result	Workshop_Close	511	RE	
+KTongLogic_GameSvr_Result	Tong_ChangeCurrentCamp	493	RE	
+KTongLogic_GameSvr_Result	Member_Figure	472	RE	
+KTongLogic_GameSvr_Result	Tong_CreatMap	387	RE	
+KTongLogic_GameSvr_Result	Tong_DeleteMap	348	RE	
+KTongLogic_GameSvr_Result	Member_ChangeFeature	297	RE	
+KTongLogic_GameSvr_Result	Workshop_Use	283	RE	
+KTongLogic_GameSvr_Result	Member_Contribution2StoreOffer	281	RE	
+KTongLogic_GameSvr_Result	Member_Money2BuildFund	270	RE	
+KTongLogic_GameSvr_Result	Tong_Degrade	259	RE	
+KTongLogic_GameSvr_Result	Member_SetOffer	246	RE	
+KTongLogic_GameSvr_Result	BroadCast	221	RE	
+KTongLogic_GameSvr_Result	Member_Right_Award	212	RE	
+KTongLogic_GameSvr_Result	Member_Right_Retract	194	RE	
+KTongLogic_GameSvr_Result	Tong_Finish_ClaimWar	168	RE	
+KTongLogic_GameSvr_Result	~KTongLogic_GameSvr_Result	32	RE	
+KTongLogic_GameSvr_Result	GetScriptSuffix	10	RE	
+KTongLogic_GameSvr_Result	Member_AddOffer	7	RE	
+KTongLogic_GameSvr_Result	Member_AddOfferEx	7	RE	
+KNpcAttribModify	KNpcAttribModify	7018	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddPhysicsDamageP	1603	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StealFeature	457	RE	
+KNpcAttribModify	ExecScript	254	RE	
+KNpcAttribModify	IgnoreSkillP	250	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LifeReplenishP	250	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonDamageReturnP	250	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonDamageReturnV	250	RE	
+KNpcAttribModify	ReturnSkillP	250	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FastWalkRunP	238	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	MixPoisonDamage	230	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	SetAutoAttack	223	RE	
+KNpcAttribModify	FastWalkRunYanP	205	RE	
+KNpcAttribModify	StaminaMaxP	181	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddColdDamageV	179	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LifePotionV	147	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ManaPotionV	147	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddPoisonDamageV	134	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddPoisonMagicV	134	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LifeMaxP	132	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ManaMaxP	132	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ModifyAttrib	125	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AttackRatingP	121	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StaminaMaxV	119	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	DecPerCastTimeHorse	114	RE	
+KNpcAttribModify	ListenMsg	112	RE	
+KNpcAttribModify	DexterityV	108	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	EnergyV	108	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StrengthV	108	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	VitalityV	108	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LuckyV	102	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ChangeFeature1	98	RE	
+KNpcAttribModify	ChangeFeature2	97	RE	
+KNpcAttribModify	IgnoreNegativeStateP	97	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StaticMagicShieldP	87	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PARTNER_LuckyV	85	RE	
+KNpcAttribModify	AllSkillV	83	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ChangeCampV	83	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AllResMaxP	82	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AllresP	82	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LifeReplenishV	82	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	DecPerCastTime	70	RE	
+KNpcAttribModify	SetNotAddPKValue	68	RE	
+KNpcAttribModify	PoisonDamageReduceV	67	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	RandMove	66	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	Enhance708LifeP	65	RE	
+KNpcAttribModify	Enhance709Auto	65	RE	
+KNpcAttribModify	Enhance711Auto	65	RE	
+KNpcAttribModify	Enhance714Auto	65	RE	
+KNpcAttribModify	Enhance717Auto	65	RE	
+KNpcAttribModify	Enhance723MissP	65	RE	
+KNpcAttribModify	Enhance93LifeV	65	RE	
+KNpcAttribModify	LifeMaxV	65	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ManaMaxV	65	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	SorbDamageP	64	RE	
+KNpcAttribModify	SorbDamageYanP	64	RE	
+KNpcAttribModify	AutoRescueSkill	60	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ExpEnhanceV	60	RE	
+KNpcAttribModify	ShowPersonInfo	60	RE	
+KNpcAttribModify	AllResYanP	56	RE	
+KNpcAttribModify	StealLifeP	56	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StealManaP	56	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StealStaminaP	56	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddColdMagicV	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddFireDamageV	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddFireMagicV	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddLightingDamageV	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddLightingMagicV	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AddPhysicsMagicV	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AutoAttackSkill	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AutoDeathSkill	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AutoReplySkill	55	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	Add120SkillExpEnhanceP	54	RE	
+KNpcAttribModify	ExpEnhanceP	54	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	Hide	53	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LifeMaxYanP	53	RE	
+KNpcAttribModify	ManaMaxYanP	53	RE	
+KNpcAttribModify	ManaShieldP	53	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	SlowMissleB	53	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StatusImmunityB	53	RE	
+KNpcAttribModify	PkPunishEnhance	52	RE	
+KNpcAttribModify	PkPunishWeaken	52	RE	
+KNpcAttribModify	AntiMaxResP	50	RE	
+KNpcAttribModify	AddPhysicsDamageV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ArmorDefenseV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AttackRatingV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	AttackSpeedV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	CastSpeedV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ColdEnhanceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ColdResMaxP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ColdresP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	Damage2AddManaP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	DeadlyStrikeP	47	RE	
+KNpcAttribModify	FastHitRecoverV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FatallyStrikeP	47	RE	
+KNpcAttribModify	FatallyStrikeResP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FireEnhanceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FireResMaxP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FireresP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FreezeTimeReduceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	KnockBackP	47	RE	
+KNpcAttribModify	LifeV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LightingEnhanceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LightingResMaxP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LightingresP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ManaReplenishV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	ManaV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	MeleeDamageReturnP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	MeleeDamageReturnV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PhysicsResMaxP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PhysicsresP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonEnhanceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonResMaxP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonTimeReduceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonresP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	RangeDamageReturnP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	RangeDamageReturnV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StaminaReplenishV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StaminaV	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StunP	47	RE	
+KNpcAttribModify	StunTimeReduceP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	VisionRadiusP	47	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	NoChangedMoveSpeed	46	RE	
+KNpcAttribModify	AddStealFeatureSkill	44	RE	
+KNpcAttribModify	EarthSkillV	38	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FireSkillV	38	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	MetalSkillV	38	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	WaterSkillV	38	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	WoodSkillV	38	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	StaticMagicShieldV	35	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_coldres_p	32	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_fireres_p	32	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_hitrecover	32	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_lightingres_p	32	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_physicsres_p	32	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_poisonres_p	32	RE	
+KNpcAttribModify	MagicAttrib_Process_anti_stuntimereduce_p	32	RE	
+KNpcAttribModify	AddBossDamagePrecent	28	RE	
+KNpcAttribModify	IgnoreDamage	28	RE	
+KNpcAttribModify	LifeMaxYanV	27	RE	
+KNpcAttribModify	ManaMaxYanV	27	RE	
+KNpcAttribModify	ForbitAttack	22	RE	
+KNpcAttribModify	ForbitTakeMedicine	22	RE	
+KNpcAttribModify	FrozenAction	22	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	Invincibility	22	RE	
+KNpcAttribModify	AddDamageV	20	RE	
+KNpcAttribModify	AttackSpeedYanV	20	RE	
+KNpcAttribModify	CastSpeedYanV	20	RE	
+KNpcAttribModify	ColdrResYanP	20	RE	
+KNpcAttribModify	DynamicMagicShieldV	20	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FastHitRecoverYanV	20	RE	
+KNpcAttribModify	FireResYanP	20	RE	
+KNpcAttribModify	FiveElementsEnhanceV	20	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	FiveElementsResistV	20	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	LightingResYanP	20	RE	
+KNpcAttribModify	MagicAttrib_Process_block_rate	20	RE	
+KNpcAttribModify	MagicAttrib_Process_enhancehit_rate	20	RE	
+KNpcAttribModify	MagicDamageP	20	RE	
+KNpcAttribModify	PhysicsResYanP	20	RE	
+KNpcAttribModify	Poison2DecManaP	20	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	PoisonResYanP	20	RE	
+KNpcAttribModify	ReturnresP	20	RE	
+KNpcAttribModify	SeriesEnhanceP	20	RE	
+KNpcAttribModify	SeriesResP	20	RE	
+KNpcAttribModify	SkillEnhanceP	20	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	~KNpcAttribModify	10	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	BadStatusTimeReduceV	5	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KNpcAttribModify	BurnTimeReduceP	5	PORT	Sources/Core/Src/KNpcAttribModify.cpp
+KPartnerSetting	GenCharacter	2675	RE	
+KPartnerSetting	LoadSeriesAttribRangeSetting	1844	RE	
+KPartnerSetting	LoadAptitudeRangeSetting	1635	RE	
+KPartnerSetting	LoadCharacterSetting	1486	RE	
+KPartnerSetting	GenAptitudes	1363	RE	
+KPartnerSetting	LoadAptitudeModeSetting	1138	RE	
+KPartnerSetting	LoadSeriesResistSetting	932	RE	
+KPartnerSetting	GenAttribIncrement	850	RE	
+KPartnerSetting	GenAttribInit	850	RE	
+KPartnerSetting	LoadFeatureSetting	682	RE	
+KPartnerSetting	LoadInitSkillSetting	616	RE	
+KPartnerSetting	LoadGeneralSetting	515	RE	
+KPartnerSetting	LoadPartnerBagSetting	512	RE	
+KPartnerSetting	LoadLevelExpSetting	405	RE	
+KPartnerSetting	GetCharacterDesc	242	RE	
+KPartnerSetting	GetFeatureNpcSettingIdx	211	RE	
+KPartnerSetting	Init	131	RE	
+KPartnerSetting	RandomInProbArray	90	RE	
+KPartnerSetting	GetColdResist	84	RE	
+KPartnerSetting	GetFireResist	84	RE	
+KPartnerSetting	GetLightResist	84	RE	
+KPartnerSetting	GetPhysicsResist	84	RE	
+KPartnerSetting	GetPoisonResist	84	RE	
+KPartnerSetting	GetLevelExp	30	RE	
+KRoleValEvaluator	KRoleValEvaluator	4566	RE	
+KRoleValEvaluator	Initialize	1422	RE	
+KRoleValEvaluator	Evaluate_Normal_Item	1412	RE	
+KRoleValEvaluator	Evaluate_Item	1284	RE	
+KRoleValEvaluator	Evaluate_Enchasable_Item	813	RE	
+KRoleValEvaluator	Evaluate	597	RE	
+KRoleValEvaluator	Evaluate_Task1882	591	RE	
+KRoleValEvaluator	Evaluate_Task1939	563	RE	
+KRoleValEvaluator	~KRoleValEvaluator	486	RE	
+KRoleValEvaluator	Evaluate_Task2317	334	RE	
+KRoleValEvaluator	Evaluate_Task2319	334	RE	
+KRoleValEvaluator	Evaluate_Task605	334	RE	
+KRoleValEvaluator	GetPlatinaAdditionalValue	334	RE	
+KRoleValEvaluator	Evaluate_Task2501	295	RE	
+KRoleValEvaluator	Evaluate_Task700	245	RE	
+KRoleValEvaluator	Evaluate_Task701	245	RE	
+KRoleValEvaluator	Evaluate_Task80	245	RE	
+KRoleValEvaluator	Evaluate_Task81	245	RE	
+KRoleValEvaluator	EvaluateItem	214	RE	
+KRoleValEvaluator	Evaluate_Scroll_Item	194	RE	
+KRoleValEvaluator	Evaluate_Money	164	RE	
+KRoleValEvaluator	GetValuePrecent	131	RE	
+KRoleValEvaluator	Log	95	RE	
+KRoleValEvaluator	Error	62	RE	
+KRoleValEvaluator	UnInitialize	44	RE	
+KRoleValEvaluator	Evaluate_Task1512	28	RE	
+KRoleValEvaluator	Evaluate_Task1515	28	RE	
+KRoleValEvaluator	Release	20	RE	
+KRoleValEvaluator	GetLastError	13	RE	
+KRoleValEvaluator	Evaluate_Level	10	RE	
+KRoleValEvaluator	Evaluate_Skill	10	RE	
+KRoleValEvaluator	Evaluate_TaskValue	10	RE	
+KTongManagerAgent	ProcessClientProtocol	1717	RE	
+KTongManagerAgent	Sync_MemberListFigure	1263	RE	
+KTongManagerAgent	Sync_WorkShopList	1178	RE	
+KTongManagerAgent	Sync_TongWeekGoal	1093	RE	
+KTongManagerAgent	Sync_MemberSynopsis	1003	RE	
+KTongManagerAgent	Sync_MemberList	782	RE	
+KTongManagerAgent	ProcessRelayProtocol	779	RE	
+KTongManagerAgent	Sync_UnionTongList	762	RE	
+KTongManagerAgent	Sync_TongHead	754	RE	
+KTongManagerAgent	Sync_MemberRight	547	RE	
+KTongManagerAgent	Sync_TongHistoryRecordList	458	RE	
+KTongManagerAgent	~KTongManagerAgent	428	RE	
+KTongManagerAgent	Sync_TongEventRecordList	403	RE	
+KTongManagerAgent	Sync_UnionListName	402	RE	
+KTongManagerAgent	Sync_MemberListName	381	RE	
+KTongManagerAgent	ApplyMsg2Tong	339	RE	
+KTongManagerAgent	Sync_TongListName	317	RE	
+KTongManagerAgent	Sync_MemberMixData	278	RE	
+KTongManagerAgent	Sync_MemberListFigureCount	238	RE	
+KTongManagerAgent	Initialize	219	RE	
+KTongManagerAgent	UnInitialize	208	RE	
+KTongManagerAgent	Sync_TongSynopsis	200	RE	
+KTongManagerAgent	Sync_TongAnnouncement	192	RE	
+KTongManagerAgent	ConfigureTongMap	176	RE	
+KTongManagerAgent	ConfigureTongStunt	176	RE	
+KTongManagerAgent	CreateTongLogic	170	RE	
+KTongManagerAgent	Sync_TongList	170	RE	
+KTongManagerAgent	Sync_UnionList	148	RE	
+KTongManagerAgent	EnterTongMap	115	RE	
+KTongManagerAgent	Sync_MemberTmpTask	65	RE	
+KTongManagerAgent	Sync_MemberTaskValue	10	RE	
+KTongManagerAgent	Sync_TongTaskValue	10	RE	
+KTongManagerAgent	Sync_WorkshopTaskValue	10	RE	
+KFightPartner	Create	3635	RE	
+KFightPartner	LevelUp	1388	RE	
+KFightPartner	Save	942	RE	
+KFightPartner	CallOut	900	RE	
+KFightPartner	SyncAll	795	RE	
+KFightPartner	Load	538	RE	
+KFightPartner	~KFightPartner	483	RE	
+KFightPartner	KFightPartner	446	RE	
+KFightPartner	ResetValue	419	RE	
+KFightPartner	AddSkill	414	RE	
+KFightPartner	RunToOwner	362	RE	
+KFightPartner	SetName	314	RE	
+KFightPartner	Activate	299	RE	
+KFightPartner	Release	294	RE	
+KFightPartner	SetStandbySkill	279	RE	
+KFightPartner	SetTaskValue	268	RE	
+KFightPartner	SyncMin	259	RE	
+KFightPartner	SetCharacter	246	RE	
+KFightPartner	FindSkill	242	RE	
+KFightPartner	RemoveSkill	228	RE	
+KFightPartner	DoDeath	186	RE	
+KFightPartner	UpdateWithOwnerInfo	168	RE	
+KFightPartner	GetSkillList	164	RE	
+KFightPartner	BroadcastLevelUp	141	RE	
+KFightPartner	AddCurExp	130	RE	
+KFightPartner	SetTarget	123	RE	
+KFightPartner	ReGenAllAttribIncrement	118	RE	
+KFightPartner	DoRevive	110	RE	
+KFightPartner	UpdateActiveSkill	99	RE	
+KFightPartner	IsOwnerOutOfRange	90	RE	
+KFightPartner	SendSimpleInfo2	88	RE	
+KFightPartner	SendSimpleInfo1	87	RE	
+KFightPartner	SendSimpleInfo4	87	RE	
+KFightPartner	RemoveStandbySkill	65	RE	
+KFightPartner	QueryInterface	34	RE	
+KFightPartner	SetCurVigour	14	RE	
+KFightPartner	OnSee	5	RE	
+KFightPartner	PartnerChat	5	RE	
+KFightPartner	PartnerEventUnWatch	5	RE	
+KFightPartner	PartnerEventWatch	5	RE	
+KPlayerSet	Add	2197	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	PrepareLoginFailed	1621	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	Init	1352	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	KPlayerSet	952	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	PrepareRemove	938	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	RemoveExchanging	837	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	Remove	822	RE	
+KPlayerSet	RemoveLoginTimeOut	807	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	~KPlayerSet	772	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	AttachPlayer	386	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	SendWelcomeMsg	285	RE	
+KPlayerSet	FindRole	282	RE	
+KPlayerSet	PrepareExchange	232	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	_RemoveCheckData	230	RE	
+KPlayerSet	GenRandomItemForAutoHang	214	RE	
+KPlayerSet	InitForAutoHangExp	208	RE	
+KPlayerSet	AutoSave	207	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	FindAccount	184	RE	
+KPlayerSet	GetPlayerIndexByGuid	178	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	FindPlayerByNpcID	156	RE	
+KPlayerSet	ProcessClientMessage	136	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	FindSame	121	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	RemoveQuiting	119	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	Broadcasting	106	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	InitForAutoHangDropRate	90	RE	
+KPlayerSet	GetPlayerAccount	71	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	GetPlayerName	71	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	GetNextPlayer	46	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	GetFirstPlayer	39	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	FindFree	36	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	AddAutoHangExp	7	RE	
+KPlayerSet	Activate	5	PORT	Sources/Core/Src/KPlayerSet.cpp
+KPlayerSet	ReloadWelcomeMsg	5	RE	
+KItemGenerator	GetGoldEquipSuiteID	1090	RE	
+KItemGenerator	InitCheckAttrib	1077	RE	
+KItemGenerator	SetPlatinaItemMagicAttributes	996	RE	
+KItemGenerator	Gen_MagicAttrib	982	RE	
+KItemGenerator	Gen_Equipment	806	RE	
+KItemGenerator	MakePlatinaItem	585	RE	
+KItemGenerator	Gen_Item	507	RE	
+KItemGenerator	Gen_GoldEquipment	502	RE	
+KItemGenerator	Gen_EnchasableEquipment	465	RE	
+KItemGenerator	UpgradePlatinaEquip	375	RE	
+KItemGenerator	Init	331	RE	
+KItemGenerator	GetPlatinaItemAttributes	307	RE	
+KItemGenerator	Gen_MagicOrScript	297	RE	
+KItemGenerator	Gen_BrokenEquipForOrg	289	RE	
+KItemGenerator	GetEquipmentProp	233	RE	
+KItemGenerator	CheckNewItemMagicAttrib	227	RE	
+KItemGenerator	UpgradeGoldToPlatinaEquip	226	RE	
+KItemGenerator	Gen_PlatinaEquipment	201	RE	
+KItemGenerator	Gen_Quest	194	RE	
+KItemGenerator	GetPlatinaItemMagicAttributes	163	RE	
+KItemGenerator	GetExtSuiteId	149	RE	
+KItemGenerator	~KItemGenerator	142	RE	
+KItemGenerator	Gen_Medicine	139	RE	
+KItemGenerator	GetEquipmentCommonAttrib	135	RE	
+KItemGenerator	KItemGenerator	126	RE	
+KItemGenerator	Gen_BrokenEquip	116	RE	
+KItemGenerator	GetGoldItemMAScales	115	RE	
+KItemGenerator	Gen_TownPortal	94	RE	
+KItemGenerator	RandomCast	93	RE	
+KItemGenerator	GetMedicineCommonAttrib	88	RE	
+KItemGenerator	Gen_ExistEquipment	76	RE	
+KItemGenerator	_RecordGenTime	29	RE	
+KItemGenerator	SortSuiteEquip	5	RE	
+KTripManager	~KTripManager	768	RE	
+KTripManager	KTripManager	758	RE	
+KTripManager	TransalteRole	589	RE	
+KTripManager	ApplyTrip	543	RE	
+KTripManager	ProcessReturn	465	RE	
+KTripManager	ProcessDiff	437	RE	
+KTripManager	ProcessKickout	420	RE	
+KTripManager	MergeDiff	419	RE	
+KTripManager	TranslateBaseInfo	412	RE	
+KTripManager	ProcessServerList	411	RE	
+KTripManager	ApplyReturn	402	RE	
+KTripManager	ProcessReply	359	RE	
+KTripManager	TranslateEquip	319	RE	
+KTripManager	TranslateSkill	299	RE	
+KTripManager	TranslateTask	299	RE	
+KTripManager	MakeItem	289	RE	
+KTripManager	Logout	284	RE	
+KTripManager	TranslateState	251	RE	
+KTripManager	TranslateItem	249	RE	
+KTripManager	ProcessServerInfo	237	RE	
+KTripManager	TranslateRoleData	229	RE	
+KTripManager	LockRole	199	RE	
+KTripManager	ProcessRelayMessage	195	RE	
+KTripManager	ProcessTaskMap	189	RE	
+KTripManager	UnlockRole	189	RE	
+KTripManager	GetResultString	177	RE	
+KTripManager	IsRoleLocked	162	RE	
+KTripManager	OnLogin	139	RE	
+KTripManager	NotifyClientLock	116	RE	
+KTripManager	ApplyLogin	105	RE	
+KTripManager	ApplyKick	104	RE	
+KTripManager	FormatLog	88	RE	
+KTripManager	NotifyTripResult	87	RE	
+KTripManager	InServerList	77	RE	
+KTripManager	Initialize	72	RE	
+KTripManager	LoadTripData	71	RE	
+KTripManager	InTaskMap	60	RE	
+KTripManager	TaskMap	49	RE	
+KTripManager	SendData	46	RE	
+KTripManager	WriteLog	37	RE	
+KTripManager	GetServerName	35	RE	
+KTripManager	TranslateDetailType	33	RE	
+KTripManager	ms_inst	32	RE	
+KTripManager	AllocTmpBuffer	21	RE	
+KTripManager	GetServerCount	17	RE	
+KTripManager	UnInitialize	10	RE	
+KHostProcess	TransferSmallPackProcess	3346	RE	
+KHostProcess	ProcessMessage	2446	RE	
+KHostProcess	ProcessTransfer	1160	RE	
+KHostProcess	ExchangingLogout	447	RE	
+KHostProcess	KHostProcess	434	RE	
+KHostProcess	TransferAskWayMessageProcess	424	RE	
+KHostProcess	~KHostProcess	364	RE	
+KHostProcess	TransferLoseWayMessageProcess	360	RE	
+KHostProcess	RegisterExchangingLost	359	RE	
+KHostProcess	CheckExchangingTimeout	220	RE	
+KHostProcess	RemoveFromExchangeTimeoutList	217	RE	
+KHostProcess	ConformAskWay	203	RE	
+KHostProcess	UnInitialize	160	RE	
+KHostProcess	TransferLargePackProcess	152	RE	
+KHostProcess	NotifySyncEnd	91	RE	
+KHostProcess	ProcessRoleNameChangeResult	84	RE	
+KHostProcess	TranslateMessage	59	RE	
+KHostProcess	ProcessTongNameChangeResult	55	RE	
+KHostProcess	ProcessTongNameQueryResult	55	RE	
+KHostProcess	Initialize	26	RE	
+KNpcSet	Init	1849	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	GetRelation	1797	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	Add	1628	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	KNpcSet	970	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	Remove	773	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	GetDistance	484	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	RemoveAll	468	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	GetDistanceSquare	402	PORT	Sources/Core/Src/KNpcAI.cpp
+KNpcSet	SyncNpc2Player	391	RE	
+KNpcSet	GetReplaceName	294	RE	
+KNpcSet	LoadPlayerBaseValue	288	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	AttatchID	204	RE	
+KNpcSet	GenOneRelation	178	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	GenRelationTable	157	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	SearchNameID	115	RE	
+KNpcSet	SearchName	113	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	LoadReplaceName	95	RE	
+KNpcSet	ClearActivateFlagOfAllNpc	91	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	SetID	67	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	SearchID	64	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	GetNextIdx	52	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	FindFree	36	PORT	Sources/Core/Src/KNpcSet.cpp
+KNpcSet	IsNpcExist	30	PORT	Sources/Core/Src/KNpcSet.cpp
+KMissle	StepFly	2196	RE	
+KMissle	OnFly	1349	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	PrePareFly	1134	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	GetInfoFromTabFile	989	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	CheckBeyondRegion	779	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	Activate	643	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	ProcessDamage	552	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	GetRelativePos	413	RE	
+KMissle	CheckCollision	365	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	GetOffsetAxis	299	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	DoVanish	295	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	ProcessCollision	260	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	CheckNearestCollision	226	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	KMissle	220	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	DoCollision	163	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	GetNpcSearcher	156	RE	
+KMissle	Release	118	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	GetMpsPos	87	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	~KMissle	76	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	DoFly	27	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	DoWait	18	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	Init	10	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	OnCollision	5	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	OnVanish	5	PORT	Sources/Core/Src/KMissle.cpp
+KMissle	OnWait	5	PORT	Sources/Core/Src/KMissle.cpp
+KFoundryTollgate	AtlasRule	3306	RE	
+KFoundryTollgate	DistillMineRule	1202	RE	
+KFoundryTollgate	EnchaseEquipRule	1186	RE	
+KFoundryTollgate	CpdRule	1134	RE	
+KFoundryTollgate	ForgeEquipRule	738	RE	
+KFoundryTollgate	Initialize	703	RE	
+KFoundryTollgate	UpCryoliteRule	458	RE	
+KFoundryTollgate	UpPropMineRule	458	RE	
+KFoundryTollgate	InitVector	376	RE	
+KFoundryTollgate	IsAccord	156	RE	
+KFoundryTollgate	MatchRule	116	RE	
+KFoundryTollgate	IsHaveMagicInSamePlace	84	RE	
+KFoundryTollgate	KFoundryTollgate	76	RE	
+KFoundryTollgate	~KFoundryTollgate	68	RE	
+KTongData	KTongData	3795	PORT	Sources/Core/Src/KTongData.cpp
+KTongData	~KTongData	2821	RE	
+KTongData	NW_SetMemberWithPosition	855	RE	
+KTongData	GetMember	677	RE	
+KTongData	GetMemberNext	473	RE	
+KTongData	AfterLoad	350	RE	
+KTongData	GetMemberFirst	348	RE	
+KTongData	SetTaskValue	288	RE	
+KTongData	GetBuildLevelAndExpLevel	187	RE	
+KTongData	GetExpLevel	130	RE	
+KTongData	GetUnionID	70	RE	
+KTongData	GetMemberCount	20	RE	
+KTongData	GetWorkshopCount	14	RE	
+KMagicDesc	KMagicDesc	6420	PORT	Sources/Core/Src/KMagicDesc.cpp
+KMagicDesc	GetDesc	2931	PORT	Sources/Core/Src/KMagicDesc.cpp
+KMagicDesc	Init	27	PORT	Sources/Core/Src/KMagicDesc.cpp
+KMagicDesc	~KMagicDesc	18	PORT	Sources/Core/Src/KMagicDesc.cpp
+KRegion	BroadCast	1326	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	LoadObject	582	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	KRegion	522	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	LoadServerTrap	445	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	Close	423	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	Activate	390	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	LoadServerNpc	375	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	OutputTrapInfo	284	RE	
+KRegion	FindNpc	261	PORT	Sources/Core/Src/KRegion.h
+KRegion	GetBarrierMin	245	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	AddTrap	226	RE	
+KRegion	AddNpc	221	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	ClearAllNpcWithName	205	RE	
+KRegion	GetBarrier	197	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	AddObj	196	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	Load	168	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	ClearAllNpc	160	RE	
+KRegion	AddPlayer	159	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	FindObject	157	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	AddMissle	154	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	RemoveObj	154	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	GetNpcWithName	152	RE	
+KRegion	RemoveNpc	137	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	AddRef	136	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	DecRef	136	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	FindPlayer	110	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	SearchNpc	109	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	SendSyncData	109	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	GetTrap	99	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	LoadServerObstacle	96	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	ClearAllObj	95	RE	
+KRegion	FindEquip	89	RE	
+KRegion	RemovePlayer	89	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	GetRef	84	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	Init	81	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	RemoveMissle	80	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	~KRegion	80	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	DecActiveCount	76	RE	
+KRegion	ClearAllTrap	72	RE	
+KRegion	FindAPlayer	72	RE	
+KRegion	AddObstacle	69	RE	
+KRegion	DecZoneActiveCount	68	RE	
+KRegion	IncZoneActiveCount	68	RE	
+KRegion	DelTrap	65	RE	
+KRegion	IncActiveCount	59	RE	
+KRegion	ClearObstacle	54	RE	
+KRegion	CheckPlayerIn	49	RE	
+KRegion	GetObjNode	36	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	LoadServerObj	16	PORT	Sources/Core/Src/KRegion.cpp
+KRegion	GetTrapCount	14	RE	
+KNpcTemplate	InitNpcLevelData	6223	RE	
+KNpcTemplate	InitNpcBaseData	1715	RE	
+KNpcTemplate	GetNpcLevelDataFromScript	481	RE	
+KNpcTemplate	AppendBaseInfo	302	RE	
+KNpcTemplate	SkillString2Id	236	RE	
+KNpcTemplate	ST_GetNpcLevelDataFromScript	211	RE	
+KLibOfBPT	KLibOfBPT	3690	RE	
+KLibOfBPT	~KLibOfBPT	2680	RE	
+KLibOfBPT	InitExtSuiteActivateCount	510	RE	
+KLibOfBPT	ReBuildGoldEquipmentSuite	502	RE	
+KLibOfBPT	InitSuiteActivateCount	457	RE	
+KLibOfBPT	Init	384	RE	
+KLibOfBPT	InitMAIT	309	RE	
+KLibOfBPT	InitMALib	305	RE	
+KLibOfBPT	GetCMIT	96	RE	
+KLibOfBPT	GetCMAT	46	RE	
+KPlayerStall	c2sstallbuyitem	3314	RE	
+KPlayerStall	CheckMakeStallCondition	598	RE	
+KPlayerStall	GetStallInfo	598	RE	
+KPlayerStall	SetStallState	507	RE	
+KPlayerStall	SyncStallInfo	476	RE	
+KPlayerStall	c2sstallmarkprice	430	RE	
+KPlayerStall	ProcessStallProtocol	356	RE	
+KPlayerStall	SyncAdvInfo	250	RE	
+KPlayerStall	DealSellItem	241	RE	
+KPlayerStall	HasThisItem	216	RE	
+KPlayerStall	c2sstallmakeadv	210	RE	
+KPlayerStall	GetCurCityTaxRate	170	RE	
+KPlayerStall	c2sstallrequestadv	131	RE	
+KPlayerStall	CheckItemPriceRange	126	RE	
+KPlayerStall	Clear	123	RE	
+KPlayerStall	CheckStallProtocolSize	116	RE	
+KPlayerStall	DealBuyItem	112	RE	
+KPlayerStall	c2sstallrequestiteminfo	89	RE	
+KPlayerStall	ClearAllPrice	88	RE	
+KPlayerStall	SearchItem	80	RE	
+KPlayerStall	HasMarkedItem	79	RE	
+KPlayerStall	HasEnoughSpace	75	RE	
+KPlayerStall	KPlayerStall	70	RE	
+KPlayerStall	GetPlayerIdxFromID	69	RE	
+KPlayerStall	IsPermitedNow	69	RE	
+KPlayerStall	SetItemPrice	48	RE	
+KPlayerStall	GetItemPrice	40	RE	
+KPlayerStall	GetItemIdxFromID	38	RE	
+KPlayerStall	HasEnoughMoney	37	RE	
+KPlayerStall	GetPlayerIDFromIdx	36	RE	
+KPlayerStall	ExitStallState	27	RE	
+KPlayerStall	GetItemIDFromIdx	25	RE	
+KPlayerStall	c2sstallexit	9	RE	
+KLottery_RandID	~KLottery_RandID	1451	RE	
+KLottery_RandID	KLottery_RandID	990	RE	
+KLottery_RandID	DrawCurrentIssue	948	RE	
+KLottery_RandID	GenerateLotteryItem	896	RE	
+KLottery_RandID	LoadPrizeData	710	RE	
+KLottery_RandID	SetPrizeSetting	571	RE	
+KLottery_RandID	SetExtraSetting	526	RE	
+KLottery_RandID	StartNewIssue	505	RE	
+KLottery_RandID	CalcCurIssuePayPrizeDate	483	RE	
+KLottery_RandID	LoadLotteryData	443	RE	
+KLottery_RandID	CheckLotteryItemPrize	334	RE	
+KLottery_RandID	GetLotteryItemDesc	296	RE	
+KLottery_RandID	GetLatestPrizeInfo	239	RE	
+KLottery_RandID	GetLotteryItemInfo	175	RE	
+KLottery_RandID	GetLotteryItemInfoCount	69	RE	
+KTextRender	_EncodeCtrl	2349	RE	
+KTextRender	GetEncodedTextLineCount	1202	RE	
+KTextRender	GetEncodeStringLineHeadPos	728	RE	
+KTextRender	GetLimitLenEncodedString	567	RE	
+KTextRender	FilterEncodedText	440	RE	
+KTextRender	EncodeText	416	RE	
+KTextRender	EncodeTextAndPickCtrl	368	RE	
+KTextRender	GetEncodedTextOutputLenPos	349	RE	
+KTextRender	SplitEncodedString	345	RE	
+KTextRender	ClearSpecialCtrlInEncodedText	331	RE	
+KTextRender	GetEncodedTextEffectCtrls	236	RE	
+KTextRender	SplitString	209	RE	
+KTextRender	FindSpecialCtrlInEncodedText	162	RE	
+KTextRender	GetLimitLenString	161	RE	
+KTextRender	GetSecondVisibleCharacterThisLine	153	RE	
+KTextRender	RemoveCtrlInEncodedText	149	RE	
+KTextRender	SplitStringLine	115	RE	
+KTextRender	Init	90	RE	
+KTextRender	KTextRender	42	RE	
+KTextRender	~KTextRender	10	RE	
+KTextRender	IsCharacterNotAlowAtLineHead	7	RE	
+KLuaScript	CallFunction	1274	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	PushParamList	990	RE	
+KLuaScript	Load	667	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	StackCall	612	RE	
+KLuaScript	KLuaScript	558	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	GetValuesFromStack	508	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	CallObjectFunction	408	RE	
+KLuaScript	~KLuaScript	338	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	ScriptError	319	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	LocateTable	266	RE	
+KLuaScript	CallGlobalFunction	247	RE	
+KLuaScript	ExecuteCode	205	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	Init	166	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	CompileBuffer	141	RE	
+KLuaScript	FormatCallByVaList	126	RE	
+KLuaScript	GetActionScriptID	120	RE	
+KLuaScript	GetGlobalName	117	RE	
+KLuaScript	SetGlobalName	117	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	DoString	115	RE	
+KLuaScript	RegisterFunctions	108	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	LoadBuffer	107	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	ModifyTable	97	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	CreateTable	87	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	Exit	79	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	GetIncluderList	79	RE	
+KLuaScript	Create	78	RE	
+KLuaScript	RegisterFunction	77	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	Execute	68	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	Release	60	RE	
+KLuaScript	AddIncluder	42	RE	
+KLuaScript	Resume	41	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	Stop	41	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	SafeCallBegin	34	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	SafeCallEnd	34	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	DetBreakPoint	27	RE	
+KLuaScript	SetBreakPoint	27	RE	
+KLuaScript	SetScriptName	18	RE	
+KLuaScript	Compile	10	PORT	Sources/Engine/Src/KLuaScript.cpp
+KLuaScript	SetOutputFun	9	RE	
+KItemValueSetting	LoadMagicSetting	3320	RE	
+KItemValueSetting	LoadNormalSetting	2964	RE	
+KItemValueSetting	LoadScrollSetting	1106	RE	
+KItemValueSetting	~KItemValueSetting	266	RE	
+KItemValueSetting	KItemValueSetting	214	RE	
+KItemValueSetting	Load	207	RE	
+KItemValueSetting	GetMagicAttribSetting	65	RE	
+KItemValueSetting	GetNormalItemSetting	65	RE	
+KItemValueSetting	GetPlatinaScrollSetting	65	RE	
+KTongLogic_GameSvr_Apply	Union_Join_Apply	1150	RE	
+KTongLogic_GameSvr_Apply	Member_Right_Assign	563	RE	
+KTongLogic_GameSvr_Apply	Member_Right_Retract	449	RE	
+KTongLogic_GameSvr_Apply	Member_Right_Award	414	RE	
+KTongLogic_GameSvr_Apply	Member_StoreOffer2Contribution	392	RE	
+KTongLogic_GameSvr_Apply	Union_Join_Refuse	385	RE	
+KTongLogic_GameSvr_Apply	Workshop_Remove	354	RE	
+KTongLogic_GameSvr_Apply	Member_Kick	337	RE	
+KTongLogic_GameSvr_Apply	Workshop_Maintain	314	RE	
+KTongLogic_GameSvr_Apply	Workshop_Degrade	290	RE	
+KTongLogic_GameSvr_Apply	Workshop_Upgrade	290	RE	
+KTongLogic_GameSvr_Apply	Workshop_Close	256	RE	
+KTongLogic_GameSvr_Apply	Workshop_Open	252	RE	
+KTongLogic_GameSvr_Apply	Tong_Upgrade	217	RE	
+KTongLogic_GameSvr_Apply	CheckRight	214	RE	
+KTongLogic_GameSvr_Apply	Workshop_Learn	213	RE	
+KTongLogic_GameSvr_Apply	Tong_CreatMap	207	RE	
+KTongLogic_GameSvr_Apply	Tong_Degrade	197	RE	
+KTongLogic_GameSvr_Apply	Tong_ChangeCamp	193	RE	
+KTongLogic_GameSvr_Apply	Tong_BuildFund2WarFund	179	RE	
+KTongLogic_GameSvr_Apply	Tong_MoneyFund2BuildFund	179	RE	
+KTongLogic_GameSvr_Apply	Tong_Maintain	158	RE	
+KTongLogic_GameSvr_Apply	Tong_WeeklyMaintain	158	RE	
+KTongLogic_GameSvr_Apply	Member_Contribution2StoreOffer	145	RE	
+KTongLogic_GameSvr_Apply	Member_Money2BuildFund	141	RE	
+KTongLogic_GameSvr_Apply	Tong_DeleteMap	135	RE	
+KTongLogic_GameSvr_Apply	Tong_ClaimWar	122	RE	
+KTongLogic_GameSvr_Apply	Do_Tong_ClaimWar	100	RE	
+KTongLogic_GameSvr_Apply	Workshop_Use	73	RE	
+KTongLogic_GameSvr_Apply	Member_AddOffer	71	RE	
+KTongLogic_GameSvr_Apply	Member_ChangeFeature	71	RE	
+KTongLogic_GameSvr_Apply	~KTongLogic_GameSvr_Apply	32	RE	
+KTongLogic_GameSvr_Apply	GetScriptSuffix	10	RE	
+KTongLogic_GameSvr_Apply	Member_SetOffer	7	RE	
+KGlobalValue	LoadForSysSetting	5627	RE	
+KGlobalValue	LoadForLogSetting	1272	RE	
+KGlobalValue	GetNpcPermitDialogInfo	380	RE	
+KGlobalValue	ParseItemOption	212	RE	
+KGlobalValue	GetModuleState	151	RE	
+KGlobalValue	CurrentDateTime	123	RE	
+KGlobalValue	LoadSetting	116	RE	
+KGlobalValue	IsInItemOptions	60	RE	
+KGlobalValue	LoadForForbitItem	16	RE	
+KClientProcess	ProcessPlayerTongMsg	3277	RE	
+KClientProcess	ProcessMessage	1368	RE	
+KClientProcess	ProcessRelayMsg	960	RE	
+KClientProcess	LocalChannelChat	599	RE	
+KClientProcess	SendGameDataToClient	555	RE	
+KClientProcess	CheckMsgInterval	465	RE	
+KClientProcess	ProcessPingReply	229	RE	
+KClientProcess	GetLocalChannel	74	RE	
+KClientProcess	ProcessLoginProtocol	67	RE	
+KClientProcess	ProcessSyncReplyProtocol	66	RE	
+KClientProcess	KClientProcess	54	RE	
+KClientProcess	UnInitialize	22	RE	
+KClientProcess	Initialize	20	RE	
+KClientProcess	~KClientProcess	10	RE	
+KSkillList	AddSkillExp	1503	RE	
+KSkillList	IncreaseCurrentLevel	1273	RE	
+KSkillList	UpdateAdditionData	607	RE	
+KSkillList	IncreaseLevel	604	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	Add	562	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	AddTemporary	377	RE	
+KSkillList	KSkillList	310	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	ActivePassivitySkill_OnLevelUp_TransLife	251	RE	
+KSkillList	GetIndexSkillExpPercent	211	RE	
+KSkillList	ClearSkillLevel	178	RE	
+KSkillList	GetSkillCountInfact	167	RE	
+KSkillList	GetUsedSkillPoint	154	RE	
+KSkillList	GetNextSkill	149	RE	
+KSkillList	CanCast	133	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	GetCurrentLevel	127	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	Remove	126	RE	
+KSkillList	SetSkillMaxLevel	94	RE	
+KSkillList	UpdateDBSkillList	88	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	CheckCDBySkillId	86	RE	
+KSkillList	SetNextCastTime	80	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	~KSkillList	80	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	SetNpcSkill	71	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	GetLevel	69	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	GetLastCastDelay	64	RE	
+KSkillList	GetNextCastTime	64	RE	
+KSkillList	IsForbitUse	55	RE	
+KSkillList	FindSame	52	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	ForbitUseAllSkill	43	RE	
+KSkillList	GetAllSkillCurInc	43	RE	
+KSkillList	FindFree	40	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	GetCount	37	PORT	Sources/Core/Src/KSkillList.cpp
+KSkillList	CheckCD	20	RE	
+KTongProcess	ProcessMessage	7155	RE	
+KTongProcess	InitCoreAfterRelayData	137	RE	
+KTongProcess	LargePackProcess	110	RE	
+KTongProcess	KTongProcess	94	RE	
+KTongProcess	GetPlayerIndex	81	RE	
+KTongProcess	TranslateMessage	59	RE	
+KTongProcess	UnInitialize	28	RE	
+KTongProcess	Initialize	26	RE	
+KTongProcess	~KTongProcess	26	RE	
+KItem	ModifyBrokenFlag	587	RE	
+KItem	GetPlatinaMagicAttributes	509	RE	
+KItem	Clear	502	RE	
+KItem	GetGmCommand	461	RE	
+KItem	KItem	460	PORT	Sources/Core/Src/KItem.cpp
+KItem	Script_GetRepairPrice	394	RE	
+KItem	IsSameForStackWith	329	RE	
+KItem	SetExtSuiteAttrib	302	RE	
+KItem	GetPtMagicAttrExValue	262	RE	
+KItem	RemoveMagicAttribFromNPC	240	PORT	Sources/Core/Src/KItem.cpp
+KItem	Restore2NormalEquip	227	RE	
+KItem	SetAttribute_MA	225	RE	
+KItem	MakeMagicAttrib	216	RE	
+KItem	SetAttribute_Base	209	RE	
+KItem	ActivateExtMagicAttrib	198	RE	
+KItem	GetRepairPrice	183	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetAttrib_MA	175	PORT	Sources/Core/Src/KItem.cpp
+KItem	ApplyMagicAttribToNPC	152	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetAttribute_MA_Scale	146	RE	
+KItem	RemoveHiddenMagicAttribFromNPC	128	PORT	Sources/Core/Src/KItem.cpp
+KItem	Remove	127	PORT	Sources/Core/Src/KItem.cpp
+KItem	Abrade	113	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetAttribute_Common	110	RE	
+KItem	RemoveBaseAttribFromNPC	108	RE	
+KItem	GetDurRepairPrice	93	RE	
+KItem	Trans2BrokenEquip	92	RE	
+KItem	SetAttrib_CBR	87	PORT	Sources/Core/Src/KItem.cpp
+KItem	AbradePercent	85	RE	
+KItem	SetBaseAttrib	85	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetRequireAttrib	85	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetAttrib_Base	84	PORT	Sources/Core/Src/KItem.cpp
+KItem	CanBeRepaired	78	PORT	Sources/Core/Src/KItem.cpp
+KItem	ApplyBaseAttribToNPC	75	RE	
+KItem	ApplyHiddenMagicAttribToNPC	67	PORT	Sources/Core/Src/KItem.cpp
+KItem	GetPrice	66	RE	
+KItem	ApplyBaseAndMagicAttribToNPC	62	RE	
+KItem	RemoveBaseAndMagicAttribFromNPC	62	RE	
+KItem	SetAttribute_Req	60	RE	
+KItem	GetOrgMaxDurability	50	RE	
+KItem	GetTotalMagicLevel	44	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetAttrib_Req	44	PORT	Sources/Core/Src/KItem.cpp
+KItem	GetRequirement	28	PORT	Sources/Core/Src/KItem.cpp
+KItem	GetDescription	10	RE	
+KItem	GetItemValue	10	RE	
+KItem	~KItem	10	PORT	Sources/Core/Src/KItem.cpp
+KItem	SetMagicAttrib	9	PORT	Sources/Core/Src/KItem.cpp
+KItem	ForBitForDupedItem	7	RE	
+KItem	IsDupedItem	7	RE	
+KItemSet	Init	3855	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	Add_Impl	1425	RE	
+KItemSet	KItemSet	624	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	Add	582	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	~KItemSet	368	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	Remove	175	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	BackItemInfo	88	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	SearchID	85	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	GetAbradeRange	83	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	CheckTradeLogFilter	71	RE	
+KItemSet	CanLogThisItem	47	RE	
+KItemSet	FindFree	36	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	SetID	34	PORT	Sources/Core/Src/KItemSet.cpp
+KItemSet	GetItemCount	24	RE	
+KObjSet	ServerLoadRegionObj	1449	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	Add	1304	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	AddData	1183	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	~KObjSet	938	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	KObjSet	812	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	GetReplaceName	291	RE	
+KObjSet	MakeObjItemInfo	229	RE	
+KObjSet	AddMoneyObj	204	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	GetMoneyDataId	153	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	Init	152	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	FindName	133	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	FindID	117	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	GetDataIDKind	104	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	LoadReplaceName	93	RE	
+KObjSet	Remove	76	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	SyncAdd	72	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	SetObjItem	71	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	CheckClientKind	55	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	FindFree	36	PORT	Sources/Core/Src/KObjSet.cpp
+KObjSet	GetID	17	PORT	Sources/Core/Src/KObjSet.cpp
+KPlayerChat	ServerSendChat	3111	RE	
+KPlayerChat	MakeBrother	420	PORT	Sources/Core/Src/KPlayerChat.cpp
+KPlayerChat	AddFriendData	387	RE	
+KPlayerChat	SendSystemInfo	349	PORT	Sources/Core/Src/KItemList.cpp
+KPlayerChat	SyncFriendData	326	RE	
+KPlayerChat	SendInfoToGM	277	PORT	Sources/Core/Src/KPlayerChat.cpp
+KPlayerChat	SendInfoToIP	276	PORT	Sources/Core/Src/KPlayerChat.cpp
+KPlayerChat	SendGlobalSystemInfo	252	PORT	Sources/Core/Src/KPlayerChat.cpp
+KPlayerChat	MakeEnemy	215	PORT	Sources/Core/Src/KNpc.cpp
+KPlayerChat	MakeMate	213	PORT	Sources/Core/Src/KPlayerChat.cpp
+KPlayerChat	NpcChat	196	RE	
+KPlayerChat	DeleteFriend	156	RE	
+KPlayerChat	DismissMate	150	RE	
+KPlayerChat	CheckExist	144	RE	
+KPlayerChat	Release	128	PORT	Sources/Core/Src/KPlayerChat.cpp
+KPlayerChat	RedeleteFriend	125	RE	
+KPlayerChat	ResendOneFriendData	125	RE	
+KPlayerChat	DeleteFriendData	109	RE	
+KPlayerChat	GetMsgOffLine	92	RE	
+KPlayerChat	OffLine	87	RE	
+KPlayerChat	GetName	76	RE	
+KPlayerChat	GetTeamNo	56	RE	
+KPlayerChat	GetFriendNode	53	RE	
+KPlayerChat	StartSendFriendData	46	RE	
+KPlayerChat	CheckTalkChannel	33	RE	
+KPlayerChat	SetTakeChannel	31	RE	
+KPlayerChat	DataBaseAddOne	18	RE	
+KPlayerChat	TimerAdd	12	RE	
+CRoleNameChangeHistory	AddItem	3029	RE	
+CRoleNameChangeHistory	Initialize	2708	RE	
+CRoleNameChangeHistory	DelItem	524	RE	
+CRoleNameChangeHistory	UnInitialize	362	RE	
+CRoleNameChangeHistory	SendRequest	229	RE	
+CRoleNameChangeHistory	CRoleNameChangeHistory	198	RE	
+CRoleNameChangeHistory	SendFinish	152	RE	
+KCurrencyManager	NotifyRoleStatChanged_League	2331	RE	
+KCurrencyManager	KCurrencyManager	1134	RE	
+KCurrencyManager	InitStatisticsFile	813	RE	
+KCurrencyManager	UpdateStatisticsData	662	RE	
+KCurrencyManager	ReportCurrencyStatChanged	595	RE	
+KCurrencyManager	CheckRoleRecentCurrency	352	RE	
+KCurrencyManager	GenerateCurrencyChangeKeyword	309	RE	
+KCurrencyManager	InitColumns	267	RE	
+KCurrencyManager	WriteLog	192	RE	
+KCurrencyManager	ReportRecentRoleStatInfo_League	167	RE	
+KCurrencyManager	Init	136	RE	
+KCurrencyManager	NotifyRoleStatSaved_League	130	RE	
+KCurrencyManager	IsRoleStatChangedUnSave_League	43	RE	
+KCurrencyManager	ClearStatisticsValues	35	RE	
+KIniFile	SetKeyValue	694	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	SavePack	430	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	LoadPack	369	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	Save	299	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	EraseKey	284	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	CreateIniLink	276	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetNextKey	270	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	Load	256	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetKeyValue	255	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	EraseSection	254	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetNextSection	231	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetRect	204	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetInteger2	203	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	IsSectionExist	188	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetStruct	178	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	ReleaseIniLink	170	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetFloat2	162	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	KIniFile	140	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	WriteStruct	134	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetInteger	129	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	~KIniFile	128	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetFloat4	116	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetSectionCount	115	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetFloat3	109	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetFloat	107	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	ReadLine	100	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	TrimString	100	RE	
+KIniFile	GetString	93	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	WriteFloat2	75	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	WriteInteger2	75	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	String2Id	72	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	WriteFloat	68	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	WriteInteger	68	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	GetBool	66	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	SplitKeyValue	49	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	IsKeyChar	41	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	Clear	9	PORT	Sources/Engine/Src/KIniFile.cpp
+KIniFile	WriteString	9	PORT	Sources/Engine/Src/KIniFile.cpp
+KCityWarDataGS	ProcessRelaySyncData_CitySummary	2101	RE	
+KCityWarDataGS	AddArenaResult	1597	RE	
+KCityWarDataGS	UpdateTongInfo	578	RE	
+KCityWarDataGS	~KCityWarDataGS	392	RE	
+KCityWarDataGS	SetTaxRates	264	RE	
+KCityWarDataGS	GetTongInfo	210	RE	
+KCityWarDataGS	GetPlayerPriceRate	179	RE	
+KCityWarDataGS	SignUpATong	166	RE	
+KCityWarDataGS	IsOwnerTongMember	164	RE	
+KCityWarDataGS	GetCityTaxRate	159	RE	
+KCityWarDataGS	ColletCityTax	121	RE	
+KCityWarDataGS	Init	101	RE	
+KCityWarDataGS	MarkViceroy	88	RE	
+KCityWarDataGS	AppointChallenger	84	RE	
+KCityWarDataGS	AppointViceroy	84	RE	
+KCityWarDataGS	EndCityWar	79	RE	
+KCityWarDataGS	ProcessRelaySyncData_WarPeriod	78	RE	
+KSOServer	Initialize	2045	RE	
+KSOServer	KSOServer	1076	RE	
+KSOServer	UnInitialize	446	RE	
+KSOServer	~KSOServer	420	RE	
+KSOServer	Breathe	313	RE	
+KSOServer	CreateServer	265	RE	
+KSOServer	Loop	187	RE	
+KSOServer	GetLocalIpAddress	160	RE	
+KSOServer	LoadConnection	159	RE	
+KSOServer	SendDataToServer	144	RE	
+KSOServer	ProcessPlayerMessages	116	RE	
+KSOServer	MessageLoop	112	RE	
+KSOServer	CreateClient	103	RE	
+KSOServer	EventNotify	84	RE	
+KSOServer	CreateClientConnections	79	RE	
+KSOServer	ProcessClientMessages	68	RE	
+KSOServer	ServerEventNotify	68	RE	
+KSOServer	CloseClientConnections	58	RE	
+KSOServer	GetClientInfo	41	RE	
+KSOServer	ShutdownClient	36	RE	
+KSOServer	Run	34	RE	
+KSOServer	CreateCore	27	RE	
+KSOServer	SendDataToClient	23	RE	
+KSOServer	Exit	18	RE	
+KSOServer	RecvGoddessMessage	18	RE	
+KSOServer	Lock	16	RE	
+KSOServer	UnLock	16	RE	
+KSOServer	GetInternetIp	14	RE	
+KSOServer	GetIntranetIp	14	RE	
+KSOServer	GetPort	14	RE	
+KSOServer	GetBishopClientIp	13	RE	
+KSubWorldSet	GetWorldIDFromName	965	RE	
+KSubWorldSet	Load	691	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	MainLoop	633	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	LoadTemplateMap	600	RE	
+KSubWorldSet	LoadDynMap	589	RE	
+KSubWorldSet	ExportNpcData	368	RE	
+KSubWorldSet	GetWorldNameFromID	365	RE	
+KSubWorldSet	LoadSingleMap	355	RE	
+KSubWorldSet	KSubWorldSet	320	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	SendMessage	190	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	GetRevivalPosFromId	167	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	ExportNpcDataWriteFile	141	RE	
+KSubWorldSet	DeleteDynMap	140	RE	
+KSubWorldSet	Close	84	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	NotifyMapIndex	81	RE	
+KSubWorldSet	MessageLoop	73	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	SearchWorld	71	PORT	Sources/Core/Src/KSubWorldSet.cpp
+KSubWorldSet	IsHaveFreeMap	56	RE	
+KSubWorldSet	ExportMapName	45	RE	
+KSkillManager	Init	1887	PORT	Sources/Core/Src/KSkillManager.cpp
+KSkillManager	~KSkillManager	1044	PORT	Sources/Core/Src/KSkillManager.cpp
+KSkillManager	GetPlatinaSkill	860	RE	
+KSkillManager	LoadPlatinaMagicRates	722	RE	
+KSkillManager	InstanceSkill	418	PORT	Sources/Core/Src/KSkillManager.cpp
+KSkillManager	LoadPlatinaMagicAttributes	384	RE	
+KSkillManager	KSkillManager	318	PORT	Sources/Core/Src/KSkillManager.cpp
+KSkillManager	FindPlatinaMagicRate	124	RE	
+KSkillManager	GetPlatinaMagicAttribute	55	RE	
+KLotteryManager	Init	3254	RE	
+KLotteryManager	KLotteryManager	1432	RE	
+KLotteryManager	~KLotteryManager	689	RE	
+KLotteryManager	FindLottery	169	RE	
+KLotteryManager	Create_Lottery_RandID	64	RE	
+KLuaScriptSet	LoadScriptInDirectory	689	RE	
+KLuaScriptSet	LoadScriptToSortList	582	RE	
+KLuaScriptSet	~KLuaScriptSet	464	PORT	Sources/Engine/Src/KLuaScriptSet.cpp
+KLuaScriptSet	KLuaScriptSet	422	PORT	Sources/Engine/Src/KLuaScriptSet.cpp
+KLuaScriptSet	ReloadScript	418	RE	
+KLuaScriptSet	ReLoadScript	371	RE	
+KLuaScriptSet	Reset	297	RE	
+KLuaScriptSet	ReLoadAllScript	244	RE	
+KLuaScriptSet	DelBreakPoint	237	RE	
+KLuaScriptSet	SetBreakPoint	237	RE	
+KLuaScriptSet	_ReloadScript	201	RE	
+KLuaScriptSet	LoadScriptByAbsPath	185	RE	
+KLuaScriptSet	LoadScriptInPath	176	RE	
+KLuaScriptSet	SetGlobalStr	144	RE	
+KLuaScriptSet	SetGlobalInt	140	RE	
+KLuaScriptSet	RemoveScript	132	RE	
+KLuaScriptSet	RegisterFunctions	116	RE	
+KLuaScriptSet	EnableGarbageCollection	102	RE	
+KLuaScriptSet	GetScript	97	RE	
+KLuaScriptSet	FindAFile	86	RE	
+KLuaScriptSet	FindScript	83	RE	
+KLuaScriptSet	ForceGarbageCollection	62	RE	
+KLuaScriptSet	GenID	56	RE	
+KLuaScriptSet	CreateScript	29	PORT	Sources/Engine/Src/KLuaScriptSet.cpp
+KLuaScriptSet	GetTmpScript	14	RE	
+KLuaScriptSet	LoadScriptByRelPath	9	RE	
+CChatRoom	~CChatRoom	904	RE	
+CChatRoom	EnterRoom	771	RE	
+CChatRoom	CChatRoom	488	RE	
+CChatRoom	Prevent	422	RE	
+CChatRoom	LoadBlackList	409	RE	
+CChatRoom	KickOut	309	RE	
+CChatRoom	LeaveRoom	274	RE	
+CChatRoom	UnPrevent	274	RE	
+CChatRoom	CanEnterRoom	234	RE	
+CChatRoom	Talk	199	RE	
+CChatRoom	IsInRoom	162	RE	
+CChatRoom	GetMembers	147	RE	
+CChatRoom	GetBlackList	131	RE	
+CChatRoom	ChangePassword	90	RE	
+CChatRoom	DelLifeTime	61	RE	
+CChatRoom	AddLifeTime	48	RE	
+CChatRoom	SetAdmin	46	RE	
+CChatRoom	SetPassword	46	RE	
+CChatRoom	ChangeLifeTime	45	RE	
+CChatRoom	Breathe	40	RE	
+CChatRoom	CheckPassword	37	RE	
+CChatRoom	IsAdmin	37	RE	
+CChatRoom	Destroy	30	RE	
+CChatRoom	Save	30	RE	
+CChatRoom	Create	29	RE	
+CChatRoom	IsPasswordEmpty	22	RE	
+CChatRoom	IsTimeOut	19	RE	
+CChatRoom	SetEvent	14	RE	
+CChatRoom	SetLifeTime	14	RE	
+CChatRoom	SetMaxBlackListCount	14	RE	
+CChatRoom	SetMaxClientCount	14	RE	
+CChatRoom	GetAdmin	11	RE	
+CChatRoom	GetLifeTime	11	RE	
+CChatRoom	GetMemberCount	11	RE	
+CChatRoom	GetPassword	11	RE	
+CChatRoom	GetType	10	RE	
+KNewProtocolProcess	KNewProtocolProcess	2776	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	P_ProcessGMFindPlayer	473	PORT	Sources/Core/Src/KGMProcess.cpp
+KNewProtocolProcess	P_ProcessKillerWiseMan	444	RE	
+KNewProtocolProcess	ExecuteRelayScript	185	RE	
+KNewProtocolProcess	P_ProcessKillerCreateTask	182	RE	
+KNewProtocolProcess	~KNewProtocolProcess	166	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	ProcessNetMsg	152	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	BroadcastGlobal	123	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	P_ProcessChatExtend	103	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	SendRelayData	101	RE	
+KNewProtocolProcess	P_ProcessPlayerCommExtend	97	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	SendBuffer	93	RE	
+KNewProtocolProcess	BroadcastLocalServer	89	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	ExecuteLocalServer	60	PORT	Sources/Core/Src/KGMProcess.cpp
+KNewProtocolProcess	P_ProcessGMExecute	44	PORT	Sources/Core/Src/KGMProcess.cpp
+KNewProtocolProcess	PushMsgInChat	34	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	PushMsgInGateWay	34	RE	
+KNewProtocolProcess	PushMsgInTong	34	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	PushMsgInTransfer	34	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	SendNetMsgToChat	34	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	SendNetMsgToGateWay	34	RE	
+KNewProtocolProcess	SendNetMsgToTong	34	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KNewProtocolProcess	SendNetMsgToTransfer	34	PORT	Sources/Core/Src/KNewProtocolProcess.cpp
+KCityWarDataCore	LoadIniFile	2341	RE	
+KCityWarDataCore	AddArenaResult	1171	RE	
+KCityWarDataCore	KCityWarDataCore	1154	RE	
+KCityWarDataCore	~KCityWarDataCore	423	RE	
+KCityWarDataCore	GetChallengerTongName	230	RE	
+KTeam	BuildATeam	1493	RE	
+KTeam	DeleteMember	841	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	QuitTeam	526	RE	
+KTeam	SetTeamOpen	452	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	AutoChangeCaption	394	RE	
+KTeam	AutoFindNewCaption	313	RE	
+KTeam	SetTeamClose	304	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	GetAroundTeammateNum	210	RE	
+KTeam	AddMember	103	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	CheckAddCondition	89	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	FindMemberID	82	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	Release	64	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	CheckFull	57	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	FindMember	53	RE	
+KTeam	CheckIn	49	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	CalcCaptainPower	46	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	FindMemberPos	44	RE	
+KTeam	InTeam	41	RE	
+KTeam	CreateTeam	35	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	FindFree	31	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	KTeam	18	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	SetIndex	13	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	IsOpen	11	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeam	ReCalcResistEffect	5	RE	
+KTabFileCtrl	Load	896	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	SetValue	704	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetString	412	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetInteger	379	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetFloat	371	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	Save	327	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	Init	224	RE	
+KTabFileCtrl	InsertAfter	175	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	InsertBefore	175	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	~KTabFileCtrl	157	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	Str2Col	132	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	FindRow	122	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetValue	119	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	InsertNewCol	116	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	Clear	112	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	FindColumn	107	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	WriteFloat	103	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	WriteInteger	103	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	KTabFileCtrl	96	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	Remove	89	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	WriteString	78	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetColName	66	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetRowName	64	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+KTabFileCtrl	GetWidth	26	RE	
+KTabFileCtrl	GetHeight	14	RE	
+KTabFileCtrl	LoadPack	10	PORT	Sources/Engine/Src/KTabFileCtrl.cpp
+CChatRoomPlayerMsgProcess	Process_GetBlackList	456	RE	
+CChatRoomPlayerMsgProcess	CChatRoomPlayerMsgProcess	434	RE	
+CChatRoomPlayerMsgProcess	SendRoomList	408	RE	
+CChatRoomPlayerMsgProcess	Process_GetMemberList	403	RE	
+CChatRoomPlayerMsgProcess	SendMemberList	394	RE	
+CChatRoomPlayerMsgProcess	Process_CreateRoom	386	RE	
+CChatRoomPlayerMsgProcess	SendBlackList	330	RE	
+CChatRoomPlayerMsgProcess	Process_Talk	225	RE	
+CChatRoomPlayerMsgProcess	Process_EnterRoom	224	RE	
+CChatRoomPlayerMsgProcess	Process_AddLifeTime	212	RE	
+CChatRoomPlayerMsgProcess	Process_GetRoomList	203	RE	
+CChatRoomPlayerMsgProcess	Process_KickOut	191	RE	
+CChatRoomPlayerMsgProcess	Process_Prevent	191	RE	
+CChatRoomPlayerMsgProcess	Process_UnPrevent	191	RE	
+CChatRoomPlayerMsgProcess	Process_ChangePassword	189	RE	
+CChatRoomPlayerMsgProcess	Process_LeaveRoom	167	RE	
+CChatRoomPlayerMsgProcess	AskForMoreTime	153	RE	
+CChatRoomPlayerMsgProcess	Process	125	RE	
+CChatRoomPlayerMsgProcess	CheckRoomMoney	86	RE	
+CChatRoomPlayerMsgProcess	CheckTimeMoney	86	RE	
+CChatRoomPlayerMsgProcess	SendDataToClient	60	RE	
+CChatRoomPlayerMsgProcess	SendDataToRelay	46	RE	
+CChatRoomPlayerMsgProcess	~CChatRoomPlayerMsgProcess	10	RE	
+XPackFile	AddElemFileToCache	506	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	GetElemFileBuffer	477	RE	
+XPackFile	ElemFileRead	392	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	GetSprFrame	380	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	EnsureElemFlieContent	379	RE	
+XPackFile	GetSprHeader	357	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	XElemReadFragment	348	RE	
+XPackFile	Open	314	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	Close	306	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	FindElemFile	292	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	ExtractRead	212	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	ReadElemFile	186	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	ElemGetFragmentSize	144	RE	
+XPackFile	FreeElemCache	134	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	FindElemFileInCache	122	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	XPackFile	118	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	Terminate	117	RE	
+XPackFile	~XPackFile	116	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	DirectRead	101	PORT	Sources/Engine/Src/XPackFile.cpp
+XPackFile	XElemGetFragmentCount	71	RE	
+XPackFile	Initialize	52	RE	
+XPackFile	XElemIsPackedByFragment	27	RE	
+KDiceGame	ProcessGame	3131	RE	
+KDiceGame	TestWinRate	1632	RE	
+KPlayerEventMan	InitForKillNpcEvent	3452	RE	
+KPlayerEventMan	OnNpcDeath	929	RE	
+KPlayerEventMan	KPlayerEventMan	142	RE	
+KPlayerEventMan	Release	102	RE	
+KPlayerEventMan	Init	9	RE	
+SameLeagueTypeList	GetLeague	2925	RE	
+SameLeagueTypeList	AddLeague	1653	RE	
+KBattle	ProcessRelayBattleProtocol	1517	RE	
+KBattle	ChangeLadder	378	RE	
+KBattle	BroadCastBattleName	344	RE	
+KBattle	SortLadder	286	RE	
+KBattle	BroadCastMySelf	279	RE	
+KBattle	GetLadderProtocolData	227	RE	
+KBattle	SendBattleResultToTransfer	169	RE	
+KBattle	BroadCastMiniMapTitle	163	RE	
+KBattle	SortTopPlayerData	151	RE	
+KBattle	ChangeDataOnType	149	RE	
+KBattle	BroadCastTopItemInfo	138	RE	
+KBattle	BroadCastViewBoard	119	RE	
+KBattle	GetGameDataBuff	114	RE	
+KBattle	BroadCastLadder	111	RE	
+KBattle	BroadCastGameData	78	RE	
+KBattle	IsInLadder	77	RE	
+KBattle	ViewBattleStart	65	RE	
+KBattle	BroadCastAllLadder	60	RE	
+KBattle	ClearPlayerBattle	56	RE	
+KBattle	GetDataOnType	54	RE	
+KBattle	IsBattleStart	14	RE	
+KKillerTask	ProcessRelayKillerc2cProtocol	1411	RE	
+KKillerTask	ProcessRelayKillerProtocol	829	RE	
+KKillerTask	ProcessRelayKillerLoseway	670	RE	
+KKillerTask	c2skillerquerywiseman	383	RE	
+KKillerTask	Init	345	RE	
+KKillerTask	c2skillersubmittask	253	RE	
+KKillerTask	ProcessKillerProtocol	140	RE	
+KKillerTask	ProcessPK	116	RE	
+KKillerTask	SendNotifyToPlayer	106	RE	
+KKillerTask	KKillerTask	104	RE	
+KKillerTask	c2skillercanceltask	96	RE	
+KKillerTask	c2skillertaketask	96	RE	
+KTimerList	~KTimerList	1024	RE	
+KTimerList	Breathe	408	RE	
+KTimerList	SwitchOffTimer	400	RE	
+KTimerList	KTimerList	372	RE	
+KTimerList	SwitchOnTimer	309	RE	
+KTimerList	ResumeTimer	294	RE	
+KTimerList	SuspendTimer	294	RE	
+KTimerList	DeleteRunningTimer	291	RE	
+KTimerList	StartTimer	255	RE	
+KTimerList	SwitchTimers	163	RE	
+KTimerList	DeleteTimers	162	RE	
+KTimerList	ClearRunningTimers	154	RE	
+KTimerList	CloseTimer	135	RE	
+KTimerList	DeleteSuspendTimer	119	RE	
+KTimerList	ClearSuspendTimers	107	RE	
+KAuctionProcess	Init	593	RE	
+KAuctionProcess	r2gauctiontrade	506	RE	
+KAuctionProcess	r2gauctionreplyscriptask	464	RE	
+KAuctionProcess	ProcessRelayProtocol	416	RE	
+KAuctionProcess	r2gauctionsubmititemallowed	401	RE	
+KAuctionProcess	r2gauctionreturnitem	367	RE	
+KAuctionProcess	c2sauctionsumbititem	273	RE	
+KAuctionProcess	KAuctionProcess	196	RE	
+KAuctionProcess	c2sauctionaddprice	190	RE	
+KAuctionProcess	c2sauctionjoin	169	RE	
+KAuctionProcess	c2sauctionquitrequest	139	RE	
+KAuctionProcess	c2sauctionqueryladder	130	RE	
+KAuctionProcess	ProcessProtocol	129	RE	
+KAuctionProcess	SendNotifyToPlayer	115	RE	
+KAuctionProcess	r2gauctionqueryladderresult	69	RE	
+KAuctionProcess	r2gauctioniteminfo	62	RE	
+KAuctionProcess	r2gauctionnotify	62	RE	
+KAuctionProcess	r2gauctionpriceincrease	62	RE	
+KAuctionProcess	r2gauctionquit	62	RE	
+KAuctionProcess	r2gauctionreturnmoney	34	RE	
+KAuctionProcess	~KAuctionProcess	10	RE	
+KTaskKeyMap	Load	2769	RE	
+KTaskKeyMap	~KTaskKeyMap	532	RE	
+KTaskKeyMap	GetTaskEvent	178	RE	
+KTaskKeyMap	GetTaskIndex	178	RE	
+KTaskKeyMap	GetTaskType	178	RE	
+KTaskKeyMap	GetTaskNo	169	RE	
+KTaskKeyMap	Clear	138	RE	
+KTaskKeyMap	GetEventTask	92	RE	
+KTaskKeyMap	GetEventTaskCount	68	RE	
+KTaskKeyMap	GetIndexName	58	RE	
+KTaskKeyMap	GetTaskName	58	RE	
+KObj	PolygonChangeToBar	547	PORT	Sources/Core/Src/KObj.cpp
+KObj	TrapAct	402	RE	
+KObj	Release	401	PORT	Sources/Core/Src/KObj.cpp
+KObj	ExecScript	371	PORT	Sources/Core/Src/KObj.cpp
+KObj	SyncDir	367	PORT	Sources/Core/Src/KObj.cpp
+KObj	SyncRemove	367	PORT	Sources/Core/Src/KObj.cpp
+KObj	SyncState	367	PORT	Sources/Core/Src/KObj.cpp
+KObj	SyncAdd	252	PORT	Sources/Core/Src/KObj.cpp
+KObj	KObj	240	PORT	Sources/Core/Src/KObj.cpp
+KObj	Activate	194	PORT	Sources/Core/Src/KObj.cpp
+KObj	Remove	142	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetScriptFile	142	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetState	135	PORT	Sources/Core/Src/KObj.cpp
+KObj	GetMpsPos	81	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetImageDir	67	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetDir	60	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetEntireBelong	44	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetItemBelong	33	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetIndex	23	PORT	Sources/Core/Src/KObj.cpp
+KObj	BoxClose	22	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetWorldID	22	PORT	Sources/Core/Src/KObj.cpp
+KObj	BoxOpen	21	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetItemDataID	21	PORT	Sources/Core/Src/KObj.cpp
+KObj	SetLifeTime	18	PORT	Sources/Core/Src/KObj.cpp
+KObj	DoorClose	15	PORT	Sources/Core/Src/KObj.cpp
+KObj	DoorOpen	15	PORT	Sources/Core/Src/KObj.cpp
+KObj	GetItemDataID	14	PORT	Sources/Core/Src/KObj.cpp
+KObj	GetKind	11	PORT	Sources/Core/Src/KObj.cpp
+KObj	CastSkill	10	RE	
+KObj	FindEnemy	7	RE	
+KPlayerTitle	Init	1446	RE	
+KPlayerTitle	UnActiveTitle	564	RE	
+KPlayerTitle	ActiveTitle	490	RE	
+KPlayerTitle	AddTitle	377	RE	
+KPlayerTitle	SyncTempSkill	252	RE	
+KPlayerTitle	ChangeFeature	223	RE	
+KPlayerTitle	SaveTitles	219	RE	
+KPlayerTitle	SyncTitleInfo	201	RE	
+KPlayerTitle	Activate	159	RE	
+KPlayerTitle	ClearOneTitle	132	RE	
+KPlayerTitle	LoadTitles	126	RE	
+KPlayerTitle	ClearAllTitle	102	RE	
+KPlayerPartnerCtrl	c2sCtrlRemovePartner	490	RE	
+KPlayerPartnerCtrl	DoCallOut	277	RE	
+KPlayerPartnerCtrl	Save	223	RE	
+KPlayerPartnerCtrl	c2sFightPartnerSetTarget	223	RE	
+KPlayerPartnerCtrl	SetCurPartner	216	RE	
+KPlayerPartnerCtrl	RemovePartner	213	RE	
+KPlayerPartnerCtrl	c2sFightPartnerRemoveSkill	208	RE	
+KPlayerPartnerCtrl	c2sFightPartnerSetStandbySkill	208	RE	
+KPlayerPartnerCtrl	Load	203	RE	
+KPlayerPartnerCtrl	c2sPartnerSetName	199	RE	
+KPlayerPartnerCtrl	AddPartner	177	RE	
+KPlayerPartnerCtrl	CallOutCurPartner	175	RE	
+KPlayerPartnerCtrl	~KPlayerPartnerCtrl	166	RE	
+KPlayerPartnerCtrl	KPlayerPartnerCtrl	162	RE	
+KPlayerPartnerCtrl	OnOwnerCampChanged	148	RE	
+KPlayerPartnerCtrl	ProtocolProcess	142	RE	
+KPlayerPartnerCtrl	OnOwnerFightModeChanged	137	RE	
+KPlayerPartnerCtrl	SetCurPartnerFollowOnly	104	RE	
+KPlayerPartnerCtrl	SendSimpleInfo2	71	RE	
+KPlayerPartnerCtrl	SendSimpleInfo4	71	RE	
+KPlayerPartnerCtrl	SendSimpleInfo1	70	RE	
+KPlayerPartnerCtrl	c2sPartnerTalk	68	RE	
+KPlayerPartnerCtrl	Release	65	RE	
+KPlayerPartnerCtrl	RemoveAllPartner	52	RE	
+KPlayerPartnerCtrl	FindPartner	51	RE	
+KPlayerPartnerCtrl	c2sCtrlCallOutCurPartner	46	RE	
+KPlayerPartnerCtrl	c2sCtrlSetCurPartner	40	RE	
+KPlayerPartnerCtrl	c2sCtrlSetCurPartnerFollowOnly	40	RE	
+KPlayerPartnerCtrl	Init	24	RE	
+KTongSetting	LoadWorkshopSetting	2232	RE	
+KTongSetting	LoadTongSetting	1751	RE	
+KTongSetting	GetWorkshopScript	278	RE	
+KLeagueManager	GetLeague	3013	RE	
+KLeagueManager	GetLeagueByMemberName	1239	RE	
+KLeagueManager	Flush	5	RE	
+KEmpire	SyncPosition	642	RE	
+KEmpire	AddBlackList	508	RE	
+KEmpire	KEmpire	490	RE	
+KEmpire	Levy	411	RE	
+KEmpire	InBlackList	310	RE	
+KEmpire	SetTask	242	RE	
+KEmpire	SyncHistory	178	RE	
+KEmpire	BroadCastEmperor	157	RE	
+KEmpire	OwnSeal	143	RE	
+KEmpire	BroadCastNationTitle	139	RE	
+KEmpire	SyncTask	138	RE	
+KEmpire	GetHistory	120	RE	
+KEmpire	Sync	104	RE	
+KEmpire	GetHistoryCount	91	RE	
+KEmpire	BroadCast	83	RE	
+KEmpire	GetTask	64	RE	
+KEmpire	SetNationTitle	60	RE	
+KEmpire	SyncSealOwner	46	RE	
+KEmpire	GetEmperorTitle	39	RE	
+KEmpire	Breathe	27	RE	
+KNpcGold	RandChangeGold	1738	RE	
+KNpcGold	SetGoldTypeAndBackData	951	RE	
+KNpcGold	RecoverBackData	937	RE	
+KNpcGold	Init	158	RE	
+KNpcGold	GetGoldType	36	RE	
+KNpcGold	SetGoldType	20	RE	
+CChatRoomRelayMsgProcess	CChatRoomRelayMsgProcess	636	RE	
+CChatRoomRelayMsgProcess	Process_AddLifeTime	314	RE	
+CChatRoomRelayMsgProcess	Process_EnterRoom	287	RE	
+CChatRoomRelayMsgProcess	NotifyChatChannel	275	RE	
+CChatRoomRelayMsgProcess	Process_CreateRoom	233	RE	
+CChatRoomRelayMsgProcess	Process	183	RE	
+CChatRoomRelayMsgProcess	BroadCast_KickOut	169	RE	
+CChatRoomRelayMsgProcess	BroadCast_CreateRoom	163	RE	
+CChatRoomRelayMsgProcess	Process_LeaveRoom	144	RE	
+CChatRoomRelayMsgProcess	Process_Prevent	144	RE	
+CChatRoomRelayMsgProcess	Process_UnPrevent	144	RE	
+CChatRoomRelayMsgProcess	Process_ChangePassword	141	RE	
+CChatRoomRelayMsgProcess	BroadCast_EnterRoom	140	RE	
+CChatRoomRelayMsgProcess	BroadCast_Talk	104	RE	
+CChatRoomRelayMsgProcess	ConsumeRoomMoney	86	RE	
+CChatRoomRelayMsgProcess	ConsumeTimeMoney	86	RE	
+CChatRoomRelayMsgProcess	BroadCast_Prevent	81	RE	
+CChatRoomRelayMsgProcess	BroadCast_ChangePassword	74	RE	
+CChatRoomRelayMsgProcess	BroadCast_LeaveRoom	74	RE	
+CChatRoomRelayMsgProcess	BroadCast_UnPrevent	74	RE	
+CChatRoomRelayMsgProcess	Process_SyncBlackList	74	RE	
+CChatRoomRelayMsgProcess	BroadCast_RoomTime	70	RE	
+CChatRoomRelayMsgProcess	SendDataToRelay	46	RE	
+CChatRoomRelayMsgProcess	BroadCast_DestroyRoom	39	RE	
+CChatRoomRelayMsgProcess	SendDataToClient	39	RE	
+CChatRoomRelayMsgProcess	~CChatRoomRelayMsgProcess	10	RE	
+KBishopProcess	GatewaySmallPackProcess	725	RE	
+KBishopProcess	OfflineKickout	638	RE	
+KBishopProcess	GatewayBoardCastProcess	578	RE	
+KBishopProcess	ProcessTripRoleData	486	RE	
+KBishopProcess	LoadRoleData	297	RE	
+KBishopProcess	CheckRoleData	247	RE	
+KBishopProcess	ProcessSyncRoleData	211	RE	
+KBishopProcess	GatewayLargePackProcess	137	RE	
+KBishopProcess	ProcessTryoutTimeout	106	RE	
+KBishopProcess	KBishopProcess	90	RE	
+KBishopProcess	CompareAccount	76	RE	
+KBishopProcess	ProcessMessage	55	RE	
+KBishopProcess	ProcessOfflineKickout	33	RE	
+KBishopProcess	UnInitialize	29	RE	
+KBishopProcess	Initialize	27	RE	
+KBishopProcess	~KBishopProcess	18	RE	
+KMagicGenerator	GenPlatinaMagicAttrib	1291	RE	
+KMagicGenerator	GenNormalMagicAttrib	884	RE	
+KMagicGenerator	GenGoldMagicAttrib	501	RE	
+KMagicGenerator	GenEnchasableMagicAttrib	437	RE	
+KMagicGenerator	GenMagicAttrib	429	RE	
+KMagicGenerator	Init	21	RE	
+KMagicGenerator	KMagicGenerator	18	RE	
+KMagicGenerator	~KMagicGenerator	18	RE	
+KTabFile	CreateTabOffset	604	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	GetInteger	462	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	GetFloat	443	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	GetString	383	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	~KTabFile	346	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	Search	241	RE	
+KTabFile	KTabFile	216	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	GetValue	189	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	Load	180	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	FindRow	135	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	Str2Col	132	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	FindColumn	121	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	Col2Str	74	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	Clear	37	PORT	Sources/Engine/Src/KTabFile.cpp
+KTabFile	GetHeight	11	RE	
+KTabFile	GetWidth	11	RE	
+KTabFile	Save	7	RE	
+KThiefSkill	LoadSetting	887	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	Cast_Redress	747	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	OnSkill	278	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	Cast_ShowLife	196	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	Cast_ShowMana	196	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	GetSkillCost	186	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	Cast_ShowMoney	173	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	KThiefSkill	160	RE	
+KThiefSkill	CanCastSkill	143	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	Cast	136	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	DoSkill	116	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	~KThiefSkill	73	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	Cast_RunScript	70	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	GetDelayPerCast	29	RE	
+KThiefSkill	GetAttackRadius	14	RE	
+KThiefSkill	GetSkillCostType	14	RE	
+KThiefSkill	GetSkillName	13	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	GetSkillId	10	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	GetSkillStyle	10	PORT	Sources/Core/Src/KThiefSkill.cpp
+KThiefSkill	IsTargetAlly	10	RE	
+KThiefSkill	IsTargetEnemy	10	RE	
+KThiefSkill	IsTargetOnly	10	RE	
+KThiefSkill	IsTargetOther	10	RE	
+KThiefSkill	GetCanCastLevel	7	RE	
+KThiefSkill	GetSkillLevelUpScriptId	7	RE	
+KThiefSkill	IsAura	7	RE	
+KThiefSkill	IsExpSkill	7	RE	
+KThiefSkill	IsTargetNoNpc	7	RE	
+KThiefSkill	IsTargetObj	7	RE	
+KThiefSkill	IsTargetSelf	7	RE	
+KThiefSkill	IsWeaponSkill	7	RE	
+KThiefSkill	PeaceCanUse	7	RE	
+KThiefSkill	LoadSkillLevelData	5	PORT	Sources/Core/Src/KThiefSkill.cpp
+KTaskTable	KTaskTable	1860	RE	
+KTaskTable	AddRowSet	967	RE	
+KTaskTable	~KTaskTable	710	RE	
+KTongDataList	GetTongHead	1752	RE	
+KTongDataList	~KTongDataList	1362	RE	
+KTongDataList	BeforeEraseAtom	263	RE	
+KTongDataList	GetWorkshop	123	RE	
+KTongDataList	DBSaveChild	36	RE	
+regexp	regexp	970	PORT	Sources/FilterText/Regexp.cpp
+regexp	GetReplaceString	965	PORT	Sources/FilterText/Regexp.cpp
+regexp	regcomp	722	PORT	Sources/FilterText/Regexp.cpp
+regexp	regexec	408	PORT	Sources/FilterText/Regexp.cpp
+regexp	~regexp	184	PORT	Sources/FilterText/Regexp.cpp
+regexp	ignoreCase	178	PORT	Sources/FilterText/Regexp.cpp
+regexp	getCopy	71	PORT	Sources/FilterText/Regexp.cpp
+KPlayerPK	EnmityPKOpen	1122	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	ExercisePKOpen	486	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	SetNormalPKState	376	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	EnmityPKCountDown	269	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	EnmityPKClose	237	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	CheckLockPK	200	RE	
+KPlayerPK	ExercisePKClose	200	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	KPlayerPK	134	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	AddPKValue	105	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	SetPKValue	105	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	Init	90	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	Active	76	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	CloseAll	31	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	GetEnmityPKAim	11	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	GetEnmityPKState	11	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	GetExercisePKAim	11	PORT	Sources/Core/Src/KPlayerPK.cpp
+KPlayerPK	GetPKValue	11	PORT	Sources/Core/Src/KPlayerPK.cpp
+KSG_LogFile	WriteLog	539	RE	
+KSG_LogFile	OpenNewFile	357	RE	
+KSG_LogFile	InitWithDate	305	RE	
+KSG_LogFile	write_date_time	279	RE	
+KSG_LogFile	write_date_time_in	274	RE	
+KSG_LogFile	write_date	255	RE	
+KSG_LogFile	Init	239	PORT	Sources/Engine/Src/KDebug.cpp
+KSG_LogFile	write_time	235	RE	
+KSG_LogFile	printf	205	PORT	Sources/Engine/Src/KDebug.cpp
+KSG_LogFile	KSG_LogFile	164	PORT	Sources/Engine/Src/KDebug.cpp
+KSG_LogFile	puts	146	PORT	Sources/Engine/Src/KDebug.cpp
+KSG_LogFile	~KSG_LogFile	139	PORT	Sources/Engine/Src/KDebug.cpp
+KSG_LogFile	printf_t	89	RE	
+KSG_LogFile	log	55	RE	
+KSG_LogFile	log_t	55	RE	
+KSG_LogFile	puts_t	46	RE	
+KSG_LogFile	ChangeLogLevel	22	RE	
+KInventory	CountFreeRoom	427	RE	
+KInventory	PlaceItem	314	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	PickUpItem	282	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	FindRoom	208	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	CalcSameParticularType	207	RE	
+KInventory	CalcSameDetailType	199	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	CheckRoom	190	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	FindSameParticularType	186	RE	
+KInventory	GetNextItem	179	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	FindSameDetailType	162	RE	
+KInventory	Init	151	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	HoldItem	150	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	FindItem	132	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	CalcFreeCellCount	127	RE	
+KInventory	CheckSameParticularType	110	RE	
+KInventory	CheckSameDetailType	108	RE	
+KInventory	KInventory	84	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	Release	78	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	Clear	59	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	AddMoney	25	PORT	Sources/Core/Src/KInventory.cpp
+KInventory	~KInventory	18	PORT	Sources/Core/Src/KInventory.cpp
+SSkillTableData	GetInfoFromTabFile	3266	RE	
+KTaskValues	Save	520	RE	
+KTaskValues	Load	466	RE	
+KTaskValues	~KTaskValues	330	RE	
+KTaskValues	PutTmpValue	274	RE	
+KTaskValues	PutTaskStatus	231	RE	
+KTaskValues	KTaskValues	224	RE	
+KTaskValues	GetTaskStatus	197	RE	
+KTaskValues	StartTask	197	RE	
+KTaskValues	GetTmpList	177	RE	
+KTaskValues	CloseTask	156	RE	
+KTaskValues	SetTaskValue	109	RE	
+KTaskValues	GetTmpValue	95	RE	
+KTaskValues	GetCurrentTaskList	84	RE	
+KTaskValues	GetDoubleWordCount	71	RE	
+KTaskValues	SetBit	38	RE	
+KTaskValues	GetBit	29	RE	
+KChannelProtocol	DeleteChannel	645	RE	
+KChannelProtocol	Login	551	RE	
+KChannelProtocol	Logout	517	RE	
+KChannelProtocol	CreateChannel	469	RE	
+KChannelProtocol	OnRecvMessage	276	RE	
+KChannelProtocol	ChannelBroadcast	142	RE	
+KChannelProtocol	RecvMessage	131	RE	
+KChannelProtocol	NotifySyncMsg	127	RE	
+KChannelProtocol	FillinChannelMsg	113	RE	
+KChannelProtocol	NotifyFiniMsg	80	RE	
+KChannelProtocol	IsValidIndex	49	RE	
+KChannelProtocol	KChannelProtocol	26	RE	
+KChannelProtocol	~KChannelProtocol	10	RE	
+KChannelProtocol	OnFiniMessage	5	RE	
+KChannelProtocol	OnSendMessage	5	RE	
+KChannelProtocol	OnSyncMessage	5	RE	
+KLevelAdd	Init	1184	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	KLevelAdd	976	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetLevelExp	149	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetColdResist	105	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetFireResist	105	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetLightResist	105	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetPhysicsResist	105	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetPoisonResist	105	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetStaminaCurLevelBase	71	RE	
+KLevelAdd	GetStaminaBase	41	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetStaminaPerLevel	41	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetLeadExpShare	25	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetLifePerLevel	25	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetLifePerVitality	25	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetManaPerEnergy	25	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetManaPerLevel	25	PORT	Sources/Core/Src/KPlayerSet.cpp
+KLevelAdd	GetStaminaPerVitality	25	PORT	Sources/Core/Src/KPlayerSet.cpp
+KTaskTypeMap	KTaskTypeMap	2346	RE	
+KTaskTypeMap	~KTaskTypeMap	362	RE	
+KTaskTypeMap	GetTable	163	RE	
+KTaskTypeMap	InitTableList	35	RE	
+KTaskTypeMap	GetAwards	34	RE	
+KTaskTypeMap	GetConditions	34	RE	
+KTaskTypeMap	GetEntities	34	RE	
+KTaskTypeMap	GetTalks	34	RE	
+KAntiBotSignCodeMan	Read	876	RE	
+KAntiBotSignCodeMan	AddBotSignCode	355	RE	
+KAntiBotSignCodeMan	CheckClientValidCode	353	RE	
+KAntiBotSignCodeMan	AddCVCode	330	RE	
+KAntiBotSignCodeMan	ClearBotSignCode	280	RE	
+KAntiBotSignCodeMan	ClearCVCode	164	RE	
+KAntiBotSignCodeMan	_SendCode2Client	136	RE	
+KAntiBotSignCodeMan	_SendDataToAllPlayer	103	RE	
+KAntiBotSignCodeMan	GetCVCode	102	RE	
+KAntiBotSignCodeMan	SyncSignCode2Client	91	RE	
+KAntiBotSignCodeMan	GetAllVCCodeCount	75	RE	
+KAntiBotSignCodeMan	SetSignCodeSyncTime	72	RE	
+KAntiBotSignCodeMan	GetCVCodeCount	70	RE	
+CChatRooms	CreateChatRoom	909	RE	
+CChatRooms	CloseRoom	322	RE	
+CChatRooms	Breathe	288	RE	
+CChatRooms	CheckChatRoom	258	RE	
+CChatRooms	FindChatRoom	220	RE	
+CChatRooms	CChatRooms	216	RE	
+CChatRooms	~CChatRooms	186	RE	
+CChatRooms	Clear	163	RE	
+CChatRooms	FindLocationRooms	112	RE	
+CChatRooms	GetAllChatRooms	77	RE	
+CChatRooms	RoomName2ID	77	RE	
+CChatRooms	Hook	69	RE	
+CChatRooms	UnHook	61	RE	
+CChatRooms	SetMaxClientCount	14	RE	
+CChatRooms	SetMaxRoomCount	14	RE	
+CChatRooms	SetMaxBlackListCount	13	RE	
+CChatRooms	Save	5	RE	
+KPlayerTeam	GetInviteReply	1583	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KPlayerTeam	InviteAdd	609	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KPlayerTeam	CreateTeam	554	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KPlayerTeam	SetCanTeamFlag	108	RE	
+KPlayerTeam	Release	98	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KPlayerTeam	AddTeamChangeResist	5	RE	
+KPlayerTeam	ChangeWorldChangeResist	5	RE	
+KPlayerTeam	FightModeChangeResist	5	RE	
+KPlayerTeam	LeaveTeamChangeResist	5	RE	
+KPlayerTeam	ReCalcResistTeammateEffectToSelf	5	RE	
+KItemValuator	CalcItemValue	1746	RE	
+KItemValuator	Init	778	RE	
+KItemValuator	TransferItemValue	264	RE	
+KStoneEnchaser	UpdateWeapon	1288	RE	
+KStoneEnchaser	CheckStonesPlacement	140	RE	
+KStoneEnchaser	EnchaseItem	130	RE	
+KStoneEnchaser	EnchaseStone_Series	122	RE	
+KStoneEnchaser	EnchaseStone_Magic	114	RE	
+KStoneEnchaser	EnchaseStones	103	RE	
+KStoneEnchaser	CheckParams	96	RE	
+KStoneEnchaser	EnchaseStone_Level	89	RE	
+KStoneEnchaser	RemoveItems	77	RE	
+KStoneEnchaser	GetStoneCount	69	RE	
+KStoneEnchaser	UpdateDurability	64	RE	
+KStoneEnchaser	WinStakes	51	RE	
+KStoneEnchaser	~KStoneEnchaser	46	RE	
+KStoneEnchaser	CheckSourceLevel	37	RE	
+KStoneEnchaser	IsDirectEnchasing	37	RE	
+KStoneEnchaser	IsWhiteItem	35	RE	
+KStoneEnchaser	KStoneEnchaser	28	RE	
+KStoneEnchaser	CheckSourcePlacement	18	RE	
+KStoneEnchaser	UpdateItemLevel	12	RE	
+KMission	KMission	709	RE	
+KMission	BuildLadder	599	RE	
+KMission	ExecuteScript	542	PORT	Sources/Core/Src/KMission.cpp
+KMission	PackDataToGroup	208	RE	
+KMission	~KMission	188	RE	
+KMission	Activate	143	PORT	Sources/Core/Src/KMission.cpp
+KMission	PackDataToAll	138	RE	
+KPlayerLimitTime	Init	685	RE	
+KPlayerLimitTime	OnLoad	452	RE	
+KPlayerLimitTime	OnSave	290	RE	
+KPlayerLimitTime	OnLimitTimeChange	261	RE	
+KPlayerLimitTime	Active	241	RE	
+KPlayerLimitTime	CheckIsNewDay	140	RE	
+KPlayerLimitTime	KPlayerLimitTime	126	RE	
+KPlayerLimitTime	UpdateInfo	71	RE	
+KPlayerLimitTime	SyncInfoToClient	63	RE	
+KPlayerLimitTime	Attach	60	RE	
+KPlayerLimitTime	OnOfflineLive	53	RE	
+KPlayerLimitTime	IsInLimitTimeArea	39	RE	
+KPlayerLimitTime	GetLimitTimeState	32	RE	
+KPlayerLimitTime	~KPlayerLimitTime	10	RE	
+KDungeonMap	KDungeonMap	769	RE	
+KDungeonMap	FreeMapMaintenance	514	RE	
+KDungeonMap	ProvideMap	237	RE	
+KDungeonMap	MoveMapBetweenVectors	228	RE	
+KDungeonMap	~KDungeonMap	172	RE	
+KDungeonMap	ApplyDelMap	157	RE	
+KDungeonMap	ProcessMapDelete	127	RE	
+KDungeonMap	AddMapIntoVector	114	RE	
+KDungeonMap	RecycleMap	81	RE	
+KDungeonMap	ProcessMapGreat	53	RE	
+KDungeonMap	Initialize	43	RE	
+KDungeonMap	PrintDeBugInfo	10	RE	
+KOfflineConnections	AddConnection	1205	RE	
+KOfflineConnections	DelConnection	404	RE	
+KOfflineConnections	GetConnection	259	RE	
+KOfflineConnections	PutConnection	178	RE	
+KOfflineConnections	~KOfflineConnections	174	RE	
+KOfflineConnections	KOfflineConnections	142	RE	
+KOfflineConnections	ClearAllConnections	104	RE	
+KOfflineConnections	GetConnectionCount	11	RE	
+KOfflineConnections	Instance	10	RE	
+KScriptEnchaser	EnchaseItem	1461	RE	
+KScriptEnchaser	Init	837	RE	
+KScriptEnchaser	CheckParams	87	RE	
+KScriptEnchaser	RemoveItems	63	RE	
+KResStringTable	AddStringsFromFile	2071	RE	
+KResStringTable	GetString	274	RE	
+KResStringTable	WriteLog	98	RE	
+KCodecLzo	Compress	1083	PORT	Sources/Engine/Src/KCodecLzo.cpp
+KCodecLzo	Decode	974	PORT	Sources/Engine/Src/KCodecLzo.cpp
+KCodecLzo	Encode	313	PORT	Sources/Engine/Src/KCodecLzo.cpp
+KMemFileManager	AddFile	853	RE	
+KMemFileManager	RemoveFile	564	RE	
+KMemFileManager	~KMemFileManager	204	RE	
+KMemFileManager	GetDataRef	194	RE	
+KMemFileManager	KMemFileManager	190	RE	
+KMemFileManager	IsExist	178	RE	
+KMemFileManager	RemoveAll	172	RE	
+KMemFileManager	UnInitialize	9	RE	
+KMemFileManager	Initialize	5	RE	
+KSG_ExtPoint	Init	778	RE	
+KSG_ExtPoint	PayExtPoint	436	RE	
+KSG_ExtPoint	ProcessChangeExtPoint	404	RE	
+KSG_ExtPoint	UseSilver	242	RE	
+KSG_ExtPoint	ProcessTime	157	RE	
+KSG_ExtPoint	ProcessReturn	142	RE	
+KSG_ExtPoint	~KSG_ExtPoint	88	RE	
+KSG_ExtPoint	KSG_ExtPoint	74	RE	
+KAntiBotMan	StartTimer	625	RE	
+KAntiBotMan	WriteLog	580	RE	
+KAntiBotMan	Activate	554	RE	
+KAntiBotMan	StartAntiBotAction	129	RE	
+KAntiBotMan	RefuseLogin	87	RE	
+KAntiBotMan	MakeAntiBotItemKey	70	RE	
+KAntiBotMan	SetDelayCatchTime	68	RE	
+KAntiBotMan	SetDeleteAccountFlag	68	RE	
+KAntiBotMan	SetPunishBotFlag	68	RE	
+KAntiBotMan	MakeAntiBotClientKey	50	RE	
+KSG_IBItemHelper	OnBuyRet	940	RE	
+KSG_IBItemHelper	ApplyBuy	481	RE	
+KSG_IBItemHelper	OnItemConsume	373	RE	
+KSG_IBItemHelper	OnUseRet	224	RE	
+KSG_IBItemHelper	WriteLog	133	RE	
+KSG_IBItemHelper	Init	51	RE	
+KSG_IBItemHelper	OnItemRemove	46	RE	
+KNpcFindPath	GetDir	1818	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KNpcFindPath	KNpcFindPath	126	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KNpcFindPath	CheckBarrier	121	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KNpcFindPath	Init	62	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KNpcFindPath	CheckDistance	39	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KNpcFindPath	ClearSomeParameter	29	RE	
+KNpcFindPath	Dir64To8	17	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KNpcFindPath	Dir8To64	11	PORT	Sources/Core/Src/KNpcFindPath.cpp
+KLibOfBPT_Tool	KLibOfBPT_Tool	1180	RE	
+KLibOfBPT_Tool	~KLibOfBPT_Tool	536	RE	
+KLibOfBPT_Tool	InitMAIT	291	RE	
+KLibOfBPT_Tool	Init	113	RE	
+KLibOfBPT_Tool	GetCMIT	100	RE	
+KTaskTimerList	Load	469	RE	
+KTaskTimerList	StartTimer	302	RE	
+KTaskTimerList	CreateTimer	219	RE	
+KTaskTimerList	Activate	215	RE	
+KTaskTimerList	Save	172	RE	
+KTaskTimerList	CloseTimer	156	RE	
+KTaskTimerList	GetRestTime	92	RE	
+KTaskTimerList	GetRestCount	85	RE	
+KTaskTimerList	GetTimerList	84	RE	
+KTaskTimerList	IsTimerSuspending	82	RE	
+KTaskTimerList	ResumeTimer	82	RE	
+KTaskTimerList	SuspendTimer	82	RE	
+KTaskTimerList	HasTimer	60	RE	
+KTaskTimerList	LoadTimer	39	RE	
+KTaskTimerList	SaveTimer	39	RE	
+KTaskTimerList	GetTimerCount	14	RE	
+KDataBaseClass	Init	747	RE	
+KDataBaseClass	SetLoaded	529	RE	
+KDataBaseClass	Load	361	RE	
+KDataBaseClass	Save	319	RE	
+KDataBaseClass	GetSaveLen	81	RE	
+KDataBaseClass	~KDataBaseClass	51	RE	
+KDataBaseClass	DBSaveChild	36	RE	
+KDataBaseClass	LoadMore	23	RE	
+KDataBaseClass	SaveMore	19	RE	
+KDataBaseClass	GetSaveLenMore	7	RE	
+KDataBaseClass	LoadOldVersion	7	RE	
+KDataBaseClass	AfterLoad	5	RE	
+KDataBaseClass	InitMore	5	RE	
+KPet	FollowPlayer	426	RE	
+KPet	CreateNpc	323	RE	
+KPet	Load	257	RE	
+KPet	SetName	235	RE	
+KPet	DeleteNpc	219	RE	
+KPet	SetFeatureId	129	RE	
+KPet	SaveName	125	RE	
+KPet	CallOut	114	RE	
+KPet	Release	62	RE	
+KPet	SaveExp	45	RE	
+KPet	SaveLevel	45	RE	
+KPet	SaveSummonFlag	45	RE	
+KPet	KPet	44	RE	
+KPet	SaveFeatureId	44	RE	
+KPet	Activate	43	RE	
+KPet	Init	14	RE	
+KPet	Save	10	RE	
+CSpectatorMap	Spectate	663	RE	
+CSpectatorMap	SpectatorQuit	370	RE	
+CSpectatorMap	CSpectatorMap	248	RE	
+CSpectatorMap	ActorQuit	219	RE	
+CSpectatorMap	BroadCast	172	RE	
+CSpectatorMap	ChangeWorld	100	RE	
+CSpectatorMap	Clear	81	RE	
+CSpectatorMap	~CSpectatorMap	68	RE	
+CSpectatorMap	GetSpectatorList	64	RE	
+CSpectatorMap	NotifyEnterMode	62	RE	
+CSpectatorMap	NotifyLeaveMode	62	RE	
+CSpectatorMap	IsActor	34	RE	
+CSpectatorMap	IsSpectator	29	RE	
+KNpcDeathCalcExp	GetDistributeInfo	1072	RE	
+KNpcDeathCalcExp	CalcExp	693	PORT	Sources/Core/Src/KNpcDeathCalcExp.cpp
+KNpcDeathCalcExp	AddDamage	243	PORT	Sources/Core/Src/KNpcDeathCalcExp.cpp
+KNpcDeathCalcExp	Active	91	PORT	Sources/Core/Src/KNpcDeathCalcExp.cpp
+KNpcDeathCalcExp	Init	37	PORT	Sources/Core/Src/KNpcDeathCalcExp.cpp
+KNpcDeathCalcExp	Clear	23	PORT	Sources/Core/Src/KNpcDeathCalcExp.cpp
+KLadder	SingleUpdatePlus	491	RE	
+KLadder	~KLadder	390	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	GetFirstRoleListPlus	347	RE	
+KLadder	GetTenRoleListPlus	175	RE	
+KLadder	GetTopTen	167	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	KLadder	148	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	ProcessLadderProtocol	69	RE	
+KLadder	Init	52	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	TopTenCampMasterHand	36	RE	
+KLadder	TopTenCampRicher	36	RE	
+KLadder	TopTenFacMasterHand	36	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	TopTenFacRich	36	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	GetFacMasterHandPercent	30	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	GetFacMemberCount	30	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	GetFacMoneyPercent	30	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	TopTenBossKiller	13	RE	
+KLadder	TopTenFortune	13	RE	
+KLadder	TopTenKiller	13	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	TopTenLeaguWinner	13	RE	
+KLadder	TopTenMasterHand	13	PORT	Sources/Core/Src/KLadder.cpp
+KLadder	TopTenRich	8	PORT	Sources/Core/Src/KLadder.cpp
+KSkillAutoCast	AutoCast	873	RE	
+KSkillAutoCast	AddSkill	834	RE	
+KSkillAutoCast	~KSkillAutoCast	141	RE	
+KSkillAutoCast	KSkillAutoCast	122	RE	
+KSkillAutoCast	Init	78	RE	
+KSkillAutoCast	GetNextCastTime	73	RE	
+KStatDataServer	Update	887	RE	
+KStatDataServer	SetNameID	338	RE	
+KStatDataServer	Activate	223	RE	
+KStatDataServer	~KStatDataServer	218	RE	
+KStatDataServer	KStatDataServer	188	RE	
+KStatDataServer	GetUpdateStatData	158	RE	
+KStatDataServer	SendAllStatData	41	RE	
+KStatDataServer	UnInit	38	RE	
+KStatDataServer	Init	26	RE	
+KRegionSearcher	KRegionSearcher	420	RE	
+KRegionSearcher	GetNextMissile	293	RE	
+KRegionSearcher	GetNextPlayer	288	RE	
+KRegionSearcher	FirstRegion	265	RE	
+KRegionSearcher	GetNextNpc	259	RE	
+KRegionSearcher	GetNextNpcRound	247	RE	
+KRegionSearcher	NextRegion	155	RE	
+KRegionSearcher	GetNextObj	131	RE	
+CTextFilter	IsTextPass	512	PORT	Sources/FilterText/FilterText.cpp
+CTextFilter	AddExpression	498	PORT	Sources/FilterText/FilterText.cpp
+CTextFilter	Release	290	RE	
+CTextFilter	Clearup	167	PORT	Sources/FilterText/FilterText.cpp
+CTextFilter	IsValidRoleChars	129	RE	
+CTextFilter	_ValidRoleChar_Big5	123	RE	
+CTextFilter	_ValidRoleChar_GB	123	RE	
+CTextFilter	_ValidRoleChar_VN	62	RE	
+CTextFilter	_ValidRoleChar_ASCII	53	RE	
+CTextFilter	_ValidSecondChar	50	RE	
+KPolygon	AddPointToVertex	580	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	IsPointInPolygon	410	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	ShiftVertex	309	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	LoopVertex	191	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	GetNearVertex	98	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	GetCenterPos	86	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	RemoveIndexVertex	65	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	GetLeftVertex	60	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	GetRightVertex	60	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	KPolygon	58	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	GetIndexVertex	40	PORT	Sources/Engine/Src/KPolygon.cpp
+KPolygon	Clear	29	PORT	Sources/Engine/Src/KPolygon.cpp
+KModuleCfgCenterGS	OnModuleCfgFileChanged	711	RE	
+KModuleCfgCenterGS	UpdateSyncClientData	420	RE	
+KModuleCfgCenterGS	OnModuleCfgChanged	400	RE	
+KModuleCfgCenterGS	SyncCfgFileToClient	181	RE	
+KModuleCfgCenterGS	ReleaseSyncClientData	109	RE	
+KModuleCfgCenterGS	SyncCfgToClient	107	RE	
+KModuleCfgCenterGS	Instance	10	RE	
+KTaskSettings	KTaskSettings	384	RE	
+KTaskSettings	GetAwards	203	RE	
+KTaskSettings	GetConditions	203	RE	
+KTaskSettings	GetEntities	203	RE	
+KTaskSettings	GetTalks	203	RE	
+KTaskSettings	Initialize	184	RE	
+KTaskSettings	GetRowSet	183	RE	
+KTaskSettings	~KTaskSettings	124	RE	
+KTaskSettings	UnInitialize	117	RE	
+KTaskSettings	GetEvents	34	RE	
+KTaskSettings	GetIds	34	RE	
+KTaskSettings	GetTaskList	24	RE	
+KTaskSettings	GetIndexName	9	RE	
+KTaskSettings	GetTaskIndex	9	RE	
+KTaskSettings	GetTaskName	9	RE	
+KTaskSettings	GetTaskNo	9	RE	
+KNpcGoldTemplate	Init	1819	RE	
+KNpcGoldTemplate	KNpcGoldTemplate	100	RE	
+KLibFuncsManager	AddLibFuncs	1266	RE	
+KLibFuncsManager	Initialize	559	RE	
+KGoods	GetPrice	891	RE	
+KGoods	KGoods	810	RE	
+KGoods	GetOriginalPrice	99	RE	
+KLotteryCenter	InitQuestionSet	1244	RE	
+KLotteryCenter	BuyTicket	209	RE	
+KLotteryCenter	SetAnswer	173	RE	
+KLotteryCenter	PayforTicket	83	RE	
+KLotteryCenter	Save	69	RE	
+KLotteryCenter	Load	10	RE	
+KBPT_Equip_Platina	LoadRecord	1429	RE	
+KBPT_Equip_Platina	SetItemStackProp	131	RE	
+KBPT_Equip_Platina	KBPT_Equip_Platina	130	RE	
+KBPT_Equip_Platina	ClearAllStackProp	57	RE	
+KBPT_Equipment_Gold	LoadRecord	1253	RE	
+KBPT_Equipment_Gold	SetItemStackProp	131	RE	
+KBPT_Equipment_Gold	KBPT_Equipment_Gold	120	RE	
+KBPT_Equipment_Gold	FindRecord	106	RE	
+KBPT_Equipment_Gold	~KBPT_Equipment_Gold	73	RE	
+KBPT_Equipment_Gold	ClearAllStackProp	57	RE	
+Regexp	Regexp	524	PORT	Sources/FilterText/Regexp.cpp
+Regexp	~Regexp	384	PORT	Sources/FilterText/Regexp.cpp
+Regexp	Match	179	PORT	Sources/FilterText/Regexp.cpp
+Regexp	GetReplaceString	154	PORT	Sources/FilterText/Regexp.cpp
+Regexp	SubLength	113	PORT	Sources/FilterText/Regexp.cpp
+Regexp	SubStart	109	PORT	Sources/FilterText/Regexp.cpp
+Regexp	SubStrings	91	PORT	Sources/FilterText/Regexp.cpp
+Regexp	ClearErrorString	58	PORT	Sources/FilterText/Regexp.cpp
+Regexp	GetErrorString	55	PORT	Sources/FilterText/Regexp.cpp
+Regexp	CompiledOK	21	PORT	Sources/FilterText/Regexp.cpp
+Regexp	safeIndex	18	PORT	Sources/FilterText/Regexp.cpp
+CRegCompilerBase	regpiece	677	PORT	Sources/FilterText/Regexp.cpp
+CRegCompilerBase	reg	436	PORT	Sources/FilterText/Regexp.cpp
+CRegCompilerBase	regatom	329	PORT	Sources/FilterText/Regexp.cpp
+CRegCompilerBase	regbranch	188	PORT	Sources/FilterText/Regexp.cpp
+CRegCompilerBase	CRegCompilerBase	68	PORT	Sources/FilterText/Regexp.cpp
+KPlatinaDurability	Init	576	RE	
+KPlatinaDurability	MakeDurability	325	RE	
+KPlatinaDurability	ChangeDurability	258	RE	
+KPlatinaDurability	~KPlatinaDurability	216	RE	
+KPlatinaDurability	MatchInt	86	RE	
+KPlatinaDurability	KPlatinaDurability	76	RE	
+KPlatinaDurability	Find	74	RE	
+KPlatinaDurability	Next	60	RE	
+KPlatinaDurability	Move	22	RE	
+KOfflineActions	GetAction	416	RE	
+KOfflineActions	Initialize	404	RE	
+KOfflineActions	Execute	263	RE	
+KOfflineActions	GetActionCount	148	RE	
+KOfflineActions	OfflineLive	130	RE	
+KOfflineActions	Reset	127	RE	
+KOfflineActions	GetLeftTickCount	62	RE	
+KOfflineActions	Uninitialize	58	RE	
+KOfflineActions	KOfflineActions	54	RE	
+KOfflineActions	~KOfflineActions	18	RE	
+KOfflineActions	Instance	10	RE	
+KBPT_Equip_Platina_Tool	LoadRecord	1341	RE	
+KBPT_Equip_Platina_Tool	SetItemStackProp	131	RE	
+KBPT_Equip_Platina_Tool	KBPT_Equip_Platina_Tool	130	RE	
+KBPT_Equip_Platina_Tool	ClearAllStackProp	57	RE	
+KPlayerMenuState	SetState	1159	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KPlayerMenuState	RestoreBackupState	279	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KPlayerMenuState	Release	103	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KPlayerMenuState	BackupState	48	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KPlayerMenuState	RestoreState	47	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KPlayerMenuState	KPlayerMenuState	18	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KBPT_Equipment_Gold_Tool	LoadRecord	1165	RE	
+KBPT_Equipment_Gold_Tool	SetItemStackProp	131	RE	
+KBPT_Equipment_Gold_Tool	KBPT_Equipment_Gold_Tool	120	RE	
+KBPT_Equipment_Gold_Tool	FindRecord	106	RE	
+KBPT_Equipment_Gold_Tool	~KBPT_Equipment_Gold_Tool	73	RE	
+KBPT_Equipment_Gold_Tool	ClearAllStackProp	57	RE	
+KNpcDiceItem	~KNpcDiceItem	432	RE	
+KNpcDiceItem	GivePlayerItem	374	RE	
+KNpcDiceItem	Roll	231	RE	
+KNpcDiceItem	ExecuteScript	144	RE	
+KNpcDiceItem	Clear	94	RE	
+KNpcDiceItem	Breathe	86	RE	
+KNpcDiceItem	ProcessTimeOver	73	RE	
+KNpcDiceItem	SetLifeTime	33	RE	
+KNpcDiceItem	GetLifeTime	25	RE	
+KNpcDiceItem	Release	21	RE	
+KNpcDiceItem	GetGreedRollInfo	13	RE	
+KNpcDiceItem	ChkCanNeed	10	RE	
+KItemChangeRes	LoadEquipRes	379	RE	
+KItemChangeRes	GetWeaponRes	206	PORT	Sources/Core/Src/KItemChangeRes.cpp
+KItemChangeRes	Init	167	PORT	Sources/Core/Src/KItemChangeRes.cpp
+KItemChangeRes	GetDefaultRes	159	RE	
+KItemChangeRes	GetEquipRes	131	RE	
+KItemChangeRes	GetArmorRes	116	PORT	Sources/Core/Src/KItemChangeRes.cpp
+KItemChangeRes	GetHelmRes	116	PORT	Sources/Core/Src/KItemChangeRes.cpp
+KItemChangeRes	GetHorseRes	79	PORT	Sources/Core/Src/KItemChangeRes.cpp
+KItemChangeRes	GetPlatinaEquipRes	60	RE	
+KItemChangeRes	GetGoldEquipRes	43	RE	
+KItemChangeRes	LoadGoldEquipRes	37	RE	
+KItemChangeRes	LoadPlatinaEquipRes	37	RE	
+KGoddessProcess	Process	634	RE	
+KGoddessProcess	AskForExchange	262	RE	
+KGoddessProcess	OnChangeRoleNameResult	258	RE	
+KGoddessProcess	DatabaseLargePackProcess	119	RE	
+KGoddessProcess	KGoddessProcess	76	RE	
+KGoddessProcess	OnQueryRoleNameResult	55	RE	
+KGoddessProcess	UnInitialize	22	RE	
+KGoddessProcess	Initialize	20	RE	
+KGoddessProcess	~KGoddessProcess	18	RE	
+KGoddessProcess	ProcessMessage	9	RE	
+KChatProcess	ProcessMessage	837	RE	
+KChatProcess	ChatGroupMan	384	RE	
+KChatProcess	ChatSpecMan	109	RE	
+KChatProcess	KChatProcess	42	RE	
+KChatProcess	GetPlayerChatIndex	29	RE	
+KChatProcess	UnInitialize	21	RE	
+KChatProcess	Initialize	19	RE	
+KChatProcess	GetDirectChatIndex	11	RE	
+KChatProcess	~KChatProcess	10	RE	
+KBPT_Equipment	LoadRecord	1011	RE	
+KBPT_Equipment	SetItemStackProp	131	RE	
+KBPT_Equipment	FindRecord	106	RE	
+KBPT_Equipment	KBPT_Equipment	74	RE	
+KBPT_Equipment	ClearAllStackProp	57	RE	
+KBPT_Equipment	~KBPT_Equipment	36	RE	
+KBPT_Equipment	Init	31	RE	
+KDiceManage	KDiceManage	358	RE	
+KDiceManage	~KDiceManage	318	RE	
+KDiceManage	ApplyOneDice	297	RE	
+KDiceManage	Breathe	175	RE	
+KDiceManage	RegisterFunc	157	RE	
+KDiceManage	GetExistDice	124	RE	
+KPakFile	Read	268	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	KPakFile	220	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	Open	204	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	Seek	179	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	~KPakFile	168	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	Close	109	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	Size	84	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	Tell	84	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	GetBuffer	70	RE	
+KPakFile	IsFileInPak	26	PORT	Sources/Engine/Src/KPakFile.cpp
+KPakFile	Save	7	PORT	Sources/Engine/Src/KPakFile.cpp
+KTaskTimer	Save	289	RE	
+KTaskTimer	Load	251	RE	
+KTaskTimer	OnTime	235	RE	
+KTaskTimer	Activate	164	RE	
+KTaskTimer	AdjustTime	135	RE	
+KTaskTimer	KTaskTimer	98	RE	
+KTaskTimer	Close	72	RE	
+KTaskTimer	Start	39	RE	
+KTaskTimer	Suspend	34	RE	
+KTaskTimer	Resume	22	RE	
+KTaskTimer	IsSuspending	18	RE	
+KTaskTimer	GetRestCount	17	RE	
+KTaskTimer	GetRestTime	17	RE	
+KTongMember	~KTongMember	332	RE	
+KTongMember	SetTaskValue	285	RE	
+KTongMember	GetDailyOffer	205	RE	
+KTongMember	AfterLoad	124	RE	
+KTongMember	GetLastOnlineDateOrOnline	94	RE	
+KTongMember	GetFigure	70	RE	
+KTongMember	GetLevel	70	RE	
+KTongMember	GetRetireDate	70	RE	
+KTongMember	GetWeekGoalOffer	70	RE	
+KTongMember	GetWeeklyOffer	70	RE	
+CClientConnection	Open	427	RE	
+CClientConnection	CClientConnection	288	RE	
+CClientConnection	ProcessMessages	138	RE	
+CClientConnection	EventHandler	90	RE	
+CClientConnection	~CClientConnection	88	RE	
+CClientConnection	Close	70	RE	
+CClientConnection	OnConnectionClose	57	RE	
+CClientConnection	SendData	50	RE	
+CClientConnection	WriteLog	49	RE	
+CClientConnection	RecvData	37	RE	
+CClientConnection	OnConnectionCreate	30	RE	
+CClientConnection	ConnectionResult	14	RE	
+CClientConnection	ISafety	10	RE	
+CClientConnection	IsPrime	10	RE	
+CClientConnection	TranslateMessage	10	RE	
+CClientConnection	ApplyCheckSafety	5	RE	
+CClientConnection	ProcessMessage	5	RE	
+KFileSyncToolGS	OnSyncFiles	770	RE	
+KFileSyncToolGS	SyncFilesToClient	584	RE	
+KLottery	KLottery	360	RE	
+KLottery	UpdateIssue	325	RE	
+KLottery	Init	283	RE	
+KLottery	~KLottery	128	RE	
+KLottery	CheckLotteryItemPrize	92	RE	
+KLottery	WriteLogWithTime	92	RE	
+KLottery	IsLegalLotteryItem	46	RE	
+KLottery	WriteLog	20	RE	
+KBasicPropertyTable_Tool	Load	1083	RE	
+KBasicPropertyTable_Tool	KBasicPropertyTable_Tool	78	RE	
+KBasicPropertyTable_Tool	ReleaseMemory	45	RE	
+KBasicPropertyTable_Tool	GetMemory	44	RE	
+KBasicPropertyTable_Tool	~KBasicPropertyTable_Tool	36	RE	
+KBasicPropertyTable_Tool	SetCount	14	RE	
+XPackList	Open	596	RE	
+XPackList	FindElemFile	193	RE	
+XPackList	Close	91	RE	
+XPackList	ElemFileRead	71	RE	
+XPackList	GetSprFrame	59	RE	
+XPackList	XPackList	50	RE	
+XPackList	GetSprHeader	46	RE	
+XPackList	GetElemFileBuffer	43	RE	
+XPackList	ElemGetFragmentCount	31	RE	
+XPackList	ElemGetFragmentSize	31	RE	
+XPackList	ElemIsPackedByFragment	31	RE	
+XPackList	ElemReadFragment	31	RE	
+XPackList	~XPackList	18	RE	
+KBPT_MagicOrScript	LoadRecord	855	RE	
+KBPT_MagicOrScript	SetItemStackProp	125	RE	
+KBPT_MagicOrScript	KBPT_MagicOrScript	122	RE	
+KBPT_MagicOrScript	FindRecord	96	RE	
+KBPT_MagicOrScript	ClearAllStackProp	48	RE	
+KBPT_MagicOrScript	~KBPT_MagicOrScript	36	RE	
+CChatRoomEvent	Talk	205	RE	
+CChatRoomEvent	EnterChatRoom	150	RE	
+CChatRoomEvent	BroadCast	142	RE	
+CChatRoomEvent	KickOut	122	RE	
+CChatRoomEvent	LeaveChatRoom	122	RE	
+CChatRoomEvent	Prevent	122	RE	
+CChatRoomEvent	UnPrevent	122	RE	
+CChatRoomEvent	ChangeLifeTime	105	RE	
+CChatRoomEvent	DestroyChatRoom	99	RE	
+CChatRoomEvent	~CChatRoomEvent	46	RE	
+CChatRoomEvent	CChatRoomEvent	28	RE	
+CChatRoomEvent	ChangePassword	5	RE	
+CChatRoomEvent	CreateChatRoom	5	RE	
+CChatRoomEvent	Save	5	RE	
+KProgressBarTimer	Release	354	RE	
+KProgressBarTimer	Create	229	RE	
+KProgressBarTimer	OnTime	173	RE	
+KProgressBarTimer	OnStart	131	RE	
+KProgressBarTimer	KProgressBarTimer	128	RE	
+KProgressBarTimer	OnClose	98	RE	
+KProgressBarTimer	SetCallBack	91	RE	
+KProgressBarTimer	~KProgressBarTimer	46	RE	
+KBufAllocator	Init	768	RE	
+KBufAllocator	~KBufAllocator	480	RE	
+KScriptTimer	OnTime	529	RE	
+KScriptTimer	Release	262	RE	
+KScriptTimer	Create	232	RE	
+KScriptTimer	KScriptTimer	96	RE	
+KScriptTimer	SetCallBack	67	RE	
+KScriptTimer	~KScriptTimer	32	RE	
+KScriptTimer	OnStart	17	RE	
+KScriptTimer	OnClose	5	RE	
+KChatChannel	~KChatChannel	222	RE	
+KChatChannel	Login	190	RE	
+KChatChannel	GetClientInfo	171	RE	
+KChatChannel	SetClientInfo	171	RE	
+KChatChannel	LogoutImpl	122	RE	
+KChatChannel	GetAllClients	110	RE	
+KChatChannel	KChatChannel	102	RE	
+KChatChannel	IsOnline	51	RE	
+KChatChannel	Logout	34	RE	
+KChatChannel	IsEmpty	19	RE	
+KChatChannel	GetChannelInfo	18	RE	
+KChatChannel	SetChannelInfo	18	RE	
+KPartnerDialog	LoadDialogSetting	1223	RE	
+KTongWorkshopList	~KTongWorkshopList	866	RE	
+KTongWorkshopList	BeforeEraseAtom	195	RE	
+KTongWorkshopList	AfterInsertAtom	114	RE	
+KChatChannels	~KChatChannels	316	RE	
+KChatChannels	CreateChannel	232	RE	
+KChatChannels	Quit	162	RE	
+KChatChannels	RemoveChannel	133	RE	
+KChatChannels	GetAllChannels	110	RE	
+KChatChannels	KChatChannels	88	RE	
+KChatChannels	GetChannel	62	RE	
+KChatChannels	HasChannel	58	RE	
+KChatChannels	Instance	10	RE	
+KBulletin	GetBulletinContent	414	RE	
+KBulletin	FindLastTwenty	289	RE	
+KBulletin	Init	198	RE	
+KBulletin	KBulletin	80	RE	
+KBulletin	ReduceOneDay	70	RE	
+KBulletin	LastTwentyBulletin	69	RE	
+KBulletin	~KBulletin	32	RE	
+KBulletin	GetUpdateCount	14	RE	
+KPlayerTask	KPlayerTask	210	PORT	Sources/Core/Src/KPlayerTask.cpp
+KPlayerTask	SetSaveVal	185	PORT	Sources/Core/Src/KPlayerTask.cpp
+KPlayerTask	SetSaveBitVal	164	RE	
+KPlayerTask	Release	126	PORT	Sources/Core/Src/KPlayerTask.cpp
+KPlayerTask	GetSaveBitVal	118	RE	
+KPlayerTask	Save	102	RE	
+KPlayerTask	ClearSaveVal	91	RE	
+KPlayerTask	GetSaveVal	84	PORT	Sources/Core/Src/KPlayerTask.cpp
+KPlayerTask	ClearTempVar	35	PORT	Sources/Core/Src/KPlayerTask.cpp
+KPlayerTask	SetClearVal	25	PORT	Sources/Core/Src/KPlayerTask.cpp
+KPlayerTask	GetClearVal	24	PORT	Sources/Core/Src/KPlayerTask.cpp
+KEnpack	PushData	314	RE	
+KEnpack	KEnpack	296	RE	
+KEnpack	~KEnpack	184	RE	
+KEnpack	Push	133	RE	
+KEnpack	PopPack	114	RE	
+KEnpack	Clear	73	RE	
+KEnpack	Reset	26	RE	
+KDepack	KDepack	350	RE	
+KDepack	PushData	239	RE	
+KDepack	~KDepack	210	RE	
+KDepack	PopPack	191	RE	
+KDepack	Clear	81	RE	
+KDepack	Reset	45	RE	
+KFile	OpenWithMode	164	RE	
+KFile	GetBuffer	137	RE	
+KFile	MakePath	129	RE	
+KFile	Size	100	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Append	76	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Close	72	PORT	Sources/Engine/Src/KFile.cpp
+KFile	KFile	70	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Seek	62	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Read	57	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Write	57	PORT	Sources/Engine/Src/KFile.cpp
+KFile	MakeDirectory	56	RE	
+KFile	Create	34	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Open	34	PORT	Sources/Engine/Src/KFile.cpp
+KFile	Tell	22	PORT	Sources/Engine/Src/KFile.cpp
+KFile	~KFile	18	PORT	Sources/Engine/Src/KFile.cpp
+KPackBuffer	Require	196	RE	
+KPackBuffer	KPackBuffer	170	RE	
+KPackBuffer	PushPack	150	RE	
+KPackBuffer	PushPack3	148	RE	
+KPackBuffer	PushPack2	123	RE	
+KPackBuffer	PopPack	118	RE	
+KPackBuffer	~KPackBuffer	100	RE	
+KPackBuffer	PushData	58	RE	
+KPackBuffer	Clear	22	RE	
+KWeatherMgr	InitFromIni	730	PORT	Sources/Core/Src/KWeatherMgr.cpp
+KWeatherMgr	Activate	206	PORT	Sources/Core/Src/KWeatherMgr.cpp
+KWeatherMgr	KWeatherMgr	138	PORT	Sources/Core/Src/KWeatherMgr.cpp
+KItemEnchaser	Compund	408	RE	
+KItemEnchaser	RemoveItem	152	RE	
+KItemEnchaser	Log_RemoveItem	112	RE	
+KItemEnchaser	CopyItem	111	RE	
+KItemEnchaser	GetItemEnchaser	82	RE	
+KItemEnchaser	GetStoneCount	69	RE	
+KItemEnchaser	~KItemEnchaser	46	RE	
+KItemEnchaser	KItemEnchaser	42	RE	
+KItemEnchaser	RemoveItemSafely	20	RE	
+KItemEnchaser	Init	10	RE	
+KNewPlayerAttribute	Init	644	PORT	Sources/Core/Src/KPlayerSet.cpp
+KNewPlayerAttribute	KNewPlayerAttribute	388	PORT	Sources/Core/Src/KPlayerSet.cpp
+KDungeonMapManager	NewDungeonMap	409	RE	
+KDungeonMapManager	ProcessMapGreat	92	RE	
+KDungeonMapManager	KDungeonMapManager	76	RE	
+KDungeonMapManager	ApplyDelMap	74	RE	
+KDungeonMapManager	PreApplyMap	69	RE	
+KDungeonMapManager	~KDungeonMapManager	68	RE	
+KDungeonMapManager	GetDungeonMap	64	RE	
+KDungeonMapManager	ProcessMapDelete	64	RE	
+KDungeonMapManager	RecycleMap	64	RE	
+KDungeonMapManager	ProvideMap	45	RE	
+KSwitch	Switch	670	RE	
+KSwitch	HasSwitch	162	RE	
+KSwitch	KSwitch	76	RE	
+KSwitch	~KSwitch	68	RE	
+KSwitch	GetSwitchCount	11	RE	
+KSwitch	Initialize	10	RE	
+KSwitch	Instance	10	RE	
+KSwitch	Uninitialize	5	RE	
+KSendPack	KSendPack	288	RE	
+KSendPack	PopPack	216	RE	
+KSendPack	PushData	195	RE	
+KSendPack	~KSendPack	190	RE	
+KSendPack	LimitPackLen	75	RE	
+KSendPack	Clear	39	RE	
+KMissleSet	Add	477	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	Init	123	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	Remove	97	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	Activate	77	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	ClearMissles	71	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	GetCount	65	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	CreateMissile	54	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	FindFree	28	PORT	Sources/Core/Src/KMissleSet.cpp
+KMissleSet	Draw	5	PORT	Sources/Core/Src/KMissleSet.cpp
+CTongTax	Release	338	RE	
+CTongTax	SetViceroy	168	RE	
+CTongTax	SendMsgTongAddTax	137	RE	
+CTongTax	AddTax	100	RE	
+CTongTax	Init	67	RE	
+CTongTax	~CTongTax	46	RE	
+CTongTax	SendAllTaxCacheAndClearCache	43	RE	
+CTongTax	CTongTax	36	RE	
+CTongTax	GetRegionCurTotalTax	25	RE	
+KFaction	Init	714	PORT	Sources/Core/Src/KFaction.cpp
+KFaction	GetID	163	PORT	Sources/Core/Src/KFaction.cpp
+KFaction	GetCamp	31	PORT	Sources/Core/Src/KFaction.cpp
+KBPT_MagicAttrib_TF	LoadRecord	637	RE	
+KBPT_MagicAttrib_TF	KBPT_MagicAttrib_TF	182	RE	
+KBPT_MagicAttrib_TF	GetMACount	39	RE	
+KBPT_MagicAttrib_TF	~KBPT_MagicAttrib_TF	36	RE	
+KBPT_MagicAttrib_TF	ClearAllStackProp	5	RE	
+KBPT_MagicAttrib_TF	SetItemStackProp	5	RE	
+KBPT_MagicAttrib_TF_Tool	LoadRecord	637	RE	
+KBPT_MagicAttrib_TF_Tool	KBPT_MagicAttrib_TF_Tool	182	RE	
+KBPT_MagicAttrib_TF_Tool	GetMACount	39	RE	
+KBPT_MagicAttrib_TF_Tool	~KBPT_MagicAttrib_TF_Tool	36	RE	
+KBPT_MagicAttrib_TF_Tool	ClearAllStackProp	5	RE	
+KBPT_MagicAttrib_TF_Tool	SetItemStackProp	5	RE	
+KPlayerPartner	CreateNpc	313	RE	
+KPlayerPartner	Vanish	207	RE	
+KPlayerPartner	Create	202	RE	
+KPlayerPartner	GetOwnerPlayer	84	RE	
+KPlayerPartner	Activate	69	PORT	Sources/Core/Src/KPlayerPartner.cpp
+KChannelAlias	AddAlias	430	RE	
+KChannelAlias	DelAlias	163	RE	
+KChannelAlias	KChannelAlias	76	RE	
+KChannelAlias	~KChannelAlias	68	RE	
+KChannelAlias	GetAliasID	67	RE	
+KChannelAlias	HasAlias	51	RE	
+KBPT_Medicine	LoadRecord	426	RE	
+KBPT_Medicine	SetItemStackProp	125	RE	
+KBPT_Medicine	KBPT_Medicine	114	RE	
+KBPT_Medicine	FindRecord	96	RE	
+KBPT_Medicine	ClearAllStackProp	57	RE	
+KBPT_Medicine	~KBPT_Medicine	36	RE	
+KCurrency	Query	831	RE	
+KCityWarProcess	r2gCityWarMsg2Player	120	RE	
+KCityWarProcess	c2sCityWarCommonInputNumber	114	RE	
+KCityWarProcess	c2sCityWarCommonInputString	114	RE	
+KCityWarProcess	ProcessProtocol	112	RE	
+KCityWarProcess	ProcessRelayProtocol	112	RE	
+KCityWarProcess	r2gCityWarReplyBulletin	97	RE	
+KCityWarProcess	c2sCityWarSubmitCityTaxRates	51	RE	
+KCityWarProcess	r2gCityWarTongInfoSync	41	RE	
+KCityWarProcess	KCityWarProcess	10	RE	
+KCityWarProcess	~KCityWarProcess	10	RE	
+KBPT_MedMaterial	LoadRecord	426	RE	
+KBPT_MedMaterial	KBPT_MedMaterial	136	RE	
+KBPT_MedMaterial	SetItemStackProp	125	RE	
+KBPT_MedMaterial	ClearAllStackProp	57	RE	
+KBPT_MedMaterial	~KBPT_MedMaterial	36	RE	
+KTongScriptRunner_Core	RunScript	746	RE	
+KTongScriptRunner_Core	~KTongScriptRunner_Core	32	RE	
+KCommonPartTaskValue	LoadMore	218	RE	
+KCommonPartTaskValue	SaveMore	185	RE	
+KCommonPartTaskValue	~KCommonPartTaskValue	162	RE	
+KCommonPartTaskValue	KCommonPartTaskValue	128	RE	
+KCommonPartTaskValue	GetTaskValue	65	RE	
+KCommonPartTaskValue	GetSaveLenMore	18	RE	
+KStoneLikes	LikeLevelStone	191	RE	
+KStoneLikes	LikeMagicStone	191	RE	
+KStoneLikes	LikeSeriesStone	191	RE	
+KStoneLikes	InStones	80	RE	
+KStoneLikes	LoadStones	77	RE	
+KStoneLikes	KStoneLikes	10	RE	
+KStoneLikes	~KStoneLikes	10	RE	
+KWeaponAtlas	Match	434	RE	
+KWeaponAtlas	IsAtlas	215	RE	
+KWeaponAtlas	LoadAtlasTypes	78	RE	
+KWeaponAtlas	GetWeaponType	20	RE	
+ServerImage	SetCurDir64	132	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	GetPrevFrame	122	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	GetNextFrame	115	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetCurFrame	68	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetCurDir	57	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	Release	56	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetTotalDir	34	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	CheckEnd	30	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetTotalFrame	28	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetDirEnd	24	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	GetCurDirFrameNo	20	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	ServerImage	18	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetDirStart	18	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	SetInterVal	14	PORT	Sources/Core/Src/KObj.cpp
+ServerImage	GetOneDirFrames	11	PORT	Sources/Core/Src/KObj.cpp
+KBPT_Quest	LoadRecord	252	RE	
+KBPT_Quest	ClearAllStackProp	133	RE	
+KBPT_Quest	SetItemStackProp	119	RE	
+KBPT_Quest	KBPT_Quest	116	RE	
+KBPT_Quest	FindRecord	72	RE	
+KBPT_Quest	~KBPT_Quest	36	RE	
+KIncidentalValue	ComputeLevelValue	434	RE	
+KIncidentalValue	KIncidentalValue	134	RE	
+KIncidentalValue	Initialize	81	RE	
+KIncidentalValue	~KIncidentalValue	50	RE	
+KIncidentalValue	ComputeSkillValue	22	RE	
+KTicketInfo	LoadRecord	355	RE	
+KTicketInfo	SaveRecord	198	RE	
+KTicketInfo	WriteRelayLog	167	RE	
+KBPT_Mine	LoadRecord	288	RE	
+KBPT_Mine	ClearAllStackProp	141	RE	
+KBPT_Mine	SetItemStackProp	125	RE	
+KBPT_Mine	KBPT_Mine	116	RE	
+KBPT_Mine	~KBPT_Mine	36	RE	
+KTeamSet	Init	415	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeamSet	CheckTeammate	152	RE	
+KTeamSet	CreateTeam	72	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KTeamSet	FindFree	49	PORT	Sources/Core/Src/KPlayerTeam.cpp
+KNameFilter	Initialize	406	RE	
+KNameFilter	IsValidRoleName	95	RE	
+KNameFilter	~KNameFilter	73	RE	
+KNameFilter	Uninitialize	43	RE	
+KNameFilter	KNameFilter	42	RE	
+KNameFilter	IsTextPass	23	RE	
+KTongZhaoMuServer	Add	269	RE	
+KTongZhaoMuServer	GetPage	177	RE	
+KTongZhaoMuServer	KTongZhaoMuServer	76	RE	
+KTongZhaoMuServer	~KTongZhaoMuServer	68	RE	
+KTongZhaoMuServer	Get	62	RE	
+KTongZhaoMuServer	Init	10	RE	
+KTongZhaoMuServer	Activate	5	RE	
+KTongZhaoMuServer	UnInit	5	RE	
+KTimerTaskFun	SaveTask	188	PORT	Sources/Core/Src/KTaskFuns.cpp
+KTimerTaskFun	LoadTask	117	PORT	Sources/Core/Src/KTaskFuns.cpp
+KTimerTaskFun	Activate	111	PORT	Sources/Core/Src/KTaskFuns.cpp
+KTimerTaskFun	GetTimerTaskScript	101	PORT	Sources/Core/Src/KTaskFuns.cpp
+KTimerTaskFun	Init	83	RE	
+KTimerTaskFun	KTimerTaskFun	70	PORT	Sources/Core/Src/KTaskFuns.cpp
+KDiceNormal	KDiceNormal	308	RE	
+KDiceNormal	Breathe	136	RE	
+KDiceNormal	~KDiceNormal	133	RE	
+KDiceNormal	SetLifeTime	29	RE	
+KDiceNormal	IsValid	26	RE	
+KDiceNormal	GetLifeTime	11	RE	
+KDiceBase	~KDiceBase	133	RE	
+KDiceBase	RollNumber	85	RE	
+KDiceBase	Init	84	RE	
+KDiceBase	Roll	79	RE	
+KDiceBase	AddJoinObj	73	RE	
+KDiceBase	SetObjRolled	52	RE	
+KDiceBase	ObjCanRoll	43	RE	
+KDiceBase	IsValid	19	RE	
+KDiceBase	Breathe	14	RE	
+KDiceBase	GetRollInfo	11	RE	
+KDiceBase	ProcessTimeOver	7	RE	
+KDiceBase	Clear	5	RE	
+KPlayerEvent	OnNpcDeath	188	RE	
+KPlayerEvent	AddEvent	168	RE	
+KPlayerEvent	RemoveEvent	83	RE	
+KPlayerEvent	KPlayerEvent	76	RE	
+KPlayerEvent	Release	25	RE	
+KPlayerEvent	RemoveAllEvent	19	RE	
+KPlayerEvent	Init	18	RE	
+KBPT_TownPortal	LoadRecord	207	RE	
+KBPT_TownPortal	KBPT_TownPortal	128	RE	
+KBPT_TownPortal	SetItemStackProp	119	RE	
+KBPT_TownPortal	ClearAllStackProp	57	RE	
+KBPT_TownPortal	~KBPT_TownPortal	36	RE	
+KBasicPropertyTable	Load	327	RE	
+KBasicPropertyTable	KBasicPropertyTable	78	RE	
+KBasicPropertyTable	ReleaseMemory	45	RE	
+KBasicPropertyTable	GetMemory	44	RE	
+KBasicPropertyTable	~KBasicPropertyTable	36	RE	
+KBasicPropertyTable	SetCount	14	RE	
+KSyncFileHelper	MakeDataFromFileExtend	539	RE	
+KBPT_Suite_Equipment	~KBPT_Suite_Equipment	440	RE	
+KBPT_Suite_Equipment	KBPT_Suite_Equipment	74	RE	
+KBPT_Suite_Equipment	LoadRecord	7	RE	
+KBPT_Suite_Equipment	ClearAllStackProp	5	RE	
+KBPT_Suite_Equipment	SetItemStackProp	5	RE	
+KTaxRateList	Init	356	RE	
+KTaxRateList	KTaxRateList	108	RE	
+KTaxRateList	GetTaxRate	63	RE	
+CClientPingConnection	ApplyCheckSafety	156	RE	
+CClientPingConnection	CClientPingConnection	154	RE	
+CClientPingConnection	TranslateMessage	87	RE	
+CClientPingConnection	~CClientPingConnection	73	RE	
+CClientPingConnection	ConnectionResult	29	RE	
+CClientPingConnection	IsSafety	14	RE	
+KTaskSetting	LoadTaskDef	513	RE	
+CChatFriendTeam	DataBaseAddOne	300	RE	
+CChatFriendTeam	CChatFriendTeam	106	RE	
+CChatFriendTeam	Release	101	RE	
+KRecvPack	PushData	173	RE	
+KRecvPack	KRecvPack	136	RE	
+KRecvPack	~KRecvPack	100	RE	
+KRecvPack	PopPack	58	RE	
+KRecvPack	Clear	22	RE	
+KMemStack	KMemStack	120	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	AllocNewChunk	108	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	FreeAllChunks	83	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	Push	82	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	Init	30	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	GetStackSize	21	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	~KMemStack	18	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	GetChunkSize	11	PORT	Sources/Engine/Src/KMemStack.cpp
+KMemStack	Free	5	PORT	Sources/Engine/Src/KMemStack.cpp
+KPlayerFaction	AddFaction	153	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	GetGurFactionCamp	76	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	GetLastAddFactionName	73	RE	
+KPlayerFaction	GetCurFactionName	72	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	Release	35	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	KPlayerFaction	18	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	LeaveFaction	14	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	GetLastAddFactionNo	11	RE	
+KPlayerFaction	GetCurFactionNo	10	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KPlayerFaction	OpenCurSkillLevel	10	RE	
+KPlayerFaction	SetSeries	5	PORT	Sources/Core/Src/KPlayerFaction.cpp
+KTongLog	WriteInformation	210	RE	
+KTongLog	WriteError	167	RE	
+KTongLog	WriteFmt	99	RE	
+KProgressBarList	OnEvent	152	RE	
+KProgressBarList	Add	148	RE	
+KProgressBarList	Release	99	RE	
+KProgressBarList	Remove	74	RE	
+tagKILLNPCEVENT_KEY	_less	473	RE	
+KLinkArray	Remove	158	PORT	Sources/Engine/Src/KLinkArray.cpp
+KLinkArray	Insert	137	PORT	Sources/Engine/Src/KLinkArray.cpp
+KLinkArray	Init	103	PORT	Sources/Engine/Src/KLinkArray.cpp
+KLinkArray	~KLinkArray	72	PORT	Sources/Engine/Src/KLinkArray.cpp
+KTeamLeadExp	Init	189	PORT	Sources/Core/Src/KPlayerSet.cpp
+KTeamLeadExp	GetLevel	85	PORT	Sources/Core/Src/KPlayerSet.cpp
+KTeamLeadExp	KTeamLeadExp	84	PORT	Sources/Core/Src/KPlayerSet.cpp
+KTeamLeadExp	GetMemNumFromExp	43	PORT	Sources/Core/Src/KPlayerSet.cpp
+KTeamLeadExp	GetMemNumFromLevel	30	PORT	Sources/Core/Src/KPlayerSet.cpp
+KTeamLeadExp	GetLevelExp	27	PORT	Sources/Core/Src/KPlayerSet.cpp
+League_RESULT	League_RESULT	229	RE	
+League_RESULT	~League_RESULT	204	RE	
+KFineryEnchaser	CheckSourceLevel	92	RE	
+KFineryEnchaser	~KFineryEnchaser	73	RE	
+KFineryEnchaser	CheckStonesPlacement	68	RE	
+KFineryEnchaser	KFineryEnchaser	60	RE	
+KFineryEnchaser	UpdateItemLevel	49	RE	
+KFineryEnchaser	CheckSourcePlacement	36	RE	
+KFineryEnchaser	RemoveItems	27	RE	
+KFineryEnchaser	IsDirectEnchasing	10	RE	
+KFineryEnchaser	WinStakes	10	RE	
+KInlineCtrlTool	GetCtrlHandleByStr	157	RE	
+KInlineCtrlTool	RemoveInlineWndCtrl	107	RE	
+KInlineCtrlTool	GetCtrlHandle	103	RE	
+KInlineCtrlTool	RegisterInlineCtrl	38	RE	
+CRegExecutor	regrepeat	160	PORT	Sources/FilterText/Regexp.cpp
+CRegExecutor	regtry	106	PORT	Sources/FilterText/Regexp.cpp
+CRegExecutor	CRegExecutor	76	PORT	Sources/FilterText/Regexp.cpp
+CRegExecutor	regmatch	62	PORT	Sources/FilterText/Regexp.cpp
+KBPT_MagicAttribLevelInfo	LoadRecord	256	RE	
+KBPT_MagicAttribLevelInfo	KBPT_MagicAttribLevelInfo	144	RE	
+KBPT_MagicAttribLevelInfo_Tool	LoadRecord	256	RE	
+KBPT_MagicAttribLevelInfo_Tool	KBPT_MagicAttribLevelInfo_Tool	144	RE	
+KFileSyncCenterGS	OnSyncFiles	233	RE	
+KFileSyncCenterGS	ReleaseData	151	RE	
+KFileSyncCenterGS	Instance	10	RE	
+KTongRecordList	LoadMore	201	RE	
+KTongRecordList	SaveMore	171	RE	
+KTongRecordList	GetSaveLenMore	20	RE	
+KMemFile	Read	89	RE	
+KMemFile	Open	84	RE	
+KMemFile	KMemFile	56	RE	
+KMemFile	Seek	55	RE	
+KMemFile	Close	35	RE	
+KMemFile	IsOpen	25	RE	
+KMemFile	~KMemFile	18	RE	
+KMemFile	Tell	13	RE	
+KMemFile	Size	10	RE	
+CRegCompiler	CRegCompiler	116	PORT	Sources/FilterText/Regexp.cpp
+CRegCompiler	regtail	103	PORT	Sources/FilterText/Regexp.cpp
+CRegCompiler	reginsert	77	PORT	Sources/FilterText/Regexp.cpp
+CRegCompiler	regoptail	33	PORT	Sources/FilterText/Regexp.cpp
+CRegCompiler	regnode	30	PORT	Sources/FilterText/Regexp.cpp
+CRegCompiler	regc	22	RE	
+KNpcChatTimer	Release	245	RE	
+KNpcChatTimer	OnTime	81	RE	
+KNpcChatTimer	~KNpcChatTimer	32	RE	
+KNpcChatTimer	OnClose	5	RE	
+KNpcChatTimer	OnStart	5	RE	
+KDopack	PopPack	227	RE	
+KDopack	KDopack	126	RE	
+KDopack	~KDopack	10	RE	
+KBPT_ClassMAIT	Insert	162	RE	
+KBPT_ClassMAIT	~KBPT_ClassMAIT	100	RE	
+KBPT_ClassMAIT	KBPT_ClassMAIT	56	RE	
+KBPT_ClassMAIT	Clear	20	RE	
+KBPT_ClassMAIT	Get	16	RE	
+KBPT_ClassMAIT_Tool	Insert	162	RE	
+KBPT_ClassMAIT_Tool	~KBPT_ClassMAIT_Tool	100	RE	
+KBPT_ClassMAIT_Tool	KBPT_ClassMAIT_Tool	56	RE	
+KBPT_ClassMAIT_Tool	Clear	20	RE	
+KBPT_ClassMAIT_Tool	Get	16	RE	
+KBPT_ClassifiedMAT	GetAll	104	RE	
+KBPT_ClassifiedMAT	GetMemory	58	RE	
+KBPT_ClassifiedMAT	KBPT_ClassifiedMAT	56	RE	
+KBPT_ClassifiedMAT	ReleaseMemory	43	RE	
+KBPT_ClassifiedMAT	Get	36	RE	
+KBPT_ClassifiedMAT	Set	32	RE	
+KBPT_ClassifiedMAT	~KBPT_ClassifiedMAT	18	RE	
+KAtlasEnchaser	EnchaseItem	112	RE	
+KAtlasEnchaser	~KAtlasEnchaser	73	RE	
+KAtlasEnchaser	KAtlasEnchaser	60	RE	
+KAtlasEnchaser	CheckStonesPlacement	48	RE	
+KAtlasEnchaser	CheckSourcePlacement	25	RE	
+KAtlasEnchaser	IsDirectEnchasing	10	RE	
+KAtlasEnchaser	WinStakes	10	RE	
+KMemberAlloctor	Alloc	330	RE	
+KMemClass	Fill	125	PORT	Sources/Engine/Src/KMemClass.cpp
+KMemClass	Alloc	66	PORT	Sources/Engine/Src/KMemClass.cpp
+KMemClass	Free	43	PORT	Sources/Engine/Src/KMemClass.cpp
+KMemClass	KMemClass	42	PORT	Sources/Engine/Src/KMemClass.cpp
+KMemClass	Zero	32	PORT	Sources/Engine/Src/KMemClass.cpp
+KMemClass	~KMemClass	18	PORT	Sources/Engine/Src/KMemClass.cpp
+DupedDef	RemoveItemFromItemSet	78	RE	
+DupedDef	RemoveItemFromPlayer	61	RE	
+DupedDef	CheckPlayerTrading	41	RE	
+DupedDef	GetPlayerAccount	40	RE	
+DupedDef	GetPlayerName	40	RE	
+DupedDef	GetItemFromItemSet	38	RE	
+DupedDef	GetDupedLogFile	10	RE	
+DupedDef	SendMsgForDel	7	RE	
+DupedDef	SendMsgForMark	7	RE	
+KRoleRenameCmd	Execute	213	RE	
+KRoleRenameCmd	Release	105	RE	
+KDWordSetDataClass	LoadMore	161	RE	
+KDWordSetDataClass	SaveMore	126	RE	
+KDWordSetDataClass	GetSaveLenMore	18	RE	
+TargetCircle	IsDoIt	239	RE	
+TargetCircle	TryBlackList	58	RE	
+KOneLeagueInfo	~KOneLeagueInfo	293	RE	
+KWorkShopAlloctor	Alloc	279	RE	
+KLeagueScriptRunner	Exec	275	RE	
+KTongScriptRunner	RunScript	167	RE	
+KTongScriptRunner	RunScriptInt	108	RE	
+KPlayerMenuStateGraph	Init	218	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KPlayerMenuStateGraph	GetStateSpr	53	PORT	Sources/Core/Src/KPlayerMenuState.cpp
+KTongRightList	LoadMore	135	RE	
+KTongRightList	SaveMore	115	RE	
+KTongRightList	GetSaveLenMore	18	RE	
+KWorldMsg	Peek	91	PORT	Sources/Core/Src/KWorldMsg.cpp
+KWorldMsg	Get	80	PORT	Sources/Core/Src/KWorldMsg.cpp
+KWorldMsg	Clear	79	PORT	Sources/Core/Src/KWorldMsg.cpp
+KBattlePlayerData	SetDataOnType	110	RE	
+KBattlePlayerData	GetDataOnType	97	RE	
+KBattlePlayerData	SetType2TaskID	25	RE	
+KBattlePlayerData	GetTaskIDFromType	14	RE	
+KNode	InsertAfter	70	PORT	Sources/Engine/Src/KNode.cpp
+KNode	InsertBefore	70	PORT	Sources/Engine/Src/KNode.cpp
+KNode	Remove	44	PORT	Sources/Engine/Src/KNode.cpp
+KNode	~KNode	32	RE	
+KSimpleSync	SendSync	212	RE	
+KSaveAction	Active	119	RE	
+KSaveAction	SetLastActionTime	42	RE	
+KSaveAction	SetActionSaveMinTime	27	RE	
+KTongUnion	AfterLoad	173	RE	
+KTongUnion	GetCount	14	RE	
+KTrade	KTrade	76	PORT	Sources/Core/Src/KPlayerTrade.cpp
+KTrade	StartTrade	54	PORT	Sources/Core/Src/KPlayerTrade.cpp
+KTrade	Release	35	PORT	Sources/Core/Src/KPlayerTrade.cpp
+KTrade	Lock	20	PORT	Sources/Core/Src/KPlayerTrade.cpp
+TTabLineNode	~TTabLineNode	185	RE	
+CRegErrorHandler	regerror	80	PORT	Sources/FilterText/Regexp.cpp
+CRegErrorHandler	FindErr	54	PORT	Sources/FilterText/Regexp.cpp
+CRegErrorHandler	ClearErrorString	35	PORT	Sources/FilterText/Regexp.cpp
+CRegErrorHandler	GetErrorString	8	PORT	Sources/FilterText/Regexp.cpp
+KTongWar	SyncEnemyList	168	RE	
+KSpectatorMsgProcess	LeaveSpectatorMode	121	RE	
+KSpectatorMsgProcess	ProcessMsg	22	RE	
+KSpectatorMsgProcess	KSpectatorMsgProcess	10	RE	
+KSpectatorMsgProcess	~KSpectatorMsgProcess	10	RE	
+CRegValidator	CRegValidator	112	PORT	Sources/FilterText/Regexp.cpp
+CRegValidator	regnode	15	RE	
+CRegValidator	regc	12	RE	
+CRegValidator	reginsert	12	RE	
+CRegValidator	regoptail	5	RE	
+CRegValidator	regtail	5	RE	
+CTongConnection	CTongConnection	76	RE	
+CTongConnection	~CTongConnection	73	RE	
+CTongConnection	IsPrime	10	RE	
+CTranConnection	CTranConnection	76	RE	
+CTranConnection	~CTranConnection	73	RE	
+CTranConnection	IsPrime	10	RE	
+KBPT_BrokenEquip	KBPT_BrokenEquip	122	RE	
+KBPT_BrokenEquip	~KBPT_BrokenEquip	36	RE	
+CChatConnection	CChatConnection	76	RE	
+CChatConnection	~CChatConnection	73	RE	
+CChatConnection	IsPrime	7	RE	
+KServerTime	SyncServerTimeToClient	154	RE	
+CDatabaseConnection	CDatabaseConnection	76	RE	
+CDatabaseConnection	~CDatabaseConnection	73	RE	
+CGatewayConnection	CGatewayConnection	76	RE	
+CGatewayConnection	~CGatewayConnection	73	RE	
+KItemEnvPlayer	GetEnvMsg	93	RE	
+KItemEnvPlayer	GetAccount	26	RE	
+KItemEnvPlayer	GetRole	26	RE	
+KList	Remove	80	RE	
+KList	Insert	64	RE	
+KMutex	~KMutex	70	PORT	Sources/Engine/Src/KMutex.cpp
+KMutex	KMutex	54	PORT	Sources/Engine/Src/KMutex.cpp
+KMutex	Lock	9	PORT	Sources/Engine/Src/KMutex.cpp
+KMutex	Unlock	9	PORT	Sources/Engine/Src/KMutex.cpp
+KScript	~KScript	46	PORT	Sources/Engine/Src/KScript.cpp
+KScript	KScript	28	PORT	Sources/Engine/Src/KScript.cpp
+KScript	CallFunction	10	PORT	Sources/Engine/Src/KScript.cpp
+KScript	Compile	10	PORT	Sources/Engine/Src/KScript.cpp
+KScript	Execute	10	PORT	Sources/Engine/Src/KScript.cpp
+KScript	Init	10	PORT	Sources/Engine/Src/KScript.cpp
+KScript	Load	10	PORT	Sources/Engine/Src/KScript.cpp
+KScript	RegisterFunction	10	PORT	Sources/Engine/Src/KScript.cpp
+KScript	Exit	5	PORT	Sources/Engine/Src/KScript.cpp
+KCodec	Decode	51	PORT	Sources/Engine/Src/KCodec.cpp
+KCodec	Encode	51	PORT	Sources/Engine/Src/KCodec.cpp
+KCodec	GetPackLen	27	PORT	Sources/Engine/Src/KCodec.cpp
+KBPT_GoldEqMagicAttrib_TF	KBPT_GoldEqMagicAttrib_TF	128	RE	
+KBPT_GoldEqMagicAttrib_TF_Tool	KBPT_GoldEqMagicAttrib_TF_Tool	128	RE	
+KOneAutoCastSkill	GetNextCastTime	124	RE	
+KItemEnvBuySell	GetEnvMsg	103	RE	
+KItemEnvCustom	GetEnvMsg	103	RE	
+KMemFileNotifyHelper	OnFileChanged	63	RE	
+KMemFileNotifyHelper	~KMemFileNotifyHelper	32	RE	
+KTongSendDataToClient	SendData	92	RE	
+KTongDataAlloc	Alloc	88	RE	
+KLeagueTaskData	~KLeagueTaskData	87	RE	
+TTabColNode	~TTabColNode	85	RE	
+KBufObj	~KBufObj	78	RE	
+_KHugeBufObj	~_KHugeBufObj	78	RE	
+_KLargeBufObj	~_KLargeBufObj	78	RE	
+_KSmallBufObj	~_KSmallBufObj	78	RE	
+KEnchaserSet	Init	50	RE	
+KEnchaserSet	GetEnchaser	15	RE	
+KEnchaserSet	GetEnchasersCount	10	RE	
+KVersionCfg	_GetProductRegionInfo	25	RE	
+KVersionCfg	_GetSymbolByLanguage	25	RE	
+KVersionCfg	_GetSymbolByRegion	25	RE	
+KPartner	QueryInterface	42	RE	
+KPartner	~KPartner	32	RE	
+ISkill	~ISkill	32	RE	
+ISkill	GetCanCastLevel	7	RE	
+ISkill	GetSkillLevelUpScriptId	7	RE	
+ISkill	IsAura	7	RE	
+ISkill	IsExpSkill	7	RE	
+ISkill	IsWeaponSkill	7	RE	
+ISkill	DoSkill	5	RE	
+KTongSendDataToRelay	SendData	70	RE	
+KCoder2	Decode	33	RE	
+KCoder2	Encode	33	RE	
+KHeavenLib	Decode	33	RE	
+KHeavenLib	Encode	33	RE	
+KRainbowLib	Decode	33	RE	
+KRainbowLib	Encode	33	RE	
+KBattleGameData	SetDataOnType	34	RE	
+KBattleGameData	GetDataOnType	30	RE	
+KLuaCall	FormatCall	52	RE	
+string	string	16	RE	
+string	assign	8	RE	
+string	_M_leak_hard	4	RE	
+string	_M_mutate	4	RE	
+string	append	4	RE	
+string	compare	4	RE	
+string	find	4	RE	
+string	resize	4	RE	
+string	~string	4	RE	
+KItemCompounder	~KItemCompounder	32	RE	
+KItemCompounder	Init	10	RE	
+std	_Rb_tree_decrement	8	RE	
+std	_Rb_tree_increment	8	RE	
+std	_Rb_tree_insert_and_rebalance	4	RE	
+std	_Rb_tree_rebalance_for_erase	4	RE	
+std	__throw_bad_alloc	4	RE	
+std	__throw_length_error	4	RE	
+std	__throw_logic_error	4	RE	
+std	__throw_out_of_range	4	RE	
+KUnionList	DBSaveChild	36	RE	
+CChatFriend	~CChatFriend	32	RE	
+KITabFile	~KITabFile	32	RE	
+KIndexNode	~KIndexNode	32	RE	
+KObserver	~KObserver	32	RE	
+KSkillLevelIncNode	~KSkillLevelIncNode	32	RE	
+KStateNode	~KStateNode	32	RE	
+KWorldMsgNode	~KWorldMsgNode	32	RE	
+KThreadLock	Lock	13	RE	
+KThreadLock	Unlock	13	RE	
+CompressLib	CompressBuffer	9	RE	
+CompressLib	DeCompressBuffer	9	RE	
+IEnchaser	Init	10	RE	
+KTaskValueSynctorBase	SyncTaskValue	10	RE	
+Init	Init	4	RE	
+Init	~Init	4	RE	
+_List_node_base	hook	4	RE	
+_List_node_base	unhook	4	RE	
+_Rep	_M_destroy	4	RE	
+_Rep	_S_create	4	RE	
+KTaskValueSynctorSvr_Member	SyncTaskValue	5	RE	
+KTaskValueSynctorSvr_Tong	SyncTaskValue	5	RE	
+KTaskValueSynctorSvr_Workshop	SyncTaskValue	5	RE	
+__gnu_cxx	__exchange_and_add	4	RE	
