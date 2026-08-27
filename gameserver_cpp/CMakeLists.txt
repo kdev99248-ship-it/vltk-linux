@@ -233,6 +233,25 @@ add_executable(login_probe EXCLUDE_FROM_ALL
 target_include_directories(login_probe PRIVATE src/net)
 target_link_libraries(login_probe PRIVATE jx_compat ${CMAKE_DL_LIBS})
 
+# ---------------------------------------------------------------------------
+# peer_stub: the other half of the rig -- a real libheaven.so listener standing
+# in for one of the five outbound peers, so an outbound link can be watched
+# without standing up a gateway.
+#
+# It has to be heaven and not a socket that accepts: librainbow finishes its own
+# key handshake before it flushes queued data, so against an accept-only stub
+# SendPackToServer succeeds and nothing reaches the wire. tools/dumb_peers.py is
+# the accept-only one, for the links a test does not care about.
+#
+# Needs ./libheaven.so in the working directory, same as the server does.
+# ---------------------------------------------------------------------------
+add_executable(peer_stub EXCLUDE_FROM_ALL
+    tools/peer_stub.cpp
+    src/net/ksg.cpp
+    src/net/ksg_table.cpp)
+target_include_directories(peer_stub PRIVATE src/net)
+target_link_libraries(peer_stub PRIVATE jx_compat ${CMAKE_DL_LIBS})
+
 add_custom_target(regen_ksg_table
     COMMAND python3 "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen_ksg_table.py"
             "${CMAKE_CURRENT_SOURCE_DIR}/../config/reference/heaven_table.bin"
