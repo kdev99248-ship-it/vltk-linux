@@ -19,7 +19,7 @@ from that description instead.
 | The KSG cipher and its key table | **done, verified** — 96 vectors, two implementations, §6 |
 | `main` → `KSOServer` → `KServerCore` → login | **done, runs** — §7 |
 | The handshake, end to end | **done, verified** — against the shipped engine, §8 |
-| The five outbound server links | Phase 2 — §9 |
+| The five outbound server links | Phase 2 — §9, planned in [PHASE2.md](PHASE2.md) |
 
 ## 1. From a packet table to a compilable header
 

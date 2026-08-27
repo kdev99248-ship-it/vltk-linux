@@ -116,9 +116,22 @@ BOOL KSOServer::Initialize(int nPort, BOOL bOpenGm)
 
     // The five outbound links, read in the shipped order. 5 MB of buffer each
     // is the default the shipped code seeds sConnection with before every call.
+    //
+    // GODDESS is the DATABASE and BISHOP is the GATEWAY -- the enum names read
+    // backwards and they are the easiest thing in this file to get wrong. Three
+    // independent places in the binary agree:
+    //   * KSOServer::SendDataToServer @0x804b120 routes GODDESS to m_connDatabase
+    //     and BISHOP to m_connGateway;
+    //   * KGoddessProcess::Process @0x81ec7e0 calls DatabaseLargePackProcess and
+    //     prints "Protocol:(%d) -- database error";
+    //   * KBishopProcess::ProcessMessage @0x81ed9e0 calls GatewayLargePackProcess
+    //     / GatewaySmallPackProcess.
+    // Keeping the array indexed by KE_SERVERTYPE means SendDataToServer is a
+    // plain m_aConnections[nType] with no fixup, so the naming quirk is spent
+    // once, here.
     static const struct { KE_SERVERTYPE eType; const char* pszSection; } kLinks[] = {
-        { emSERVER_GODDESS, "Gateway"  },
-        { emSERVER_BISHOP,  "Database" },
+        { emSERVER_GODDESS, "Database" },
+        { emSERVER_BISHOP,  "Gateway"  },
         { emSERVER_HOST,    "Transfer" },
         { emSERVER_CHAT,    "Chat"     },
         { emSERVER_TONG,    "Tong"     },
@@ -353,8 +366,10 @@ BOOL KSOServer::GetLocalIpAddress(DWORD* pIntranetAddr, DWORD* pInternetAddr)
 // ---------------------------------------------------------------------------
 BOOL KSOServer::CreateClientConnections()
 {
+    // Indexed by KE_SERVERTYPE, so it follows the load table above: slot 0 is
+    // GODDESS, which is the database.
     static const char* const kNames[emSERVER_COUNT] =
-        { "Gateway", "Database", "Transfer", "Tong", "Chat" };
+        { "Database", "Gateway", "Transfer", "Tong", "Chat" };
 
     for (int i = 0; i < emSERVER_COUNT; ++i)
         printf("[%s]IP:%s, Port:%u\n", kNames[i], m_aConnections[i].szIp,
