@@ -53,101 +53,101 @@ enum c2s_PROTOCOL
     c2s_change_extpoint                          =  62,   // not in ProcessFunc[]
     c2s_use_spreader_cdkey                       =  63,   // not in ProcessFunc[]
     c2s_dynamicupdatemapinfo                     =  64,   // not in ProcessFunc[]
-    c2s_gs_ib_item_buy                           =  65,   // explicitly nulled: handled before KProtocolProcess
-    c2s_gs_ib_item_use                           =  66,   // explicitly nulled: handled before KProtocolProcess
-    c2s_ready_state                              =  67,   // explicitly nulled: handled before KProtocolProcess
+    c2s_gs_ib_item_buy                           =  65,   // 33 bytes · explicitly nulled: handled before KProtocolProcess
+    c2s_gs_ib_item_use                           =  66,   // 17 bytes · explicitly nulled: handled before KProtocolProcess
+    c2s_ready_state                              =  67,   // 9 bytes · explicitly nulled: handled before KProtocolProcess
     c2s_gameserverbegin                          =  64,   // same value, boundary marker
-    c2s_login                                    =  65,   // same value, boundary marker
-    c2s_logiclogin                               =  66,   // same value, boundary marker
-    c2s_syncend                                  =  67,   // same value, boundary marker
-    c2s_loadplayer                               =  68,   // explicitly nulled: handled before KProtocolProcess
-    c2s_newplayer                                =  69,   // explicitly nulled: handled before KProtocolProcess
-    c2s_removeplayer                             =  70,   // -> KProtocolProcess::RemoveRole
-    c2s_requestworld                             =  71,   // explicitly nulled: handled before KProtocolProcess
-    c2s_requestplayer                            =  72,   // explicitly nulled: handled before KProtocolProcess
-    c2s_requestnpc                               =  73,   // -> KProtocolProcess::NpcRequestCommand
-    c2s_requestobj                               =  74,   // -> KProtocolProcess::ObjRequestCommand
-    c2s_npcwalk                                  =  75,   // -> KProtocolProcess::NpcWalkCommand
-    c2s_npcrun                                   =  76,   // -> KProtocolProcess::NpcRunCommand
-    c2s_npcskill                                 =  77,   // -> KProtocolProcess::NpcSkillCommand
-    c2s_npcjump                                  =  78,   // -> KProtocolProcess::NpcJumpCommand
-    c2s_npctalk                                  =  79,   // -> KProtocolProcess::NpcTalkCommand
-    c2s_npchurt                                  =  80,   // explicitly nulled: handled before KProtocolProcess
-    c2s_npcdeath                                 =  81,   // explicitly nulled: handled before KProtocolProcess
-    c2s_playertalk                               =  82,   // -> KProtocolProcess::PlayerTalkCommand
-    c2s_team                                     =  83,   // -> KProtocolProcess::c2sTeamProtocol
-    c2s_playerapplysetpk                         =  84,   // -> KProtocolProcess::PlayerApplySetPK
-    c2s_playerapplyfactiondata                   =  85,   // -> KProtocolProcess::PlayerApplyFactionData
-    c2s_playersendchat                           =  86,   // -> KProtocolProcess::PlayerSendChat
-    c2s_playeraddbaseattribute                   =  87,   // -> KProtocolProcess::PlayerAddBaseAttribute
-    c2s_playerapplyaddskillpoint                 =  88,   // -> KProtocolProcess::PlayerApplyAddSkillPoint
-    c2s_playereatitem                            =  89,   // -> KProtocolProcess::PlayerEatItem
-    c2s_playerpickupitem                         =  90,   // -> KProtocolProcess::PlayerPickUpItem
-    c2s_playermoveitem                           =  91,   // -> KProtocolProcess::PlayerMoveItem
-    c2s_playersellitem                           =  92,   // -> KProtocolProcess::PlayerSellItem
-    c2s_playerbuyitem                            =  93,   // -> KProtocolProcess::PlayerBuyItem
-    c2s_playerthrowawayitem                      =  94,   // -> KProtocolProcess::PlayerDropItem
-    c2s_playerselui                              =  95,   // -> KProtocolProcess::PlayerSelUI
-    c2s_chatsetchannel                           =  96,   // -> KProtocolProcess::ChatSetChannel
-    c2s_chatapplyaddfriend                       =  97,   // -> KProtocolProcess::ChatApplyAddFriend
-    c2s_chataddfriend                            =  98,   // -> KProtocolProcess::ChatAddFriend
-    c2s_chatrefusefriend                         =  99,   // -> KProtocolProcess::ChatRefuseFriend
-    c2s_dbplayerselect                           = 100,   // explicitly nulled: handled before KProtocolProcess
-    c2s_chatapplyresendallfriendname             = 101,   // -> KProtocolProcess::ChatApplyReSendAllFriendName
-    c2s_chatapplysendonefriendname               = 102,   // -> KProtocolProcess::ChatApplySendOneFriendName
-    c2s_chatdeletefriend                         = 103,   // -> KProtocolProcess::ChatDeleteFriend
-    c2s_chatredeletefriend                       = 104,   // -> KProtocolProcess::ChatReDeleteFriend
-    c2s_tradeapplystateopen                      = 105,   // -> KProtocolProcess::TradeApplyOpen
-    c2s_tradeapplystateclose                     = 106,   // -> KProtocolProcess::TradeApplyClose
-    c2s_tradeapplystart                          = 107,   // -> KProtocolProcess::TradeApplyStart
-    c2s_trademovemoney                           = 108,   // -> KProtocolProcess::TradeMoveMoney
-    c2s_tradedecision                            = 109,   // -> KProtocolProcess::TradeDecision
-    c2s_dialognpc                                = 110,   // -> KProtocolProcess::DialogNpc
-    c2s_changeauraskill                          = 111,   // -> KProtocolProcess::ChangeAuraSkill
-    c2s_ping                                     = 112,   // explicitly nulled: handled before KProtocolProcess
-    c2s_npcsit                                   = 113,   // -> KProtocolProcess::NpcSitCommand
-    c2s_objmouseclick                            = 114,   // -> KProtocolProcess::ObjMouseClick
-    c2s_storemoney                               = 115,   // -> KProtocolProcess::StoreMoneyCommand
-    c2s_playerrevive                             = 116,   // -> KProtocolProcess::NpcReviveCommand
-    c2s_tradereplystart                          = 117,   // -> KProtocolProcess::c2sTradeReplyStart
-    c2s_pkapplychangenormalflag                  = 118,   // -> KProtocolProcess::c2sPKApplyChangeNormalFlag
-    c2s_pkapplyenmity                            = 119,   // -> KProtocolProcess::c2sPKApplyEnmity
-    c2s_viewequip                                = 120,   // -> KProtocolProcess::c2sViewEquip
-    c2s_ladderquery                              = 121,   // -> KProtocolProcess::LadderQuery
-    c2s_repairitem                               = 122,   // -> KProtocolProcess::ItemRepair
-    c2s_itemmask                                 = 123,   // -> KProtocolProcess::c2sitemmask
-    c2s_stallextend                              = 124,   // -> KProtocolProcess::c2sstallExtend
-    c2s_give                                     = 125,   // -> KProtocolProcess::c2sGive
-    c2s_notify                                   = 126,   // -> KProtocolProcess::c2sNotify
-    c2s_enchaseritem                             = 127,   // -> KProtocolProcess::EnchaserItem
-    c2s_killerextend                             = 128,   // -> KProtocolProcess::c2skillerExtend
-    c2s_auctionextend                            = 129,   // -> KProtocolProcess::c2sAuctionExtend
-    c2s_citywarextend                            = 130,   // -> KProtocolProcess::c2sCityWarExtend
-    c2s_throwawayallmedicine                     = 131,   // -> KProtocolProcess::ThrowAwayAllMedicine
-    c2s_boxoperate                               = 132,   // -> KProtocolProcess::c2sBoxOperate
-    c2s_playerdivideitem                         = 133,   // -> KProtocolProcess::PlayerDivideItem
-    c2s_bulletincontentquery                     = 134,   // -> KProtocolProcess::BulletinContentQuery
-    c2s_autoattacknpc                            = 135,   // -> KProtocolProcess::c2sAutoAttackNpc
-    c2s_requestcityowner                         = 136,   // not in ProcessFunc[]
-    c2s_giveitemuiresult                         = 137,   // -> KProtocolProcess::c2sGiveItemUI
-    c2s_bot_clientcheck_result                   = 138,   // -> KProtocolProcess::c2sBotClientCheckResult
-    c2s_welcome2server                           = 139,   // -> KProtocolProcess::c2sWelcome2Server
-    c2s_offline_request_req                      = 140,   // -> KProtocolProcess::c2sOfflineRequest
-    c2s_offline_request_ask                      = 141,   // not in ProcessFunc[]
-    c2s_offline_kickout_res                      = 142,   // not in ProcessFunc[]
-    c2s_offline_timeout_res                      = 143,   // not in ProcessFunc[]
-    c2s_daytime_req                              = 144,   // -> KProtocolProcess::c2sDayTimeReq
-    c2s_requestnpcfeature                        = 145,   // -> KProtocolProcess::c2sRequestNpcFeature
-    c2s_foundry_request                          = 146,   // -> KProtocolProcess::c2sFoundryRequest
+    c2s_login                                    =  65,   // 33 bytes · same value, boundary marker
+    c2s_logiclogin                               =  66,   // 17 bytes · same value, boundary marker
+    c2s_syncend                                  =  67,   // 9 bytes · same value, boundary marker
+    c2s_loadplayer                               =  68,   // variable · explicitly nulled: handled before KProtocolProcess
+    c2s_newplayer                                =  69,   // variable · explicitly nulled: handled before KProtocolProcess
+    c2s_removeplayer                             =  70,   // variable · -> KProtocolProcess::RemoveRole
+    c2s_requestworld                             =  71,   // variable · explicitly nulled: handled before KProtocolProcess
+    c2s_requestplayer                            =  72,   // variable · explicitly nulled: handled before KProtocolProcess
+    c2s_requestnpc                               =  73,   // 5 bytes · -> KProtocolProcess::NpcRequestCommand
+    c2s_requestobj                               =  74,   // 5 bytes · -> KProtocolProcess::ObjRequestCommand
+    c2s_npcwalk                                  =  75,   // 13 bytes · -> KProtocolProcess::NpcWalkCommand
+    c2s_npcrun                                   =  76,   // 13 bytes · -> KProtocolProcess::NpcRunCommand
+    c2s_npcskill                                 =  77,   // 17 bytes · -> KProtocolProcess::NpcSkillCommand
+    c2s_npcjump                                  =  78,   // 13 bytes · -> KProtocolProcess::NpcJumpCommand
+    c2s_npctalk                                  =  79,   // variable · -> KProtocolProcess::NpcTalkCommand
+    c2s_npchurt                                  =  80,   // variable · explicitly nulled: handled before KProtocolProcess
+    c2s_npcdeath                                 =  81,   // variable · explicitly nulled: handled before KProtocolProcess
+    c2s_playertalk                               =  82,   // variable · -> KProtocolProcess::PlayerTalkCommand
+    c2s_team                                     =  83,   // variable · -> KProtocolProcess::c2sTeamProtocol
+    c2s_playerapplysetpk                         =  84,   // 2 bytes · -> KProtocolProcess::PlayerApplySetPK
+    c2s_playerapplyfactiondata                   =  85,   // 1 byte · -> KProtocolProcess::PlayerApplyFactionData
+    c2s_playersendchat                           =  86,   // variable · -> KProtocolProcess::PlayerSendChat
+    c2s_playeraddbaseattribute                   =  87,   // 14 bytes · -> KProtocolProcess::PlayerAddBaseAttribute
+    c2s_playerapplyaddskillpoint                 =  88,   // 17 bytes · -> KProtocolProcess::PlayerApplyAddSkillPoint
+    c2s_playereatitem                            =  89,   // 16 bytes · -> KProtocolProcess::PlayerEatItem
+    c2s_playerpickupitem                         =  90,   // 12 bytes · -> KProtocolProcess::PlayerPickUpItem
+    c2s_playermoveitem                           =  91,   // 7 bytes · -> KProtocolProcess::PlayerMoveItem
+    c2s_playersellitem                           =  92,   // 13 bytes · -> KProtocolProcess::PlayerSellItem
+    c2s_playerbuyitem                            =  93,   // 12 bytes · -> KProtocolProcess::PlayerBuyItem
+    c2s_playerthrowawayitem                      =  94,   // 1 byte · -> KProtocolProcess::PlayerDropItem
+    c2s_playerselui                              =  95,   // 17 bytes · -> KProtocolProcess::PlayerSelUI
+    c2s_chatsetchannel                           =  96,   // 5 bytes · -> KProtocolProcess::ChatSetChannel
+    c2s_chatapplyaddfriend                       =  97,   // variable · -> KProtocolProcess::ChatApplyAddFriend
+    c2s_chataddfriend                            =  98,   // 5 bytes · -> KProtocolProcess::ChatAddFriend
+    c2s_chatrefusefriend                         =  99,   // 5 bytes · -> KProtocolProcess::ChatRefuseFriend
+    c2s_dbplayerselect                           = 100,   // 41 bytes · explicitly nulled: handled before KProtocolProcess
+    c2s_chatapplyresendallfriendname             = 101,   // 1 byte · -> KProtocolProcess::ChatApplyReSendAllFriendName
+    c2s_chatapplysendonefriendname               = 102,   // 5 bytes · -> KProtocolProcess::ChatApplySendOneFriendName
+    c2s_chatdeletefriend                         = 103,   // 5 bytes · -> KProtocolProcess::ChatDeleteFriend
+    c2s_chatredeletefriend                       = 104,   // 5 bytes · -> KProtocolProcess::ChatReDeleteFriend
+    c2s_tradeapplystateopen                      = 105,   // variable · -> KProtocolProcess::TradeApplyOpen
+    c2s_tradeapplystateclose                     = 106,   // 1 byte · -> KProtocolProcess::TradeApplyClose
+    c2s_tradeapplystart                          = 107,   // 9 bytes · -> KProtocolProcess::TradeApplyStart
+    c2s_trademovemoney                           = 108,   // 5 bytes · -> KProtocolProcess::TradeMoveMoney
+    c2s_tradedecision                            = 109,   // 2 bytes · -> KProtocolProcess::TradeDecision
+    c2s_dialognpc                                = 110,   // 9 bytes · -> KProtocolProcess::DialogNpc
+    c2s_changeauraskill                          = 111,   // 5 bytes · -> KProtocolProcess::ChangeAuraSkill
+    c2s_ping                                     = 112,   // 9 bytes · explicitly nulled: handled before KProtocolProcess
+    c2s_npcsit                                   = 113,   // 2 bytes · -> KProtocolProcess::NpcSitCommand
+    c2s_objmouseclick                            = 114,   // 9 bytes · -> KProtocolProcess::ObjMouseClick
+    c2s_storemoney                               = 115,   // 14 bytes · -> KProtocolProcess::StoreMoneyCommand
+    c2s_playerrevive                             = 116,   // 13 bytes · -> KProtocolProcess::NpcReviveCommand
+    c2s_tradereplystart                          = 117,   // 10 bytes · -> KProtocolProcess::c2sTradeReplyStart
+    c2s_pkapplychangenormalflag                  = 118,   // 2 bytes · -> KProtocolProcess::c2sPKApplyChangeNormalFlag
+    c2s_pkapplyenmity                            = 119,   // 5 bytes · -> KProtocolProcess::c2sPKApplyEnmity
+    c2s_viewequip                                = 120,   // 5 bytes · -> KProtocolProcess::c2sViewEquip
+    c2s_ladderquery                              = 121,   // variable · -> KProtocolProcess::LadderQuery
+    c2s_repairitem                               = 122,   // 9 bytes · -> KProtocolProcess::ItemRepair
+    c2s_itemmask                                 = 123,   // 16 bytes · -> KProtocolProcess::c2sitemmask
+    c2s_stallextend                              = 124,   // variable · -> KProtocolProcess::c2sstallExtend
+    c2s_give                                     = 125,   // 30 bytes · -> KProtocolProcess::c2sGive
+    c2s_notify                                   = 126,   // 9 bytes · -> KProtocolProcess::c2sNotify
+    c2s_enchaseritem                             = 127,   // 50 bytes · -> KProtocolProcess::EnchaserItem
+    c2s_killerextend                             = 128,   // variable · -> KProtocolProcess::c2skillerExtend
+    c2s_auctionextend                            = 129,   // variable · -> KProtocolProcess::c2sAuctionExtend
+    c2s_citywarextend                            = 130,   // variable · -> KProtocolProcess::c2sCityWarExtend
+    c2s_throwawayallmedicine                     = 131,   // 4 bytes · -> KProtocolProcess::ThrowAwayAllMedicine
+    c2s_boxoperate                               = 132,   // 14 bytes · -> KProtocolProcess::c2sBoxOperate
+    c2s_playerdivideitem                         = 133,   // 10 bytes · -> KProtocolProcess::PlayerDivideItem
+    c2s_bulletincontentquery                     = 134,   // 17 bytes · -> KProtocolProcess::BulletinContentQuery
+    c2s_autoattacknpc                            = 135,   // 26 bytes · -> KProtocolProcess::c2sAutoAttackNpc
+    c2s_requestcityowner                         = 136,   // 4 bytes · not in ProcessFunc[]
+    c2s_giveitemuiresult                         = 137,   // variable · -> KProtocolProcess::c2sGiveItemUI
+    c2s_bot_clientcheck_result                   = 138,   // 9 bytes · -> KProtocolProcess::c2sBotClientCheckResult
+    c2s_welcome2server                           = 139,   // 5 bytes · -> KProtocolProcess::c2sWelcome2Server
+    c2s_offline_request_req                      = 140,   // 65 bytes · -> KProtocolProcess::c2sOfflineRequest
+    c2s_offline_request_ask                      = 141,   // 73 bytes · not in ProcessFunc[]
+    c2s_offline_kickout_res                      = 142,   // 42 bytes · not in ProcessFunc[]
+    c2s_offline_timeout_res                      = 143,   // 69 bytes · not in ProcessFunc[]
+    c2s_daytime_req                              = 144,   // 25 bytes · -> KProtocolProcess::c2sDayTimeReq
+    c2s_requestnpcfeature                        = 145,   // 5 bytes · -> KProtocolProcess::c2sRequestNpcFeature
+    c2s_foundry_request                          = 146,   // 204 bytes · -> KProtocolProcess::c2sFoundryRequest
     c2s_bishop_shutdowngodess                    = 147,   // not in ProcessFunc[]
     c2s_replyroleinfo                            = 148,   // not in ProcessFunc[]
     c2s_iambishop                                = 149,   // not in ProcessFunc[]
     c2s_request_statdata                         = 150,   // not in ProcessFunc[]
-    c2s_getroledata_request                      = 151,   // -> KProtocolProcess::c2sSendDbData
+    c2s_getroledata_request                      = 151,   // 1 byte · -> KProtocolProcess::c2sSendDbData
     c2s_hostexchange                             = 152,   // not in ProcessFunc[]
-    c2s_spectator                                = 153,   // -> KProtocolProcess::c2sSpectatorMsg
-    c2s_partnerextend                            = 154,   // -> KProtocolProcess::c2sPartnerExtend
-    c2s_closeconnection                          = 155,   // -> KProtocolProcess::c2sCloseConnection
+    c2s_spectator                                = 153,   // variable · -> KProtocolProcess::c2sSpectatorMsg
+    c2s_partnerextend                            = 154,   // variable · -> KProtocolProcess::c2sPartnerExtend
+    c2s_closeconnection                          = 155,   // 1 byte · -> KProtocolProcess::c2sCloseConnection
     c2s_queryrolename                            = 156,   // not in ProcessFunc[]
     c2s_lockaccount                              = 157,   // not in ProcessFunc[]
     c2s_unlockaccount                            = 158,   // not in ProcessFunc[]
@@ -155,29 +155,29 @@ enum c2s_PROTOCOL
     c2s_changerolename_finish                    = 160,   // not in ProcessFunc[]
     c2s_querytongname                            = 161,   // not in ProcessFunc[]
     c2s_changetongname                           = 162,   // not in ProcessFunc[]
-    c2s_sendtextcmd                              = 163,   // -> KProtocolProcess::c2sSendTextCmd
-    c2s_chatroom                                 = 164,   // not in ProcessFunc[]
-    c2s_tongexextend                             = 165,   // -> KProtocolProcess::c2sTongExMsg
-    c2s_request_npcstate                         = 166,   // -> KProtocolProcess::NpcStateRequestCommand
-    c2s_apply_syncfile                           = 167,   // -> KProtocolProcess::c2sApplySyncFile
-    c2s_setplayertaskvalue                       = 168,   // -> KProtocolProcess::c2sSetPlayerTaskValue
-    c2s_nationalwar                              = 169,   // -> KProtocolProcess::c2sNationalWar
-    c2s_select_diceitem                          = 170,   // -> KProtocolProcess::c2sSelectDiceItem
-    c2s_script_protocol                          = 171,   // -> KProtocolProcess::c2sScriptProtocol
-    c2s_stores_change_shop                       = 172,   // -> KProtocolProcess::StoresChangeShop
-    c2s_tripserver                               = 173,   // not in ProcessFunc[]
-    c2s_tripclient                               = 174,   // not in ProcessFunc[]
-    c2s_get_tags_request                         = 175,   // -> KProtocolProcess::OnGetTagsRequest
-    c2s_add_tag                                  = 176,   // -> KProtocolProcess::OnAddTagRequest
-    c2s_del_tag                                  = 177,   // -> KProtocolProcess::OnDelTagRequest
-    c2s_set_friend_publish_flag                  = 178,   // -> KProtocolProcess::OnSetCanPublishFlagRequest
+    c2s_sendtextcmd                              = 163,   // variable · -> KProtocolProcess::c2sSendTextCmd
+    c2s_chatroom                                 = 164,   // variable · not in ProcessFunc[]
+    c2s_tongexextend                             = 165,   // variable · -> KProtocolProcess::c2sTongExMsg
+    c2s_request_npcstate                         = 166,   // 5 bytes · -> KProtocolProcess::NpcStateRequestCommand
+    c2s_apply_syncfile                           = 167,   // 9 bytes · -> KProtocolProcess::c2sApplySyncFile
+    c2s_setplayertaskvalue                       = 168,   // 9 bytes · -> KProtocolProcess::c2sSetPlayerTaskValue
+    c2s_nationalwar                              = 169,   // variable · -> KProtocolProcess::c2sNationalWar
+    c2s_select_diceitem                          = 170,   // 13 bytes · -> KProtocolProcess::c2sSelectDiceItem
+    c2s_script_protocol                          = 171,   // variable · -> KProtocolProcess::c2sScriptProtocol
+    c2s_stores_change_shop                       = 172,   // 5 bytes · -> KProtocolProcess::StoresChangeShop
+    c2s_tripserver                               = 173,   // variable · not in ProcessFunc[]
+    c2s_tripclient                               = 174,   // variable · not in ProcessFunc[]
+    c2s_get_tags_request                         = 175,   // 33 bytes · -> KProtocolProcess::OnGetTagsRequest
+    c2s_add_tag                                  = 176,   // 65 bytes · -> KProtocolProcess::OnAddTagRequest
+    c2s_del_tag                                  = 177,   // 5 bytes · -> KProtocolProcess::OnDelTagRequest
+    c2s_set_friend_publish_flag                  = 178,   // 2 bytes · -> KProtocolProcess::OnSetCanPublishFlagRequest
     c2s_num_check                                = 179,   // not in ProcessFunc[]
-    _c2s_begin_relay                             = 250,   // not in ProcessFunc[]
-    c2s_extend                                   = 250,   // same value, boundary marker
-    c2s_extendchat                               = 251,   // not in ProcessFunc[]
-    c2s_extendfriend                             = 252,   // not in ProcessFunc[]
-    _c2s_end_relay                               = 252,   // same value, boundary marker
-    c2s_extendtong                               = 253,   // not in ProcessFunc[]
+    _c2s_begin_relay                             = 250,   // variable · not in ProcessFunc[]
+    c2s_extend                                   = 250,   // variable · same value, boundary marker
+    c2s_extendchat                               = 251,   // variable · not in ProcessFunc[]
+    c2s_extendfriend                             = 252,   // variable · not in ProcessFunc[]
+    _c2s_end_relay                               = 252,   // variable · same value, boundary marker
+    c2s_extendtong                               = 253,   // variable · not in ProcessFunc[]
     c2s_end                                      = 254,   // not in ProcessFunc[]
 };
 
@@ -208,6 +208,229 @@ enum c2s_PROTOCOL
 //   116  NpcReviveCommand               c2s_playerrevive                   1/2
 //   151  c2sSendDbData                  c2s_getroledata_request            1/3
 //   178  OnSetCanPublishFlagRequest     c2s_set_friend_publish_flag        3/4
+
+// ---- inbound message lengths ------------------------------------
+//
+// From gInitServerProtocolSize(), which fills g_nProtocolSize before the
+// server starts. KServerCore::CheckProtocolSize indexes it with the raw
+// protocol byte and drops -- and disconnects -- anything whose length
+// does not match, so this is the third census of the inbound protocol
+// set as well as a table the port has to reproduce exactly.
+//
+// The indexing in the binary is worth knowing when reading it there: the
+// array starts at protocol 65, and the compiler folded the `- 65` into
+// the displacement, so CheckProtocolSize reads ds:[byte*4 + 0x88B871C]
+// while the array itself is at 0x88B8820. Same table, 65 elements apart.
+//
+//   JX_C2S_VARIABLE  length is in the message: *(WORD *)(p + 1) + 1,
+//                    and CheckProtocolSize requires len > 2 to read it
+//   0                never assigned -- .bss leaves it zero, so every
+//                    length fails and the sender is disconnected.
+//                    Absent from the protocol, not zero-length.
+//
+// Where a byte has more than one enumerator the comment lists them all.
+// 65 and 66 are why that matters: c2s_gs_ib_item_buy shares 65 with
+// c2s_login and c2s_gs_ib_item_use shares 66 with c2s_logiclogin, and it
+// is the login pair that these lengths belong to -- 17 is the size of
+// tagLogicLogin, the protocol byte plus a GUID, which is exactly what
+// KClientProcess::ProcessLoginProtocol insists on before it will attach
+// a player. The initialiser assigns index 0 twice, once under each name,
+// which is the same collision showing up in the code that fills it.
+#define JX_C2S_FIRST_SIZED 65
+#define JX_C2S_LAST_SIZED  253
+#define JX_C2S_VARIABLE    (-1)
+
+inline constexpr int jx_c2s_protocol_size[JX_C2S_LAST_SIZED - JX_C2S_FIRST_SIZED + 1] = {
+    /*  65 */ 33,              // c2s_gs_ib_item_buy / c2s_login
+    /*  66 */ 17,              // c2s_gs_ib_item_use / c2s_logiclogin
+    /*  67 */ 9,               // c2s_ready_state / c2s_syncend
+    /*  68 */ JX_C2S_VARIABLE, // c2s_loadplayer
+    /*  69 */ JX_C2S_VARIABLE, // c2s_newplayer
+    /*  70 */ JX_C2S_VARIABLE, // c2s_removeplayer                             -> RemoveRole
+    /*  71 */ JX_C2S_VARIABLE, // c2s_requestworld
+    /*  72 */ JX_C2S_VARIABLE, // c2s_requestplayer
+    /*  73 */ 5,               // c2s_requestnpc                               -> NpcRequestCommand
+    /*  74 */ 5,               // c2s_requestobj                               -> ObjRequestCommand
+    /*  75 */ 13,              // c2s_npcwalk                                  -> NpcWalkCommand
+    /*  76 */ 13,              // c2s_npcrun                                   -> NpcRunCommand
+    /*  77 */ 17,              // c2s_npcskill                                 -> NpcSkillCommand
+    /*  78 */ 13,              // c2s_npcjump                                  -> NpcJumpCommand
+    /*  79 */ JX_C2S_VARIABLE, // c2s_npctalk                                  -> NpcTalkCommand
+    /*  80 */ JX_C2S_VARIABLE, // c2s_npchurt
+    /*  81 */ JX_C2S_VARIABLE, // c2s_npcdeath
+    /*  82 */ JX_C2S_VARIABLE, // c2s_playertalk                               -> PlayerTalkCommand
+    /*  83 */ JX_C2S_VARIABLE, // c2s_team                                     -> c2sTeamProtocol
+    /*  84 */ 2,               // c2s_playerapplysetpk                         -> PlayerApplySetPK
+    /*  85 */ 1,               // c2s_playerapplyfactiondata                   -> PlayerApplyFactionData
+    /*  86 */ JX_C2S_VARIABLE, // c2s_playersendchat                           -> PlayerSendChat
+    /*  87 */ 14,              // c2s_playeraddbaseattribute                   -> PlayerAddBaseAttribute
+    /*  88 */ 17,              // c2s_playerapplyaddskillpoint                 -> PlayerApplyAddSkillPoint
+    /*  89 */ 16,              // c2s_playereatitem                            -> PlayerEatItem
+    /*  90 */ 12,              // c2s_playerpickupitem                         -> PlayerPickUpItem
+    /*  91 */ 7,               // c2s_playermoveitem                           -> PlayerMoveItem
+    /*  92 */ 13,              // c2s_playersellitem                           -> PlayerSellItem
+    /*  93 */ 12,              // c2s_playerbuyitem                            -> PlayerBuyItem
+    /*  94 */ 1,               // c2s_playerthrowawayitem                      -> PlayerDropItem
+    /*  95 */ 17,              // c2s_playerselui                              -> PlayerSelUI
+    /*  96 */ 5,               // c2s_chatsetchannel                           -> ChatSetChannel
+    /*  97 */ JX_C2S_VARIABLE, // c2s_chatapplyaddfriend                       -> ChatApplyAddFriend
+    /*  98 */ 5,               // c2s_chataddfriend                            -> ChatAddFriend
+    /*  99 */ 5,               // c2s_chatrefusefriend                         -> ChatRefuseFriend
+    /* 100 */ 41,              // c2s_dbplayerselect
+    /* 101 */ 1,               // c2s_chatapplyresendallfriendname             -> ChatApplyReSendAllFriendName
+    /* 102 */ 5,               // c2s_chatapplysendonefriendname               -> ChatApplySendOneFriendName
+    /* 103 */ 5,               // c2s_chatdeletefriend                         -> ChatDeleteFriend
+    /* 104 */ 5,               // c2s_chatredeletefriend                       -> ChatReDeleteFriend
+    /* 105 */ JX_C2S_VARIABLE, // c2s_tradeapplystateopen                      -> TradeApplyOpen
+    /* 106 */ 1,               // c2s_tradeapplystateclose                     -> TradeApplyClose
+    /* 107 */ 9,               // c2s_tradeapplystart                          -> TradeApplyStart
+    /* 108 */ 5,               // c2s_trademovemoney                           -> TradeMoveMoney
+    /* 109 */ 2,               // c2s_tradedecision                            -> TradeDecision
+    /* 110 */ 9,               // c2s_dialognpc                                -> DialogNpc
+    /* 111 */ 5,               // c2s_changeauraskill                          -> ChangeAuraSkill
+    /* 112 */ 9,               // c2s_ping
+    /* 113 */ 2,               // c2s_npcsit                                   -> NpcSitCommand
+    /* 114 */ 9,               // c2s_objmouseclick                            -> ObjMouseClick
+    /* 115 */ 14,              // c2s_storemoney                               -> StoreMoneyCommand
+    /* 116 */ 13,              // c2s_playerrevive                             -> NpcReviveCommand
+    /* 117 */ 10,              // c2s_tradereplystart                          -> c2sTradeReplyStart
+    /* 118 */ 2,               // c2s_pkapplychangenormalflag                  -> c2sPKApplyChangeNormalFlag
+    /* 119 */ 5,               // c2s_pkapplyenmity                            -> c2sPKApplyEnmity
+    /* 120 */ 5,               // c2s_viewequip                                -> c2sViewEquip
+    /* 121 */ JX_C2S_VARIABLE, // c2s_ladderquery                              -> LadderQuery
+    /* 122 */ 9,               // c2s_repairitem                               -> ItemRepair
+    /* 123 */ 16,              // c2s_itemmask                                 -> c2sitemmask
+    /* 124 */ JX_C2S_VARIABLE, // c2s_stallextend                              -> c2sstallExtend
+    /* 125 */ 30,              // c2s_give                                     -> c2sGive
+    /* 126 */ 9,               // c2s_notify                                   -> c2sNotify
+    /* 127 */ 50,              // c2s_enchaseritem                             -> EnchaserItem
+    /* 128 */ JX_C2S_VARIABLE, // c2s_killerextend                             -> c2skillerExtend
+    /* 129 */ JX_C2S_VARIABLE, // c2s_auctionextend                            -> c2sAuctionExtend
+    /* 130 */ JX_C2S_VARIABLE, // c2s_citywarextend                            -> c2sCityWarExtend
+    /* 131 */ 4,               // c2s_throwawayallmedicine                     -> ThrowAwayAllMedicine
+    /* 132 */ 14,              // c2s_boxoperate                               -> c2sBoxOperate
+    /* 133 */ 10,              // c2s_playerdivideitem                         -> PlayerDivideItem
+    /* 134 */ 17,              // c2s_bulletincontentquery                     -> BulletinContentQuery
+    /* 135 */ 26,              // c2s_autoattacknpc                            -> c2sAutoAttackNpc
+    /* 136 */ 4,               // c2s_requestcityowner
+    /* 137 */ JX_C2S_VARIABLE, // c2s_giveitemuiresult                         -> c2sGiveItemUI
+    /* 138 */ 9,               // c2s_bot_clientcheck_result                   -> c2sBotClientCheckResult
+    /* 139 */ 5,               // c2s_welcome2server                           -> c2sWelcome2Server
+    /* 140 */ 65,              // c2s_offline_request_req                      -> c2sOfflineRequest
+    /* 141 */ 73,              // c2s_offline_request_ask
+    /* 142 */ 42,              // c2s_offline_kickout_res
+    /* 143 */ 69,              // c2s_offline_timeout_res
+    /* 144 */ 25,              // c2s_daytime_req                              -> c2sDayTimeReq
+    /* 145 */ 5,               // c2s_requestnpcfeature                        -> c2sRequestNpcFeature
+    /* 146 */ 204,             // c2s_foundry_request                          -> c2sFoundryRequest
+    /* 147 */ 0,               // c2s_bishop_shutdowngodess
+    /* 148 */ 0,               // c2s_replyroleinfo
+    /* 149 */ 0,               // c2s_iambishop
+    /* 150 */ 0,               // c2s_request_statdata
+    /* 151 */ 1,               // c2s_getroledata_request                      -> c2sSendDbData
+    /* 152 */ 0,               // c2s_hostexchange
+    /* 153 */ JX_C2S_VARIABLE, // c2s_spectator                                -> c2sSpectatorMsg
+    /* 154 */ JX_C2S_VARIABLE, // c2s_partnerextend                            -> c2sPartnerExtend
+    /* 155 */ 1,               // c2s_closeconnection                          -> c2sCloseConnection
+    /* 156 */ 0,               // c2s_queryrolename
+    /* 157 */ 0,               // c2s_lockaccount
+    /* 158 */ 0,               // c2s_unlockaccount
+    /* 159 */ 0,               // c2s_changerolename
+    /* 160 */ 0,               // c2s_changerolename_finish
+    /* 161 */ 0,               // c2s_querytongname
+    /* 162 */ 0,               // c2s_changetongname
+    /* 163 */ JX_C2S_VARIABLE, // c2s_sendtextcmd                              -> c2sSendTextCmd
+    /* 164 */ JX_C2S_VARIABLE, // c2s_chatroom
+    /* 165 */ JX_C2S_VARIABLE, // c2s_tongexextend                             -> c2sTongExMsg
+    /* 166 */ 5,               // c2s_request_npcstate                         -> NpcStateRequestCommand
+    /* 167 */ 9,               // c2s_apply_syncfile                           -> c2sApplySyncFile
+    /* 168 */ 9,               // c2s_setplayertaskvalue                       -> c2sSetPlayerTaskValue
+    /* 169 */ JX_C2S_VARIABLE, // c2s_nationalwar                              -> c2sNationalWar
+    /* 170 */ 13,              // c2s_select_diceitem                          -> c2sSelectDiceItem
+    /* 171 */ JX_C2S_VARIABLE, // c2s_script_protocol                          -> c2sScriptProtocol
+    /* 172 */ 5,               // c2s_stores_change_shop                       -> StoresChangeShop
+    /* 173 */ JX_C2S_VARIABLE, // c2s_tripserver
+    /* 174 */ JX_C2S_VARIABLE, // c2s_tripclient
+    /* 175 */ 33,              // c2s_get_tags_request                         -> OnGetTagsRequest
+    /* 176 */ 65,              // c2s_add_tag                                  -> OnAddTagRequest
+    /* 177 */ 5,               // c2s_del_tag                                  -> OnDelTagRequest
+    /* 178 */ 2,               // c2s_set_friend_publish_flag                  -> OnSetCanPublishFlagRequest
+    /* 179 */ 0,               // c2s_num_check
+    /* 180 */ 0,               //
+    /* 181 */ 0,               //
+    /* 182 */ 0,               //
+    /* 183 */ 0,               //
+    /* 184 */ 0,               //
+    /* 185 */ 0,               //
+    /* 186 */ 0,               //
+    /* 187 */ 0,               //
+    /* 188 */ 0,               //
+    /* 189 */ 0,               //
+    /* 190 */ 0,               //
+    /* 191 */ 0,               //
+    /* 192 */ 0,               //
+    /* 193 */ 0,               //
+    /* 194 */ 0,               //
+    /* 195 */ 0,               //
+    /* 196 */ 0,               //
+    /* 197 */ 0,               //
+    /* 198 */ 0,               //
+    /* 199 */ 0,               //
+    /* 200 */ 0,               //
+    /* 201 */ 0,               //
+    /* 202 */ 0,               //
+    /* 203 */ 0,               //
+    /* 204 */ 0,               //
+    /* 205 */ 0,               //
+    /* 206 */ 0,               //
+    /* 207 */ 0,               //
+    /* 208 */ 0,               //
+    /* 209 */ 0,               //
+    /* 210 */ 0,               //
+    /* 211 */ 0,               //
+    /* 212 */ 0,               //
+    /* 213 */ 0,               //
+    /* 214 */ 0,               //
+    /* 215 */ 0,               //
+    /* 216 */ 0,               //
+    /* 217 */ 0,               //
+    /* 218 */ 0,               //
+    /* 219 */ 0,               //
+    /* 220 */ 0,               //
+    /* 221 */ 0,               //
+    /* 222 */ 0,               //
+    /* 223 */ 0,               //
+    /* 224 */ 0,               //
+    /* 225 */ 0,               //
+    /* 226 */ 0,               //
+    /* 227 */ 0,               //
+    /* 228 */ 0,               //
+    /* 229 */ 0,               //
+    /* 230 */ 0,               //
+    /* 231 */ 0,               //
+    /* 232 */ 0,               //
+    /* 233 */ 0,               //
+    /* 234 */ 0,               //
+    /* 235 */ 0,               //
+    /* 236 */ 0,               //
+    /* 237 */ 0,               //
+    /* 238 */ 0,               //
+    /* 239 */ 0,               //
+    /* 240 */ 0,               //
+    /* 241 */ 0,               //
+    /* 242 */ 0,               //
+    /* 243 */ 0,               //
+    /* 244 */ 0,               //
+    /* 245 */ 0,               //
+    /* 246 */ 0,               //
+    /* 247 */ 0,               //
+    /* 248 */ 0,               //
+    /* 249 */ 0,               //
+    /* 250 */ JX_C2S_VARIABLE, // _c2s_begin_relay / c2s_extend
+    /* 251 */ JX_C2S_VARIABLE, // c2s_extendchat
+    /* 252 */ JX_C2S_VARIABLE, // c2s_extendfriend / _c2s_end_relay
+    /* 253 */ JX_C2S_VARIABLE, // c2s_extendtong
+};
 
 // ---- server-to-client and relay IDs -----------------------------
 //

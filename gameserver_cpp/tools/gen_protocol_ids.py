@@ -10,11 +10,16 @@ question with three possible answers, of unequal standing:
   2. `KProtocolProcess::ProcessFunc[]`, filled in the constructor.  The array
      ProcessNetMsg indexes with the raw protocol byte, so this is the dispatch
      itself rather than a description of it. 110 slots.
-  3. `KProtocolDef.h` in the Windows tree.  A different version of the game,
+  3. `gInitServerProtocolSize()`, in `protocol/c2s_sizes.tsv`.  Not a list of
+     IDs but a list of *lengths* per ID -- and since KServerCore drops any
+     message whose length disagrees, a protocol the server accepts must have an
+     entry here. So it is a third census of the inbound set, taken from a third
+     place in the binary.
+  4. `KProtocolDef.h` in the Windows tree.  A different version of the game,
      already measured as unreliable in Phase 0.
 
-(1) and (2) are independent artifacts of the same build, so where they agree
-the ID is settled. (3) gets compared and reported, never used.
+(1), (2) and (3) are independent artifacts of the same build, so where they
+agree the ID is settled. (4) gets compared and reported, never used.
 
 That covers the client-to-server direction. The other way there is no enum at
 all: `s2c_PROTOCOL` is used only as a source of constants, and a constant leaves
@@ -22,7 +27,7 @@ no type behind for GCC to describe -- the name is nowhere in the server, the
 relay or libheaven. What does survive is the server writing the ID, and DWARF
 saying what it wrote it into, so the fourth source is:
 
-  4. `protocol/send_ids.tsv`, every `x.cProtocol = N` in the binary paired with
+  5. `protocol/send_ids.tsv`, every `x.cProtocol = N` in the binary paired with
      the declared type of `x`. Observed, not named: it gives the byte for a
      packet without giving the enumerator it was spelled with.
 
@@ -85,6 +90,18 @@ def read_dispatch(path: str) -> "dict[int, str]":
             table, idx, handler = row.rstrip("\n").split("\t")
             if table == "ProcessFunc":
                 out[int(idx)] = handler
+    return out
+
+
+def read_sizes(path: str) -> "dict[int, int]":
+    """Protocol byte -> expected message length. -1 is variable-length."""
+    out: dict[int, int] = {}
+    with open(path, encoding="utf-8") as fh:
+        for row in fh:
+            if row.startswith("#") or row.startswith("protocol\t"):
+                continue
+            proto, size, _kind = row.rstrip("\n").split("\t")
+            out[int(proto)] = int(size)
     return out
 
 
@@ -291,8 +308,65 @@ def read_header_enum(path: str, want: str) -> "OrderedDict[str, int]":
     return vals
 
 
+FIRST_SIZED, LAST_SIZED = 65, 253
+
+
+def emit_sizes(fh, sizes: "dict[int, int]", names: "dict[int, list]",
+               live: "dict[int, str]") -> None:
+    """Write the length table as data, because the port has to enforce it.
+
+    This is not documentation. KServerCore::CheckProtocolSize runs on every
+    inbound message and disconnects the sender when the length disagrees, so the
+    table is load-bearing: a wrong entry is a client that gets kicked, and a
+    missing one is a protocol that can never be sent. Emitting it from the same
+    TSV the cross-check reads keeps the port and the evidence from drifting.
+    """
+    w = fh.write
+    w("\n// ---- inbound message lengths ------------------------------------\n"
+      "//\n"
+      "// From gInitServerProtocolSize(), which fills g_nProtocolSize before the\n"
+      "// server starts. KServerCore::CheckProtocolSize indexes it with the raw\n"
+      "// protocol byte and drops -- and disconnects -- anything whose length\n"
+      "// does not match, so this is the third census of the inbound protocol\n"
+      "// set as well as a table the port has to reproduce exactly.\n"
+      "//\n"
+      "// The indexing in the binary is worth knowing when reading it there: the\n"
+      "// array starts at protocol 65, and the compiler folded the `- 65` into\n"
+      "// the displacement, so CheckProtocolSize reads ds:[byte*4 + 0x88B871C]\n"
+      "// while the array itself is at 0x88B8820. Same table, 65 elements apart.\n"
+      "//\n"
+      "//   JX_C2S_VARIABLE  length is in the message: *(WORD *)(p + 1) + 1,\n"
+      "//                    and CheckProtocolSize requires len > 2 to read it\n"
+      "//   0                never assigned -- .bss leaves it zero, so every\n"
+      "//                    length fails and the sender is disconnected.\n"
+      "//                    Absent from the protocol, not zero-length.\n"
+      "//\n"
+      "// Where a byte has more than one enumerator the comment lists them all.\n"
+      "// 65 and 66 are why that matters: c2s_gs_ib_item_buy shares 65 with\n"
+      "// c2s_login and c2s_gs_ib_item_use shares 66 with c2s_logiclogin, and it\n"
+      "// is the login pair that these lengths belong to -- 17 is the size of\n"
+      "// tagLogicLogin, the protocol byte plus a GUID, which is exactly what\n"
+      "// KClientProcess::ProcessLoginProtocol insists on before it will attach\n"
+      "// a player. The initialiser assigns index 0 twice, once under each name,\n"
+      "// which is the same collision showing up in the code that fills it.\n"
+      f"#define JX_C2S_FIRST_SIZED {FIRST_SIZED}\n"
+      f"#define JX_C2S_LAST_SIZED  {LAST_SIZED}\n"
+      "#define JX_C2S_VARIABLE    (-1)\n\n"
+      "inline constexpr int jx_c2s_protocol_size[JX_C2S_LAST_SIZED"
+      " - JX_C2S_FIRST_SIZED + 1] = {\n")
+    for proto in range(FIRST_SIZED, LAST_SIZED + 1):
+        size = sizes.get(proto, 0)
+        val = ("JX_C2S_VARIABLE" if size == -1 else str(size)) + ","
+        label = " / ".join(names.get(proto, ()))
+        if proto in live:
+            label = f"{label:<44} -> {live[proto]}"
+        w(f"    /* {proto:>3} */ {val:<17}// {label}".rstrip() + "\n")
+    w("};\n")
+
+
 def emit(path: str, enum: "OrderedDict[str, int]", dispatch: "dict[int, str]",
          reworded: "list[tuple[int, str, str, int, int]]",
+         sizes: "dict[int, int]",
          send: "tuple[dict, dict, dict]") -> "tuple":
     live = {i: h for i, h in dispatch.items() if h != "0"}
     retired = sorted(i for i, h in dispatch.items() if h == "0")
@@ -320,15 +394,23 @@ def emit(path: str, enum: "OrderedDict[str, int]", dispatch: "dict[int, str]",
         seen: set[int] = set()
         for name, val in enum.items():
             if val in seen:
-                note = "   // same value, boundary marker"
+                note = "same value, boundary marker"
             elif val in retired:
-                note = "   // explicitly nulled: handled before KProtocolProcess"
+                note = "explicitly nulled: handled before KProtocolProcess"
             elif val in live:
-                note = f"   // -> KProtocolProcess::{live[val]}"
+                note = f"-> KProtocolProcess::{live[val]}"
             else:
-                note = "   // not in ProcessFunc[]"
+                note = "not in ProcessFunc[]"
+            # The length gate is the other half of "this protocol exists": a
+            # handler with no entry could never be reached, and an entry with no
+            # handler is a message consumed earlier in the pipeline.
+            size = sizes.get(val)
+            if size == -1:
+                note = f"variable · {note}"
+            elif size:
+                note = f"{size} byte{'' if size == 1 else 's'} · {note}"
             seen.add(val)
-            w(f"    {name:<44} = {val:>3},{note}\n")
+            w(f"    {name:<44} = {val:>3},   // {note}\n")
         w("};\n\n")
 
         w("// Two notes on the annotations above.\n"
@@ -357,6 +439,11 @@ def emit(path: str, enum: "OrderedDict[str, int]", dispatch: "dict[int, str]",
             for val, handler, name, hit, total in reworded:
                 w(f"//   {val:>3}  {handler:<30} {name:<34} {hit}/{total}\n")
 
+        all_names: dict[int, list] = {}
+        for name, val in enum.items():
+            all_names.setdefault(val, []).append(name)
+        emit_sizes(fh, sizes, all_names, live)
+
         return emit_send(fh, *send)
 
 
@@ -374,6 +461,7 @@ def main() -> int:
                  f"dwarf_structs.py --enums ... --all-enums")
     enum = enums[ENUM]
     dispatch = read_dispatch(os.path.join(args.tables, "dispatch_c2s.tsv"))
+    sizes = read_sizes(os.path.join(args.tables, "c2s_sizes.tsv"))
 
     by_id: dict[int, str] = {}
     for name, val in enum.items():
@@ -414,6 +502,34 @@ def main() -> int:
               "  common with it, means the two sources are describing different\n"
               "  things. Resolve before relying on the ID.")
 
+    # --- the third source: the length gate every inbound message passes -------
+    #
+    # It carries no names, so it cannot confirm what a protocol *is* -- but it
+    # is a census of which bytes the server accepts at all, taken from a
+    # different function, and the two directions of disagreement mean different
+    # things. A handler with no length entry would be dead code: CheckProtocolSize
+    # rejects the message before ProcessNetMsg ever indexes the array. A length
+    # entry with no handler is the ordinary case of a message consumed earlier,
+    # by KClientProcess or KPlayerSet, and never forwarded.
+    retired = {i for i, h in dispatch.items() if h == "0"}
+    unreachable = sorted(i for i in live if i not in sizes)
+    unnamed = sorted(i for i in sizes if i not in by_id)
+    earlier = sorted(i for i in sizes if i not in dispatch)
+    var = sum(1 for v in sizes.values() if v == -1)
+
+    print("\ncross-check, length table vs the other two:")
+    print(f"  protocols with a length            {len(sizes):4}"
+          f"   ({len(sizes) - var} fixed, {var} variable)")
+    print(f"  ... and a live handler             {len(live) - len(unreachable):4}")
+    print(f"  ... and a retired slot             {len(retired & set(sizes)):4}")
+    print(f"  ... consumed before ProcessFunc[]  {len(earlier):4}"
+          f"   {', '.join(by_id.get(i, str(i)) for i in earlier)}")
+    print(f"  length entry with NO enumerator    {len(unnamed):4}")
+    print(f"  handler with NO length, UNREACHABLE{len(unreachable):4}")
+    if unreachable or unnamed:
+        print("\n  Either of those last two is a contradiction between two parts\n"
+              "  of the same build. Resolve before relying on the ID.")
+
     if args.header:
         win = read_header_enum(args.header, ENUM)
         agree = sum(1 for n, v in win.items() if enum.get(n) == v)
@@ -431,7 +547,7 @@ def main() -> int:
 
     os.makedirs(args.out, exist_ok=True)
     out = os.path.join(args.out, "jx_protocol_ids.h")
-    single, extended, ambiguous = emit(out, enum, dispatch, reworded,
+    single, extended, ambiguous = emit(out, enum, dispatch, reworded, sizes,
                                        (vals, where, packets))
 
     checks = os.path.join(args.out, "jx_protocol_ids.cpp")
