@@ -66,7 +66,8 @@ class Decl:
 
 
 def split_array(ty):
-    """`char[32]` -> ("char", "[32]"); `BYTE[]` -> ("BYTE", "[]")."""
+    """`char[32]` -> ("char", "[32]"); `char[32][20]` -> ("char", "[32][20]");
+    `BYTE[]` -> ("BYTE", "[]")."""
     m = ARRAY_RE.match(ty)
     if m:
         return m.group(1), m.group(2)
@@ -104,7 +105,19 @@ def load_enums(path):
     return out
 
 
-def order(decls):
+def alias_map(decls):
+    """typedef name -> the struct name it is declared under.
+
+    A field can be spelled either way: `ARENARESULT arResult;` where the
+    aggregate itself is `tagArenaResult`. emit_struct writes the struct and then
+    a typedef for the alias, so the header accepts both spellings -- but the
+    reference check and the declaration order have to know they are one type.
+    """
+    return {d.alias: name for name, d in decls.items()
+            if d.alias and d.alias != name}
+
+
+def order(decls, aliases):
     """Topological sort: a type is declared after everything it embeds.
 
     Ties break on name so the output is stable across runs -- a generated file
@@ -112,9 +125,10 @@ def order(decls):
     """
     deps = {}
     for name, d in decls.items():
-        need = set(d.bases)
+        need = {aliases.get(b, b) for b in d.bases}
         for _fname, _off, ty, _fsz in d.fields:
             elem, _arr = split_array(ty)
+            elem = aliases.get(elem, elem)
             if elem in decls:
                 need.add(elem)
         deps[name] = {n for n in need if n in decls and n != name}
@@ -308,18 +322,20 @@ def main():
                 sys.exit(f"{name} is declared in both tables -- ambiguous")
             decls[name] = d
 
+    aliases = alias_map(decls)
     missing = set()
     for d in decls.values():
         for _f, _o, ty, _s in d.fields:
             elem, _a = split_array(ty)
-            if elem not in decls and elem not in PRIMITIVES \
+            if elem not in decls and elem not in aliases \
+                    and elem not in PRIMITIVES \
                     and elem not in enums and elem not in PROVIDED:
                 missing.add(elem)
     if missing:
         sys.exit("unresolved types (regenerate the tables with --types): "
                  + ", ".join(sorted(missing)))
 
-    names = order(decls)
+    names = order(decls, aliases)
     os.makedirs(args.out, exist_ok=True)
     hpath = os.path.join(args.out, "jx_protocol.h")
     cpath = os.path.join(args.out, "jx_layout.cpp")

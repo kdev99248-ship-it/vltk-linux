@@ -14,9 +14,27 @@
 // but for the header base they inherit.
 #pragma GCC diagnostic ignored "-Winvalid-offsetof"
 
+static_assert(sizeof(AUCTION_PROTOCOLHEADER) == 4, "sizeof(AUCTION_PROTOCOLHEADER)");
+static_assert(offsetof(AUCTION_PROTOCOLHEADER, ProtocolType) == 0, "AUCTION_PROTOCOLHEADER.ProtocolType");
+static_assert(offsetof(AUCTION_PROTOCOLHEADER, wProcotolSize) == 1, "AUCTION_PROTOCOLHEADER.wProcotolSize");
+static_assert(offsetof(AUCTION_PROTOCOLHEADER, auctionProtocolType) == 3, "AUCTION_PROTOCOLHEADER.auctionProtocolType");
+
+static_assert(sizeof(CITYWAR_PROTOCOLHEADER) == 4, "sizeof(CITYWAR_PROTOCOLHEADER)");
+static_assert(offsetof(CITYWAR_PROTOCOLHEADER, ProtocolType) == 0, "CITYWAR_PROTOCOLHEADER.ProtocolType");
+static_assert(offsetof(CITYWAR_PROTOCOLHEADER, wProcotolSize) == 1, "CITYWAR_PROTOCOLHEADER.wProcotolSize");
+static_assert(offsetof(CITYWAR_PROTOCOLHEADER, CityWarProtocolType) == 3, "CITYWAR_PROTOCOLHEADER.CityWarProtocolType");
+
+static_assert(sizeof(CITYWAR_TAXRATES) == 8, "sizeof(CITYWAR_TAXRATES)");
+static_assert(offsetof(CITYWAR_TAXRATES, dwExchangeTax) == 0, "CITYWAR_TAXRATES.dwExchangeTax");
+static_assert(offsetof(CITYWAR_TAXRATES, dwPriceParameter) == 4, "CITYWAR_TAXRATES.dwPriceParameter");
+
 static_assert(sizeof(EXTEND_HEADER) == 2, "sizeof(EXTEND_HEADER)");
 static_assert(offsetof(EXTEND_HEADER, ProtocolFamily) == 0, "EXTEND_HEADER.ProtocolFamily");
 static_assert(offsetof(EXTEND_HEADER, ProtocolID) == 1, "EXTEND_HEADER.ProtocolID");
+
+static_assert(sizeof(GSTongInfo) == 36, "sizeof(GSTongInfo)");
+static_assert(offsetof(GSTongInfo, nCamp) == 0, "GSTongInfo.nCamp");
+static_assert(offsetof(GSTongInfo, szTongUnionName) == 4, "GSTongInfo.szTongUnionName");
 
 static_assert(sizeof(KACCOUNT_LIMITTIME_INFO) == 12, "sizeof(KACCOUNT_LIMITTIME_INFO)");
 static_assert(offsetof(KACCOUNT_LIMITTIME_INFO, dwLimitTimeFlag) == 0, "KACCOUNT_LIMITTIME_INFO.dwLimitTimeFlag");
@@ -32,6 +50,11 @@ static_assert(offsetof(KEMPIRE_DATA, bySide) == 81, "KEMPIRE_DATA.bySide");
 static_assert(offsetof(KEMPIRE_DATA, dwGoodness) == 82, "KEMPIRE_DATA.dwGoodness");
 static_assert(offsetof(KEMPIRE_DATA, dwBadness) == 86, "KEMPIRE_DATA.dwBadness");
 static_assert(offsetof(KEMPIRE_DATA, dwBeginTime) == 90, "KEMPIRE_DATA.dwBeginTime");
+
+static_assert(sizeof(KILLER_PROTOCOLHEADER) == 4, "sizeof(KILLER_PROTOCOLHEADER)");
+static_assert(offsetof(KILLER_PROTOCOLHEADER, ProtocolType) == 0, "KILLER_PROTOCOLHEADER.ProtocolType");
+static_assert(offsetof(KILLER_PROTOCOLHEADER, wProcotolSize) == 1, "KILLER_PROTOCOLHEADER.wProcotolSize");
+static_assert(offsetof(KILLER_PROTOCOLHEADER, killerProtocolType) == 3, "KILLER_PROTOCOLHEADER.killerProtocolType");
 
 static_assert(sizeof(KMagicAttrib) == 16, "sizeof(KMagicAttrib)");
 static_assert(offsetof(KMagicAttrib, nAttribType) == 0, "KMagicAttrib.nAttribType");
@@ -73,6 +96,42 @@ static_assert(sizeof(KSTAT_DATA_MODIFY) == 12, "sizeof(KSTAT_DATA_MODIFY)");
 static_assert(offsetof(KSTAT_DATA_MODIFY, nID) == 0, "KSTAT_DATA_MODIFY.nID");
 static_assert(offsetof(KSTAT_DATA_MODIFY, nValue) == 4, "KSTAT_DATA_MODIFY.nValue");
 
+static_assert(sizeof(KTongBaseData) == 14, "sizeof(KTongBaseData)");
+static_assert(offsetof(KTongBaseData, dwValue) == 0, "KTongBaseData.dwValue");
+static_assert(offsetof(KTongBaseData, szTongName) == 4, "KTongBaseData.szTongName");
+
+static_assert(sizeof(KTongInfo) == 185, "sizeof(KTongInfo)");
+static_assert(offsetof(KTongInfo, szName) == 0, "KTongInfo.szName");
+static_assert(offsetof(KTongInfo, szMasterName) == 32, "KTongInfo.szMasterName");
+static_assert(offsetof(KTongInfo, dwMasterID) == 64, "KTongInfo.dwMasterID");
+static_assert(offsetof(KTongInfo, btSelfCamp) == 68, "KTongInfo.btSelfCamp");
+static_assert(offsetof(KTongInfo, llMoneyFund) == 69, "KTongInfo.llMoneyFund");
+static_assert(offsetof(KTongInfo, dwExpLevel) == 77, "KTongInfo.dwExpLevel");
+static_assert(offsetof(KTongInfo, btUnionLeader) == 81, "KTongInfo.btUnionLeader");
+static_assert(offsetof(KTongInfo, btUnionNum) == 82, "KTongInfo.btUnionNum");
+static_assert(offsetof(KTongInfo, szUnionName) == 83, "KTongInfo.szUnionName");
+static_assert(offsetof(KTongInfo, nMemberCount) == 115, "KTongInfo.nMemberCount");
+static_assert(offsetof(KTongInfo, nManagerCount) == 117, "KTongInfo.nManagerCount");
+static_assert(offsetof(KTongInfo, nDirectorCount) == 119, "KTongInfo.nDirectorCount");
+static_assert(offsetof(KTongInfo, szMaleTitle) == 121, "KTongInfo.szMaleTitle");
+static_assert(offsetof(KTongInfo, szFemaleTitle) == 153, "KTongInfo.szFemaleTitle");
+
+static_assert(sizeof(KTongMemberBaseData) == 9, "sizeof(KTongMemberBaseData)");
+static_assert(offsetof(KTongMemberBaseData, dwMemberID) == 0, "KTongMemberBaseData.dwMemberID");
+static_assert(offsetof(KTongMemberBaseData, dwValue) == 4, "KTongMemberBaseData.dwValue");
+static_assert(offsetof(KTongMemberBaseData, btFlags) == 8, "KTongMemberBaseData.btFlags");
+
+static_assert(sizeof(KTongUnionBaseData) == 18, "sizeof(KTongUnionBaseData)");
+static_assert(offsetof(KTongUnionBaseData, dwValue) == 0, "KTongUnionBaseData.dwValue");
+static_assert(offsetof(KTongUnionBaseData, dwLeaderID) == 4, "KTongUnionBaseData.dwLeaderID");
+static_assert(offsetof(KTongUnionBaseData, szUnionName) == 8, "KTongUnionBaseData.szUnionName");
+
+static_assert(sizeof(KUnionTongList) == 115, "sizeof(KUnionTongList)");
+static_assert(offsetof(KUnionTongList, szUnionName) == 0, "KUnionTongList.szUnionName");
+static_assert(offsetof(KUnionTongList, dwLeaderID) == 10, "KUnionTongList.dwLeaderID");
+static_assert(offsetof(KUnionTongList, btCount) == 14, "KUnionTongList.btCount");
+static_assert(offsetof(KUnionTongList, arTongID) == 15, "KUnionTongList.arTongID");
+
 static_assert(sizeof(KZhaoMuInfo) == 135, "sizeof(KZhaoMuInfo)");
 static_assert(offsetof(KZhaoMuInfo, byQingXiang) == 0, "KZhaoMuInfo.byQingXiang");
 static_assert(offsetof(KZhaoMuInfo, byActivity) == 1, "KZhaoMuInfo.byActivity");
@@ -86,6 +145,9 @@ static_assert(offsetof(LocalDispatchMsgChannel, Cost) == 4, "LocalDispatchMsgCha
 static_assert(offsetof(LocalDispatchMsgChannel, ChannelFlag) == 5, "LocalDispatchMsgChannel.ChannelFlag");
 static_assert(offsetof(LocalDispatchMsgChannel, dwMsgInterval) == 6, "LocalDispatchMsgChannel.dwMsgInterval");
 
+static_assert(sizeof(MEMBER_SELF_MIX_DATA) == 4, "sizeof(MEMBER_SELF_MIX_DATA)");
+static_assert(offsetof(MEMBER_SELF_MIX_DATA, dwLWeekGoalOffer) == 0, "MEMBER_SELF_MIX_DATA.dwLWeekGoalOffer");
+
 static_assert(sizeof(MapIdIndexPair) == 6, "sizeof(MapIdIndexPair)");
 static_assert(offsetof(MapIdIndexPair, nMapId) == 0, "MapIdIndexPair.nMapId");
 static_assert(offsetof(MapIdIndexPair, nMapIndex) == 4, "MapIdIndexPair.nMapIndex");
@@ -93,6 +155,13 @@ static_assert(offsetof(MapIdIndexPair, nMapIndex) == 4, "MapIdIndexPair.nMapInde
 static_assert(sizeof(POS) == 2, "sizeof(POS)");
 static_assert(offsetof(POS, x) == 0, "POS.x");
 static_assert(offsetof(POS, y) == 1, "POS.y");
+
+static_assert(sizeof(QUERY_TASK_RESULT) == 48, "sizeof(QUERY_TASK_RESULT)");
+static_assert(offsetof(QUERY_TASK_RESULT, nTaskID) == 0, "QUERY_TASK_RESULT.nTaskID");
+static_assert(offsetof(QUERY_TASK_RESULT, nReward) == 4, "QUERY_TASK_RESULT.nReward");
+static_assert(offsetof(QUERY_TASK_RESULT, nTotalTime) == 8, "QUERY_TASK_RESULT.nTotalTime");
+static_assert(offsetof(QUERY_TASK_RESULT, nRemainTime) == 12, "QUERY_TASK_RESULT.nRemainTime");
+static_assert(offsetof(QUERY_TASK_RESULT, szKilleeName) == 16, "QUERY_TASK_RESULT.szKilleeName");
 
 static_assert(sizeof(SALE_STORES_SHOP) == 48, "sizeof(SALE_STORES_SHOP)");
 static_assert(offsetof(SALE_STORES_SHOP, m_nBuyIdx) == 0, "SALE_STORES_SHOP.m_nBuyIdx");
@@ -120,6 +189,99 @@ static_assert(offsetof(SViewItemInfo, wPlatinaMagicIdx) == 52, "SViewItemInfo.wP
 static_assert(offsetof(SViewItemInfo, dwExchangeValue) == 56, "SViewItemInfo.dwExchangeValue");
 static_assert(offsetof(SViewItemInfo, dwFortuneValue) == 60, "SViewItemInfo.dwFortuneValue");
 
+static_assert(sizeof(TLeagueCallBackScript) == 40, "sizeof(TLeagueCallBackScript)");
+static_assert(offsetof(TLeagueCallBackScript, nResult) == 0, "TLeagueCallBackScript.nResult");
+static_assert(offsetof(TLeagueCallBackScript, nScriptFileID) == 4, "TLeagueCallBackScript.nScriptFileID");
+static_assert(offsetof(TLeagueCallBackScript, szFunction) == 8, "TLeagueCallBackScript.szFunction");
+
+static_assert(sizeof(TLeagueDoScript) == 4, "sizeof(TLeagueDoScript)");
+static_assert(offsetof(TLeagueDoScript, byScriptFileLen) == 0, "TLeagueDoScript.byScriptFileLen");
+static_assert(offsetof(TLeagueDoScript, byScriptFuncLen) == 1, "TLeagueDoScript.byScriptFuncLen");
+static_assert(offsetof(TLeagueDoScript, byScriptParamLen) == 2, "TLeagueDoScript.byScriptParamLen");
+static_assert(offsetof(TLeagueDoScript, szBuf) == 3, "TLeagueDoScript.szBuf");
+
+static_assert(sizeof(TLeagueRoleInfo) == 41, "sizeof(TLeagueRoleInfo)");
+static_assert(offsetof(TLeagueRoleInfo, dwJob) == 0, "TLeagueRoleInfo.dwJob");
+static_assert(offsetof(TLeagueRoleInfo, szRoleName) == 4, "TLeagueRoleInfo.szRoleName");
+static_assert(offsetof(TLeagueRoleInfo, dwBufSize) == 36, "TLeagueRoleInfo.dwBufSize");
+static_assert(offsetof(TLeagueRoleInfo, szBuf) == 40, "TLeagueRoleInfo.szBuf");
+
+static_assert(sizeof(TONG_FIGURE_MEMBER) == 230, "sizeof(TONG_FIGURE_MEMBER)");
+static_assert(offsetof(TONG_FIGURE_MEMBER, dwTongID) == 0, "TONG_FIGURE_MEMBER.dwTongID");
+static_assert(offsetof(TONG_FIGURE_MEMBER, btFigure) == 4, "TONG_FIGURE_MEMBER.btFigure");
+static_assert(offsetof(TONG_FIGURE_MEMBER, btCount) == 5, "TONG_FIGURE_MEMBER.btCount");
+static_assert(offsetof(TONG_FIGURE_MEMBER, arydwMemberID) == 6, "TONG_FIGURE_MEMBER.arydwMemberID");
+
+static_assert(sizeof(TONG_ID_NAME) == 36, "sizeof(TONG_ID_NAME)");
+static_assert(offsetof(TONG_ID_NAME, m_dwID) == 0, "TONG_ID_NAME.m_dwID");
+static_assert(offsetof(TONG_ID_NAME, m_szName) == 4, "TONG_ID_NAME.m_szName");
+
+static_assert(sizeof(TONG_MEMBER_ID_NAME) == 36, "sizeof(TONG_MEMBER_ID_NAME)");
+static_assert(offsetof(TONG_MEMBER_ID_NAME, m_dwID) == 0, "TONG_MEMBER_ID_NAME.m_dwID");
+static_assert(offsetof(TONG_MEMBER_ID_NAME, m_szName) == 4, "TONG_MEMBER_ID_NAME.m_szName");
+
+static_assert(sizeof(TONG_MEMBER_INFO) == 68, "sizeof(TONG_MEMBER_INFO)");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwTongID) == 0, "TONG_MEMBER_INFO.m_dwTongID");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwMemberID) == 4, "TONG_MEMBER_INFO.m_dwMemberID");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwJoinTime) == 8, "TONG_MEMBER_INFO.m_dwJoinTime");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwLevel) == 12, "TONG_MEMBER_INFO.m_dwLevel");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwOffer) == 16, "TONG_MEMBER_INFO.m_dwOffer");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwWeekGoalOffer) == 20, "TONG_MEMBER_INFO.m_dwWeekGoalOffer");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwWeeklyOffer) == 24, "TONG_MEMBER_INFO.m_dwWeeklyOffer");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwMonthlyOffer) == 28, "TONG_MEMBER_INFO.m_dwMonthlyOffer");
+static_assert(offsetof(TONG_MEMBER_INFO, m_dwTotalOffer) == 32, "TONG_MEMBER_INFO.m_dwTotalOffer");
+static_assert(offsetof(TONG_MEMBER_INFO, m_szTitle) == 36, "TONG_MEMBER_INFO.m_szTitle");
+
+static_assert(sizeof(TONG_MEMBER_TASK) == 6, "sizeof(TONG_MEMBER_TASK)");
+static_assert(offsetof(TONG_MEMBER_TASK, wID) == 0, "TONG_MEMBER_TASK.wID");
+static_assert(offsetof(TONG_MEMBER_TASK, nValue) == 2, "TONG_MEMBER_TASK.nValue");
+
+static_assert(sizeof(TONG_RECORD) == 68, "sizeof(TONG_RECORD)");
+static_assert(offsetof(TONG_RECORD, dwRecordTime) == 0, "TONG_RECORD.dwRecordTime");
+static_assert(offsetof(TONG_RECORD, szRecordContent) == 4, "TONG_RECORD.szRecordContent");
+
+static_assert(sizeof(TONG_TASK) == 6, "sizeof(TONG_TASK)");
+static_assert(offsetof(TONG_TASK, wID) == 0, "TONG_TASK.wID");
+static_assert(offsetof(TONG_TASK, nValue) == 2, "TONG_TASK.nValue");
+
+static_assert(sizeof(TONG_UNION_ID_NAME) == 37, "sizeof(TONG_UNION_ID_NAME)");
+static_assert(offsetof(TONG_UNION_ID_NAME, m_btCount) == 0, "TONG_UNION_ID_NAME.m_btCount");
+static_assert(offsetof(TONG_UNION_ID_NAME, m_dwLeaderID) == 1, "TONG_UNION_ID_NAME.m_dwLeaderID");
+static_assert(offsetof(TONG_UNION_ID_NAME, m_szName) == 5, "TONG_UNION_ID_NAME.m_szName");
+
+static_assert(sizeof(TONG_WEEKGOAL_INFO) == 64, "sizeof(TONG_WEEKGOAL_INFO)");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwTongID) == 0, "TONG_WEEKGOAL_INFO.dwTongID");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, btCurGoalLevel) == 4, "TONG_WEEKGOAL_INFO.btCurGoalLevel");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, btGoalLevel) == 5, "TONG_WEEKGOAL_INFO.btGoalLevel");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, btGoalLevel_L) == 6, "TONG_WEEKGOAL_INFO.btGoalLevel_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, btWeekDay) == 7, "TONG_WEEKGOAL_INFO.btWeekDay");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalType) == 8, "TONG_WEEKGOAL_INFO.dwGoalType");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalLevel) == 12, "TONG_WEEKGOAL_INFO.dwGoalLevel");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalTotal) == 16, "TONG_WEEKGOAL_INFO.dwGoalTotal");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalPlayer) == 20, "TONG_WEEKGOAL_INFO.dwGoalPlayer");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwFinished) == 24, "TONG_WEEKGOAL_INFO.dwFinished");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwTongPrize) == 28, "TONG_WEEKGOAL_INFO.dwTongPrize");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwMemberPrize) == 32, "TONG_WEEKGOAL_INFO.dwMemberPrize");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalType_L) == 36, "TONG_WEEKGOAL_INFO.dwGoalType_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalLevel_L) == 40, "TONG_WEEKGOAL_INFO.dwGoalLevel_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalTotal_L) == 44, "TONG_WEEKGOAL_INFO.dwGoalTotal_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwGoalPlayer_L) == 48, "TONG_WEEKGOAL_INFO.dwGoalPlayer_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwFinished_L) == 52, "TONG_WEEKGOAL_INFO.dwFinished_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwTongPrize_L) == 56, "TONG_WEEKGOAL_INFO.dwTongPrize_L");
+static_assert(offsetof(TONG_WEEKGOAL_INFO, dwMemberPrize_L) == 60, "TONG_WEEKGOAL_INFO.dwMemberPrize_L");
+
+static_assert(sizeof(TOneLeagueData) == 75, "sizeof(TOneLeagueData)");
+static_assert(offsetof(TOneLeagueData, wLen) == 0, "TOneLeagueData.wLen");
+static_assert(offsetof(TOneLeagueData, dwLeagueType) == 4, "TOneLeagueData.dwLeagueType");
+static_assert(offsetof(TOneLeagueData, szLeagueName) == 8, "TOneLeagueData.szLeagueName");
+static_assert(offsetof(TOneLeagueData, dwCreateTime) == 56, "TOneLeagueData.dwCreateTime");
+static_assert(offsetof(TOneLeagueData, wRoleCount) == 60, "TOneLeagueData.wRoleCount");
+static_assert(offsetof(TOneLeagueData, wTaskDataOffSet) == 62, "TOneLeagueData.wTaskDataOffSet");
+static_assert(offsetof(TOneLeagueData, wTaskDataBufSize) == 64, "TOneLeagueData.wTaskDataBufSize");
+static_assert(offsetof(TOneLeagueData, dwReserved1) == 66, "TOneLeagueData.dwReserved1");
+static_assert(offsetof(TOneLeagueData, dwReserved2) == 70, "TOneLeagueData.dwReserved2");
+static_assert(offsetof(TOneLeagueData, szBuf) == 74, "TOneLeagueData.szBuf");
+
 static_assert(sizeof(TRoleList) == 46, "sizeof(TRoleList)");
 static_assert(offsetof(TRoleList, Name) == 0, "TRoleList.Name");
 static_assert(offsetof(TRoleList, nValue) == 32, "TRoleList.nValue");
@@ -138,6 +300,9 @@ static_assert(offsetof(TTm, tm_wday) == 24, "TTm.tm_wday");
 static_assert(offsetof(TTm, tm_yday) == 28, "TTm.tm_yday");
 static_assert(offsetof(TTm, tm_isdst) == 32, "TTm.tm_isdst");
 
+static_assert(sizeof(TongData_Tong) == 4, "sizeof(TongData_Tong)");
+static_assert(offsetof(TongData_Tong, dwTongID) == 0, "TongData_Tong.dwTongID");
+
 static_assert(sizeof(TongExHeaderBase) == 4, "sizeof(TongExHeaderBase)");
 static_assert(offsetof(TongExHeaderBase, m_wTongExLength) == 0, "TongExHeaderBase.m_wTongExLength");
 static_assert(offsetof(TongExHeaderBase, m_wTongExProtocol) == 2, "TongExHeaderBase.m_wTongExProtocol");
@@ -155,6 +320,28 @@ static_assert(sizeof(_DataPair) == 8, "sizeof(_DataPair)");
 static_assert(offsetof(_DataPair, dwOffset) == 0, "_DataPair.dwOffset");
 static_assert(offsetof(_DataPair, dwLen) == 4, "_DataPair.dwLen");
 
+static_assert(sizeof(_OneFigure) == 4, "sizeof(_OneFigure)");
+static_assert(offsetof(_OneFigure, wOnline) == 0, "_OneFigure.wOnline");
+static_assert(offsetof(_OneFigure, wAll) == 2, "_OneFigure.wAll");
+
+static_assert(sizeof(_TaskValue) == 6, "sizeof(_TaskValue)");
+static_assert(offsetof(_TaskValue, wTaskID) == 0, "_TaskValue.wTaskID");
+static_assert(offsetof(_TaskValue, nTaskValue) == 2, "_TaskValue.nTaskValue");
+
+static_assert(sizeof(stall_itemprice) == 8, "sizeof(stall_itemprice)");
+static_assert(offsetof(stall_itemprice, dwItemID) == 0, "stall_itemprice.dwItemID");
+static_assert(offsetof(stall_itemprice, nPrice) == 4, "stall_itemprice.nPrice");
+
+static_assert(sizeof(stallprotocol_header) == 4, "sizeof(stallprotocol_header)");
+static_assert(offsetof(stallprotocol_header, ProtocolType) == 0, "stallprotocol_header.ProtocolType");
+static_assert(offsetof(stallprotocol_header, wProcotolSize) == 1, "stallprotocol_header.wProcotolSize");
+static_assert(offsetof(stallprotocol_header, stallProtocolType) == 3, "stallprotocol_header.stallProtocolType");
+
+static_assert(sizeof(tagArenaResult) == 37, "sizeof(tagArenaResult)");
+static_assert(offsetof(tagArenaResult, wTongIndex) == 0, "tagArenaResult.wTongIndex");
+static_assert(offsetof(tagArenaResult, byResult) == 4, "tagArenaResult.byResult");
+static_assert(offsetof(tagArenaResult, szComment) == 5, "tagArenaResult.szComment");
+
 static_assert(sizeof(tagBULLETIN_CONTENT_DATA_ContentData_t) == 804, "sizeof(tagBULLETIN_CONTENT_DATA_ContentData_t)");
 static_assert(offsetof(tagBULLETIN_CONTENT_DATA_ContentData_t, nLen) == 0, "tagBULLETIN_CONTENT_DATA_ContentData_t.nLen");
 static_assert(offsetof(tagBULLETIN_CONTENT_DATA_ContentData_t, szContent) == 4, "tagBULLETIN_CONTENT_DATA_ContentData_t.szContent");
@@ -171,6 +358,41 @@ static_assert(offsetof(tagFOUNDRY_CLIENTSEND_NecItemPos_t, nPlace) == 0, "tagFOU
 static_assert(offsetof(tagFOUNDRY_CLIENTSEND_NecItemPos_t, nX) == 4, "tagFOUNDRY_CLIENTSEND_NecItemPos_t.nX");
 static_assert(offsetof(tagFOUNDRY_CLIENTSEND_NecItemPos_t, nY) == 8, "tagFOUNDRY_CLIENTSEND_NecItemPos_t.nY");
 
+static_assert(sizeof(tagKIB_ItemBuyInfo) == 60, "sizeof(tagKIB_ItemBuyInfo)");
+static_assert(offsetof(tagKIB_ItemBuyInfo, szAccount) == 0, "tagKIB_ItemBuyInfo.szAccount");
+static_assert(offsetof(tagKIB_ItemBuyInfo, nPlayerDataIndex) == 32, "tagKIB_ItemBuyInfo.nPlayerDataIndex");
+static_assert(offsetof(tagKIB_ItemBuyInfo, nGoodsIndex) == 36, "tagKIB_ItemBuyInfo.nGoodsIndex");
+static_assert(offsetof(tagKIB_ItemBuyInfo, nItemTypeID) == 40, "tagKIB_ItemBuyInfo.nItemTypeID");
+static_assert(offsetof(tagKIB_ItemBuyInfo, nItemLevel) == 44, "tagKIB_ItemBuyInfo.nItemLevel");
+static_assert(offsetof(tagKIB_ItemBuyInfo, nUseType) == 48, "tagKIB_ItemBuyInfo.nUseType");
+static_assert(offsetof(tagKIB_ItemBuyInfo, nPrice) == 52, "tagKIB_ItemBuyInfo.nPrice");
+static_assert(offsetof(tagKIB_ItemBuyInfo, dwOverdueTime) == 56, "tagKIB_ItemBuyInfo.dwOverdueTime");
+
+static_assert(sizeof(tagKIB_ItemBuyResult) == 64, "sizeof(tagKIB_ItemBuyResult)");
+static_assert(offsetof(tagKIB_ItemBuyResult, szAccount) == 0, "tagKIB_ItemBuyResult.szAccount");
+static_assert(offsetof(tagKIB_ItemBuyResult, nPlayerDataIndex) == 32, "tagKIB_ItemBuyResult.nPlayerDataIndex");
+static_assert(offsetof(tagKIB_ItemBuyResult, nGoodsIndex) == 36, "tagKIB_ItemBuyResult.nGoodsIndex");
+static_assert(offsetof(tagKIB_ItemBuyResult, nItemTypeID) == 40, "tagKIB_ItemBuyResult.nItemTypeID");
+static_assert(offsetof(tagKIB_ItemBuyResult, nItemLevel) == 44, "tagKIB_ItemBuyResult.nItemLevel");
+static_assert(offsetof(tagKIB_ItemBuyResult, nPrice) == 48, "tagKIB_ItemBuyResult.nPrice");
+static_assert(offsetof(tagKIB_ItemBuyResult, nItemGUID) == 52, "tagKIB_ItemBuyResult.nItemGUID");
+static_assert(offsetof(tagKIB_ItemBuyResult, nRetCode) == 60, "tagKIB_ItemBuyResult.nRetCode");
+
+static_assert(sizeof(tagKIB_ItemUseInfo) == 52, "sizeof(tagKIB_ItemUseInfo)");
+static_assert(offsetof(tagKIB_ItemUseInfo, szAccount) == 0, "tagKIB_ItemUseInfo.szAccount");
+static_assert(offsetof(tagKIB_ItemUseInfo, nPlayerDataIndex) == 32, "tagKIB_ItemUseInfo.nPlayerDataIndex");
+static_assert(offsetof(tagKIB_ItemUseInfo, nItemTypeID) == 36, "tagKIB_ItemUseInfo.nItemTypeID");
+static_assert(offsetof(tagKIB_ItemUseInfo, nItemLevel) == 40, "tagKIB_ItemUseInfo.nItemLevel");
+static_assert(offsetof(tagKIB_ItemUseInfo, nItemGUID) == 44, "tagKIB_ItemUseInfo.nItemGUID");
+
+static_assert(sizeof(tagKIB_ItemUseResult) == 56, "sizeof(tagKIB_ItemUseResult)");
+static_assert(offsetof(tagKIB_ItemUseResult, szAccount) == 0, "tagKIB_ItemUseResult.szAccount");
+static_assert(offsetof(tagKIB_ItemUseResult, nPlayerDataIndex) == 32, "tagKIB_ItemUseResult.nPlayerDataIndex");
+static_assert(offsetof(tagKIB_ItemUseResult, nItemTypeID) == 36, "tagKIB_ItemUseResult.nItemTypeID");
+static_assert(offsetof(tagKIB_ItemUseResult, nItemLevel) == 40, "tagKIB_ItemUseResult.nItemLevel");
+static_assert(offsetof(tagKIB_ItemUseResult, nItemGUID) == 44, "tagKIB_ItemUseResult.nItemGUID");
+static_assert(offsetof(tagKIB_ItemUseResult, nRetCode) == 52, "tagKIB_ItemUseResult.nRetCode");
+
 static_assert(sizeof(tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t) == 8, "sizeof(tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t)");
 static_assert(offsetof(tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t, nTaskID) == 0, "tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t.nTaskID");
 static_assert(offsetof(tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t, nTaskValue) == 4, "tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t.nTaskValue");
@@ -181,12 +403,47 @@ static_assert(offsetof(tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t, CurLevel) == 2, "ta
 static_assert(offsetof(tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t, MaxLevel) == 3, "tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t.MaxLevel");
 static_assert(offsetof(tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t, SkillExp) == 4, "tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t.SkillExp");
 
+static_assert(sizeof(AUCTION_ADDPRICE_C2S) == 16, "sizeof(AUCTION_ADDPRICE_C2S)");
+static_assert(offsetof(AUCTION_ADDPRICE_C2S, dwAuctionItemID) == 4, "AUCTION_ADDPRICE_C2S.dwAuctionItemID");
+static_assert(offsetof(AUCTION_ADDPRICE_C2S, uPriceNow) == 8, "AUCTION_ADDPRICE_C2S.uPriceNow");
+static_assert(offsetof(AUCTION_ADDPRICE_C2S, uAddPriceTimes) == 12, "AUCTION_ADDPRICE_C2S.uAddPriceTimes");
+
+static_assert(sizeof(AUCTION_JOIN_C2S) == 8, "sizeof(AUCTION_JOIN_C2S)");
+static_assert(offsetof(AUCTION_JOIN_C2S, dwAuctionItemID) == 4, "AUCTION_JOIN_C2S.dwAuctionItemID");
+
+static_assert(sizeof(AUCTION_NOTIFY_S2C) == 5, "sizeof(AUCTION_NOTIFY_S2C)");
+static_assert(offsetof(AUCTION_NOTIFY_S2C, szMsg) == 4, "AUCTION_NOTIFY_S2C.szMsg");
+
+static_assert(sizeof(AUCTION_OPENSUBMIT_S2C) == 4, "sizeof(AUCTION_OPENSUBMIT_S2C)");
+
+static_assert(sizeof(AUCTION_PRICEINCREASE_S2C) == 46, "sizeof(AUCTION_PRICEINCREASE_S2C)");
+static_assert(offsetof(AUCTION_PRICEINCREASE_S2C, uAuctionItemID) == 4, "AUCTION_PRICEINCREASE_S2C.uAuctionItemID");
+static_assert(offsetof(AUCTION_PRICEINCREASE_S2C, uPriceNow) == 8, "AUCTION_PRICEINCREASE_S2C.uPriceNow");
+static_assert(offsetof(AUCTION_PRICEINCREASE_S2C, szPriceOwner) == 12, "AUCTION_PRICEINCREASE_S2C.szPriceOwner");
+static_assert(offsetof(AUCTION_PRICEINCREASE_S2C, nRemainTime) == 44, "AUCTION_PRICEINCREASE_S2C.nRemainTime");
+
+static_assert(sizeof(AUCTION_QUITREQUEST_C2S) == 8, "sizeof(AUCTION_QUITREQUEST_C2S)");
+static_assert(offsetof(AUCTION_QUITREQUEST_C2S, dwAuctionItemID) == 4, "AUCTION_QUITREQUEST_C2S.dwAuctionItemID");
+
+static_assert(sizeof(AUCTION_QUIT_S2C) == 4, "sizeof(AUCTION_QUIT_S2C)");
+
 static_assert(sizeof(AUCTION_RELAYHEADER_G2R) == 38, "sizeof(AUCTION_RELAYHEADER_G2R)");
 static_assert(offsetof(AUCTION_RELAYHEADER_G2R, szRoleName) == 2, "AUCTION_RELAYHEADER_G2R.szRoleName");
 static_assert(offsetof(AUCTION_RELAYHEADER_G2R, dwSubWorldID) == 34, "AUCTION_RELAYHEADER_G2R.dwSubWorldID");
 
 static_assert(sizeof(AUCTION_RELAYHEADER_R2G) == 6, "sizeof(AUCTION_RELAYHEADER_R2G)");
 static_assert(offsetof(AUCTION_RELAYHEADER_R2G, dwNameID) == 2, "AUCTION_RELAYHEADER_R2G.dwNameID");
+
+static_assert(sizeof(AUCTION_SUBMITITEM_C2S) == 20, "sizeof(AUCTION_SUBMITITEM_C2S)");
+static_assert(offsetof(AUCTION_SUBMITITEM_C2S, dwItemID) == 4, "AUCTION_SUBMITITEM_C2S.dwItemID");
+static_assert(offsetof(AUCTION_SUBMITITEM_C2S, uItemBasePrice) == 8, "AUCTION_SUBMITITEM_C2S.uItemBasePrice");
+static_assert(offsetof(AUCTION_SUBMITITEM_C2S, uItemAddPricePerTime) == 12, "AUCTION_SUBMITITEM_C2S.uItemAddPricePerTime");
+static_assert(offsetof(AUCTION_SUBMITITEM_C2S, uPrearrangeRounds) == 16, "AUCTION_SUBMITITEM_C2S.uPrearrangeRounds");
+
+static_assert(sizeof(AuctionItemInfo) == 76, "sizeof(AuctionItemInfo)");
+static_assert(offsetof(AuctionItemInfo, uItemAuctionID) == 64, "AuctionItemInfo.uItemAuctionID");
+static_assert(offsetof(AuctionItemInfo, uPrice) == 68, "AuctionItemInfo.uPrice");
+static_assert(offsetof(AuctionItemInfo, uAddPriceUnit) == 72, "AuctionItemInfo.uAddPriceUnit");
 
 static_assert(sizeof(BATTLE_RELAYHEADER_G2R) == 2, "sizeof(BATTLE_RELAYHEADER_G2R)");
 
@@ -206,9 +463,30 @@ static_assert(offsetof(CHAT_MSG_EX, m_szSourceName) == 2, "CHAT_MSG_EX.m_szSourc
 static_assert(offsetof(CHAT_MSG_EX, m_szAccountName) == 34, "CHAT_MSG_EX.m_szAccountName");
 static_assert(offsetof(CHAT_MSG_EX, SentenceLength) == 66, "CHAT_MSG_EX.SentenceLength");
 
+static_assert(sizeof(CITYWAR_COMMONINPUT) == 77, "sizeof(CITYWAR_COMMONINPUT)");
+static_assert(offsetof(CITYWAR_COMMONINPUT, bIsNumberInput) == 4, "CITYWAR_COMMONINPUT.bIsNumberInput");
+static_assert(offsetof(CITYWAR_COMMONINPUT, szTitle) == 5, "CITYWAR_COMMONINPUT.szTitle");
+static_assert(offsetof(CITYWAR_COMMONINPUT, nMax) == 37, "CITYWAR_COMMONINPUT.nMax");
+static_assert(offsetof(CITYWAR_COMMONINPUT, nMin) == 41, "CITYWAR_COMMONINPUT.nMin");
+static_assert(offsetof(CITYWAR_COMMONINPUT, szInitString) == 45, "CITYWAR_COMMONINPUT.szInitString");
+
+static_assert(sizeof(CITYWAR_COMMONINPUTNUMBER) == 8, "sizeof(CITYWAR_COMMONINPUTNUMBER)");
+static_assert(offsetof(CITYWAR_COMMONINPUTNUMBER, nNumber) == 4, "CITYWAR_COMMONINPUTNUMBER.nNumber");
+
+static_assert(sizeof(CITYWAR_COMMONINPUTSTRING) == 6, "sizeof(CITYWAR_COMMONINPUTSTRING)");
+static_assert(offsetof(CITYWAR_COMMONINPUTSTRING, wStrLen) == 4, "CITYWAR_COMMONINPUTSTRING.wStrLen");
+
+static_assert(sizeof(CITYWAR_OPENCITYMANAGE_S2C) == 16, "sizeof(CITYWAR_OPENCITYMANAGE_S2C)");
+static_assert(offsetof(CITYWAR_OPENCITYMANAGE_S2C, nCityArea) == 4, "CITYWAR_OPENCITYMANAGE_S2C.nCityArea");
+static_assert(offsetof(CITYWAR_OPENCITYMANAGE_S2C, dwExchangeTax) == 8, "CITYWAR_OPENCITYMANAGE_S2C.dwExchangeTax");
+static_assert(offsetof(CITYWAR_OPENCITYMANAGE_S2C, dwPriceParam) == 12, "CITYWAR_OPENCITYMANAGE_S2C.dwPriceParam");
+
 static_assert(sizeof(CITYWAR_RELAYHEADER_G2R) == 2, "sizeof(CITYWAR_RELAYHEADER_G2R)");
 
 static_assert(sizeof(CITYWAR_RELAYHEADER_R2G) == 2, "sizeof(CITYWAR_RELAYHEADER_R2G)");
+
+static_assert(sizeof(CITYWAR_SUBMITCITYTAXRATES_C2S) == 16, "sizeof(CITYWAR_SUBMITCITYTAXRATES_C2S)");
+static_assert(offsetof(CITYWAR_SUBMITCITYTAXRATES_C2S, nCityArea) == 12, "CITYWAR_SUBMITCITYTAXRATES_C2S.nCityArea");
 
 static_assert(sizeof(DISMISS_RELATION) == 98, "sizeof(DISMISS_RELATION)");
 static_assert(offsetof(DISMISS_RELATION, RoleA) == 2, "DISMISS_RELATION.RoleA");
@@ -269,6 +547,9 @@ static_assert(sizeof(KEMPIRE_INFO) == 130, "sizeof(KEMPIRE_INFO)");
 static_assert(offsetof(KEMPIRE_INFO, szSealOwner) == 94, "KEMPIRE_INFO.szSealOwner");
 static_assert(offsetof(KEMPIRE_INFO, dwTurnIdx) == 126, "KEMPIRE_INFO.dwTurnIdx");
 
+static_assert(sizeof(KILLER_CANCELTASK) == 8, "sizeof(KILLER_CANCELTASK)");
+static_assert(offsetof(KILLER_CANCELTASK, m_nTaskID) == 4, "KILLER_CANCELTASK.m_nTaskID");
+
 static_assert(sizeof(KILLER_CANCELTASK_G2R) == 38, "sizeof(KILLER_CANCELTASK_G2R)");
 static_assert(offsetof(KILLER_CANCELTASK_G2R, m_nTaskID) == 2, "KILLER_CANCELTASK_G2R.m_nTaskID");
 static_assert(offsetof(KILLER_CANCELTASK_G2R, szRoleName) == 6, "KILLER_CANCELTASK_G2R.szRoleName");
@@ -286,13 +567,24 @@ static_assert(offsetof(KILLER_CREATETASK_FAILED, m_nMoneyReturn) == 6, "KILLER_C
 static_assert(sizeof(KILLER_GETMONEY) == 6, "sizeof(KILLER_GETMONEY)");
 static_assert(offsetof(KILLER_GETMONEY, m_nTaskID) == 2, "KILLER_GETMONEY.m_nTaskID");
 
+static_assert(sizeof(KILLER_NOTIFY) == 5, "sizeof(KILLER_NOTIFY)");
+static_assert(offsetof(KILLER_NOTIFY, szMsg) == 4, "KILLER_NOTIFY.szMsg");
+
 static_assert(sizeof(KILLER_PK) == 66, "sizeof(KILLER_PK)");
 static_assert(offsetof(KILLER_PK, m_chKillerName) == 2, "KILLER_PK.m_chKillerName");
 static_assert(offsetof(KILLER_PK, m_chKilleeName) == 34, "KILLER_PK.m_chKilleeName");
 
+static_assert(sizeof(KILLER_QUERYRESULT_S2C) == 57, "sizeof(KILLER_QUERYRESULT_S2C)");
+static_assert(offsetof(KILLER_QUERYRESULT_S2C, nResultCount) == 4, "KILLER_QUERYRESULT_S2C.nResultCount");
+static_assert(offsetof(KILLER_QUERYRESULT_S2C, chTaskState) == 8, "KILLER_QUERYRESULT_S2C.chTaskState");
+static_assert(offsetof(KILLER_QUERYRESULT_S2C, queryResult) == 9, "KILLER_QUERYRESULT_S2C.queryResult");
+
 static_assert(sizeof(KILLER_QUERYTASK_G2R) == 38, "sizeof(KILLER_QUERYTASK_G2R)");
 static_assert(offsetof(KILLER_QUERYTASK_G2R, m_nQueryType) == 2, "KILLER_QUERYTASK_G2R.m_nQueryType");
 static_assert(offsetof(KILLER_QUERYTASK_G2R, m_szQueryer) == 6, "KILLER_QUERYTASK_G2R.m_szQueryer");
+
+static_assert(sizeof(KILLER_QUERYWISEMAN_C2S) == 36, "sizeof(KILLER_QUERYWISEMAN_C2S)");
+static_assert(offsetof(KILLER_QUERYWISEMAN_C2S, szQueryTargetName) == 4, "KILLER_QUERYWISEMAN_C2S.szQueryTargetName");
 
 static_assert(sizeof(KILLER_REPLYSCRIPT) == 24, "sizeof(KILLER_REPLYSCRIPT)");
 static_assert(offsetof(KILLER_REPLYSCRIPT, m_nNameID) == 2, "KILLER_REPLYSCRIPT.m_nNameID");
@@ -305,6 +597,11 @@ static_assert(offsetof(KILLER_REPLYSCRIPT, m_nMyTaskCount) == 23, "KILLER_REPLYS
 
 static_assert(sizeof(KILLER_SCRIPTASK) == 34, "sizeof(KILLER_SCRIPTASK)");
 static_assert(offsetof(KILLER_SCRIPTASK, m_chRoleName) == 2, "KILLER_SCRIPTASK.m_chRoleName");
+
+static_assert(sizeof(KILLER_SUBMITTASK) == 44, "sizeof(KILLER_SUBMITTASK)");
+static_assert(offsetof(KILLER_SUBMITTASK, m_nRentFee) == 4, "KILLER_SUBMITTASK.m_nRentFee");
+static_assert(offsetof(KILLER_SUBMITTASK, m_chKilleeName) == 8, "KILLER_SUBMITTASK.m_chKilleeName");
+static_assert(offsetof(KILLER_SUBMITTASK, m_nReward) == 40, "KILLER_SUBMITTASK.m_nReward");
 
 static_assert(sizeof(KPROTOGR_DOSCRIPT) == 17, "sizeof(KPROTOGR_DOSCRIPT)");
 static_assert(offsetof(KPROTOGR_DOSCRIPT, byPathNameLen) == 2, "KPROTOGR_DOSCRIPT.byPathNameLen");
@@ -398,6 +695,44 @@ static_assert(sizeof(KSYNC_TONG_ZHAOMU_INFO) == 141, "sizeof(KSYNC_TONG_ZHAOMU_I
 static_assert(offsetof(KSYNC_TONG_ZHAOMU_INFO, dwTongID) == 2, "KSYNC_TONG_ZHAOMU_INFO.dwTongID");
 static_assert(offsetof(KSYNC_TONG_ZHAOMU_INFO, ZhaoMuInfo) == 6, "KSYNC_TONG_ZHAOMU_INFO.ZhaoMuInfo");
 
+static_assert(sizeof(KTongInfoEx) == 239, "sizeof(KTongInfoEx)");
+static_assert(offsetof(KTongInfoEx, nRetireCount) == 185, "KTongInfoEx.nRetireCount");
+static_assert(offsetof(KTongInfoEx, dwBuildLevel) == 187, "KTongInfoEx.dwBuildLevel");
+static_assert(offsetof(KTongInfoEx, dwBuildFund) == 191, "KTongInfoEx.dwBuildFund");
+static_assert(offsetof(KTongInfoEx, nCombatFund) == 195, "KTongInfoEx.nCombatFund");
+static_assert(offsetof(KTongInfoEx, dwStoredOffer) == 199, "KTongInfoEx.dwStoredOffer");
+static_assert(offsetof(KTongInfoEx, dwStoredBuildFund) == 203, "KTongInfoEx.dwStoredBuildFund");
+static_assert(offsetof(KTongInfoEx, nServiceFee) == 207, "KTongInfoEx.nServiceFee");
+static_assert(offsetof(KTongInfoEx, nStandFund) == 211, "KTongInfoEx.nStandFund");
+static_assert(offsetof(KTongInfoEx, nWeekBuildFund) == 215, "KTongInfoEx.nWeekBuildFund");
+static_assert(offsetof(KTongInfoEx, nOnlineMemberCount) == 219, "KTongInfoEx.nOnlineMemberCount");
+static_assert(offsetof(KTongInfoEx, nOnlineManagerCount) == 221, "KTongInfoEx.nOnlineManagerCount");
+static_assert(offsetof(KTongInfoEx, nOnlineDirectorCount) == 223, "KTongInfoEx.nOnlineDirectorCount");
+static_assert(offsetof(KTongInfoEx, nPauseState) == 225, "KTongInfoEx.nPauseState");
+static_assert(offsetof(KTongInfoEx, nTongMap) == 226, "KTongInfoEx.nTongMap");
+static_assert(offsetof(KTongInfoEx, nDay) == 227, "KTongInfoEx.nDay");
+static_assert(offsetof(KTongInfoEx, nWeek) == 229, "KTongInfoEx.nWeek");
+static_assert(offsetof(KTongInfoEx, wExTaskNum) == 231, "KTongInfoEx.wExTaskNum");
+static_assert(offsetof(KTongInfoEx, TaskValue) == 233, "KTongInfoEx.TaskValue");
+
+static_assert(sizeof(KTongListPageData) == 360, "sizeof(KTongListPageData)");
+static_assert(offsetof(KTongListPageData, btSortType) == 0, "KTongListPageData.btSortType");
+static_assert(offsetof(KTongListPageData, wSortCount) == 1, "KTongListPageData.wSortCount");
+static_assert(offsetof(KTongListPageData, wPageIndex) == 3, "KTongListPageData.wPageIndex");
+static_assert(offsetof(KTongListPageData, dwTime) == 5, "KTongListPageData.dwTime");
+static_assert(offsetof(KTongListPageData, btCount) == 9, "KTongListPageData.btCount");
+static_assert(offsetof(KTongListPageData, arData) == 10, "KTongListPageData.arData");
+
+static_assert(sizeof(KTongMemberPageData) == 240, "sizeof(KTongMemberPageData)");
+static_assert(offsetof(KTongMemberPageData, dwTongID) == 0, "KTongMemberPageData.dwTongID");
+static_assert(offsetof(KTongMemberPageData, btSortType) == 4, "KTongMemberPageData.btSortType");
+static_assert(offsetof(KTongMemberPageData, btFilterFlag) == 5, "KTongMemberPageData.btFilterFlag");
+static_assert(offsetof(KTongMemberPageData, wSortCount) == 6, "KTongMemberPageData.wSortCount");
+static_assert(offsetof(KTongMemberPageData, wPageIndex) == 8, "KTongMemberPageData.wPageIndex");
+static_assert(offsetof(KTongMemberPageData, dwTime) == 10, "KTongMemberPageData.dwTime");
+static_assert(offsetof(KTongMemberPageData, btCount) == 14, "KTongMemberPageData.btCount");
+static_assert(offsetof(KTongMemberPageData, arData) == 15, "KTongMemberPageData.arData");
+
 static_assert(sizeof(KTongShowInfo) == 179, "sizeof(KTongShowInfo)");
 static_assert(offsetof(KTongShowInfo, dwTongID) == 0, "KTongShowInfo.dwTongID");
 static_assert(offsetof(KTongShowInfo, szName) == 4, "KTongShowInfo.szName");
@@ -405,6 +740,14 @@ static_assert(offsetof(KTongShowInfo, wMemberCount) == 36, "KTongShowInfo.wMembe
 static_assert(offsetof(KTongShowInfo, wLevel) == 38, "KTongShowInfo.wLevel");
 static_assert(offsetof(KTongShowInfo, nHuoYueDu) == 40, "KTongShowInfo.nHuoYueDu");
 static_assert(offsetof(KTongShowInfo, ZhaoMuInfo) == 44, "KTongShowInfo.ZhaoMuInfo");
+
+static_assert(sizeof(KTongUnionPageData) == 460, "sizeof(KTongUnionPageData)");
+static_assert(offsetof(KTongUnionPageData, btSortType) == 0, "KTongUnionPageData.btSortType");
+static_assert(offsetof(KTongUnionPageData, wSortCount) == 1, "KTongUnionPageData.wSortCount");
+static_assert(offsetof(KTongUnionPageData, wPageIndex) == 3, "KTongUnionPageData.wPageIndex");
+static_assert(offsetof(KTongUnionPageData, dwTime) == 5, "KTongUnionPageData.dwTime");
+static_assert(offsetof(KTongUnionPageData, btCount) == 9, "KTongUnionPageData.btCount");
+static_assert(offsetof(KTongUnionPageData, arData) == 10, "KTongUnionPageData.arData");
 
 static_assert(sizeof(LADDER_RELAYHEADER_G2R) == 52, "sizeof(LADDER_RELAYHEADER_G2R)");
 static_assert(offsetof(LADDER_RELAYHEADER_G2R, ulLadderID) == 2, "LADDER_RELAYHEADER_G2R.ulLadderID");
@@ -510,6 +853,33 @@ static_assert(offsetof(S2R_SET_STAT_DATA_REQUEST, nValue) == 66, "S2R_SET_STAT_D
 static_assert(sizeof(S2R_UPDATE_STAT_DATA_REQUEST) == 6, "sizeof(S2R_UPDATE_STAT_DATA_REQUEST)");
 static_assert(offsetof(S2R_UPDATE_STAT_DATA_REQUEST, nCount) == 2, "S2R_UPDATE_STAT_DATA_REQUEST.nCount");
 static_assert(offsetof(S2R_UPDATE_STAT_DATA_REQUEST, Values) == 6, "S2R_UPDATE_STAT_DATA_REQUEST.Values");
+
+static_assert(sizeof(STALL_ADV_SYNC) == 13, "sizeof(STALL_ADV_SYNC)");
+static_assert(offsetof(STALL_ADV_SYNC, dwSellerID) == 4, "STALL_ADV_SYNC.dwSellerID");
+static_assert(offsetof(STALL_ADV_SYNC, nAdvSize) == 8, "STALL_ADV_SYNC.nAdvSize");
+static_assert(offsetof(STALL_ADV_SYNC, chAdv) == 12, "STALL_ADV_SYNC.chAdv");
+
+static_assert(sizeof(STALL_BUYINFO) == 28, "sizeof(STALL_BUYINFO)");
+static_assert(offsetof(STALL_BUYINFO, dwSellerID) == 4, "STALL_BUYINFO.dwSellerID");
+static_assert(offsetof(STALL_BUYINFO, dwItemID) == 8, "STALL_BUYINFO.dwItemID");
+static_assert(offsetof(STALL_BUYINFO, nX) == 12, "STALL_BUYINFO.nX");
+static_assert(offsetof(STALL_BUYINFO, nY) == 16, "STALL_BUYINFO.nY");
+static_assert(offsetof(STALL_BUYINFO, nPrice) == 20, "STALL_BUYINFO.nPrice");
+static_assert(offsetof(STALL_BUYINFO, nDurability) == 24, "STALL_BUYINFO.nDurability");
+
+static_assert(sizeof(STALL_REQUEST) == 8, "sizeof(STALL_REQUEST)");
+static_assert(offsetof(STALL_REQUEST, nSellerID) == 4, "STALL_REQUEST.nSellerID");
+
+static_assert(sizeof(STALL_RETVALUE) == 8, "sizeof(STALL_RETVALUE)");
+static_assert(offsetof(STALL_RETVALUE, nRetValue) == 4, "STALL_RETVALUE.nRetValue");
+
+static_assert(sizeof(STALL_TAXRATE_SYNC) == 12, "sizeof(STALL_TAXRATE_SYNC)");
+static_assert(offsetof(STALL_TAXRATE_SYNC, nTaxRate) == 4, "STALL_TAXRATE_SYNC.nTaxRate");
+static_assert(offsetof(STALL_TAXRATE_SYNC, nTaxBase) == 8, "STALL_TAXRATE_SYNC.nTaxBase");
+
+static_assert(sizeof(STALL_TRADE_SUCCESS) == 68, "sizeof(STALL_TRADE_SUCCESS)");
+static_assert(offsetof(STALL_TRADE_SUCCESS, szBuyer) == 4, "STALL_TRADE_SUCCESS.szBuyer");
+static_assert(offsetof(STALL_TRADE_SUCCESS, szSellItemName) == 36, "STALL_TRADE_SUCCESS.szSellItemName");
 
 static_assert(sizeof(STONG_ACCEPT_INSTATE_COMMAND) == 79, "sizeof(STONG_ACCEPT_INSTATE_COMMAND)");
 static_assert(offsetof(STONG_ACCEPT_INSTATE_COMMAND, m_dwParam) == 2, "STONG_ACCEPT_INSTATE_COMMAND.m_dwParam");
@@ -785,6 +1155,20 @@ static_assert(offsetof(STONG_UNION_INFO_SYNC, m_szUnionName) == 23, "STONG_UNION
 static_assert(offsetof(STONG_UNION_INFO_SYNC, m_btNameLength) == 55, "STONG_UNION_INFO_SYNC.m_btNameLength");
 static_assert(offsetof(STONG_UNION_INFO_SYNC, m_szUnionTongName) == 65, "STONG_UNION_INFO_SYNC.m_szUnionTongName");
 
+static_assert(sizeof(StallViewItemInfo) == 92, "sizeof(StallViewItemInfo)");
+static_assert(offsetof(StallViewItemInfo, nX) == 64, "StallViewItemInfo.nX");
+static_assert(offsetof(StallViewItemInfo, nY) == 68, "StallViewItemInfo.nY");
+static_assert(offsetof(StallViewItemInfo, nWidth) == 72, "StallViewItemInfo.nWidth");
+static_assert(offsetof(StallViewItemInfo, nHeight) == 76, "StallViewItemInfo.nHeight");
+static_assert(offsetof(StallViewItemInfo, nPrice) == 80, "StallViewItemInfo.nPrice");
+static_assert(offsetof(StallViewItemInfo, m_nCurrentDur) == 84, "StallViewItemInfo.m_nCurrentDur");
+static_assert(offsetof(StallViewItemInfo, m_nMaxDurability) == 88, "StallViewItemInfo.m_nMaxDurability");
+
+static_assert(sizeof(TLeagueMemberData) == 93, "sizeof(TLeagueMemberData)");
+static_assert(offsetof(TLeagueMemberData, dwLeagueType) == 0, "TLeagueMemberData.dwLeagueType");
+static_assert(offsetof(TLeagueMemberData, szLeagueName) == 4, "TLeagueMemberData.szLeagueName");
+static_assert(offsetof(TLeagueMemberData, CoreData) == 52, "TLeagueMemberData.CoreData");
+
 static_assert(sizeof(TModuleCfg_SyncToGS) == 7, "sizeof(TModuleCfg_SyncToGS)");
 static_assert(offsetof(TModuleCfg_SyncToGS, wLen) == 2, "TModuleCfg_SyncToGS.wLen");
 static_assert(offsetof(TModuleCfg_SyncToGS, wCount) == 4, "TModuleCfg_SyncToGS.wCount");
@@ -801,16 +1185,62 @@ static_assert(offsetof(TONGNAME_QUERY, szTongName) == 2, "TONGNAME_QUERY.szTongN
 static_assert(offsetof(TONGNAME_QUERY, szOperName) == 34, "TONGNAME_QUERY.szOperName");
 static_assert(offsetof(TONGNAME_QUERY, nPlayerIndex) == 66, "TONGNAME_QUERY.nPlayerIndex");
 
+static_assert(sizeof(TONG_BASE) == 901, "sizeof(TONG_BASE)");
+static_assert(offsetof(TONG_BASE, m_btCount) == 0, "TONG_BASE.m_btCount");
+static_assert(offsetof(TONG_BASE, aryTongIDName) == 1, "TONG_BASE.aryTongIDName");
+
+static_assert(sizeof(TONG_FIGURE_COUNT) == 21, "sizeof(TONG_FIGURE_COUNT)");
+static_assert(offsetof(TONG_FIGURE_COUNT, dwTongID) == 0, "TONG_FIGURE_COUNT.dwTongID");
+static_assert(offsetof(TONG_FIGURE_COUNT, btMasterOnline) == 4, "TONG_FIGURE_COUNT.btMasterOnline");
+static_assert(offsetof(TONG_FIGURE_COUNT, sCountDirector) == 5, "TONG_FIGURE_COUNT.sCountDirector");
+static_assert(offsetof(TONG_FIGURE_COUNT, sCountManager) == 9, "TONG_FIGURE_COUNT.sCountManager");
+static_assert(offsetof(TONG_FIGURE_COUNT, sCountMember) == 13, "TONG_FIGURE_COUNT.sCountMember");
+static_assert(offsetof(TONG_FIGURE_COUNT, sCountRetire) == 17, "TONG_FIGURE_COUNT.sCountRetire");
+
+static_assert(sizeof(TONG_MEMBER_BASE) == 905, "sizeof(TONG_MEMBER_BASE)");
+static_assert(offsetof(TONG_MEMBER_BASE, m_dwTongID) == 0, "TONG_MEMBER_BASE.m_dwTongID");
+static_assert(offsetof(TONG_MEMBER_BASE, m_btCount) == 4, "TONG_MEMBER_BASE.m_btCount");
+static_assert(offsetof(TONG_MEMBER_BASE, aryMemberIDName) == 5, "TONG_MEMBER_BASE.aryMemberIDName");
+
+static_assert(sizeof(TONG_RECORDLIST_INFO) == 6806, "sizeof(TONG_RECORDLIST_INFO)");
+static_assert(offsetof(TONG_RECORDLIST_INFO, dwTongID) == 0, "TONG_RECORDLIST_INFO.dwTongID");
+static_assert(offsetof(TONG_RECORDLIST_INFO, wRecordCount) == 4, "TONG_RECORDLIST_INFO.wRecordCount");
+static_assert(offsetof(TONG_RECORDLIST_INFO, aryRecord) == 6, "TONG_RECORDLIST_INFO.aryRecord");
+
+static_assert(sizeof(TONG_UNION_BASE) == 926, "sizeof(TONG_UNION_BASE)");
+static_assert(offsetof(TONG_UNION_BASE, m_btCount) == 0, "TONG_UNION_BASE.m_btCount");
+static_assert(offsetof(TONG_UNION_BASE, aryUnionIDName) == 1, "TONG_UNION_BASE.aryUnionIDName");
+
 static_assert(sizeof(TSyncFiles_ToGS_Header) == 7, "sizeof(TSyncFiles_ToGS_Header)");
 static_assert(offsetof(TSyncFiles_ToGS_Header, dwFileListID) == 2, "TSyncFiles_ToGS_Header.dwFileListID");
 static_assert(offsetof(TSyncFiles_ToGS_Header, btOnlyForGS) == 6, "TSyncFiles_ToGS_Header.btOnlyForGS");
 
+static_assert(sizeof(TongData_TongBuffer) == 8, "sizeof(TongData_TongBuffer)");
+static_assert(offsetof(TongData_TongBuffer, dwDataLen) == 4, "TongData_TongBuffer.dwDataLen");
+static_assert(offsetof(TongData_TongBuffer, buffer) == 8, "TongData_TongBuffer.buffer");
+
 static_assert(sizeof(TongExProtocolRG) == 6, "sizeof(TongExProtocolRG)");
+
+static_assert(sizeof(_OneWorkshop) == 15, "sizeof(_OneWorkshop)");
+static_assert(offsetof(_OneWorkshop, dwWorkshopID) == 0, "_OneWorkshop.dwWorkshopID");
+static_assert(offsetof(_OneWorkshop, wTypeID) == 4, "_OneWorkshop.wTypeID");
+static_assert(offsetof(_OneWorkshop, btLevel) == 6, "_OneWorkshop.btLevel");
+static_assert(offsetof(_OneWorkshop, btUseLevel) == 7, "_OneWorkshop.btUseLevel");
+static_assert(offsetof(_OneWorkshop, btState) == 8, "_OneWorkshop.btState");
+static_assert(offsetof(_OneWorkshop, TaskValue) == 9, "_OneWorkshop.TaskValue");
 
 static_assert(sizeof(_tagSyncFileHead) == 24, "sizeof(_tagSyncFileHead)");
 static_assert(offsetof(_tagSyncFileHead, pairFileName) == 4, "_tagSyncFileHead.pairFileName");
 static_assert(offsetof(_tagSyncFileHead, pairFileData) == 12, "_tagSyncFileHead.pairFileData");
 static_assert(offsetof(_tagSyncFileHead, dwCheckCode) == 20, "_tagSyncFileHead.dwCheckCode");
+
+static_assert(sizeof(stall_stalllevelnotallow) == 8, "sizeof(stall_stalllevelnotallow)");
+static_assert(offsetof(stall_stalllevelnotallow, nMinPlayerLevelAllowed) == 4, "stall_stalllevelnotallow.nMinPlayerLevelAllowed");
+
+static_assert(sizeof(stall_stallmarkprice) == 20, "sizeof(stall_stallmarkprice)");
+static_assert(offsetof(stall_stallmarkprice, nCount) == 4, "stall_stallmarkprice.nCount");
+static_assert(offsetof(stall_stallmarkprice, nTaxRate) == 8, "stall_stallmarkprice.nTaxRate");
+static_assert(offsetof(stall_stallmarkprice, arrStallPrice) == 12, "stall_stallmarkprice.arrStallPrice");
 
 static_assert(sizeof(tagAccountUserInfo) == 52, "sizeof(tagAccountUserInfo)");
 static_assert(offsetof(tagAccountUserInfo, ExtPointInfo) == 0, "tagAccountUserInfo.ExtPointInfo");
@@ -860,6 +1290,94 @@ static_assert(offsetof(tagRelayToGameSvrTestMsg, bMsgLen) == 2, "tagRelayToGameS
 static_assert(offsetof(tagRelayToGameSvrTestMsg, nReserved) == 3, "tagRelayToGameSvrTestMsg.nReserved");
 static_assert(offsetof(tagRelayToGameSvrTestMsg, sMsg) == 11, "tagRelayToGameSvrTestMsg.sMsg");
 
+static_assert(sizeof(AUCTION_ADDPRICE_G2R) == 54, "sizeof(AUCTION_ADDPRICE_G2R)");
+static_assert(offsetof(AUCTION_ADDPRICE_G2R, dwAuctionItemID) == 38, "AUCTION_ADDPRICE_G2R.dwAuctionItemID");
+static_assert(offsetof(AUCTION_ADDPRICE_G2R, uPriceNow) == 42, "AUCTION_ADDPRICE_G2R.uPriceNow");
+static_assert(offsetof(AUCTION_ADDPRICE_G2R, uAddPriceTimes) == 46, "AUCTION_ADDPRICE_G2R.uAddPriceTimes");
+static_assert(offsetof(AUCTION_ADDPRICE_G2R, dwPlayerMoney) == 50, "AUCTION_ADDPRICE_G2R.dwPlayerMoney");
+
+static_assert(sizeof(AUCTION_GETFAILEDITEM_G2R) == 42, "sizeof(AUCTION_GETFAILEDITEM_G2R)");
+static_assert(offsetof(AUCTION_GETFAILEDITEM_G2R, dwAuctionItemID) == 38, "AUCTION_GETFAILEDITEM_G2R.dwAuctionItemID");
+
+static_assert(sizeof(AUCTION_GETSALEMONEY_G2R) == 42, "sizeof(AUCTION_GETSALEMONEY_G2R)");
+static_assert(offsetof(AUCTION_GETSALEMONEY_G2R, dwAuctionItemID) == 38, "AUCTION_GETSALEMONEY_G2R.dwAuctionItemID");
+
+static_assert(sizeof(AUCTION_ITEMINFO_S2C) == 9, "sizeof(AUCTION_ITEMINFO_S2C)");
+static_assert(offsetof(AUCTION_ITEMINFO_S2C, bQueryQueue) == 4, "AUCTION_ITEMINFO_S2C.bQueryQueue");
+static_assert(offsetof(AUCTION_ITEMINFO_S2C, uResultCount) == 5, "AUCTION_ITEMINFO_S2C.uResultCount");
+static_assert(offsetof(AUCTION_ITEMINFO_S2C, sItems) == 9, "AUCTION_ITEMINFO_S2C.sItems");
+
+static_assert(sizeof(AUCTION_JOIN_G2R) == 46, "sizeof(AUCTION_JOIN_G2R)");
+static_assert(offsetof(AUCTION_JOIN_G2R, dwAuctionItemID) == 38, "AUCTION_JOIN_G2R.dwAuctionItemID");
+static_assert(offsetof(AUCTION_JOIN_G2R, dwPlayerMoney) == 42, "AUCTION_JOIN_G2R.dwPlayerMoney");
+
+static_assert(sizeof(AUCTION_QUERYITEMINFO_G2R) == 39, "sizeof(AUCTION_QUERYITEMINFO_G2R)");
+static_assert(offsetof(AUCTION_QUERYITEMINFO_G2R, bQueryQueue) == 38, "AUCTION_QUERYITEMINFO_G2R.bQueryQueue");
+
+static_assert(sizeof(AUCTION_QUERYLADDER_G2R) == 38, "sizeof(AUCTION_QUERYLADDER_G2R)");
+
+static_assert(sizeof(AUCTION_QUITREQUEST_G2R) == 42, "sizeof(AUCTION_QUITREQUEST_G2R)");
+static_assert(offsetof(AUCTION_QUITREQUEST_G2R, dwAuctionItemID) == 38, "AUCTION_QUITREQUEST_G2R.dwAuctionItemID");
+
+static_assert(sizeof(AUCTION_REPLYSCRIPTASK_R2G) == 11, "sizeof(AUCTION_REPLYSCRIPTASK_R2G)");
+static_assert(offsetof(AUCTION_REPLYSCRIPTASK_R2G, bState) == 6, "AUCTION_REPLYSCRIPTASK_R2G.bState");
+static_assert(offsetof(AUCTION_REPLYSCRIPTASK_R2G, bHasAutionNow) == 6, "AUCTION_REPLYSCRIPTASK_R2G.bHasAutionNow");
+static_assert(offsetof(AUCTION_REPLYSCRIPTASK_R2G, bSystemFull) == 6, "AUCTION_REPLYSCRIPTASK_R2G.bSystemFull");
+static_assert(offsetof(AUCTION_REPLYSCRIPTASK_R2G, dwAuctionID) == 7, "AUCTION_REPLYSCRIPTASK_R2G.dwAuctionID");
+
+static_assert(sizeof(AUCTION_RETURNITEM_R2G) == 70, "sizeof(AUCTION_RETURNITEM_R2G)");
+static_assert(offsetof(AUCTION_RETURNITEM_R2G, theItem) == 6, "AUCTION_RETURNITEM_R2G.theItem");
+
+static_assert(sizeof(AUCTION_RETURNMONEY_R2G) == 10, "sizeof(AUCTION_RETURNMONEY_R2G)");
+static_assert(offsetof(AUCTION_RETURNMONEY_R2G, uTheMoney) == 6, "AUCTION_RETURNMONEY_R2G.uTheMoney");
+
+static_assert(sizeof(AUCTION_SCRIPTASK_G2R) == 38, "sizeof(AUCTION_SCRIPTASK_G2R)");
+
+static_assert(sizeof(AUCTION_SUBMITITEMALLOWED_R2G) == 18, "sizeof(AUCTION_SUBMITITEMALLOWED_R2G)");
+static_assert(offsetof(AUCTION_SUBMITITEMALLOWED_R2G, dwItemID) == 6, "AUCTION_SUBMITITEMALLOWED_R2G.dwItemID");
+static_assert(offsetof(AUCTION_SUBMITITEMALLOWED_R2G, dwAuctionItemID) == 10, "AUCTION_SUBMITITEMALLOWED_R2G.dwAuctionItemID");
+static_assert(offsetof(AUCTION_SUBMITITEMALLOWED_R2G, dwCostMoney) == 14, "AUCTION_SUBMITITEMALLOWED_R2G.dwCostMoney");
+
+static_assert(sizeof(AUCTION_SUBMITITEM_REQUEST_G2R) == 54, "sizeof(AUCTION_SUBMITITEM_REQUEST_G2R)");
+static_assert(offsetof(AUCTION_SUBMITITEM_REQUEST_G2R, dwItemID) == 38, "AUCTION_SUBMITITEM_REQUEST_G2R.dwItemID");
+static_assert(offsetof(AUCTION_SUBMITITEM_REQUEST_G2R, uItemBasePrice) == 42, "AUCTION_SUBMITITEM_REQUEST_G2R.uItemBasePrice");
+static_assert(offsetof(AUCTION_SUBMITITEM_REQUEST_G2R, uItemAddPricePerTime) == 46, "AUCTION_SUBMITITEM_REQUEST_G2R.uItemAddPricePerTime");
+static_assert(offsetof(AUCTION_SUBMITITEM_REQUEST_G2R, uPrearrangeRounds) == 50, "AUCTION_SUBMITITEM_REQUEST_G2R.uPrearrangeRounds");
+
+static_assert(sizeof(AUCTION_SUBMIT_ITEM_G2R) == 106, "sizeof(AUCTION_SUBMIT_ITEM_G2R)");
+static_assert(offsetof(AUCTION_SUBMIT_ITEM_G2R, dwAuctionItemID) == 38, "AUCTION_SUBMIT_ITEM_G2R.dwAuctionItemID");
+static_assert(offsetof(AUCTION_SUBMIT_ITEM_G2R, item) == 42, "AUCTION_SUBMIT_ITEM_G2R.item");
+
+static_assert(sizeof(AUCTION_TRADERESULT_G2R) == 43, "sizeof(AUCTION_TRADERESULT_G2R)");
+static_assert(offsetof(AUCTION_TRADERESULT_G2R, dwAuctionItemID) == 38, "AUCTION_TRADERESULT_G2R.dwAuctionItemID");
+static_assert(offsetof(AUCTION_TRADERESULT_G2R, bResult) == 42, "AUCTION_TRADERESULT_G2R.bResult");
+
+static_assert(sizeof(AUCTION_TRADE_R2G) == 86, "sizeof(AUCTION_TRADE_R2G)");
+static_assert(offsetof(AUCTION_TRADE_R2G, dwAuctionItemID) == 6, "AUCTION_TRADE_R2G.dwAuctionItemID");
+static_assert(offsetof(AUCTION_TRADE_R2G, theItem) == 10, "AUCTION_TRADE_R2G.theItem");
+
+static_assert(sizeof(AuctionLadderItemInfo) == 140, "sizeof(AuctionLadderItemInfo)");
+static_assert(offsetof(AuctionLadderItemInfo, sAuctioner) == 76, "AuctionLadderItemInfo.sAuctioner");
+static_assert(offsetof(AuctionLadderItemInfo, sBuyer) == 108, "AuctionLadderItemInfo.sBuyer");
+
+static_assert(sizeof(BATTLE_NEW_ROUND_R2G) == 718, "sizeof(BATTLE_NEW_ROUND_R2G)");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_wBattleID) == 2, "BATTLE_NEW_ROUND_R2G.m_wBattleID");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_wBattleLevel) == 4, "BATTLE_NEW_ROUND_R2G.m_wBattleLevel");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_wIssueID) == 6, "BATTLE_NEW_ROUND_R2G.m_wIssueID");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_wRoundCount) == 8, "BATTLE_NEW_ROUND_R2G.m_wRoundCount");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_strBattleName) == 10, "BATTLE_NEW_ROUND_R2G.m_strBattleName");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_wWorldMapID) == 42, "BATTLE_NEW_ROUND_R2G.m_wWorldMapID");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_strMapName) == 44, "BATTLE_NEW_ROUND_R2G.m_strMapName");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_wRuleType) == 76, "BATTLE_NEW_ROUND_R2G.m_wRuleType");
+static_assert(offsetof(BATTLE_NEW_ROUND_R2G, m_arystrRuleData) == 78, "BATTLE_NEW_ROUND_R2G.m_arystrRuleData");
+
+static_assert(sizeof(BATTLE_ROUND_RESULT_G2R) == 12, "sizeof(BATTLE_ROUND_RESULT_G2R)");
+static_assert(offsetof(BATTLE_ROUND_RESULT_G2R, m_wBattleID) == 2, "BATTLE_ROUND_RESULT_G2R.m_wBattleID");
+static_assert(offsetof(BATTLE_ROUND_RESULT_G2R, m_wBattleLevel) == 4, "BATTLE_ROUND_RESULT_G2R.m_wBattleLevel");
+static_assert(offsetof(BATTLE_ROUND_RESULT_G2R, m_wIssueID) == 6, "BATTLE_ROUND_RESULT_G2R.m_wIssueID");
+static_assert(offsetof(BATTLE_ROUND_RESULT_G2R, m_wRoundCount) == 8, "BATTLE_ROUND_RESULT_G2R.m_wRoundCount");
+static_assert(offsetof(BATTLE_ROUND_RESULT_G2R, m_btResult) == 10, "BATTLE_ROUND_RESULT_G2R.m_btResult");
+
 static_assert(sizeof(C2S_ADD_TAG) == 65, "sizeof(C2S_ADD_TAG)");
 static_assert(offsetof(C2S_ADD_TAG, szTargetPlayer) == 1, "C2S_ADD_TAG.szTargetPlayer");
 static_assert(offsetof(C2S_ADD_TAG, szTagTxt) == 33, "C2S_ADD_TAG.szTagTxt");
@@ -892,6 +1410,45 @@ static_assert(sizeof(CHAT_NPCCHAT) == 7, "sizeof(CHAT_NPCCHAT)");
 static_assert(offsetof(CHAT_NPCCHAT, dwNpcId) == 1, "CHAT_NPCCHAT.dwNpcId");
 static_assert(offsetof(CHAT_NPCCHAT, wMsgLen) == 5, "CHAT_NPCCHAT.wMsgLen");
 
+static_assert(sizeof(CITYWAR_ARENARESULT_G2R) == 43, "sizeof(CITYWAR_ARENARESULT_G2R)");
+static_assert(offsetof(CITYWAR_ARENARESULT_G2R, nCityArea) == 2, "CITYWAR_ARENARESULT_G2R.nCityArea");
+static_assert(offsetof(CITYWAR_ARENARESULT_G2R, arResult) == 6, "CITYWAR_ARENARESULT_G2R.arResult");
+
+static_assert(sizeof(CITYWAR_MSG2PLAYER_R2G) == 8, "sizeof(CITYWAR_MSG2PLAYER_R2G)");
+static_assert(offsetof(CITYWAR_MSG2PLAYER_R2G, dwPlayerNameID) == 2, "CITYWAR_MSG2PLAYER_R2G.dwPlayerNameID");
+static_assert(offsetof(CITYWAR_MSG2PLAYER_R2G, wSenLen) == 6, "CITYWAR_MSG2PLAYER_R2G.wSenLen");
+
+static_assert(sizeof(CITYWAR_REPLYBULLETIN_R2G) == 8, "sizeof(CITYWAR_REPLYBULLETIN_R2G)");
+static_assert(offsetof(CITYWAR_REPLYBULLETIN_R2G, dwPlayerNameID) == 2, "CITYWAR_REPLYBULLETIN_R2G.dwPlayerNameID");
+static_assert(offsetof(CITYWAR_REPLYBULLETIN_R2G, wSentenceLen) == 6, "CITYWAR_REPLYBULLETIN_R2G.wSentenceLen");
+
+static_assert(sizeof(CITYWAR_SCRIPTQUERYBULLETIN_G2R) == 34, "sizeof(CITYWAR_SCRIPTQUERYBULLETIN_G2R)");
+static_assert(offsetof(CITYWAR_SCRIPTQUERYBULLETIN_G2R, szPlayerName) == 2, "CITYWAR_SCRIPTQUERYBULLETIN_G2R.szPlayerName");
+
+static_assert(sizeof(CITYWAR_SIGNUP_G2R) == 74, "sizeof(CITYWAR_SIGNUP_G2R)");
+static_assert(offsetof(CITYWAR_SIGNUP_G2R, nCityArea) == 2, "CITYWAR_SIGNUP_G2R.nCityArea");
+static_assert(offsetof(CITYWAR_SIGNUP_G2R, szPlayerName) == 6, "CITYWAR_SIGNUP_G2R.szPlayerName");
+static_assert(offsetof(CITYWAR_SIGNUP_G2R, szTongName) == 38, "CITYWAR_SIGNUP_G2R.szTongName");
+static_assert(offsetof(CITYWAR_SIGNUP_G2R, dwSignUpFee) == 70, "CITYWAR_SIGNUP_G2R.dwSignUpFee");
+
+static_assert(sizeof(CITYWAR_SUBMITCITYTAXRATES_G2R) == 78, "sizeof(CITYWAR_SUBMITCITYTAXRATES_G2R)");
+static_assert(offsetof(CITYWAR_SUBMITCITYTAXRATES_G2R, nCityArea) == 10, "CITYWAR_SUBMITCITYTAXRATES_G2R.nCityArea");
+static_assert(offsetof(CITYWAR_SUBMITCITYTAXRATES_G2R, szPlayerName) == 14, "CITYWAR_SUBMITCITYTAXRATES_G2R.szPlayerName");
+static_assert(offsetof(CITYWAR_SUBMITCITYTAXRATES_G2R, szTongName) == 46, "CITYWAR_SUBMITCITYTAXRATES_G2R.szTongName");
+
+static_assert(sizeof(CITYWAR_TONGACTION_G2R) == 39, "sizeof(CITYWAR_TONGACTION_G2R)");
+static_assert(offsetof(CITYWAR_TONGACTION_G2R, nAction) == 2, "CITYWAR_TONGACTION_G2R.nAction");
+static_assert(offsetof(CITYWAR_TONGACTION_G2R, nCityArea) == 3, "CITYWAR_TONGACTION_G2R.nCityArea");
+static_assert(offsetof(CITYWAR_TONGACTION_G2R, szTongName) == 7, "CITYWAR_TONGACTION_G2R.szTongName");
+
+static_assert(sizeof(CITYWAR_TONGINFOSYNC_R2G) == 70, "sizeof(CITYWAR_TONGINFOSYNC_R2G)");
+static_assert(offsetof(CITYWAR_TONGINFOSYNC_R2G, szTongName) == 2, "CITYWAR_TONGINFOSYNC_R2G.szTongName");
+static_assert(offsetof(CITYWAR_TONGINFOSYNC_R2G, sTongInfo) == 34, "CITYWAR_TONGINFOSYNC_R2G.sTongInfo");
+
+static_assert(sizeof(CITYWAR_WARRESULT_G2R) == 7, "sizeof(CITYWAR_WARRESULT_G2R)");
+static_assert(offsetof(CITYWAR_WARRESULT_G2R, nCityArea) == 2, "CITYWAR_WARRESULT_G2R.nCityArea");
+static_assert(offsetof(CITYWAR_WARRESULT_G2R, byResult) == 6, "CITYWAR_WARRESULT_G2R.byResult");
+
 static_assert(sizeof(ITEM_BIND_SYNC) == 9, "sizeof(ITEM_BIND_SYNC)");
 static_assert(offsetof(ITEM_BIND_SYNC, m_dwID) == 1, "ITEM_BIND_SYNC.m_dwID");
 static_assert(offsetof(ITEM_BIND_SYNC, m_nBindState) == 5, "ITEM_BIND_SYNC.m_nBindState");
@@ -903,6 +1460,10 @@ static_assert(sizeof(KPLAYER_LIMITTIME_SYNC) == 13, "sizeof(KPLAYER_LIMITTIME_SY
 static_assert(offsetof(KPLAYER_LIMITTIME_SYNC, dwLimitTimeFlag) == 1, "KPLAYER_LIMITTIME_SYNC.dwLimitTimeFlag");
 static_assert(offsetof(KPLAYER_LIMITTIME_SYNC, dwLimitTimeOnlineSeconds) == 5, "KPLAYER_LIMITTIME_SYNC.dwLimitTimeOnlineSeconds");
 static_assert(offsetof(KPLAYER_LIMITTIME_SYNC, dwLimitTimeOfflineSeconds) == 9, "KPLAYER_LIMITTIME_SYNC.dwLimitTimeOfflineSeconds");
+
+static_assert(sizeof(KPROTORG_NW_POSITIONCHANGE) == 40, "sizeof(KPROTORG_NW_POSITIONCHANGE)");
+static_assert(offsetof(KPROTORG_NW_POSITIONCHANGE, byInstate) == 38, "KPROTORG_NW_POSITIONCHANGE.byInstate");
+static_assert(offsetof(KPROTORG_NW_POSITIONCHANGE, byPosition) == 39, "KPROTORG_NW_POSITIONCHANGE.byPosition");
 
 static_assert(sizeof(KPROTORG_NW_SYNCEMPEROR) == 132, "sizeof(KPROTORG_NW_SYNCEMPEROR)");
 static_assert(offsetof(KPROTORG_NW_SYNCEMPEROR, sInfo) == 2, "KPROTORG_NW_SYNCEMPEROR.sInfo");
@@ -1044,6 +1605,9 @@ static_assert(offsetof(PLAYER_SEND_CHAT_DATA_SYNC, m_wSentenceLen) == 6, "PLAYER
 static_assert(offsetof(PLAYER_SEND_CHAT_DATA_SYNC, m_dwSourceID) == 8, "PLAYER_SEND_CHAT_DATA_SYNC.m_dwSourceID");
 static_assert(offsetof(PLAYER_SEND_CHAT_DATA_SYNC, m_szSentence) == 12, "PLAYER_SEND_CHAT_DATA_SYNC.m_szSentence");
 
+static_assert(sizeof(ROLENAME_CHANGE_RESULT) == 99, "sizeof(ROLENAME_CHANGE_RESULT)");
+static_assert(offsetof(ROLENAME_CHANGE_RESULT, nResult) == 98, "ROLENAME_CHANGE_RESULT.nResult");
+
 static_assert(sizeof(S2C_GET_TAGS_RESPOND) == 35, "sizeof(S2C_GET_TAGS_RESPOND)");
 static_assert(offsetof(S2C_GET_TAGS_RESPOND, szTargetPlayer) == 1, "S2C_GET_TAGS_RESPOND.szTargetPlayer");
 static_assert(offsetof(S2C_GET_TAGS_RESPOND, wDataLen) == 33, "S2C_GET_TAGS_RESPOND.wDataLen");
@@ -1054,6 +1618,68 @@ static_assert(sizeof(SIMPLE_INFO_8) == 9, "sizeof(SIMPLE_INFO_8)");
 static_assert(sizeof(SPECTATOR_MSG) == 4, "sizeof(SPECTATOR_MSG)");
 static_assert(offsetof(SPECTATOR_MSG, wLen) == 1, "SPECTATOR_MSG.wLen");
 static_assert(offsetof(SPECTATOR_MSG, nCmd) == 3, "SPECTATOR_MSG.nCmd");
+
+static_assert(sizeof(STALL_ITEMINFO_SYNC) == 104, "sizeof(STALL_ITEMINFO_SYNC)");
+static_assert(offsetof(STALL_ITEMINFO_SYNC, dwSellerID) == 4, "STALL_ITEMINFO_SYNC.dwSellerID");
+static_assert(offsetof(STALL_ITEMINFO_SYNC, nItemCount) == 8, "STALL_ITEMINFO_SYNC.nItemCount");
+static_assert(offsetof(STALL_ITEMINFO_SYNC, arrItemInfo) == 12, "STALL_ITEMINFO_SYNC.arrItemInfo");
+
+static_assert(sizeof(STONG_BE_INSTATED_SYNC) == 72, "sizeof(STONG_BE_INSTATED_SYNC)");
+static_assert(offsetof(STONG_BE_INSTATED_SYNC, m_btFigure) == 6, "STONG_BE_INSTATED_SYNC.m_btFigure");
+static_assert(offsetof(STONG_BE_INSTATED_SYNC, m_btPos) == 7, "STONG_BE_INSTATED_SYNC.m_btPos");
+static_assert(offsetof(STONG_BE_INSTATED_SYNC, m_szTitle) == 8, "STONG_BE_INSTATED_SYNC.m_szTitle");
+static_assert(offsetof(STONG_BE_INSTATED_SYNC, m_szName) == 40, "STONG_BE_INSTATED_SYNC.m_szName");
+
+static_assert(sizeof(STONG_CHANGE_JOB_CALL_SYNC) == 48, "sizeof(STONG_CHANGE_JOB_CALL_SYNC)");
+static_assert(offsetof(STONG_CHANGE_JOB_CALL_SYNC, m_btFigure) == 6, "STONG_CHANGE_JOB_CALL_SYNC.m_btFigure");
+static_assert(offsetof(STONG_CHANGE_JOB_CALL_SYNC, m_dwMemberID) == 7, "STONG_CHANGE_JOB_CALL_SYNC.m_dwMemberID");
+static_assert(offsetof(STONG_CHANGE_JOB_CALL_SYNC, m_btBroadcastFlag) == 11, "STONG_CHANGE_JOB_CALL_SYNC.m_btBroadcastFlag");
+static_assert(offsetof(STONG_CHANGE_JOB_CALL_SYNC, m_dwTongNameID) == 12, "STONG_CHANGE_JOB_CALL_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_CHANGE_JOB_CALL_SYNC, m_szCall) == 16, "STONG_CHANGE_JOB_CALL_SYNC.m_szCall");
+
+static_assert(sizeof(STONG_CHANGE_WAR_STATE_SYNC) == 14, "sizeof(STONG_CHANGE_WAR_STATE_SYNC)");
+static_assert(offsetof(STONG_CHANGE_WAR_STATE_SYNC, m_dwTongNameID) == 6, "STONG_CHANGE_WAR_STATE_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_CHANGE_WAR_STATE_SYNC, m_btWarState) == 10, "STONG_CHANGE_WAR_STATE_SYNC.m_btWarState");
+static_assert(offsetof(STONG_CHANGE_WAR_STATE_SYNC, m_btParam1) == 11, "STONG_CHANGE_WAR_STATE_SYNC.m_btParam1");
+static_assert(offsetof(STONG_CHANGE_WAR_STATE_SYNC, m_btParam2) == 12, "STONG_CHANGE_WAR_STATE_SYNC.m_btParam2");
+static_assert(offsetof(STONG_CHANGE_WAR_STATE_SYNC, m_btParam3) == 13, "STONG_CHANGE_WAR_STATE_SYNC.m_btParam3");
+
+static_assert(sizeof(STONG_CHECK_GET_MASTER_POWER_SYNC) == 44, "sizeof(STONG_CHECK_GET_MASTER_POWER_SYNC)");
+static_assert(offsetof(STONG_CHECK_GET_MASTER_POWER_SYNC, m_btFigure) == 6, "STONG_CHECK_GET_MASTER_POWER_SYNC.m_btFigure");
+static_assert(offsetof(STONG_CHECK_GET_MASTER_POWER_SYNC, m_btPos) == 7, "STONG_CHECK_GET_MASTER_POWER_SYNC.m_btPos");
+static_assert(offsetof(STONG_CHECK_GET_MASTER_POWER_SYNC, m_dwTongNameID) == 8, "STONG_CHECK_GET_MASTER_POWER_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_CHECK_GET_MASTER_POWER_SYNC, m_szName) == 12, "STONG_CHECK_GET_MASTER_POWER_SYNC.m_szName");
+
+static_assert(sizeof(STONG_CHECK_INSTATE_POWER_SYNC) == 78, "sizeof(STONG_CHECK_INSTATE_POWER_SYNC)");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_btOldFigure) == 6, "STONG_CHECK_INSTATE_POWER_SYNC.m_btOldFigure");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_btOldPos) == 7, "STONG_CHECK_INSTATE_POWER_SYNC.m_btOldPos");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_btNewFigure) == 8, "STONG_CHECK_INSTATE_POWER_SYNC.m_btNewFigure");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_btNewPos) == 9, "STONG_CHECK_INSTATE_POWER_SYNC.m_btNewPos");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_dwTongNameID) == 10, "STONG_CHECK_INSTATE_POWER_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_szName) == 14, "STONG_CHECK_INSTATE_POWER_SYNC.m_szName");
+static_assert(offsetof(STONG_CHECK_INSTATE_POWER_SYNC, m_szOperater) == 46, "STONG_CHECK_INSTATE_POWER_SYNC.m_szOperater");
+
+static_assert(sizeof(STONG_DISMISS_SYNC) == 42, "sizeof(STONG_DISMISS_SYNC)");
+static_assert(offsetof(STONG_DISMISS_SYNC, m_dwTongNameID) == 6, "STONG_DISMISS_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_DISMISS_SYNC, m_szName) == 10, "STONG_DISMISS_SYNC.m_szName");
+
+static_assert(sizeof(STONG_DISPENSE_SYNC) == 55, "sizeof(STONG_DISPENSE_SYNC)");
+static_assert(offsetof(STONG_DISPENSE_SYNC, m_dwTongNameID) == 6, "STONG_DISPENSE_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_DISPENSE_SYNC, m_dwDirectorMoney) == 10, "STONG_DISPENSE_SYNC.m_dwDirectorMoney");
+static_assert(offsetof(STONG_DISPENSE_SYNC, m_dwManagerMoney) == 14, "STONG_DISPENSE_SYNC.m_dwManagerMoney");
+static_assert(offsetof(STONG_DISPENSE_SYNC, m_dwMemberMoney) == 18, "STONG_DISPENSE_SYNC.m_dwMemberMoney");
+static_assert(offsetof(STONG_DISPENSE_SYNC, m_btFigure) == 22, "STONG_DISPENSE_SYNC.m_btFigure");
+static_assert(offsetof(STONG_DISPENSE_SYNC, m_szName) == 23, "STONG_DISPENSE_SYNC.m_szName");
+
+static_assert(sizeof(STONG_INSTATE_SYNC) == 79, "sizeof(STONG_INSTATE_SYNC)");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_dwTongNameID) == 6, "STONG_INSTATE_SYNC.m_dwTongNameID");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_btSuccessFlag) == 10, "STONG_INSTATE_SYNC.m_btSuccessFlag");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_btSomeFlag) == 11, "STONG_INSTATE_SYNC.m_btSomeFlag");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_btOldFigure) == 12, "STONG_INSTATE_SYNC.m_btOldFigure");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_btNewFigure) == 13, "STONG_INSTATE_SYNC.m_btNewFigure");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_btParamType) == 14, "STONG_INSTATE_SYNC.m_btParamType");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_szTitle) == 15, "STONG_INSTATE_SYNC.m_szTitle");
+static_assert(offsetof(STONG_INSTATE_SYNC, m_szName) == 47, "STONG_INSTATE_SYNC.m_szName");
 
 static_assert(sizeof(TDbDataBlock) == 808, "sizeof(TDbDataBlock)");
 static_assert(offsetof(TDbDataBlock, wProtocolSize) == 1, "TDbDataBlock.wProtocolSize");
@@ -1069,10 +1695,54 @@ static_assert(offsetof(THostExchange, szAccount) == 1, "THostExchange.szAccount"
 static_assert(offsetof(THostExchange, nCommand) == 33, "THostExchange.nCommand");
 static_assert(offsetof(THostExchange, dwMapId) == 34, "THostExchange.dwMapId");
 
+static_assert(sizeof(TLeagueDoScriptCB) == 150, "sizeof(TLeagueDoScriptCB)");
+static_assert(offsetof(TLeagueDoScriptCB, dwLeagueType) == 6, "TLeagueDoScriptCB.dwLeagueType");
+static_assert(offsetof(TLeagueDoScriptCB, szLeagueName) == 10, "TLeagueDoScriptCB.szLeagueName");
+static_assert(offsetof(TLeagueDoScriptCB, szRoleName) == 58, "TLeagueDoScriptCB.szRoleName");
+static_assert(offsetof(TLeagueDoScriptCB, callScript) == 106, "TLeagueDoScriptCB.callScript");
+static_assert(offsetof(TLeagueDoScriptCB, doScript) == 146, "TLeagueDoScriptCB.doScript");
+
+static_assert(sizeof(TLeagueMemberDataCB) == 139, "sizeof(TLeagueMemberDataCB)");
+static_assert(offsetof(TLeagueMemberDataCB, callScript) == 6, "TLeagueMemberDataCB.callScript");
+static_assert(offsetof(TLeagueMemberDataCB, CoreData) == 46, "TLeagueMemberDataCB.CoreData");
+
+static_assert(sizeof(TLeagueMemberTaskCB) == 153, "sizeof(TLeagueMemberTaskCB)");
+static_assert(offsetof(TLeagueMemberTaskCB, dwLeagueType) == 6, "TLeagueMemberTaskCB.dwLeagueType");
+static_assert(offsetof(TLeagueMemberTaskCB, szLeagueName) == 10, "TLeagueMemberTaskCB.szLeagueName");
+static_assert(offsetof(TLeagueMemberTaskCB, szRoleName) == 58, "TLeagueMemberTaskCB.szRoleName");
+static_assert(offsetof(TLeagueMemberTaskCB, byIsAppendType) == 106, "TLeagueMemberTaskCB.byIsAppendType");
+static_assert(offsetof(TLeagueMemberTaskCB, wTaskID) == 107, "TLeagueMemberTaskCB.wTaskID");
+static_assert(offsetof(TLeagueMemberTaskCB, nTaskValue) == 109, "TLeagueMemberTaskCB.nTaskValue");
+static_assert(offsetof(TLeagueMemberTaskCB, callScript) == 113, "TLeagueMemberTaskCB.callScript");
+
+static_assert(sizeof(TLeagueTaskCB) == 105, "sizeof(TLeagueTaskCB)");
+static_assert(offsetof(TLeagueTaskCB, dwLeagueType) == 6, "TLeagueTaskCB.dwLeagueType");
+static_assert(offsetof(TLeagueTaskCB, szLeagueName) == 10, "TLeagueTaskCB.szLeagueName");
+static_assert(offsetof(TLeagueTaskCB, byIsAppendType) == 58, "TLeagueTaskCB.byIsAppendType");
+static_assert(offsetof(TLeagueTaskCB, wTaskID) == 59, "TLeagueTaskCB.wTaskID");
+static_assert(offsetof(TLeagueTaskCB, nTaskValue) == 61, "TLeagueTaskCB.nTaskValue");
+static_assert(offsetof(TLeagueTaskCB, callScript) == 65, "TLeagueTaskCB.callScript");
+
 static_assert(sizeof(TModuleCfg_SyncToClient) == 6, "sizeof(TModuleCfg_SyncToClient)");
 static_assert(offsetof(TModuleCfg_SyncToClient, wLen) == 1, "TModuleCfg_SyncToClient.wLen");
 static_assert(offsetof(TModuleCfg_SyncToClient, wCount) == 3, "TModuleCfg_SyncToClient.wCount");
 static_assert(offsetof(TModuleCfg_SyncToClient, pBuffer) == 5, "TModuleCfg_SyncToClient.pBuffer");
+
+static_assert(sizeof(TONGNAME_CHANGE_RESULT) == 103, "sizeof(TONGNAME_CHANGE_RESULT)");
+static_assert(offsetof(TONGNAME_CHANGE_RESULT, nResult) == 102, "TONGNAME_CHANGE_RESULT.nResult");
+
+static_assert(sizeof(TONGNAME_QUERY_RESULT) == 71, "sizeof(TONGNAME_QUERY_RESULT)");
+static_assert(offsetof(TONGNAME_QUERY_RESULT, nResult) == 70, "TONGNAME_QUERY_RESULT.nResult");
+
+static_assert(sizeof(TONG_WORKSHOP_INFO) == 23, "sizeof(TONG_WORKSHOP_INFO)");
+static_assert(offsetof(TONG_WORKSHOP_INFO, dwTongID) == 0, "TONG_WORKSHOP_INFO.dwTongID");
+static_assert(offsetof(TONG_WORKSHOP_INFO, wCount) == 4, "TONG_WORKSHOP_INFO.wCount");
+static_assert(offsetof(TONG_WORKSHOP_INFO, nTaskValue) == 6, "TONG_WORKSHOP_INFO.nTaskValue");
+static_assert(offsetof(TONG_WORKSHOP_INFO, sWorkshops) == 8, "TONG_WORKSHOP_INFO.sWorkshops");
+
+static_assert(sizeof(TOneLeagueDataCB) == 121, "sizeof(TOneLeagueDataCB)");
+static_assert(offsetof(TOneLeagueDataCB, callScript) == 6, "TOneLeagueDataCB.callScript");
+static_assert(offsetof(TOneLeagueDataCB, CoreData) == 46, "TOneLeagueDataCB.CoreData");
 
 static_assert(sizeof(TRADE_APPLY_START_COMMAND) == 9, "sizeof(TRADE_APPLY_START_COMMAND)");
 static_assert(offsetof(TRADE_APPLY_START_COMMAND, m_dwID) == 1, "TRADE_APPLY_START_COMMAND.m_dwID");
@@ -1082,6 +1752,18 @@ static_assert(sizeof(TRADE_REPLY_START_COMMAND) == 10, "sizeof(TRADE_REPLY_START
 static_assert(offsetof(TRADE_REPLY_START_COMMAND, m_bDecision) == 1, "TRADE_REPLY_START_COMMAND.m_bDecision");
 static_assert(offsetof(TRADE_REPLY_START_COMMAND, m_nDestIdx) == 2, "TRADE_REPLY_START_COMMAND.m_nDestIdx");
 static_assert(offsetof(TRADE_REPLY_START_COMMAND, dwCheckValue) == 6, "TRADE_REPLY_START_COMMAND.dwCheckValue");
+
+static_assert(sizeof(TRemoveLeagueCB) == 98, "sizeof(TRemoveLeagueCB)");
+static_assert(offsetof(TRemoveLeagueCB, dwLeagueType) == 6, "TRemoveLeagueCB.dwLeagueType");
+static_assert(offsetof(TRemoveLeagueCB, szLeagueName) == 10, "TRemoveLeagueCB.szLeagueName");
+static_assert(offsetof(TRemoveLeagueCB, callScript) == 58, "TRemoveLeagueCB.callScript");
+
+static_assert(sizeof(TRemoveLeagueMemberCB) == 147, "sizeof(TRemoveLeagueMemberCB)");
+static_assert(offsetof(TRemoveLeagueMemberCB, dwLeagueType) == 6, "TRemoveLeagueMemberCB.dwLeagueType");
+static_assert(offsetof(TRemoveLeagueMemberCB, szLeagueName) == 10, "TRemoveLeagueMemberCB.szLeagueName");
+static_assert(offsetof(TRemoveLeagueMemberCB, szRoleName) == 58, "TRemoveLeagueMemberCB.szRoleName");
+static_assert(offsetof(TRemoveLeagueMemberCB, byRemoveLeagueWhenOnlyOneMember) == 106, "TRemoveLeagueMemberCB.byRemoveLeagueWhenOnlyOneMember");
+static_assert(offsetof(TRemoveLeagueMemberCB, callScript) == 107, "TRemoveLeagueMemberCB.callScript");
 
 static_assert(sizeof(TRoleInstance) == 41, "sizeof(TRoleInstance)");
 static_assert(offsetof(TRoleInstance, szRole) == 1, "TRoleInstance.szRole");
@@ -1108,6 +1790,9 @@ static_assert(sizeof(TSelectDiceItem) == 13, "sizeof(TSelectDiceItem)");
 static_assert(offsetof(TSelectDiceItem, dwDiceId) == 1, "TSelectDiceItem.dwDiceId");
 static_assert(offsetof(TSelectDiceItem, dwItemId) == 5, "TSelectDiceItem.dwItemId");
 static_assert(offsetof(TSelectDiceItem, nSelectType) == 9, "TSelectDiceItem.nSelectType");
+
+static_assert(sizeof(TSendBuf) == 6, "sizeof(TSendBuf)");
+static_assert(offsetof(TSendBuf, data) == 6, "TSendBuf.data");
 
 static_assert(sizeof(TSyncFiles_ClientApplySync) == 9, "sizeof(TSyncFiles_ClientApplySync)");
 static_assert(offsetof(TSyncFiles_ClientApplySync, dwFileListID) == 1, "TSyncFiles_ClientApplySync.dwFileListID");
@@ -1838,6 +2523,9 @@ static_assert(offsetof(tagQueryMapInfo, timeTm) == 9, "tagQueryMapInfo.timeTm");
 static_assert(sizeof(tagRegisterAccount) == 33, "sizeof(tagRegisterAccount)");
 static_assert(offsetof(tagRegisterAccount, szAccountName) == 1, "tagRegisterAccount.szAccountName");
 
+static_assert(sizeof(tagRelaySDBOper) == 16, "sizeof(tagRelaySDBOper)");
+static_assert(offsetof(tagRelaySDBOper, byData) == 15, "tagRelaySDBOper.byData");
+
 static_assert(sizeof(tagReturnChangeExtPoint) == 45, "sizeof(tagReturnChangeExtPoint)");
 static_assert(offsetof(tagReturnChangeExtPoint, nResult) == 1, "tagReturnChangeExtPoint.nResult");
 static_assert(offsetof(tagReturnChangeExtPoint, szAccountName) == 5, "tagReturnChangeExtPoint.szAccountName");
@@ -2235,6 +2923,317 @@ static_assert(sizeof(tag_STEAM_PROTOCOL_HEAD) == 4, "sizeof(tag_STEAM_PROTOCOL_H
 static_assert(offsetof(tag_STEAM_PROTOCOL_HEAD, wLength) == 1, "tag_STEAM_PROTOCOL_HEAD.wLength");
 static_assert(offsetof(tag_STEAM_PROTOCOL_HEAD, btMsgID) == 3, "tag_STEAM_PROTOCOL_HEAD.btMsgID");
 
+static_assert(sizeof(AUCTION_QUERYLADDERRESULT_S2C) == 6, "sizeof(AUCTION_QUERYLADDERRESULT_S2C)");
+static_assert(offsetof(AUCTION_QUERYLADDERRESULT_S2C, wLadderItemCount) == 4, "AUCTION_QUERYLADDERRESULT_S2C.wLadderItemCount");
+static_assert(offsetof(AUCTION_QUERYLADDERRESULT_S2C, items) == 6, "AUCTION_QUERYLADDERRESULT_S2C.items");
+
+static_assert(sizeof(C2S_ACCEPT_TEAM_MEMBER) == 8, "sizeof(C2S_ACCEPT_TEAM_MEMBER)");
+static_assert(offsetof(C2S_ACCEPT_TEAM_MEMBER, dwNpcID) == 4, "C2S_ACCEPT_TEAM_MEMBER.dwNpcID");
+
+static_assert(sizeof(C2S_APPLY_ADD_TEAM) == 8, "sizeof(C2S_APPLY_ADD_TEAM)");
+static_assert(offsetof(C2S_APPLY_ADD_TEAM, dwTarNpcID) == 4, "C2S_APPLY_ADD_TEAM.dwTarNpcID");
+
+static_assert(sizeof(C2S_APPLY_CREATE_TEAM) == 8, "sizeof(C2S_APPLY_CREATE_TEAM)");
+static_assert(offsetof(C2S_APPLY_CREATE_TEAM, dwParam) == 4, "C2S_APPLY_CREATE_TEAM.dwParam");
+
+static_assert(sizeof(C2S_APPLY_LEAVE_TEAM) == 8, "sizeof(C2S_APPLY_LEAVE_TEAM)");
+static_assert(offsetof(C2S_APPLY_LEAVE_TEAM, dwParam) == 4, "C2S_APPLY_LEAVE_TEAM.dwParam");
+
+static_assert(sizeof(C2S_APPLY_TEAM_INFO) == 8, "sizeof(C2S_APPLY_TEAM_INFO)");
+static_assert(offsetof(C2S_APPLY_TEAM_INFO, dwTarNpcID) == 4, "C2S_APPLY_TEAM_INFO.dwTarNpcID");
+
+static_assert(sizeof(C2S_APPLY_TEAM_OPEN_CLOSE) == 8, "sizeof(C2S_APPLY_TEAM_OPEN_CLOSE)");
+static_assert(offsetof(C2S_APPLY_TEAM_OPEN_CLOSE, dwOpenClose) == 4, "C2S_APPLY_TEAM_OPEN_CLOSE.dwOpenClose");
+
+static_assert(sizeof(C2S_TEAM_CHANGE_CAPTAIN) == 8, "sizeof(C2S_TEAM_CHANGE_CAPTAIN)");
+static_assert(offsetof(C2S_TEAM_CHANGE_CAPTAIN, dwNpcID) == 4, "C2S_TEAM_CHANGE_CAPTAIN.dwNpcID");
+
+static_assert(sizeof(C2S_TEAM_DISMISS) == 8, "sizeof(C2S_TEAM_DISMISS)");
+static_assert(offsetof(C2S_TEAM_DISMISS, dwParam) == 4, "C2S_TEAM_DISMISS.dwParam");
+
+static_assert(sizeof(C2S_TEAM_INVITE_ADD) == 8, "sizeof(C2S_TEAM_INVITE_ADD)");
+static_assert(offsetof(C2S_TEAM_INVITE_ADD, dwNpcID) == 4, "C2S_TEAM_INVITE_ADD.dwNpcID");
+
+static_assert(sizeof(C2S_TEAM_KICK_MEMBER) == 8, "sizeof(C2S_TEAM_KICK_MEMBER)");
+static_assert(offsetof(C2S_TEAM_KICK_MEMBER, dwNpcID) == 4, "C2S_TEAM_KICK_MEMBER.dwNpcID");
+
+static_assert(sizeof(C2S_TEAM_REPLY_INVITE) == 9, "sizeof(C2S_TEAM_REPLY_INVITE)");
+static_assert(offsetof(C2S_TEAM_REPLY_INVITE, btResult) == 4, "C2S_TEAM_REPLY_INVITE.btResult");
+static_assert(offsetof(C2S_TEAM_REPLY_INVITE, nIndex) == 5, "C2S_TEAM_REPLY_INVITE.nIndex");
+
+static_assert(sizeof(CHATROOM_C2S_GETMEMBERLIST) == 36, "sizeof(CHATROOM_C2S_GETMEMBERLIST)");
+static_assert(offsetof(CHATROOM_C2S_GETMEMBERLIST, szRoomName) == 4, "CHATROOM_C2S_GETMEMBERLIST.szRoomName");
+
+static_assert(sizeof(CHATROOM_C2S_MEMBER) == 68, "sizeof(CHATROOM_C2S_MEMBER)");
+static_assert(offsetof(CHATROOM_C2S_MEMBER, szRoomName) == 4, "CHATROOM_C2S_MEMBER.szRoomName");
+static_assert(offsetof(CHATROOM_C2S_MEMBER, szMember) == 36, "CHATROOM_C2S_MEMBER.szMember");
+
+static_assert(sizeof(CHATROOM_C2S_PASSWORD) == 52, "sizeof(CHATROOM_C2S_PASSWORD)");
+static_assert(offsetof(CHATROOM_C2S_PASSWORD, szRoomName) == 4, "CHATROOM_C2S_PASSWORD.szRoomName");
+static_assert(offsetof(CHATROOM_C2S_PASSWORD, szPassword) == 36, "CHATROOM_C2S_PASSWORD.szPassword");
+
+static_assert(sizeof(CHATROOM_C2S_ROOM) == 36, "sizeof(CHATROOM_C2S_ROOM)");
+static_assert(offsetof(CHATROOM_C2S_ROOM, szRoomName) == 4, "CHATROOM_C2S_ROOM.szRoomName");
+
+static_assert(sizeof(CHATROOM_C2S_TALK) == 38, "sizeof(CHATROOM_C2S_TALK)");
+static_assert(offsetof(CHATROOM_C2S_TALK, szRoomName) == 4, "CHATROOM_C2S_TALK.szRoomName");
+static_assert(offsetof(CHATROOM_C2S_TALK, nMsgLen) == 36, "CHATROOM_C2S_TALK.nMsgLen");
+
+static_assert(sizeof(CHATROOM_R2S_MEMBER) == 67, "sizeof(CHATROOM_R2S_MEMBER)");
+static_assert(offsetof(CHATROOM_R2S_MEMBER, szRoomName) == 2, "CHATROOM_R2S_MEMBER.szRoomName");
+static_assert(offsetof(CHATROOM_R2S_MEMBER, szMember) == 34, "CHATROOM_R2S_MEMBER.szMember");
+static_assert(offsetof(CHATROOM_R2S_MEMBER, nResult) == 66, "CHATROOM_R2S_MEMBER.nResult");
+
+static_assert(sizeof(CHATROOM_R2S_SYNCBLACKLIST) == 66, "sizeof(CHATROOM_R2S_SYNCBLACKLIST)");
+static_assert(offsetof(CHATROOM_R2S_SYNCBLACKLIST, szRoomName) == 2, "CHATROOM_R2S_SYNCBLACKLIST.szRoomName");
+static_assert(offsetof(CHATROOM_R2S_SYNCBLACKLIST, szBlackList) == 34, "CHATROOM_R2S_SYNCBLACKLIST.szBlackList");
+
+static_assert(sizeof(CHATROOM_RBC_CREATEROOM) == 87, "sizeof(CHATROOM_RBC_CREATEROOM)");
+static_assert(offsetof(CHATROOM_RBC_CREATEROOM, szRoomName) == 2, "CHATROOM_RBC_CREATEROOM.szRoomName");
+static_assert(offsetof(CHATROOM_RBC_CREATEROOM, szAdmin) == 34, "CHATROOM_RBC_CREATEROOM.szAdmin");
+static_assert(offsetof(CHATROOM_RBC_CREATEROOM, szPassword) == 66, "CHATROOM_RBC_CREATEROOM.szPassword");
+static_assert(offsetof(CHATROOM_RBC_CREATEROOM, nLifeTime) == 82, "CHATROOM_RBC_CREATEROOM.nLifeTime");
+static_assert(offsetof(CHATROOM_RBC_CREATEROOM, nType) == 86, "CHATROOM_RBC_CREATEROOM.nType");
+
+static_assert(sizeof(CHATROOM_RBC_DESTROYROOM) == 34, "sizeof(CHATROOM_RBC_DESTROYROOM)");
+static_assert(offsetof(CHATROOM_RBC_DESTROYROOM, szRoomName) == 2, "CHATROOM_RBC_DESTROYROOM.szRoomName");
+
+static_assert(sizeof(CHATROOM_RBC_ENTERROOM) == 71, "sizeof(CHATROOM_RBC_ENTERROOM)");
+static_assert(offsetof(CHATROOM_RBC_ENTERROOM, szRoomName) == 2, "CHATROOM_RBC_ENTERROOM.szRoomName");
+static_assert(offsetof(CHATROOM_RBC_ENTERROOM, szMember) == 34, "CHATROOM_RBC_ENTERROOM.szMember");
+static_assert(offsetof(CHATROOM_RBC_ENTERROOM, nSex) == 66, "CHATROOM_RBC_ENTERROOM.nSex");
+static_assert(offsetof(CHATROOM_RBC_ENTERROOM, nLevel) == 67, "CHATROOM_RBC_ENTERROOM.nLevel");
+
+static_assert(sizeof(CHATROOM_RBC_MEMBER) == 66, "sizeof(CHATROOM_RBC_MEMBER)");
+static_assert(offsetof(CHATROOM_RBC_MEMBER, szRoomName) == 2, "CHATROOM_RBC_MEMBER.szRoomName");
+static_assert(offsetof(CHATROOM_RBC_MEMBER, szMember) == 34, "CHATROOM_RBC_MEMBER.szMember");
+
+static_assert(sizeof(CHATROOM_RBC_PASSWORD) == 50, "sizeof(CHATROOM_RBC_PASSWORD)");
+static_assert(offsetof(CHATROOM_RBC_PASSWORD, szRoomName) == 2, "CHATROOM_RBC_PASSWORD.szRoomName");
+static_assert(offsetof(CHATROOM_RBC_PASSWORD, szPassword) == 34, "CHATROOM_RBC_PASSWORD.szPassword");
+
+static_assert(sizeof(CHATROOM_RBC_ROOMTIME) == 38, "sizeof(CHATROOM_RBC_ROOMTIME)");
+static_assert(offsetof(CHATROOM_RBC_ROOMTIME, szRoomName) == 2, "CHATROOM_RBC_ROOMTIME.szRoomName");
+static_assert(offsetof(CHATROOM_RBC_ROOMTIME, nLifeTime) == 34, "CHATROOM_RBC_ROOMTIME.nLifeTime");
+
+static_assert(sizeof(CHATROOM_RBC_TALK) == 68, "sizeof(CHATROOM_RBC_TALK)");
+static_assert(offsetof(CHATROOM_RBC_TALK, nMsgLen) == 2, "CHATROOM_RBC_TALK.nMsgLen");
+static_assert(offsetof(CHATROOM_RBC_TALK, szRoomName) == 4, "CHATROOM_RBC_TALK.szRoomName");
+static_assert(offsetof(CHATROOM_RBC_TALK, szMember) == 36, "CHATROOM_RBC_TALK.szMember");
+
+static_assert(sizeof(CHATROOM_S2C_KICKEDOUT) == 36, "sizeof(CHATROOM_S2C_KICKEDOUT)");
+static_assert(offsetof(CHATROOM_S2C_KICKEDOUT, szRoomName) == 4, "CHATROOM_S2C_KICKEDOUT.szRoomName");
+
+static_assert(sizeof(CHATROOM_S2C_MEMBERLIST) == 43, "sizeof(CHATROOM_S2C_MEMBERLIST)");
+static_assert(offsetof(CHATROOM_S2C_MEMBERLIST, szRoomName) == 4, "CHATROOM_S2C_MEMBERLIST.szRoomName");
+static_assert(offsetof(CHATROOM_S2C_MEMBERLIST, nResult) == 36, "CHATROOM_S2C_MEMBERLIST.nResult");
+static_assert(offsetof(CHATROOM_S2C_MEMBERLIST, nIdentity) == 37, "CHATROOM_S2C_MEMBERLIST.nIdentity");
+static_assert(offsetof(CHATROOM_S2C_MEMBERLIST, nCount) == 41, "CHATROOM_S2C_MEMBERLIST.nCount");
+
+static_assert(sizeof(CHATROOM_S2C_ROOM) == 37, "sizeof(CHATROOM_S2C_ROOM)");
+static_assert(offsetof(CHATROOM_S2C_ROOM, szRoomName) == 4, "CHATROOM_S2C_ROOM.szRoomName");
+static_assert(offsetof(CHATROOM_S2C_ROOM, nResult) == 36, "CHATROOM_S2C_ROOM.nResult");
+
+static_assert(sizeof(CHATROOM_S2C_ROOMLIST) == 10, "sizeof(CHATROOM_S2C_ROOMLIST)");
+static_assert(offsetof(CHATROOM_S2C_ROOMLIST, nIdentity) == 4, "CHATROOM_S2C_ROOMLIST.nIdentity");
+static_assert(offsetof(CHATROOM_S2C_ROOMLIST, nCount) == 8, "CHATROOM_S2C_ROOMLIST.nCount");
+
+static_assert(sizeof(CHATROOM_S2R_CLOSEROOM) == 34, "sizeof(CHATROOM_S2R_CLOSEROOM)");
+static_assert(offsetof(CHATROOM_S2R_CLOSEROOM, szRoomName) == 2, "CHATROOM_S2R_CLOSEROOM.szRoomName");
+
+static_assert(sizeof(CHATROOM_S2R_CREATE) == 86, "sizeof(CHATROOM_S2R_CREATE)");
+static_assert(offsetof(CHATROOM_S2R_CREATE, szRoomName) == 2, "CHATROOM_S2R_CREATE.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_CREATE, szPassword) == 34, "CHATROOM_S2R_CREATE.szPassword");
+static_assert(offsetof(CHATROOM_S2R_CREATE, szOperator) == 50, "CHATROOM_S2R_CREATE.szOperator");
+static_assert(offsetof(CHATROOM_S2R_CREATE, nLifeTime) == 82, "CHATROOM_S2R_CREATE.nLifeTime");
+
+static_assert(sizeof(CHATROOM_S2R_ENTERROOM) == 87, "sizeof(CHATROOM_S2R_ENTERROOM)");
+static_assert(offsetof(CHATROOM_S2R_ENTERROOM, szRoomName) == 2, "CHATROOM_S2R_ENTERROOM.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_ENTERROOM, szPassword) == 34, "CHATROOM_S2R_ENTERROOM.szPassword");
+static_assert(offsetof(CHATROOM_S2R_ENTERROOM, szMember) == 50, "CHATROOM_S2R_ENTERROOM.szMember");
+static_assert(offsetof(CHATROOM_S2R_ENTERROOM, nSex) == 82, "CHATROOM_S2R_ENTERROOM.nSex");
+static_assert(offsetof(CHATROOM_S2R_ENTERROOM, nLevel) == 83, "CHATROOM_S2R_ENTERROOM.nLevel");
+
+static_assert(sizeof(CHATROOM_S2R_M2M) == 98, "sizeof(CHATROOM_S2R_M2M)");
+static_assert(offsetof(CHATROOM_S2R_M2M, szRoomName) == 2, "CHATROOM_S2R_M2M.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_M2M, szMember) == 34, "CHATROOM_S2R_M2M.szMember");
+static_assert(offsetof(CHATROOM_S2R_M2M, szOperator) == 66, "CHATROOM_S2R_M2M.szOperator");
+
+static_assert(sizeof(CHATROOM_S2R_MEMBER) == 66, "sizeof(CHATROOM_S2R_MEMBER)");
+static_assert(offsetof(CHATROOM_S2R_MEMBER, szRoomName) == 2, "CHATROOM_S2R_MEMBER.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_MEMBER, szMember) == 34, "CHATROOM_S2R_MEMBER.szMember");
+
+static_assert(sizeof(CHATROOM_S2R_PASSWORD) == 82, "sizeof(CHATROOM_S2R_PASSWORD)");
+static_assert(offsetof(CHATROOM_S2R_PASSWORD, szRoomName) == 2, "CHATROOM_S2R_PASSWORD.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_PASSWORD, szPassword) == 34, "CHATROOM_S2R_PASSWORD.szPassword");
+static_assert(offsetof(CHATROOM_S2R_PASSWORD, szOperator) == 50, "CHATROOM_S2R_PASSWORD.szOperator");
+
+static_assert(sizeof(CHATROOM_S2R_ROOMTIME) == 70, "sizeof(CHATROOM_S2R_ROOMTIME)");
+static_assert(offsetof(CHATROOM_S2R_ROOMTIME, szRoomName) == 2, "CHATROOM_S2R_ROOMTIME.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_ROOMTIME, szMember) == 34, "CHATROOM_S2R_ROOMTIME.szMember");
+static_assert(offsetof(CHATROOM_S2R_ROOMTIME, nLifeTime) == 66, "CHATROOM_S2R_ROOMTIME.nLifeTime");
+
+static_assert(sizeof(CHATROOM_S2R_TALK) == 68, "sizeof(CHATROOM_S2R_TALK)");
+static_assert(offsetof(CHATROOM_S2R_TALK, nMsgLen) == 2, "CHATROOM_S2R_TALK.nMsgLen");
+static_assert(offsetof(CHATROOM_S2R_TALK, szRoomName) == 4, "CHATROOM_S2R_TALK.szRoomName");
+static_assert(offsetof(CHATROOM_S2R_TALK, szMember) == 36, "CHATROOM_S2R_TALK.szMember");
+
+static_assert(sizeof(CHATROOM_SBC_CLOSEROOM) == 36, "sizeof(CHATROOM_SBC_CLOSEROOM)");
+static_assert(offsetof(CHATROOM_SBC_CLOSEROOM, szRoomName) == 4, "CHATROOM_SBC_CLOSEROOM.szRoomName");
+
+static_assert(sizeof(CHATROOM_SBC_ENTERROOM) == 73, "sizeof(CHATROOM_SBC_ENTERROOM)");
+static_assert(offsetof(CHATROOM_SBC_ENTERROOM, szRoomName) == 4, "CHATROOM_SBC_ENTERROOM.szRoomName");
+static_assert(offsetof(CHATROOM_SBC_ENTERROOM, szMember) == 36, "CHATROOM_SBC_ENTERROOM.szMember");
+static_assert(offsetof(CHATROOM_SBC_ENTERROOM, nSex) == 68, "CHATROOM_SBC_ENTERROOM.nSex");
+static_assert(offsetof(CHATROOM_SBC_ENTERROOM, nLevel) == 69, "CHATROOM_SBC_ENTERROOM.nLevel");
+
+static_assert(sizeof(CHATROOM_SBC_LIFETIMECHANGE) == 40, "sizeof(CHATROOM_SBC_LIFETIMECHANGE)");
+static_assert(offsetof(CHATROOM_SBC_LIFETIMECHANGE, szRoomName) == 4, "CHATROOM_SBC_LIFETIMECHANGE.szRoomName");
+static_assert(offsetof(CHATROOM_SBC_LIFETIMECHANGE, nLifeTime) == 36, "CHATROOM_SBC_LIFETIMECHANGE.nLifeTime");
+
+static_assert(sizeof(CHATROOM_SBC_MEMBER) == 68, "sizeof(CHATROOM_SBC_MEMBER)");
+static_assert(offsetof(CHATROOM_SBC_MEMBER, szRoomName) == 4, "CHATROOM_SBC_MEMBER.szRoomName");
+static_assert(offsetof(CHATROOM_SBC_MEMBER, szMember) == 36, "CHATROOM_SBC_MEMBER.szMember");
+
+static_assert(sizeof(CHAT_CHANNELCHAT_CMD) == 15, "sizeof(CHAT_CHANNELCHAT_CMD)");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, wSize) == 1, "CHAT_CHANNELCHAT_CMD.wSize");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, packageID) == 3, "CHAT_CHANNELCHAT_CMD.packageID");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, filter) == 7, "CHAT_CHANNELCHAT_CMD.filter");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, channelid) == 8, "CHAT_CHANNELCHAT_CMD.channelid");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, cost) == 12, "CHAT_CHANNELCHAT_CMD.cost");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, sentlen) == 13, "CHAT_CHANNELCHAT_CMD.sentlen");
+static_assert(offsetof(CHAT_CHANNELCHAT_CMD, channelType) == 14, "CHAT_CHANNELCHAT_CMD.channelType");
+
+static_assert(sizeof(CHAT_DYNCHANNEL_HEAD) == 2, "sizeof(CHAT_DYNCHANNEL_HEAD)");
+static_assert(offsetof(CHAT_DYNCHANNEL_HEAD, nMessageType) == 1, "CHAT_DYNCHANNEL_HEAD.nMessageType");
+
+static_assert(sizeof(KPROTO_SCRIPTPROTOCOL) == 7, "sizeof(KPROTO_SCRIPTPROTOCOL)");
+static_assert(offsetof(KPROTO_SCRIPTPROTOCOL, wProtocol) == 3, "KPROTO_SCRIPTPROTOCOL.wProtocol");
+static_assert(offsetof(KPROTO_SCRIPTPROTOCOL, wDataSize) == 5, "KPROTO_SCRIPTPROTOCOL.wDataSize");
+
+static_assert(sizeof(S2C_TEAM_ADD_MEMBER) == 41, "sizeof(S2C_TEAM_ADD_MEMBER)");
+static_assert(offsetof(S2C_TEAM_ADD_MEMBER, btLevel) == 4, "S2C_TEAM_ADD_MEMBER.btLevel");
+static_assert(offsetof(S2C_TEAM_ADD_MEMBER, dwNpcID) == 5, "S2C_TEAM_ADD_MEMBER.dwNpcID");
+static_assert(offsetof(S2C_TEAM_ADD_MEMBER, szName) == 9, "S2C_TEAM_ADD_MEMBER.szName");
+
+static_assert(sizeof(S2C_TEAM_APPLY_ADD) == 8, "sizeof(S2C_TEAM_APPLY_ADD)");
+static_assert(offsetof(S2C_TEAM_APPLY_ADD, dwTarNpcID) == 4, "S2C_TEAM_APPLY_ADD.dwTarNpcID");
+
+static_assert(sizeof(S2C_TEAM_APPLY_INFO_FALSE) == 5, "sizeof(S2C_TEAM_APPLY_INFO_FALSE)");
+static_assert(offsetof(S2C_TEAM_APPLY_INFO_FALSE, btParam) == 4, "S2C_TEAM_APPLY_INFO_FALSE.btParam");
+
+static_assert(sizeof(S2C_TEAM_AUTO_CHANGE_CAPTAIN) == 12, "sizeof(S2C_TEAM_AUTO_CHANGE_CAPTAIN)");
+static_assert(offsetof(S2C_TEAM_AUTO_CHANGE_CAPTAIN, dwCaptainID) == 4, "S2C_TEAM_AUTO_CHANGE_CAPTAIN.dwCaptainID");
+static_assert(offsetof(S2C_TEAM_AUTO_CHANGE_CAPTAIN, dwMemberID) == 8, "S2C_TEAM_AUTO_CHANGE_CAPTAIN.dwMemberID");
+
+static_assert(sizeof(S2C_TEAM_CHANGE_CAPTAIN) == 12, "sizeof(S2C_TEAM_CHANGE_CAPTAIN)");
+static_assert(offsetof(S2C_TEAM_CHANGE_CAPTAIN, dwCaptainID) == 4, "S2C_TEAM_CHANGE_CAPTAIN.dwCaptainID");
+static_assert(offsetof(S2C_TEAM_CHANGE_CAPTAIN, dwMemberID) == 8, "S2C_TEAM_CHANGE_CAPTAIN.dwMemberID");
+
+static_assert(sizeof(S2C_TEAM_CREATE_TEAM_FALSE) == 5, "sizeof(S2C_TEAM_CREATE_TEAM_FALSE)");
+static_assert(offsetof(S2C_TEAM_CREATE_TEAM_FALSE, btErrorID) == 4, "S2C_TEAM_CREATE_TEAM_FALSE.btErrorID");
+
+static_assert(sizeof(S2C_TEAM_CREATE_TEAM_SUCCESS) == 9, "sizeof(S2C_TEAM_CREATE_TEAM_SUCCESS)");
+static_assert(offsetof(S2C_TEAM_CREATE_TEAM_SUCCESS, dwTeamServerID) == 4, "S2C_TEAM_CREATE_TEAM_SUCCESS.dwTeamServerID");
+static_assert(offsetof(S2C_TEAM_CREATE_TEAM_SUCCESS, byTeamCamp) == 8, "S2C_TEAM_CREATE_TEAM_SUCCESS.byTeamCamp");
+
+static_assert(sizeof(S2C_TEAM_INFO) == 40, "sizeof(S2C_TEAM_INFO)");
+static_assert(offsetof(S2C_TEAM_INFO, nCaptain) == 4, "S2C_TEAM_INFO.nCaptain");
+static_assert(offsetof(S2C_TEAM_INFO, nMember) == 8, "S2C_TEAM_INFO.nMember");
+static_assert(offsetof(S2C_TEAM_INFO, dwTeamServerID) == 36, "S2C_TEAM_INFO.dwTeamServerID");
+
+static_assert(sizeof(S2C_TEAM_INVITE_ADD) == 40, "sizeof(S2C_TEAM_INVITE_ADD)");
+static_assert(offsetof(S2C_TEAM_INVITE_ADD, nIdx) == 4, "S2C_TEAM_INVITE_ADD.nIdx");
+static_assert(offsetof(S2C_TEAM_INVITE_ADD, szName) == 8, "S2C_TEAM_INVITE_ADD.szName");
+
+static_assert(sizeof(S2C_TEAM_LEAVE) == 8, "sizeof(S2C_TEAM_LEAVE)");
+static_assert(offsetof(S2C_TEAM_LEAVE, dwNpcID) == 4, "S2C_TEAM_LEAVE.dwNpcID");
+
+static_assert(sizeof(S2C_TEAM_OPEN_CLOSE) == 5, "sizeof(S2C_TEAM_OPEN_CLOSE)");
+static_assert(offsetof(S2C_TEAM_OPEN_CLOSE, btOpenClose) == 4, "S2C_TEAM_OPEN_CLOSE.btOpenClose");
+
+static_assert(sizeof(S2C_TEAM_SELF_INFO) == 309, "sizeof(S2C_TEAM_SELF_INFO)");
+static_assert(offsetof(S2C_TEAM_SELF_INFO, btState) == 4, "S2C_TEAM_SELF_INFO.btState");
+static_assert(offsetof(S2C_TEAM_SELF_INFO, dwNpcID) == 5, "S2C_TEAM_SELF_INFO.dwNpcID");
+static_assert(offsetof(S2C_TEAM_SELF_INFO, szNpcName) == 37, "S2C_TEAM_SELF_INFO.szNpcName");
+static_assert(offsetof(S2C_TEAM_SELF_INFO, dwTeamServerID) == 293, "S2C_TEAM_SELF_INFO.dwTeamServerID");
+static_assert(offsetof(S2C_TEAM_SELF_INFO, dwLeadExp) == 297, "S2C_TEAM_SELF_INFO.dwLeadExp");
+static_assert(offsetof(S2C_TEAM_SELF_INFO, btLevel) == 301, "S2C_TEAM_SELF_INFO.btLevel");
+
+static_assert(sizeof(S2C_TEAM_TEAMMATE_LEVEL) == 9, "sizeof(S2C_TEAM_TEAMMATE_LEVEL)");
+static_assert(offsetof(S2C_TEAM_TEAMMATE_LEVEL, btLevel) == 4, "S2C_TEAM_TEAMMATE_LEVEL.btLevel");
+static_assert(offsetof(S2C_TEAM_TEAMMATE_LEVEL, dwTeammateID) == 5, "S2C_TEAM_TEAMMATE_LEVEL.dwTeammateID");
+
+static_assert(sizeof(TLockAccount) == 37, "sizeof(TLockAccount)");
+static_assert(offsetof(TLockAccount, dwTimeout) == 33, "TLockAccount.dwTimeout");
+
+static_assert(sizeof(TRoleNameChangeResult) == 98, "sizeof(TRoleNameChangeResult)");
+static_assert(offsetof(TRoleNameChangeResult, nResult) == 97, "TRoleNameChangeResult.nResult");
+
+static_assert(sizeof(TRoleNameQueryResult) == 102, "sizeof(TRoleNameQueryResult)");
+static_assert(offsetof(TRoleNameQueryResult, nResult) == 101, "TRoleNameQueryResult.nResult");
+
+static_assert(sizeof(TongPort_TongAnnouncement) == 1033, "sizeof(TongPort_TongAnnouncement)");
+static_assert(offsetof(TongPort_TongAnnouncement, dwTongID) == 5, "TongPort_TongAnnouncement.dwTongID");
+static_assert(offsetof(TongPort_TongAnnouncement, szAnnouncement) == 9, "TongPort_TongAnnouncement.szAnnouncement");
+
+static_assert(sizeof(TongPort_TongRecordListInfo) == 6811, "sizeof(TongPort_TongRecordListInfo)");
+static_assert(offsetof(TongPort_TongRecordListInfo, sData) == 5, "TongPort_TongRecordListInfo.sData");
+
+static_assert(sizeof(TongPort_TongWeekGoalInfo) == 69, "sizeof(TongPort_TongWeekGoalInfo)");
+static_assert(offsetof(TongPort_TongWeekGoalInfo, sData) == 5, "TongPort_TongWeekGoalInfo.sData");
+
+static_assert(sizeof(TongProt_FigureCount) == 26, "sizeof(TongProt_FigureCount)");
+static_assert(offsetof(TongProt_FigureCount, sData) == 5, "TongProt_FigureCount.sData");
+
+static_assert(sizeof(TongProt_FigureMember) == 235, "sizeof(TongProt_FigureMember)");
+static_assert(offsetof(TongProt_FigureMember, sData) == 5, "TongProt_FigureMember.sData");
+
+static_assert(sizeof(TongProt_MemberBase) == 910, "sizeof(TongProt_MemberBase)");
+static_assert(offsetof(TongProt_MemberBase, sData) == 5, "TongProt_MemberBase.sData");
+
+static_assert(sizeof(TongProt_MemberInfo) == 73, "sizeof(TongProt_MemberInfo)");
+static_assert(offsetof(TongProt_MemberInfo, sData) == 5, "TongProt_MemberInfo.sData");
+
+static_assert(sizeof(TongProt_MemberPageData) == 245, "sizeof(TongProt_MemberPageData)");
+static_assert(offsetof(TongProt_MemberPageData, sData) == 5, "TongProt_MemberPageData.sData");
+
+static_assert(sizeof(TongProt_MemberRight) == 6, "sizeof(TongProt_MemberRight)");
+static_assert(offsetof(TongProt_MemberRight, sData) == 5, "TongProt_MemberRight.sData");
+
+static_assert(sizeof(TongProt_MemberTask) == 11, "sizeof(TongProt_MemberTask)");
+static_assert(offsetof(TongProt_MemberTask, sData) == 5, "TongProt_MemberTask.sData");
+
+static_assert(sizeof(TongProt_SelfMemberMixData) == 9, "sizeof(TongProt_SelfMemberMixData)");
+static_assert(offsetof(TongProt_SelfMemberMixData, sData) == 5, "TongProt_SelfMemberMixData.sData");
+
+static_assert(sizeof(TongProt_TongBase) == 906, "sizeof(TongProt_TongBase)");
+static_assert(offsetof(TongProt_TongBase, sData) == 5, "TongProt_TongBase.sData");
+
+static_assert(sizeof(TongProt_TongInfo) == 244, "sizeof(TongProt_TongInfo)");
+static_assert(offsetof(TongProt_TongInfo, sData) == 5, "TongProt_TongInfo.sData");
+
+static_assert(sizeof(TongProt_TongOneData) == 11, "sizeof(TongProt_TongOneData)");
+static_assert(offsetof(TongProt_TongOneData, sData) == 5, "TongProt_TongOneData.sData");
+
+static_assert(sizeof(TongProt_TongPageData) == 365, "sizeof(TongProt_TongPageData)");
+static_assert(offsetof(TongProt_TongPageData, sData) == 5, "TongProt_TongPageData.sData");
+
+static_assert(sizeof(TongProt_UnionBase) == 931, "sizeof(TongProt_UnionBase)");
+static_assert(offsetof(TongProt_UnionBase, sData) == 5, "TongProt_UnionBase.sData");
+
+static_assert(sizeof(TongProt_UnionPageData) == 465, "sizeof(TongProt_UnionPageData)");
+static_assert(offsetof(TongProt_UnionPageData, sData) == 5, "TongProt_UnionPageData.sData");
+
+static_assert(sizeof(TongProt_UnionTongList) == 120, "sizeof(TongProt_UnionTongList)");
+static_assert(offsetof(TongProt_UnionTongList, sData) == 5, "TongProt_UnionTongList.sData");
+
+static_assert(sizeof(TongProt_WorkshopInfo) == 28, "sizeof(TongProt_WorkshopInfo)");
+static_assert(offsetof(TongProt_WorkshopInfo, sData) == 5, "TongProt_WorkshopInfo.sData");
+
+static_assert(sizeof(tagAllCitySummary) == 4, "sizeof(tagAllCitySummary)");
+static_assert(offsetof(tagAllCitySummary, byCount) == 3, "tagAllCitySummary.byCount");
+
 static_assert(sizeof(tagGatewayBroadCast) == 269, "sizeof(tagGatewayBroadCast)");
 static_assert(offsetof(tagGatewayBroadCast, uCmdType) == 5, "tagGatewayBroadCast.uCmdType");
 static_assert(offsetof(tagGatewayBroadCast, szData) == 9, "tagGatewayBroadCast.szData");
@@ -2245,6 +3244,18 @@ static_assert(offsetof(tagGuidableInfo, sAccountInfo) == 21, "tagGuidableInfo.sA
 static_assert(offsetof(tagGuidableInfo, datalength) == 105, "tagGuidableInfo.datalength");
 static_assert(offsetof(tagGuidableInfo, szData) == 109, "tagGuidableInfo.szData");
 
+static_assert(sizeof(tagKIB_BuyItemProtocol) == 61, "sizeof(tagKIB_BuyItemProtocol)");
+static_assert(offsetof(tagKIB_BuyItemProtocol, info) == 1, "tagKIB_BuyItemProtocol.info");
+
+static_assert(sizeof(tagKIB_BuyItemResultProtocol) == 65, "sizeof(tagKIB_BuyItemResultProtocol)");
+static_assert(offsetof(tagKIB_BuyItemResultProtocol, result) == 1, "tagKIB_BuyItemResultProtocol.result");
+
+static_assert(sizeof(tagKIB_UseItemProtocol) == 53, "sizeof(tagKIB_UseItemProtocol)");
+static_assert(offsetof(tagKIB_UseItemProtocol, info) == 1, "tagKIB_UseItemProtocol.info");
+
+static_assert(sizeof(tagKIB_UseItemResultProtocol) == 57, "sizeof(tagKIB_UseItemResultProtocol)");
+static_assert(offsetof(tagKIB_UseItemResultProtocol, result) == 1, "tagKIB_UseItemResultProtocol.result");
+
 static_assert(sizeof(tagOfflineKickoutAsk) == 41, "sizeof(tagOfflineKickoutAsk)");
 static_assert(offsetof(tagOfflineKickoutAsk, szAccount) == 5, "tagOfflineKickoutAsk.szAccount");
 static_assert(offsetof(tagOfflineKickoutAsk, nIndex) == 37, "tagOfflineKickoutAsk.nIndex");
@@ -2254,7 +3265,156 @@ static_assert(offsetof(tagOfflineKickoutRes, szAccount) == 5, "tagOfflineKickout
 static_assert(offsetof(tagOfflineKickoutRes, nResult) == 37, "tagOfflineKickoutRes.nResult");
 static_assert(offsetof(tagOfflineKickoutRes, nExtPoint) == 38, "tagOfflineKickoutRes.nExtPoint");
 
+static_assert(sizeof(tagOfflineRequestAsk) == 73, "sizeof(tagOfflineRequestAsk)");
+static_assert(offsetof(tagOfflineRequestAsk, dwMapId) == 65, "tagOfflineRequestAsk.dwMapId");
+static_assert(offsetof(tagOfflineRequestAsk, nIndex) == 69, "tagOfflineRequestAsk.nIndex");
+
+static_assert(sizeof(tagOfflineRequestRes) == 71, "sizeof(tagOfflineRequestRes)");
+static_assert(offsetof(tagOfflineRequestRes, nResult) == 65, "tagOfflineRequestRes.nResult");
+static_assert(offsetof(tagOfflineRequestRes, nReason) == 66, "tagOfflineRequestRes.nReason");
+static_assert(offsetof(tagOfflineRequestRes, dwLeftTime) == 67, "tagOfflineRequestRes.dwLeftTime");
+
+static_assert(sizeof(tagOfflineTimeoutRes) == 69, "sizeof(tagOfflineTimeoutRes)");
+static_assert(offsetof(tagOfflineTimeoutRes, nExtPoint) == 65, "tagOfflineTimeoutRes.nExtPoint");
+
 static_assert(sizeof(tagPermitPlayerLogin) == 54, "sizeof(tagPermitPlayerLogin)");
 static_assert(offsetof(tagPermitPlayerLogin, guid) == 5, "tagPermitPlayerLogin.guid");
 static_assert(offsetof(tagPermitPlayerLogin, szRoleName) == 21, "tagPermitPlayerLogin.szRoleName");
 static_assert(offsetof(tagPermitPlayerLogin, bPermit) == 53, "tagPermitPlayerLogin.bPermit");
+
+static_assert(sizeof(tagProtocolExtendHeader) == 4, "sizeof(tagProtocolExtendHeader)");
+static_assert(offsetof(tagProtocolExtendHeader, m_bySubProtocolType) == 3, "tagProtocolExtendHeader.m_bySubProtocolType");
+
+static_assert(sizeof(tagSALE_ITEMBUSSINESS) == 53, "sizeof(tagSALE_ITEMBUSSINESS)");
+static_assert(offsetof(tagSALE_ITEMBUSSINESS, nShopType) == 13, "tagSALE_ITEMBUSSINESS.nShopType");
+static_assert(offsetof(tagSALE_ITEMBUSSINESS, nRev) == 17, "tagSALE_ITEMBUSSINESS.nRev");
+static_assert(offsetof(tagSALE_ITEMBUSSINESS, szShopName) == 21, "tagSALE_ITEMBUSSINESS.szShopName");
+
+static_assert(sizeof(tagSetHighLightPos) == 87, "sizeof(tagSetHighLightPos)");
+static_assert(offsetof(tagSetHighLightPos, dwTimeTick) == 15, "tagSetHighLightPos.dwTimeTick");
+static_assert(offsetof(tagSetHighLightPos, nPicID) == 19, "tagSetHighLightPos.nPicID");
+static_assert(offsetof(tagSetHighLightPos, szMsg) == 23, "tagSetHighLightPos.szMsg");
+
+static_assert(sizeof(tagTellFlagPos) == 79, "sizeof(tagTellFlagPos)");
+static_assert(offsetof(tagTellFlagPos, szMsg) == 15, "tagTellFlagPos.szMsg");
+
+static_assert(sizeof(tagUseSpreaderCDKey) == 69, "sizeof(tagUseSpreaderCDKey)");
+static_assert(offsetof(tagUseSpreaderCDKey, szAccountName) == 1, "tagUseSpreaderCDKey.szAccountName");
+static_assert(offsetof(tagUseSpreaderCDKey, szCDKey) == 33, "tagUseSpreaderCDKey.szCDKey");
+static_assert(offsetof(tagUseSpreaderCDKey, nPlayerDataIndex) == 65, "tagUseSpreaderCDKey.nPlayerDataIndex");
+
+static_assert(sizeof(tagUseSpreaderCDKeyRet) == 41, "sizeof(tagUseSpreaderCDKeyRet)");
+static_assert(offsetof(tagUseSpreaderCDKeyRet, szAccountName) == 1, "tagUseSpreaderCDKeyRet.szAccountName");
+static_assert(offsetof(tagUseSpreaderCDKeyRet, nPlayerDataIndex) == 33, "tagUseSpreaderCDKeyRet.nPlayerDataIndex");
+static_assert(offsetof(tagUseSpreaderCDKeyRet, nResult) == 37, "tagUseSpreaderCDKeyRet.nResult");
+
+static_assert(sizeof(CHAT_DYNCHANNEL_FINIMSG) == 4, "sizeof(CHAT_DYNCHANNEL_FINIMSG)");
+static_assert(offsetof(CHAT_DYNCHANNEL_FINIMSG, wChannelID) == 2, "CHAT_DYNCHANNEL_FINIMSG.wChannelID");
+
+static_assert(sizeof(CHAT_DYNCHANNEL_RECVMSG) == 6, "sizeof(CHAT_DYNCHANNEL_RECVMSG)");
+static_assert(offsetof(CHAT_DYNCHANNEL_RECVMSG, wChannelID) == 2, "CHAT_DYNCHANNEL_RECVMSG.wChannelID");
+static_assert(offsetof(CHAT_DYNCHANNEL_RECVMSG, wMessageLeng) == 4, "CHAT_DYNCHANNEL_RECVMSG.wMessageLeng");
+
+static_assert(sizeof(CHAT_DYNCHANNEL_SENDMSG) == 38, "sizeof(CHAT_DYNCHANNEL_SENDMSG)");
+static_assert(offsetof(CHAT_DYNCHANNEL_SENDMSG, wChannelID) == 2, "CHAT_DYNCHANNEL_SENDMSG.wChannelID");
+static_assert(offsetof(CHAT_DYNCHANNEL_SENDMSG, szSpeakerName) == 4, "CHAT_DYNCHANNEL_SENDMSG.szSpeakerName");
+static_assert(offsetof(CHAT_DYNCHANNEL_SENDMSG, wMessageLeng) == 36, "CHAT_DYNCHANNEL_SENDMSG.wMessageLeng");
+
+static_assert(sizeof(CHAT_DYNCHANNEL_SYNCMSG) == 266, "sizeof(CHAT_DYNCHANNEL_SYNCMSG)");
+static_assert(offsetof(CHAT_DYNCHANNEL_SYNCMSG, wChannelID) == 2, "CHAT_DYNCHANNEL_SYNCMSG.wChannelID");
+static_assert(offsetof(CHAT_DYNCHANNEL_SYNCMSG, wIconIndex) == 4, "CHAT_DYNCHANNEL_SYNCMSG.wIconIndex");
+static_assert(offsetof(CHAT_DYNCHANNEL_SYNCMSG, szChannelName) == 6, "CHAT_DYNCHANNEL_SYNCMSG.szChannelName");
+
+static_assert(sizeof(FIGHT_PARTNER_SIMPLE_INFO_1) == 9, "sizeof(FIGHT_PARTNER_SIMPLE_INFO_1)");
+static_assert(offsetof(FIGHT_PARTNER_SIMPLE_INFO_1, m_dwID) == 4, "FIGHT_PARTNER_SIMPLE_INFO_1.m_dwID");
+static_assert(offsetof(FIGHT_PARTNER_SIMPLE_INFO_1, m_byInfo) == 8, "FIGHT_PARTNER_SIMPLE_INFO_1.m_byInfo");
+
+static_assert(sizeof(FIGHT_PARTNER_SIMPLE_INFO_2) == 10, "sizeof(FIGHT_PARTNER_SIMPLE_INFO_2)");
+static_assert(offsetof(FIGHT_PARTNER_SIMPLE_INFO_2, m_dwID) == 4, "FIGHT_PARTNER_SIMPLE_INFO_2.m_dwID");
+
+static_assert(sizeof(FIGHT_PARTNER_SIMPLE_INFO_4) == 12, "sizeof(FIGHT_PARTNER_SIMPLE_INFO_4)");
+static_assert(offsetof(FIGHT_PARTNER_SIMPLE_INFO_4, m_dwID) == 4, "FIGHT_PARTNER_SIMPLE_INFO_4.m_dwID");
+
+static_assert(sizeof(FIGHT_PARTNER_SKILL_SYNC) == 15, "sizeof(FIGHT_PARTNER_SKILL_SYNC)");
+static_assert(offsetof(FIGHT_PARTNER_SKILL_SYNC, m_dwID) == 4, "FIGHT_PARTNER_SKILL_SYNC.m_dwID");
+static_assert(offsetof(FIGHT_PARTNER_SKILL_SYNC, m_bySkillType) == 8, "FIGHT_PARTNER_SKILL_SYNC.m_bySkillType");
+static_assert(offsetof(FIGHT_PARTNER_SKILL_SYNC, m_wSkillID) == 9, "FIGHT_PARTNER_SKILL_SYNC.m_wSkillID");
+static_assert(offsetof(FIGHT_PARTNER_SKILL_SYNC, m_wSkillLevel) == 11, "FIGHT_PARTNER_SKILL_SYNC.m_wSkillLevel");
+static_assert(offsetof(FIGHT_PARTNER_SKILL_SYNC, m_wSkillExpPercent) == 13, "FIGHT_PARTNER_SKILL_SYNC.m_wSkillExpPercent");
+
+static_assert(sizeof(FIGHT_PARTNER_SYNC_ALL) == 105, "sizeof(FIGHT_PARTNER_SYNC_ALL)");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_dwID) == 4, "FIGHT_PARTNER_SYNC_ALL.m_dwID");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wEssentialPartnerID) == 8, "FIGHT_PARTNER_SYNC_ALL.m_wEssentialPartnerID");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_dwCurNpcSettingIdx) == 10, "FIGHT_PARTNER_SYNC_ALL.m_dwCurNpcSettingIdx");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_bySeries) == 14, "FIGHT_PARTNER_SYNC_ALL.m_bySeries");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wLevel) == 15, "FIGHT_PARTNER_SYNC_ALL.m_wLevel");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_dwCurLife) == 17, "FIGHT_PARTNER_SYNC_ALL.m_dwCurLife");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_szName) == 21, "FIGHT_PARTNER_SYNC_ALL.m_szName");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byCharacter) == 53, "FIGHT_PARTNER_SYNC_ALL.m_byCharacter");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_dwCurExp) == 54, "FIGHT_PARTNER_SYNC_ALL.m_dwCurExp");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byCurEmotionDegree) == 58, "FIGHT_PARTNER_SYNC_ALL.m_byCurEmotionDegree");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byCurMaxEmotionDegree) == 59, "FIGHT_PARTNER_SYNC_ALL.m_byCurMaxEmotionDegree");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byCurVigour) == 60, "FIGHT_PARTNER_SYNC_ALL.m_byCurVigour");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byCurMaxVigour) == 61, "FIGHT_PARTNER_SYNC_ALL.m_byCurMaxVigour");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byLifeAptitude) == 62, "FIGHT_PARTNER_SYNC_ALL.m_byLifeAptitude");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byStrengthAptitude) == 63, "FIGHT_PARTNER_SYNC_ALL.m_byStrengthAptitude");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byHitTargetRateAptitude) == 64, "FIGHT_PARTNER_SYNC_ALL.m_byHitTargetRateAptitude");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byDefenceAptitude) == 65, "FIGHT_PARTNER_SYNC_ALL.m_byDefenceAptitude");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_bySpeedAptitude) == 66, "FIGHT_PARTNER_SYNC_ALL.m_bySpeedAptitude");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_byLuckAptitude) == 67, "FIGHT_PARTNER_SYNC_ALL.m_byLuckAptitude");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_dwLifeAttrib) == 68, "FIGHT_PARTNER_SYNC_ALL.m_dwLifeAttrib");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wStrengthAttrib) == 72, "FIGHT_PARTNER_SYNC_ALL.m_wStrengthAttrib");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wHitTargetRateAttrib) == 74, "FIGHT_PARTNER_SYNC_ALL.m_wHitTargetRateAttrib");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wDefenceAttrib) == 76, "FIGHT_PARTNER_SYNC_ALL.m_wDefenceAttrib");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wSpeedAttrib) == 78, "FIGHT_PARTNER_SYNC_ALL.m_wSpeedAttrib");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wLuckAttrib) == 80, "FIGHT_PARTNER_SYNC_ALL.m_wLuckAttrib");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_arydwStandbySkillID) == 82, "FIGHT_PARTNER_SYNC_ALL.m_arydwStandbySkillID");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_bySkillCount) == 102, "FIGHT_PARTNER_SYNC_ALL.m_bySkillCount");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_ALL, m_wTaskValueCount) == 103, "FIGHT_PARTNER_SYNC_ALL.m_wTaskValueCount");
+
+static_assert(sizeof(FIGHT_PARTNER_SYNC_MIN) == 12, "sizeof(FIGHT_PARTNER_SYNC_MIN)");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_MIN, m_dwID) == 4, "FIGHT_PARTNER_SYNC_MIN.m_dwID");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_MIN, m_byAttackSpeed) == 8, "FIGHT_PARTNER_SYNC_MIN.m_byAttackSpeed");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_MIN, m_byCastSpeed) == 9, "FIGHT_PARTNER_SYNC_MIN.m_byCastSpeed");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_MIN, m_byMoveSpeed) == 10, "FIGHT_PARTNER_SYNC_MIN.m_byMoveSpeed");
+static_assert(offsetof(FIGHT_PARTNER_SYNC_MIN, m_nFightFlag) == 11, "FIGHT_PARTNER_SYNC_MIN.m_nFightFlag");
+
+static_assert(sizeof(KPROTOCS_NW_INSTATE) == 38, "sizeof(KPROTOCS_NW_INSTATE)");
+static_assert(offsetof(KPROTOCS_NW_INSTATE, byInstate) == 4, "KPROTOCS_NW_INSTATE.byInstate");
+static_assert(offsetof(KPROTOCS_NW_INSTATE, szMember) == 5, "KPROTOCS_NW_INSTATE.szMember");
+static_assert(offsetof(KPROTOCS_NW_INSTATE, byPosition) == 37, "KPROTOCS_NW_INSTATE.byPosition");
+
+static_assert(sizeof(KPROTOCS_NW_KICKOUT) == 8, "sizeof(KPROTOCS_NW_KICKOUT)");
+static_assert(offsetof(KPROTOCS_NW_KICKOUT, dwNpcID) == 4, "KPROTOCS_NW_KICKOUT.dwNpcID");
+
+static_assert(sizeof(KPROTOSC_NW_POSITON) == 9, "sizeof(KPROTOSC_NW_POSITON)");
+static_assert(offsetof(KPROTOSC_NW_POSITON, byPosition) == 4, "KPROTOSC_NW_POSITON.byPosition");
+static_assert(offsetof(KPROTOSC_NW_POSITON, dwMemberID) == 5, "KPROTOSC_NW_POSITON.dwMemberID");
+
+static_assert(sizeof(KPROTOSC_NW_SYNCEMPEROR) == 41, "sizeof(KPROTOSC_NW_SYNCEMPEROR)");
+static_assert(offsetof(KPROTOSC_NW_SYNCEMPEROR, bySide) == 4, "KPROTOSC_NW_SYNCEMPEROR.bySide");
+static_assert(offsetof(KPROTOSC_NW_SYNCEMPEROR, dwTongID) == 5, "KPROTOSC_NW_SYNCEMPEROR.dwTongID");
+static_assert(offsetof(KPROTOSC_NW_SYNCEMPEROR, szEmperor) == 9, "KPROTOSC_NW_SYNCEMPEROR.szEmperor");
+
+static_assert(sizeof(KPROTOSC_NW_SYNCNATIONTITLE) == 36, "sizeof(KPROTOSC_NW_SYNCNATIONTITLE)");
+static_assert(offsetof(KPROTOSC_NW_SYNCNATIONTITLE, szTitle) == 4, "KPROTOSC_NW_SYNCNATIONTITLE.szTitle");
+
+static_assert(sizeof(MIX_PROTOCOL) == 132, "sizeof(MIX_PROTOCOL)");
+
+static_assert(sizeof(PARTNER_CTRL_INFO) == 5, "sizeof(PARTNER_CTRL_INFO)");
+
+static_assert(sizeof(PARTNER_NAME_SYNC) == 40, "sizeof(PARTNER_NAME_SYNC)");
+static_assert(offsetof(PARTNER_NAME_SYNC, m_dwID) == 4, "PARTNER_NAME_SYNC.m_dwID");
+static_assert(offsetof(PARTNER_NAME_SYNC, m_szName) == 8, "PARTNER_NAME_SYNC.m_szName");
+
+static_assert(sizeof(PARTNER_SIMPLE_INFO_1) == 5, "sizeof(PARTNER_SIMPLE_INFO_1)");
+static_assert(offsetof(PARTNER_SIMPLE_INFO_1, m_byInfo) == 4, "PARTNER_SIMPLE_INFO_1.m_byInfo");
+
+static_assert(sizeof(PARTNER_SIMPLE_INFO_2) == 6, "sizeof(PARTNER_SIMPLE_INFO_2)");
+
+static_assert(sizeof(PARTNER_SIMPLE_INFO_4) == 8, "sizeof(PARTNER_SIMPLE_INFO_4)");
+
+static_assert(sizeof(PARTNER_TASK_VALUE_SYNC) == 14, "sizeof(PARTNER_TASK_VALUE_SYNC)");
+static_assert(offsetof(PARTNER_TASK_VALUE_SYNC, m_dwID) == 4, "PARTNER_TASK_VALUE_SYNC.m_dwID");
+static_assert(offsetof(PARTNER_TASK_VALUE_SYNC, m_wTaskID) == 8, "PARTNER_TASK_VALUE_SYNC.m_wTaskID");
+static_assert(offsetof(PARTNER_TASK_VALUE_SYNC, m_dwTaskValue) == 10, "PARTNER_TASK_VALUE_SYNC.m_dwTaskValue");

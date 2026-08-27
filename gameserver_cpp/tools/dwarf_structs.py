@@ -70,6 +70,19 @@ KEEP_FULL = KEEP | frozenset((TAG_base, TAG_pointer, TAG_array, TAG_enum))
 # skips it is missing the byte at offset 0.
 CHILD_TAGS = frozenset((TAG_member, TAG_inheritance))
 
+# The roots of the packet set. Everything reaching one of these by inheritance,
+# at any depth, is a packet.
+#
+# The first three are the general headers. The last four are subsystem headers
+# that express the same thing without inheriting anything: their offset 0 is a
+# plain `BYTE ProtocolType` member. They are roots because nothing above them
+# is, not because they are a different kind of thing.
+DEFAULT_BASES = (
+    "tagProtocolHeader", "tagProtocolHeader2", "EXTEND_HEADER",
+    "stallprotocol_header", "AUCTION_PROTOCOLHEADER",
+    "KILLER_PROTOCOLHEADER", "CITYWAR_PROTOCOLHEADER",
+)
+
 # Forms whose encoded length does not depend on the value. Everything else
 # (blocks, strings, LEB128) has to be decoded to find its end.
 FIXED_FORM = {
@@ -291,9 +304,9 @@ def type_name(ref, local, depth=0, rename=None):
     if t.tag == TAG_volatile:
         return "volatile " + type_name(t.type, local, depth + 1, rename)
     if t.tag == TAG_array:
-        n = array_count(t)
         inner = type_name(t.type, local, depth + 1, rename)
-        return f"{inner}[{'' if n is None else n}]"
+        dims = "".join(f"[{'' if d is None else d}]" for d in array_dims(t))
+        return inner + dims
     if rename and ref in rename:
         return rename[ref]
     if t.name:
@@ -302,17 +315,30 @@ def type_name(ref, local, depth=0, rename=None):
             TAG_class: "class <anon>", TAG_enum: "enum <anon>"}.get(t.tag, "?")
 
 
-def array_count(t):
-    """Element count of an array DIE, or None for a flexible array.
+def array_dims(t):
+    """Extents of an array DIE, outermost first. None means unsized.
 
-    GCC records the extent as a subrange child carrying DW_AT_upper_bound. When
-    the bound is absent the array is unsized -- the trailing `BYTE data[]` that
-    JX uses for variable-length packets, which contributes zero to sizeof.
+    GCC records each extent as a subrange child carrying DW_AT_upper_bound, and
+    it puts *all* of them under one array DIE: `char x[32][20]` is a single DIE
+    with two subranges, not an array of arrays. Reading only the first is how
+    BATTLE_NEW_ROUND_R2G came out 640 bytes short of its sizeof.
+
+    An absent bound is an unsized array -- the trailing `BYTE data[]` that JX
+    uses for variable-length packets, which contributes zero to sizeof.
     """
     if not t.fields:
-        return None
-    ub = t.fields[0][1]
-    return None if ub is None else ub + 1
+        return [None]
+    return [None if ub is None else ub + 1 for _, ub, _ in t.fields]
+
+
+def array_count(t):
+    """Total element count of an array DIE, or None if any extent is unsized."""
+    n = 1
+    for d in array_dims(t):
+        if d is None:
+            return None
+        n *= d
+    return n
 
 
 def type_size(ref, local, depth=0):
@@ -482,6 +508,8 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
                         alias.setdefault(die.type, die.name)
 
             found = []            # (name, off, die, base) for this CU's packets
+            derived = {}          # off -> (die, [base names]) for the closure
+            claimed = set()
             for off, die in local.items():
                 if all_enums and die.tag == TAG_enum and die.name and die.fields:
                     enums.setdefault(die.name, (die.size, list(die.fields)))
@@ -491,18 +519,44 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
                     layouts.setdefault(die.name, resolve(die.fields, local))
                 if not find_packets or die.size is None:
                     continue
-                # A packet is any struct inheriting from a protocol header base.
-                # That is the binary's own definition of the set, which is why
-                # it finds packets the Windows headers never had.
-                first = die.fields[0]
-                if first[0] != "(base)":
-                    continue
-                base = type_name(first[2], local)
-                if base not in packet_bases:
-                    continue
-                key = die.name or alias.get(off)
-                if key:
-                    found.append((key, off, die, base))
+                bases = [type_name(f[2], local)
+                         for f in die.fields if f[0] == "(base)"]
+                if bases:
+                    derived[off] = (die, bases)
+
+            # A packet is any struct that reaches a protocol header base by
+            # inheritance -- at any depth, through any of its bases.
+            #
+            # Depth matters more than it looks. Only a minority inherit a header
+            # directly; the rest go through a family header that does, and those
+            # chains run three deep:
+            #
+            #   CHATROOM_S2C_ROOM : CHATROOM_S2C_HEAD : tagProtocolHeader
+            #   AUCTION_JOIN_G2R  : AUCTION_RELAYHEADER_G2R : EXTEND_HEADER
+            #
+            # Checking one level found 377 packets and missed 91.
+            #
+            # A CU is closed under this: a complete struct definition requires
+            # complete definitions of its bases, so any chain that exists is
+            # visible here. No second pass over the file is needed.
+            roots = set(packet_bases)
+            settled = False
+            while not settled:
+                settled = True
+                for off, (die, bases) in derived.items():
+                    if off in claimed:
+                        continue
+                    base = next((b for b in bases if b in roots), None)
+                    if base is None:
+                        continue
+                    claimed.add(off)
+                    settled = False
+                    key = die.name or alias.get(off)
+                    if key:
+                        found.append((key, off, die, base))
+                    # Whatever derives from a header is a header for whatever
+                    # derives from it.
+                    roots.update(n for n in (die.name, alias.get(off)) if n)
 
             if found:
                 closure, rename = walk_closure(found, local, alias)
@@ -709,17 +763,15 @@ def main():
                          "not only the ones a packet field refers to")
     ap.add_argument("--packet-base", action="append", default=None,
                     metavar="TYPE",
-                    help="base type that marks a struct as a packet "
-                         "(default: tagProtocolHeader, tagProtocolHeader2, "
-                         "EXTEND_HEADER)")
+                    help="base type that marks a struct as a packet, matched "
+                         "transitively (default: %s)" % ", ".join(DEFAULT_BASES))
     ap.add_argument("--verify", action="store_true",
                     help="check every extracted packet layout for internal "
                          "consistency (implies --packets on a temp table)")
     ap.add_argument("-q", "--quiet", action="store_true")
     args = ap.parse_args()
 
-    bases = set(args.packet_base or
-                ("tagProtocolHeader", "tagProtocolHeader2", "EXTEND_HEADER"))
+    bases = set(args.packet_base or DEFAULT_BASES)
 
     sections = read_sections(args.binary)
     if ".debug_info" not in sections:

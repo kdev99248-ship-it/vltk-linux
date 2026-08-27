@@ -4,7 +4,7 @@
 // Windows headers, which are wrong for 44% of the structs both trees
 // define and missing 236 of the packets this server sends.
 //
-// 412 types, 1827 fields.
+// 661 types, 2722 fields.
 // Sizes and offsets are asserted in src/protocol/jx_layout.cpp.
 
 #ifndef JX_PROTOCOL_H
@@ -85,9 +85,44 @@ static_assert(sizeof(MiniMapObjType) == 4, "MiniMapObjType");
 
 #pragma pack(push, 1)
 
+struct AUCTION_PROTOCOLHEADER {
+    BYTE ProtocolType;
+    WORD wProcotolSize;
+    BYTE auctionProtocolType;
+};
+
+struct CITYWAR_PROTOCOLHEADER {
+    BYTE ProtocolType;
+    WORD wProcotolSize;
+    BYTE CityWarProtocolType;
+};
+
+struct CITYWAR_TAXRATES {
+    DWORD dwExchangeTax;
+    DWORD dwPriceParameter;
+};
+
 struct EXTEND_HEADER {
     BYTE ProtocolFamily;
     BYTE ProtocolID;
+};
+
+struct FIGHT_PARTNER_SIMPLE_INFO_2_u {
+    BYTE m_byInfo[2];
+    WORD m_wInfo;
+    BYTE _jxpad_0[2];   // trailing padding: this struct is not pack(1) upstream
+};
+
+struct FIGHT_PARTNER_SIMPLE_INFO_4_u {
+    BYTE m_byInfo[4];
+    WORD m_wInfo[2];
+    DWORD m_dwInfo;
+    BYTE _jxpad_0[4];   // trailing padding: this struct is not pack(1) upstream
+};
+
+struct GSTongInfo {
+    int nCamp;
+    char szTongUnionName[32];
 };
 
 struct KACCOUNT_LIMITTIME_INFO {
@@ -105,6 +140,12 @@ struct KEMPIRE_DATA {
     DWORD dwGoodness;
     DWORD dwBadness;
     DWORD dwBeginTime;
+};
+
+struct KILLER_PROTOCOLHEADER {
+    BYTE ProtocolType;
+    WORD wProcotolSize;
+    BYTE killerProtocolType;
 };
 
 struct KMagicAttrib {
@@ -151,6 +192,47 @@ struct KSTAT_DATA_MODIFY {
     int64_t nValue;
 };
 
+struct KTongBaseData {
+    DWORD dwValue;
+    char szTongName[10];
+};
+
+struct KTongInfo {
+    char szName[32];
+    char szMasterName[32];
+    DWORD dwMasterID;
+    BYTE btSelfCamp;
+    INT64 llMoneyFund;
+    DWORD dwExpLevel;
+    BYTE btUnionLeader;
+    BYTE btUnionNum;
+    char szUnionName[32];
+    WORD nMemberCount;
+    WORD nManagerCount;
+    WORD nDirectorCount;
+    char szMaleTitle[32];
+    char szFemaleTitle[32];
+};
+
+struct KTongMemberBaseData {
+    DWORD dwMemberID;
+    DWORD dwValue;
+    BYTE btFlags;
+};
+
+struct KTongUnionBaseData {
+    DWORD dwValue;
+    DWORD dwLeaderID;
+    char szUnionName[10];
+};
+
+struct KUnionTongList {
+    char szUnionName[10];
+    DWORD dwLeaderID;
+    BYTE btCount;
+    DWORD arTongID[25];
+};
+
 struct KZhaoMuInfo {
     BYTE byQingXiang;
     BYTE byActivity[4];
@@ -166,14 +248,53 @@ struct LocalDispatchMsgChannel {
     DWORD dwMsgInterval;
 };
 
+struct MEMBER_SELF_MIX_DATA {
+    DWORD dwLWeekGoalOffer;
+};
+
+struct MIX_PROTOCOL_u {
+    BYTE btData[1];
+    DWORD dwData[1];
+    char szReserve[128];
+    BYTE _jxpad_0[128];   // trailing padding: this struct is not pack(1) upstream
+};
+
 struct MapIdIndexPair {
     int nMapId;
     short int nMapIndex;
 };
 
+struct PARTNER_CTRL_INFO_u {
+    BYTE m_byCurPartnerIdx;
+    BYTE m_byCurPartnerCallOut;
+    BYTE m_byCurPartnerFollowOnly;
+    BYTE _jxpad_0[1];   // trailing padding: this struct is not pack(1) upstream
+};
+
+struct PARTNER_SIMPLE_INFO_2_u {
+    BYTE m_byInfo[2];
+    WORD m_wInfo;
+    BYTE _jxpad_0[2];   // trailing padding: this struct is not pack(1) upstream
+};
+
+struct PARTNER_SIMPLE_INFO_4_u {
+    BYTE m_byInfo[4];
+    WORD m_wInfo[2];
+    DWORD m_dwInfo;
+    BYTE _jxpad_0[4];   // trailing padding: this struct is not pack(1) upstream
+};
+
 struct POS {
     BYTE x;
     BYTE y;
+};
+
+struct QUERY_TASK_RESULT {
+    int nTaskID;
+    int nReward;
+    int nTotalTime;
+    int nRemainTime;
+    char szKilleeName[32];
 };
 
 struct SALE_STORES_SHOP {
@@ -211,6 +332,112 @@ struct SViewItemInfo {
     DWORD dwFortuneValue;
 };
 
+struct TLeagueCallBackScript {
+    int nResult;
+    int nScriptFileID;
+    char szFunction[32];
+};
+
+struct TLeagueDoScript {
+    BYTE byScriptFileLen;
+    BYTE byScriptFuncLen;
+    BYTE byScriptParamLen;
+    char szBuf[1];
+};
+
+struct TLeagueRoleInfo {
+    DWORD dwJob;
+    char szRoleName[32];
+    DWORD dwBufSize;
+    char szBuf[1];
+};
+
+struct TONG_FIGURE_MEMBER {
+    DWORD dwTongID;
+    BYTE btFigure;
+    BYTE btCount;
+    DWORD arydwMemberID[56];
+};
+
+struct TONG_ID_NAME {
+    DWORD m_dwID;
+    char m_szName[32];
+};
+
+struct TONG_MEMBER_ID_NAME {
+    DWORD m_dwID;
+    char m_szName[32];
+};
+
+struct TONG_MEMBER_INFO {
+    DWORD m_dwTongID;
+    DWORD m_dwMemberID;
+    DWORD m_dwJoinTime;
+    DWORD m_dwLevel;
+    DWORD m_dwOffer;
+    DWORD m_dwWeekGoalOffer;
+    DWORD m_dwWeeklyOffer;
+    DWORD m_dwMonthlyOffer;
+    DWORD m_dwTotalOffer;
+    char m_szTitle[32];
+};
+
+struct TONG_MEMBER_TASK {
+    WORD wID;
+    int nValue;
+};
+
+struct TONG_RECORD {
+    DWORD dwRecordTime;
+    char szRecordContent[64];
+};
+
+struct TONG_TASK {
+    WORD wID;
+    int nValue;
+};
+
+struct TONG_UNION_ID_NAME {
+    BYTE m_btCount;
+    DWORD m_dwLeaderID;
+    char m_szName[32];
+};
+
+struct TONG_WEEKGOAL_INFO {
+    DWORD dwTongID;
+    BYTE btCurGoalLevel;
+    BYTE btGoalLevel;
+    BYTE btGoalLevel_L;
+    BYTE btWeekDay;
+    DWORD dwGoalType;
+    DWORD dwGoalLevel;
+    DWORD dwGoalTotal;
+    DWORD dwGoalPlayer;
+    DWORD dwFinished;
+    DWORD dwTongPrize;
+    DWORD dwMemberPrize;
+    DWORD dwGoalType_L;
+    DWORD dwGoalLevel_L;
+    DWORD dwGoalTotal_L;
+    DWORD dwGoalPlayer_L;
+    DWORD dwFinished_L;
+    DWORD dwTongPrize_L;
+    DWORD dwMemberPrize_L;
+};
+
+struct TOneLeagueData {
+    DWORD wLen;
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    DWORD dwCreateTime;
+    WORD wRoleCount;
+    WORD wTaskDataOffSet;
+    WORD wTaskDataBufSize;
+    DWORD dwReserved1;
+    DWORD dwReserved2;
+    char szBuf[1];
+};
+
 struct TRoleList {
     char Name[32];
     INT64 nValue;
@@ -229,6 +456,10 @@ struct TTm {
     int tm_wday;
     int tm_yday;
     int tm_isdst;
+};
+
+struct TongData_Tong {
+    DWORD dwTongID;
 };
 
 struct TongExHeaderBase {
@@ -251,6 +482,34 @@ struct _DataPair {
     DWORD dwOffset;
     DWORD dwLen;
 };
+
+struct _OneFigure {
+    WORD wOnline;
+    WORD wAll;
+};
+
+struct _TaskValue {
+    WORD wTaskID;
+    int nTaskValue;
+};
+
+struct stall_itemprice {
+    DWORD dwItemID;
+    int nPrice;
+};
+
+struct stallprotocol_header {
+    BYTE ProtocolType;
+    WORD wProcotolSize;
+    BYTE stallProtocolType;
+};
+
+struct tagArenaResult {
+    WORD wTongIndex[2];
+    BYTE byResult;
+    char szComment[32];
+};
+typedef tagArenaResult ARENARESULT;
 
 struct tagBULLETIN_CONTENT_DATA_ContentData_t {
     int nLen;
@@ -278,6 +537,45 @@ struct tagFOUNDRY_CLIENTSEND_NecItemPos_t {
     int nY;
 };
 
+struct tagKIB_ItemBuyInfo {
+    char szAccount[32];
+    int nPlayerDataIndex;
+    int nGoodsIndex;
+    int nItemTypeID;
+    int nItemLevel;
+    int nUseType;
+    int nPrice;
+    DWORD dwOverdueTime;
+};
+
+struct tagKIB_ItemBuyResult {
+    char szAccount[32];
+    int nPlayerDataIndex;
+    int nGoodsIndex;
+    int nItemTypeID;
+    int nItemLevel;
+    int nPrice;
+    INT64 nItemGUID;
+    int nRetCode;
+};
+
+struct tagKIB_ItemUseInfo {
+    char szAccount[32];
+    int nPlayerDataIndex;
+    int nItemTypeID;
+    int nItemLevel;
+    INT64 nItemGUID;
+};
+
+struct tagKIB_ItemUseResult {
+    char szAccount[32];
+    int nPlayerDataIndex;
+    int nItemTypeID;
+    int nItemLevel;
+    INT64 nItemGUID;
+    int nRetCode;
+};
+
 struct tagNOTIFY_CLIENT_u {
     INT nStatus;
     CHAR cStatus[4];
@@ -302,6 +600,37 @@ struct tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t {
     WORD SkillExp;
 };
 
+struct AUCTION_ADDPRICE_C2S : AUCTION_PROTOCOLHEADER {
+    DWORD dwAuctionItemID;
+    UINT uPriceNow;
+    UINT uAddPriceTimes;
+};
+
+struct AUCTION_JOIN_C2S : AUCTION_PROTOCOLHEADER {
+    DWORD dwAuctionItemID;
+};
+
+struct AUCTION_NOTIFY_S2C : AUCTION_PROTOCOLHEADER {
+    char szMsg[1];
+};
+
+struct AUCTION_OPENSUBMIT_S2C : AUCTION_PROTOCOLHEADER {
+};
+
+struct AUCTION_PRICEINCREASE_S2C : AUCTION_PROTOCOLHEADER {
+    UINT uAuctionItemID;
+    UINT uPriceNow;
+    char szPriceOwner[32];
+    WORD nRemainTime;
+};
+
+struct AUCTION_QUITREQUEST_C2S : AUCTION_PROTOCOLHEADER {
+    DWORD dwAuctionItemID;
+};
+
+struct AUCTION_QUIT_S2C : AUCTION_PROTOCOLHEADER {
+};
+
 struct AUCTION_RELAYHEADER_G2R : EXTEND_HEADER {
     char szRoleName[32];
     DWORD dwSubWorldID;
@@ -309,6 +638,19 @@ struct AUCTION_RELAYHEADER_G2R : EXTEND_HEADER {
 
 struct AUCTION_RELAYHEADER_R2G : EXTEND_HEADER {
     DWORD dwNameID;
+};
+
+struct AUCTION_SUBMITITEM_C2S : AUCTION_PROTOCOLHEADER {
+    DWORD dwItemID;
+    UINT uItemBasePrice;
+    UINT uItemAddPricePerTime;
+    UINT uPrearrangeRounds;
+};
+
+struct AuctionItemInfo : SViewItemInfo {
+    UINT uItemAuctionID;
+    UINT uPrice;
+    UINT uAddPriceUnit;
 };
 
 struct BATTLE_RELAYHEADER_G2R : EXTEND_HEADER {
@@ -333,10 +675,36 @@ struct CHAT_MSG_EX : EXTEND_HEADER {
     WORD SentenceLength;
 };
 
+struct CITYWAR_COMMONINPUT : CITYWAR_PROTOCOLHEADER {
+    BYTE bIsNumberInput;
+    char szTitle[32];
+    int nMax;
+    int nMin;
+    char szInitString[32];
+};
+
+struct CITYWAR_COMMONINPUTNUMBER : CITYWAR_PROTOCOLHEADER {
+    int nNumber;
+};
+
+struct CITYWAR_COMMONINPUTSTRING : CITYWAR_PROTOCOLHEADER {
+    WORD wStrLen;
+};
+
+struct CITYWAR_OPENCITYMANAGE_S2C : CITYWAR_PROTOCOLHEADER {
+    int nCityArea;
+    DWORD dwExchangeTax;
+    DWORD dwPriceParam;
+};
+
 struct CITYWAR_RELAYHEADER_G2R : EXTEND_HEADER {
 };
 
 struct CITYWAR_RELAYHEADER_R2G : EXTEND_HEADER {
+};
+
+struct CITYWAR_SUBMITCITYTAXRATES_C2S : CITYWAR_PROTOCOLHEADER, CITYWAR_TAXRATES {
+    int nCityArea;
 };
 
 struct DISMISS_RELATION : EXTEND_HEADER {
@@ -411,6 +779,11 @@ struct KEMPIRE_INFO : KEMPIRE_DATA {
     DWORD dwTurnIdx;
 };
 
+struct KILLER_CANCELTASK : KILLER_PROTOCOLHEADER {
+    int m_nTaskID;
+};
+typedef KILLER_CANCELTASK KILLER_TAKETASK;
+
 struct KILLER_CANCELTASK_G2R : EXTEND_HEADER {
     int m_nTaskID;
     char szRoleName[32];
@@ -434,14 +807,28 @@ struct KILLER_GETMONEY : EXTEND_HEADER {
     int m_nTaskID;
 };
 
+struct KILLER_NOTIFY : KILLER_PROTOCOLHEADER {
+    char szMsg[1];
+};
+
 struct KILLER_PK : EXTEND_HEADER {
     char m_chKillerName[32];
     char m_chKilleeName[32];
 };
 
+struct KILLER_QUERYRESULT_S2C : KILLER_PROTOCOLHEADER {
+    int nResultCount;
+    char chTaskState;
+    QUERY_TASK_RESULT queryResult[1];
+};
+
 struct KILLER_QUERYTASK_G2R : EXTEND_HEADER {
     int m_nQueryType;
     char m_szQueryer[32];
+};
+
+struct KILLER_QUERYWISEMAN_C2S : KILLER_PROTOCOLHEADER {
+    char szQueryTargetName[32];
 };
 
 struct KILLER_REPLYSCRIPT : EXTEND_HEADER {
@@ -456,6 +843,12 @@ struct KILLER_REPLYSCRIPT : EXTEND_HEADER {
 
 struct KILLER_SCRIPTASK : EXTEND_HEADER {
     char m_chRoleName[32];
+};
+
+struct KILLER_SUBMITTASK : KILLER_PROTOCOLHEADER {
+    int m_nRentFee;
+    char m_chKilleeName[32];
+    int m_nReward;
 };
 
 struct KPROTOGR_DOSCRIPT : EXTEND_HEADER {
@@ -571,6 +964,47 @@ struct KSYNC_TONG_ZHAOMU_INFO : EXTEND_HEADER {
     KZhaoMuInfo ZhaoMuInfo;
 };
 
+struct KTongInfoEx : KTongInfo {
+    WORD nRetireCount;
+    DWORD dwBuildLevel;
+    DWORD dwBuildFund;
+    DWORD nCombatFund;
+    DWORD dwStoredOffer;
+    DWORD dwStoredBuildFund;
+    DWORD nServiceFee;
+    DWORD nStandFund;
+    DWORD nWeekBuildFund;
+    WORD nOnlineMemberCount;
+    WORD nOnlineManagerCount;
+    WORD nOnlineDirectorCount;
+    BYTE nPauseState;
+    BYTE nTongMap;
+    WORD nDay;
+    WORD nWeek;
+    WORD wExTaskNum;
+    _TaskValue TaskValue[1];
+};
+
+struct KTongListPageData {
+    BYTE btSortType;
+    WORD wSortCount;
+    WORD wPageIndex;
+    DWORD dwTime;
+    BYTE btCount;
+    KTongBaseData arData[25];
+};
+
+struct KTongMemberPageData {
+    DWORD dwTongID;
+    BYTE btSortType;
+    BYTE btFilterFlag;
+    WORD wSortCount;
+    WORD wPageIndex;
+    DWORD dwTime;
+    BYTE btCount;
+    KTongMemberBaseData arData[25];
+};
+
 struct KTongShowInfo {
     DWORD dwTongID;
     char szName[32];
@@ -578,6 +1012,15 @@ struct KTongShowInfo {
     WORD wLevel;
     int nHuoYueDu;
     KZhaoMuInfo ZhaoMuInfo;
+};
+
+struct KTongUnionPageData {
+    BYTE btSortType;
+    WORD wSortCount;
+    WORD wPageIndex;
+    DWORD dwTime;
+    BYTE btCount;
+    KTongUnionBaseData arData[25];
 };
 
 struct LADDER_RELAYHEADER_G2R : EXTEND_HEADER {
@@ -706,6 +1149,39 @@ struct S2R_SET_STAT_DATA_REQUEST : EXTEND_HEADER {
 struct S2R_UPDATE_STAT_DATA_REQUEST : EXTEND_HEADER {
     int nCount;
     KSTAT_DATA_MODIFY Values[];
+};
+
+struct STALL_ADV_SYNC : stallprotocol_header {
+    DWORD dwSellerID;
+    int nAdvSize;
+    char chAdv[1];
+};
+
+struct STALL_BUYINFO : stallprotocol_header {
+    DWORD dwSellerID;
+    DWORD dwItemID;
+    int nX;
+    int nY;
+    int nPrice;
+    int nDurability;
+};
+
+struct STALL_REQUEST : stallprotocol_header {
+    DWORD nSellerID;
+};
+
+struct STALL_RETVALUE : stallprotocol_header {
+    int nRetValue;
+};
+
+struct STALL_TAXRATE_SYNC : stallprotocol_header {
+    int nTaxRate;
+    int nTaxBase;
+};
+
+struct STALL_TRADE_SUCCESS : stallprotocol_header {
+    char szBuyer[32];
+    char szSellItemName[32];
 };
 
 struct STONG_ACCEPT_INSTATE_COMMAND : EXTEND_HEADER {
@@ -1021,6 +1497,22 @@ struct STONG_UNION_INFO_SYNC : EXTEND_HEADER {
     char m_szUnionTongName[320];
 };
 
+struct StallViewItemInfo : SViewItemInfo {
+    int nX;
+    int nY;
+    int nWidth;
+    int nHeight;
+    int nPrice;
+    int m_nCurrentDur;
+    int m_nMaxDurability;
+};
+
+struct TLeagueMemberData {
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    TLeagueRoleInfo CoreData;
+};
+
 struct TModuleCfg_SyncToGS : EXTEND_HEADER {
     WORD wLen;
     WORD wCount;
@@ -1040,12 +1532,57 @@ struct TONGNAME_QUERY : EXTEND_HEADER {
     int nPlayerIndex;
 };
 
+struct TONG_BASE {
+    BYTE m_btCount;
+    TONG_ID_NAME aryTongIDName[25];
+};
+
+struct TONG_FIGURE_COUNT {
+    DWORD dwTongID;
+    BYTE btMasterOnline;
+    _OneFigure sCountDirector;
+    _OneFigure sCountManager;
+    _OneFigure sCountMember;
+    _OneFigure sCountRetire;
+};
+
+struct TONG_MEMBER_BASE {
+    DWORD m_dwTongID;
+    BYTE m_btCount;
+    TONG_MEMBER_ID_NAME aryMemberIDName[25];
+};
+
+struct TONG_RECORDLIST_INFO {
+    DWORD dwTongID;
+    WORD wRecordCount;
+    TONG_RECORD aryRecord[100];
+};
+
+struct TONG_UNION_BASE {
+    BYTE m_btCount;
+    TONG_UNION_ID_NAME aryUnionIDName[25];
+};
+
 struct TSyncFiles_ToGS_Header : EXTEND_HEADER {
     DWORD dwFileListID;
     BYTE btOnlyForGS;
 };
 
+struct TongData_TongBuffer : TongData_Tong {
+    DWORD dwDataLen;
+    BYTE buffer[];
+};
+
 struct TongExProtocolRG : EXTEND_HEADER, TongExHeaderBase {
+};
+
+struct _OneWorkshop {
+    DWORD dwWorkshopID;
+    WORD wTypeID;
+    BYTE btLevel;
+    BYTE btUseLevel;
+    BYTE btState;
+    _TaskValue TaskValue[1];
 };
 
 struct _tagSyncFileHead : EXTEND_HEADER {
@@ -1053,6 +1590,16 @@ struct _tagSyncFileHead : EXTEND_HEADER {
     _DataPair pairFileName;
     _DataPair pairFileData;
     DWORD dwCheckCode;
+};
+
+struct stall_stalllevelnotallow : stallprotocol_header {
+    int nMinPlayerLevelAllowed;
+};
+
+struct stall_stallmarkprice : stallprotocol_header {
+    int nCount;
+    int nTaxRate;
+    stall_itemprice arrStallPrice[1];
 };
 
 struct tagAccountUserInfo {
@@ -1116,6 +1663,115 @@ struct tagRelayToGameSvrTestMsg : EXTEND_HEADER {
     char sMsg[1];
 };
 
+struct AUCTION_ADDPRICE_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+    UINT uPriceNow;
+    UINT uAddPriceTimes;
+    DWORD dwPlayerMoney;
+};
+
+struct AUCTION_GETFAILEDITEM_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+};
+
+struct AUCTION_GETSALEMONEY_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+};
+
+struct AUCTION_ITEMINFO_S2C : AUCTION_PROTOCOLHEADER {
+    BYTE bQueryQueue;
+    UINT uResultCount;
+    AuctionItemInfo sItems[];
+};
+
+struct AUCTION_JOIN_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+    DWORD dwPlayerMoney;
+};
+
+struct AUCTION_QUERYITEMINFO_G2R : AUCTION_RELAYHEADER_G2R {
+    BYTE bQueryQueue;
+};
+
+struct AUCTION_QUERYLADDER_G2R : AUCTION_RELAYHEADER_G2R {
+};
+
+struct AUCTION_QUITREQUEST_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+};
+
+struct AUCTION_REPLYSCRIPTASK_R2G : AUCTION_RELAYHEADER_R2G {
+    BYTE bState;
+    BYTE bHasAutionNow;
+    BYTE bSystemFull;
+    DWORD dwAuctionID;
+};
+
+struct AUCTION_RETURNITEM_R2G : AUCTION_RELAYHEADER_R2G {
+    SViewItemInfo theItem;
+};
+
+struct AUCTION_RETURNMONEY_R2G : AUCTION_RELAYHEADER_R2G {
+    UINT uTheMoney;
+};
+
+struct AUCTION_SCRIPTASK_G2R : AUCTION_RELAYHEADER_G2R {
+};
+
+struct AUCTION_SUBMITITEMALLOWED_R2G : AUCTION_RELAYHEADER_R2G {
+    DWORD dwItemID;
+    DWORD dwAuctionItemID;
+    DWORD dwCostMoney;
+};
+
+struct AUCTION_SUBMITITEM_REQUEST_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwItemID;
+    UINT uItemBasePrice;
+    UINT uItemAddPricePerTime;
+    UINT uPrearrangeRounds;
+};
+
+struct AUCTION_SUBMIT_ITEM_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+    SViewItemInfo item;
+};
+
+struct AUCTION_TRADERESULT_G2R : AUCTION_RELAYHEADER_G2R {
+    DWORD dwAuctionItemID;
+    BYTE bResult;
+};
+
+struct AUCTION_TRADE_R2G : AUCTION_RELAYHEADER_R2G {
+    DWORD dwAuctionItemID;
+    AuctionItemInfo theItem;
+};
+
+struct AuctionLadderItemInfo : AuctionItemInfo {
+    char sAuctioner[32];
+    char sBuyer[32];
+};
+
+struct BATTLE_NEW_ROUND_R2G : BATTLE_RELAYHEADER_R2G {
+    WORD m_wBattleID;
+    WORD m_wBattleLevel;
+    WORD m_wIssueID;
+    WORD m_wRoundCount;
+    char m_strBattleName[32];
+    WORD m_wWorldMapID;
+    char m_strMapName[32];
+    WORD m_wRuleType;
+    char m_arystrRuleData[20][32];
+};
+
+struct BATTLE_ROUND_RESULT_G2R : BATTLE_RELAYHEADER_G2R {
+    WORD m_wBattleID;
+    WORD m_wBattleLevel;
+    WORD m_wIssueID;
+    WORD m_wRoundCount;
+    BYTE m_btResult;
+    BYTE _jxpad_11[1];   // trailing padding: this struct is not pack(1) upstream
+};
+
 struct C2S_ADD_TAG : tagProtocolHeader {
     char szTargetPlayer[32];
     char szTagTxt[32];
@@ -1157,6 +1813,54 @@ struct CHAT_NPCCHAT : tagProtocolHeader {
     WORD wMsgLen;
 };
 
+struct CITYWAR_ARENARESULT_G2R : CITYWAR_RELAYHEADER_G2R {
+    int nCityArea;
+    ARENARESULT arResult;
+};
+
+struct CITYWAR_MSG2PLAYER_R2G : CITYWAR_RELAYHEADER_R2G {
+    DWORD dwPlayerNameID;
+    WORD wSenLen;
+};
+
+struct CITYWAR_REPLYBULLETIN_R2G : CITYWAR_RELAYHEADER_R2G {
+    DWORD dwPlayerNameID;
+    WORD wSentenceLen;
+};
+
+struct CITYWAR_SCRIPTQUERYBULLETIN_G2R : CITYWAR_RELAYHEADER_G2R {
+    char szPlayerName[32];
+};
+
+struct CITYWAR_SIGNUP_G2R : CITYWAR_RELAYHEADER_G2R {
+    int nCityArea;
+    char szPlayerName[32];
+    char szTongName[32];
+    DWORD dwSignUpFee;
+};
+
+struct CITYWAR_SUBMITCITYTAXRATES_G2R : CITYWAR_RELAYHEADER_G2R, CITYWAR_TAXRATES {
+    int nCityArea;
+    char szPlayerName[32];
+    char szTongName[32];
+};
+
+struct CITYWAR_TONGACTION_G2R : CITYWAR_RELAYHEADER_G2R {
+    BYTE nAction;
+    int nCityArea;
+    BYTE szTongName[32];
+};
+
+struct CITYWAR_TONGINFOSYNC_R2G : CITYWAR_RELAYHEADER_R2G {
+    char szTongName[32];
+    GSTongInfo sTongInfo;
+};
+
+struct CITYWAR_WARRESULT_G2R : CITYWAR_RELAYHEADER_G2R {
+    int nCityArea;
+    BYTE byResult;
+};
+
 struct ITEM_BIND_SYNC : tagProtocolHeader {
     DWORD m_dwID;
     int m_nBindState;
@@ -1171,6 +1875,12 @@ struct KPLAYER_LIMITTIME_SYNC : tagProtocolHeader {
     DWORD dwLimitTimeOnlineSeconds;
     DWORD dwLimitTimeOfflineSeconds;
 };
+
+struct KPROTORG_NW_POSITIONCHANGE : KPROTORG_NW_TITLEUPDATE {
+    BYTE byInstate;
+    BYTE byPosition;
+};
+typedef KPROTORG_NW_POSITIONCHANGE KPROTOGR_NW_POSITIONCHANGE;
 
 struct KPROTORG_NW_SYNCEMPEROR : EXTEND_HEADER {
     KEMPIRE_INFO sInfo;
@@ -1336,6 +2046,10 @@ struct PLAYER_SEND_CHAT_DATA_SYNC : tagProtocolHeader {
 };
 typedef PLAYER_SEND_CHAT_DATA_SYNC PLAYER_SEND_CHAT_SYNC;
 
+struct ROLENAME_CHANGE_RESULT : ROLENAME_CHANGE {
+    BYTE nResult;
+};
+
 struct S2C_GET_TAGS_RESPOND : tagProtocolHeader {
     char szTargetPlayer[32];
     WORD wDataLen;
@@ -1355,6 +2069,77 @@ struct SPECTATOR_MSG : tagProtocolHeader {
     BYTE nCmd;
 };
 
+struct STALL_ITEMINFO_SYNC : stallprotocol_header {
+    DWORD dwSellerID;
+    int nItemCount;
+    StallViewItemInfo arrItemInfo[1];
+};
+
+struct STONG_BE_INSTATED_SYNC : STONG_HEADER_WITH_PARAM {
+    BYTE m_btFigure;
+    BYTE m_btPos;
+    char m_szTitle[32];
+    char m_szName[32];
+};
+
+struct STONG_CHANGE_JOB_CALL_SYNC : STONG_HEADER_WITH_PARAM {
+    BYTE m_btFigure;
+    DWORD m_dwMemberID;
+    BYTE m_btBroadcastFlag;
+    DWORD m_dwTongNameID;
+    char m_szCall[32];
+};
+
+struct STONG_CHANGE_WAR_STATE_SYNC : STONG_HEADER_WITH_PARAM {
+    DWORD m_dwTongNameID;
+    BYTE m_btWarState;
+    BYTE m_btParam1;
+    BYTE m_btParam2;
+    BYTE m_btParam3;
+};
+
+struct STONG_CHECK_GET_MASTER_POWER_SYNC : STONG_HEADER_WITH_PARAM {
+    BYTE m_btFigure;
+    BYTE m_btPos;
+    DWORD m_dwTongNameID;
+    char m_szName[32];
+};
+
+struct STONG_CHECK_INSTATE_POWER_SYNC : STONG_HEADER_WITH_PARAM {
+    BYTE m_btOldFigure;
+    BYTE m_btOldPos;
+    BYTE m_btNewFigure;
+    BYTE m_btNewPos;
+    DWORD m_dwTongNameID;
+    char m_szName[32];
+    char m_szOperater[32];
+};
+
+struct STONG_DISMISS_SYNC : STONG_HEADER_WITH_PARAM {
+    DWORD m_dwTongNameID;
+    char m_szName[32];
+};
+
+struct STONG_DISPENSE_SYNC : STONG_HEADER_WITH_PARAM {
+    DWORD m_dwTongNameID;
+    DWORD m_dwDirectorMoney;
+    DWORD m_dwManagerMoney;
+    DWORD m_dwMemberMoney;
+    BYTE m_btFigure;
+    char m_szName[32];
+};
+
+struct STONG_INSTATE_SYNC : STONG_HEADER_WITH_PARAM {
+    DWORD m_dwTongNameID;
+    BYTE m_btSuccessFlag;
+    BYTE m_btSomeFlag;
+    BYTE m_btOldFigure;
+    BYTE m_btNewFigure;
+    BYTE m_btParamType;
+    char m_szTitle[32];
+    char m_szName[32];
+};
+
 struct TDbDataBlock : tagProtocolHeader {
     WORD wProtocolSize;
     BYTE byStartFlag;
@@ -1372,10 +2157,62 @@ struct THostExchange : tagProtocolHeader {
     DWORD dwMapId;
 };
 
+struct TLeagueDoScriptCB : LEAGUE_RELAYHEADER {
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    char szRoleName[48];
+    TLeagueCallBackScript callScript;
+    TLeagueDoScript doScript;
+};
+
+struct TLeagueMemberDataCB : LEAGUE_RELAYHEADER {
+    TLeagueCallBackScript callScript;
+    TLeagueMemberData CoreData;
+};
+
+struct TLeagueMemberTaskCB : LEAGUE_RELAYHEADER {
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    char szRoleName[48];
+    BYTE byIsAppendType;
+    WORD wTaskID;
+    int nTaskValue;
+    TLeagueCallBackScript callScript;
+};
+
+struct TLeagueTaskCB : LEAGUE_RELAYHEADER {
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    BYTE byIsAppendType;
+    WORD wTaskID;
+    int nTaskValue;
+    TLeagueCallBackScript callScript;
+};
+
 struct TModuleCfg_SyncToClient : tagProtocolHeader {
     WORD wLen;
     WORD wCount;
     BYTE pBuffer[1];
+};
+
+struct TONGNAME_CHANGE_RESULT : TONGNAME_CHANGE {
+    BYTE nResult;
+};
+
+struct TONGNAME_QUERY_RESULT : TONGNAME_QUERY {
+    BYTE nResult;
+};
+
+struct TONG_WORKSHOP_INFO {
+    DWORD dwTongID;
+    WORD wCount;
+    WORD nTaskValue;
+    _OneWorkshop sWorkshops[1];
+};
+
+struct TOneLeagueDataCB : LEAGUE_RELAYHEADER {
+    TLeagueCallBackScript callScript;
+    TOneLeagueData CoreData;
 };
 
 struct TRADE_APPLY_START_COMMAND : tagProtocolHeader {
@@ -1387,6 +2224,20 @@ struct TRADE_REPLY_START_COMMAND : tagProtocolHeader {
     BYTE m_bDecision;
     int m_nDestIdx;
     DWORD dwCheckValue;
+};
+
+struct TRemoveLeagueCB : LEAGUE_RELAYHEADER {
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    TLeagueCallBackScript callScript;
+};
+
+struct TRemoveLeagueMemberCB : LEAGUE_RELAYHEADER {
+    DWORD dwLeagueType;
+    char szLeagueName[48];
+    char szRoleName[48];
+    BYTE byRemoveLeagueWhenOnlyOneMember;
+    TLeagueCallBackScript callScript;
 };
 
 struct TRoleInstance : tagProtocolHeader {
@@ -1418,6 +2269,10 @@ struct TSelectDiceItem : tagProtocolHeader {
     DWORD dwDiceId;
     DWORD dwItemId;
     int nSelectType;
+};
+
+struct TSendBuf : TongExProtocolRG {
+    BYTE data[];
 };
 
 struct TSyncFiles_ClientApplySync : tagProtocolHeader {
@@ -2412,6 +3267,10 @@ struct tagRegisterAccount : tagProtocolHeader {
     BYTE szAccountName[32];
 };
 
+struct tagRelaySDBOper : tagRelaySDBRecord {
+    BYTE byData[1];
+};
+
 struct tagReturnChangeExtPoint : tagProtocolHeader {
     int nResult;
     BYTE szAccountName[32];
@@ -2929,6 +3788,399 @@ struct tag_STEAM_PROTOCOL_HEAD : tagProtocolHeader {
     BYTE btMsgID;
 };
 
+struct AUCTION_QUERYLADDERRESULT_S2C : AUCTION_PROTOCOLHEADER {
+    WORD wLadderItemCount;
+    AuctionLadderItemInfo items[];
+};
+
+struct C2S_ACCEPT_TEAM_MEMBER : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwNpcID;
+};
+
+struct C2S_APPLY_ADD_TEAM : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwTarNpcID;
+};
+
+struct C2S_APPLY_CREATE_TEAM : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwParam;
+};
+
+struct C2S_APPLY_LEAVE_TEAM : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwParam;
+};
+
+struct C2S_APPLY_TEAM_INFO : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwTarNpcID;
+};
+
+struct C2S_APPLY_TEAM_OPEN_CLOSE : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwOpenClose;
+};
+
+struct C2S_TEAM_CHANGE_CAPTAIN : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwNpcID;
+};
+
+struct C2S_TEAM_DISMISS : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwParam;
+};
+
+struct C2S_TEAM_INVITE_ADD : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwNpcID;
+};
+
+struct C2S_TEAM_KICK_MEMBER : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwNpcID;
+};
+
+struct C2S_TEAM_REPLY_INVITE : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btResult;
+    int nIndex;
+};
+
+struct CHATROOM_C2S_GETMEMBERLIST : CHATROOM_C2S_HEAD {
+    char szRoomName[32];
+};
+
+struct CHATROOM_C2S_MEMBER : CHATROOM_C2S_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+};
+
+struct CHATROOM_C2S_PASSWORD : CHATROOM_C2S_HEAD {
+    char szRoomName[32];
+    char szPassword[16];
+};
+
+struct CHATROOM_C2S_ROOM : CHATROOM_C2S_HEAD {
+    char szRoomName[32];
+};
+
+struct CHATROOM_C2S_TALK : CHATROOM_C2S_HEAD {
+    char szRoomName[32];
+    WORD nMsgLen;
+};
+
+struct CHATROOM_R2S_MEMBER : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+    BYTE nResult;
+};
+
+struct CHATROOM_R2S_SYNCBLACKLIST : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szBlackList[32];
+};
+
+struct CHATROOM_RBC_CREATEROOM : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szAdmin[32];
+    char szPassword[16];
+    int nLifeTime;
+    BYTE nType;
+};
+
+struct CHATROOM_RBC_DESTROYROOM : CHATROOM_HEAD {
+    char szRoomName[32];
+};
+
+struct CHATROOM_RBC_ENTERROOM : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+    BYTE nSex;
+    int nLevel;
+};
+
+struct CHATROOM_RBC_MEMBER : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+};
+
+struct CHATROOM_RBC_PASSWORD : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szPassword[16];
+};
+
+struct CHATROOM_RBC_ROOMTIME : CHATROOM_HEAD {
+    char szRoomName[32];
+    int nLifeTime;
+};
+
+struct CHATROOM_RBC_TALK : CHATROOM_HEAD {
+    WORD nMsgLen;
+    char szRoomName[32];
+    char szMember[32];
+};
+
+struct CHATROOM_S2C_KICKEDOUT : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+};
+
+struct CHATROOM_S2C_MEMBERLIST : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+    BYTE nResult;
+    unsigned int nIdentity;
+    WORD nCount;
+};
+
+struct CHATROOM_S2C_ROOM : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+    BYTE nResult;
+};
+
+struct CHATROOM_S2C_ROOMLIST : CHATROOM_S2C_HEAD {
+    unsigned int nIdentity;
+    WORD nCount;
+};
+
+struct CHATROOM_S2R_CLOSEROOM : CHATROOM_HEAD {
+    char szRoomName[32];
+};
+
+struct CHATROOM_S2R_CREATE : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szPassword[16];
+    char szOperator[32];
+    int nLifeTime;
+};
+
+struct CHATROOM_S2R_ENTERROOM : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szPassword[16];
+    char szMember[32];
+    BYTE nSex;
+    int nLevel;
+};
+
+struct CHATROOM_S2R_M2M : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+    char szOperator[32];
+};
+
+struct CHATROOM_S2R_MEMBER : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+};
+
+struct CHATROOM_S2R_PASSWORD : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szPassword[16];
+    char szOperator[32];
+};
+
+struct CHATROOM_S2R_ROOMTIME : CHATROOM_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+    int nLifeTime;
+};
+
+struct CHATROOM_S2R_TALK : CHATROOM_HEAD {
+    WORD nMsgLen;
+    char szRoomName[32];
+    char szMember[32];
+};
+
+struct CHATROOM_SBC_CLOSEROOM : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+};
+
+struct CHATROOM_SBC_ENTERROOM : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+    BYTE nSex;
+    int nLevel;
+};
+
+struct CHATROOM_SBC_LIFETIMECHANGE : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+    int nLifeTime;
+};
+
+struct CHATROOM_SBC_MEMBER : CHATROOM_S2C_HEAD {
+    char szRoomName[32];
+    char szMember[32];
+};
+
+struct CHAT_CHANNELCHAT_CMD : tagCHAT_CHANNELCHAT_HEAD {
+    WORD wSize;
+    DWORD packageID;
+    BYTE filter;
+    DWORD channelid;
+    BYTE cost;
+    BYTE sentlen;
+    BYTE channelType;
+};
+
+struct CHAT_DYNCHANNEL_HEAD : tagCHAT_CHANNELCHAT_HEAD {
+    BYTE nMessageType;
+};
+
+struct KPROTO_SCRIPTPROTOCOL : tagProtocolLengthHeader {
+    WORD wProtocol;
+    WORD wDataSize;
+};
+
+struct S2C_TEAM_ADD_MEMBER : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btLevel;
+    DWORD dwNpcID;
+    char szName[32];
+};
+
+struct S2C_TEAM_APPLY_ADD : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwTarNpcID;
+};
+
+struct S2C_TEAM_APPLY_INFO_FALSE : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btParam;
+};
+
+struct S2C_TEAM_AUTO_CHANGE_CAPTAIN : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwCaptainID;
+    DWORD dwMemberID;
+};
+
+struct S2C_TEAM_CHANGE_CAPTAIN : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwCaptainID;
+    DWORD dwMemberID;
+};
+
+struct S2C_TEAM_CREATE_TEAM_FALSE : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btErrorID;
+};
+
+struct S2C_TEAM_CREATE_TEAM_SUCCESS : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwTeamServerID;
+    BYTE byTeamCamp;
+};
+
+struct S2C_TEAM_INFO : tag_STEAM_PROTOCOL_HEAD {
+    int nCaptain;
+    int nMember[7];
+    DWORD dwTeamServerID;
+};
+
+struct S2C_TEAM_INVITE_ADD : tag_STEAM_PROTOCOL_HEAD {
+    int nIdx;
+    char szName[32];
+};
+
+struct S2C_TEAM_LEAVE : tag_STEAM_PROTOCOL_HEAD {
+    DWORD dwNpcID;
+};
+
+struct S2C_TEAM_OPEN_CLOSE : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btOpenClose;
+};
+
+struct S2C_TEAM_SELF_INFO : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btState;
+    DWORD dwNpcID[8];
+    char szNpcName[8][32];
+    DWORD dwTeamServerID;
+    DWORD dwLeadExp;
+    BYTE btLevel[8];
+};
+
+struct S2C_TEAM_TEAMMATE_LEVEL : tag_STEAM_PROTOCOL_HEAD {
+    BYTE btLevel;
+    DWORD dwTeammateID;
+};
+
+struct TLockAccount : TUnlockAccount {
+    DWORD dwTimeout;
+};
+
+struct TRoleNameChangeResult : TRoleNameChange {
+    BYTE nResult;
+};
+
+struct TRoleNameQueryResult : TRoleNameQuery {
+    BYTE nResult;
+};
+
+struct TongPort_TongAnnouncement : TongExProtocolGC {
+    DWORD dwTongID;
+    char szAnnouncement[1024];
+};
+
+struct TongPort_TongRecordListInfo : TongExProtocolGC {
+    TONG_RECORDLIST_INFO sData;
+};
+
+struct TongPort_TongWeekGoalInfo : TongExProtocolGC {
+    TONG_WEEKGOAL_INFO sData;
+};
+
+struct TongProt_FigureCount : TongExProtocolGC {
+    TONG_FIGURE_COUNT sData;
+};
+
+struct TongProt_FigureMember : TongExProtocolGC {
+    TONG_FIGURE_MEMBER sData;
+};
+
+struct TongProt_MemberBase : TongExProtocolGC {
+    TONG_MEMBER_BASE sData;
+};
+
+struct TongProt_MemberInfo : TongExProtocolGC {
+    TONG_MEMBER_INFO sData;
+};
+
+struct TongProt_MemberPageData : TongExProtocolGC {
+    KTongMemberPageData sData;
+};
+
+struct TongProt_MemberRight : TongExProtocolGC {
+    BYTE sData[1];
+};
+
+struct TongProt_MemberTask : TongExProtocolGC {
+    TONG_MEMBER_TASK sData;
+};
+
+struct TongProt_SelfMemberMixData : TongExProtocolGC {
+    MEMBER_SELF_MIX_DATA sData;
+};
+
+struct TongProt_TongBase : TongExProtocolGC {
+    TONG_BASE sData;
+};
+
+struct TongProt_TongInfo : TongExProtocolGC {
+    KTongInfoEx sData;
+};
+
+struct TongProt_TongOneData : TongExProtocolGC {
+    TONG_TASK sData;
+};
+
+struct TongProt_TongPageData : TongExProtocolGC {
+    KTongListPageData sData;
+};
+
+struct TongProt_UnionBase : TongExProtocolGC {
+    TONG_UNION_BASE sData;
+};
+
+struct TongProt_UnionPageData : TongExProtocolGC {
+    KTongUnionPageData sData;
+};
+
+struct TongProt_UnionTongList : TongExProtocolGC {
+    KUnionTongList sData;
+};
+
+struct TongProt_WorkshopInfo : TongExProtocolGC {
+    TONG_WORKSHOP_INFO sData;
+};
+
+struct tagAllCitySummary : tagProtocolLengthHeader {
+    BYTE byCount;
+};
+typedef tagAllCitySummary CITY_OWNER_QUERY;
+
 struct tagGatewayBroadCast : tagProtocolHeader2 {
     UINT uCmdType;
     char szData[260];
@@ -2939,6 +4191,22 @@ struct tagGuidableInfo : tagProtocolHeader2 {
     KACCOUNT_INFO2 sAccountInfo;
     size_t datalength;
     char szData[];
+};
+
+struct tagKIB_BuyItemProtocol : tagProtoHeader {
+    tagKIB_ItemBuyInfo info;
+};
+
+struct tagKIB_BuyItemResultProtocol : tagProtoHeader {
+    tagKIB_ItemBuyResult result;
+};
+
+struct tagKIB_UseItemProtocol : tagProtoHeader {
+    tagKIB_ItemUseInfo info;
+};
+
+struct tagKIB_UseItemResultProtocol : tagProtoHeader {
+    tagKIB_ItemUseResult result;
 };
 
 struct tagOfflineKickoutAsk : tagProtocolHeader2 {
@@ -2952,10 +4220,221 @@ struct tagOfflineKickoutRes : tagProtocolHeader2 {
     int nExtPoint;
 };
 
+struct tagOfflineRequestAsk : tagOfflineRequestReq {
+    DWORD dwMapId;
+    int nIndex;
+};
+
+struct tagOfflineRequestRes : tagOfflineRequestReq {
+    BYTE nResult;
+    BYTE nReason;
+    DWORD dwLeftTime;
+};
+
+struct tagOfflineTimeoutRes : tagOfflineRequestReq {
+    int nExtPoint;
+};
+
 struct tagPermitPlayerLogin : tagProtocolHeader2 {
     GUID guid;
     char szRoleName[32];
     bool bPermit;
+};
+
+struct tagProtocolExtendHeader : tagProtocolLengthHeader {
+    BYTE m_bySubProtocolType;
+};
+
+struct tagSALE_ITEMBUSSINESS : tagSALE_BOX_SYNC {
+    int nShopType;
+    int nRev;
+    char szShopName[32];
+};
+typedef tagSALE_ITEMBUSSINESS SALE_ITEMBUSSINESS;
+
+struct tagSetHighLightPos : tagMINIMAP_OBJ_SYNC {
+    DWORD dwTimeTick;
+    INT nPicID;
+    char szMsg[64];
+};
+typedef tagSetHighLightPos TSetHighLightPos;
+
+struct tagTellFlagPos : tagMINIMAP_OBJ_SYNC {
+    CHAR szMsg[64];
+};
+typedef tagTellFlagPos TTellFlagPos;
+
+struct tagUseSpreaderCDKey : tagProtoHeader {
+    char szAccountName[32];
+    char szCDKey[32];
+    int nPlayerDataIndex;
+};
+
+struct tagUseSpreaderCDKeyRet : tagProtoHeader {
+    char szAccountName[32];
+    int nPlayerDataIndex;
+    int nResult;
+};
+
+struct CHAT_DYNCHANNEL_FINIMSG : CHAT_DYNCHANNEL_HEAD {
+    WORD wChannelID;
+};
+
+struct CHAT_DYNCHANNEL_RECVMSG : CHAT_DYNCHANNEL_HEAD {
+    WORD wChannelID;
+    WORD wMessageLeng;
+};
+
+struct CHAT_DYNCHANNEL_SENDMSG : CHAT_DYNCHANNEL_HEAD {
+    WORD wChannelID;
+    char szSpeakerName[32];
+    WORD wMessageLeng;
+};
+
+struct CHAT_DYNCHANNEL_SYNCMSG : CHAT_DYNCHANNEL_HEAD {
+    WORD wChannelID;
+    WORD wIconIndex;
+    char szChannelName[260];
+};
+
+struct FIGHT_PARTNER_SIMPLE_INFO_1 : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    BYTE m_byInfo;
+};
+
+struct FIGHT_PARTNER_SIMPLE_INFO_2 : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    union {
+        BYTE m_byInfo[2];
+        WORD m_wInfo;
+    };
+};
+
+struct FIGHT_PARTNER_SIMPLE_INFO_4 : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    union {
+        BYTE m_byInfo[4];
+        WORD m_wInfo[2];
+        DWORD m_dwInfo;
+    };
+};
+
+struct FIGHT_PARTNER_SKILL_SYNC : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    BYTE m_bySkillType;
+    WORD m_wSkillID;
+    WORD m_wSkillLevel;
+    WORD m_wSkillExpPercent;
+};
+
+struct FIGHT_PARTNER_SYNC_ALL : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    WORD m_wEssentialPartnerID;
+    DWORD m_dwCurNpcSettingIdx;
+    BYTE m_bySeries;
+    WORD m_wLevel;
+    DWORD m_dwCurLife;
+    char m_szName[32];
+    BYTE m_byCharacter;
+    DWORD m_dwCurExp;
+    BYTE m_byCurEmotionDegree;
+    BYTE m_byCurMaxEmotionDegree;
+    BYTE m_byCurVigour;
+    BYTE m_byCurMaxVigour;
+    BYTE m_byLifeAptitude;
+    BYTE m_byStrengthAptitude;
+    BYTE m_byHitTargetRateAptitude;
+    BYTE m_byDefenceAptitude;
+    BYTE m_bySpeedAptitude;
+    BYTE m_byLuckAptitude;
+    DWORD m_dwLifeAttrib;
+    WORD m_wStrengthAttrib;
+    WORD m_wHitTargetRateAttrib;
+    WORD m_wDefenceAttrib;
+    WORD m_wSpeedAttrib;
+    WORD m_wLuckAttrib;
+    DWORD m_arydwStandbySkillID[5];
+    BYTE m_bySkillCount;
+    WORD m_wTaskValueCount;
+};
+
+struct FIGHT_PARTNER_SYNC_MIN : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    BYTE m_byAttackSpeed;
+    BYTE m_byCastSpeed;
+    BYTE m_byMoveSpeed;
+    BYTE m_nFightFlag;
+};
+
+struct KPROTOCS_NW_INSTATE : tagProtocolExtendHeader {
+    BYTE byInstate;
+    char szMember[32];
+    BYTE byPosition;
+};
+
+struct KPROTOCS_NW_KICKOUT : tagProtocolExtendHeader {
+    DWORD dwNpcID;
+};
+
+struct KPROTOSC_NW_POSITON : tagProtocolExtendHeader {
+    BYTE byPosition;
+    DWORD dwMemberID;
+};
+
+struct KPROTOSC_NW_SYNCEMPEROR : tagProtocolExtendHeader {
+    BYTE bySide;
+    DWORD dwTongID;
+    char szEmperor[32];
+};
+
+struct KPROTOSC_NW_SYNCNATIONTITLE : tagProtocolExtendHeader {
+    char szTitle[32];
+};
+
+struct MIX_PROTOCOL : tagProtocolExtendHeader {
+    union {
+        BYTE btData[1];
+        DWORD dwData[1];
+        char szReserve[128];
+    };
+};
+
+struct PARTNER_CTRL_INFO : tagProtocolExtendHeader {
+    union {
+        BYTE m_byCurPartnerIdx;
+        BYTE m_byCurPartnerCallOut;
+        BYTE m_byCurPartnerFollowOnly;
+    };
+};
+
+struct PARTNER_NAME_SYNC : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    char m_szName[32];
+};
+
+struct PARTNER_SIMPLE_INFO_1 : tagProtocolExtendHeader {
+    BYTE m_byInfo;
+};
+
+struct PARTNER_SIMPLE_INFO_2 : tagProtocolExtendHeader {
+    union {
+        BYTE m_byInfo[2];
+        WORD m_wInfo;
+    };
+};
+
+struct PARTNER_SIMPLE_INFO_4 : tagProtocolExtendHeader {
+    union {
+        BYTE m_byInfo[4];
+        WORD m_wInfo[2];
+        DWORD m_dwInfo;
+    };
+};
+
+struct PARTNER_TASK_VALUE_SYNC : tagProtocolExtendHeader {
+    DWORD m_dwID;
+    WORD m_wTaskID;
+    DWORD m_dwTaskValue;
 };
 
 #pragma pack(pop)

@@ -1,6 +1,28 @@
 struct	alias	base	kind	size	offset	field	type	fieldsize
+AUCTION_PROTOCOLHEADER			struct	4	0	ProtocolType	BYTE	1
+AUCTION_PROTOCOLHEADER			struct	4	1	wProcotolSize	WORD	2
+AUCTION_PROTOCOLHEADER			struct	4	3	auctionProtocolType	BYTE	1
+AuctionItemInfo			struct	76	0	(base)	SViewItemInfo	64
+AuctionItemInfo			struct	76	64	uItemAuctionID	UINT	4
+AuctionItemInfo			struct	76	68	uPrice	UINT	4
+AuctionItemInfo			struct	76	72	uAddPriceUnit	UINT	4
+AuctionLadderItemInfo			struct	140	0	(base)	AuctionItemInfo	76
+AuctionLadderItemInfo			struct	140	76	sAuctioner	char[32]	32
+AuctionLadderItemInfo			struct	140	108	sBuyer	char[32]	32
+CITYWAR_PROTOCOLHEADER			struct	4	0	ProtocolType	BYTE	1
+CITYWAR_PROTOCOLHEADER			struct	4	1	wProcotolSize	WORD	2
+CITYWAR_PROTOCOLHEADER			struct	4	3	CityWarProtocolType	BYTE	1
+CITYWAR_TAXRATES			struct	8	0	dwExchangeTax	DWORD	4
+CITYWAR_TAXRATES			struct	8	4	dwPriceParameter	DWORD	4
 EXTEND_HEADER			struct	2	0	ProtocolFamily	BYTE	1
 EXTEND_HEADER			struct	2	1	ProtocolID	BYTE	1
+FIGHT_PARTNER_SIMPLE_INFO_2_u			union	2		m_byInfo	BYTE[2]	2
+FIGHT_PARTNER_SIMPLE_INFO_2_u			union	2		m_wInfo	WORD	2
+FIGHT_PARTNER_SIMPLE_INFO_4_u			union	4		m_byInfo	BYTE[4]	4
+FIGHT_PARTNER_SIMPLE_INFO_4_u			union	4		m_wInfo	WORD[2]	4
+FIGHT_PARTNER_SIMPLE_INFO_4_u			union	4		m_dwInfo	DWORD	4
+GSTongInfo			struct	36	0	nCamp	int	4
+GSTongInfo			struct	36	4	szTongUnionName	char[32]	32
 GiveItemPos			struct	5	0	nPlace	BYTE	1
 GiveItemPos			struct	5	1	sPackPos	POS	2
 GiveItemPos			struct	5	3	sUiPos	POS	2
@@ -22,6 +44,9 @@ KEMPIRE_HISTORY			struct	98	94	dwEndTime	DWORD	4
 KEMPIRE_INFO			struct	130	0	(base)	KEMPIRE_DATA	94
 KEMPIRE_INFO			struct	130	94	szSealOwner	char[32]	32
 KEMPIRE_INFO			struct	130	126	dwTurnIdx	DWORD	4
+KILLER_PROTOCOLHEADER			struct	4	0	ProtocolType	BYTE	1
+KILLER_PROTOCOLHEADER			struct	4	1	wProcotolSize	WORD	2
+KILLER_PROTOCOLHEADER			struct	4	3	killerProtocolType	BYTE	1
 KMagicAttrib			struct	16	0	nAttribType	int	4
 KMagicAttrib			struct	16	4	nValue	int[3]	12
 KRESIST_ATTR			struct	100	0	nCurrentFireResist_Yin	int	4
@@ -54,12 +79,77 @@ KRET_APPLYINFO			struct	34	1	bIsOnline	BYTE	1
 KRET_APPLYINFO			struct	34	2	szName	char[32]	32
 KSTAT_DATA_MODIFY			struct	12	0	nID	int	4
 KSTAT_DATA_MODIFY			struct	12	4	nValue	int64_t	8
+KTongBaseData			struct	14	0	dwValue	DWORD	4
+KTongBaseData			struct	14	4	szTongName	char[10]	10
+KTongInfo			struct	185	0	szName	char[32]	32
+KTongInfo			struct	185	32	szMasterName	char[32]	32
+KTongInfo			struct	185	64	dwMasterID	DWORD	4
+KTongInfo			struct	185	68	btSelfCamp	BYTE	1
+KTongInfo			struct	185	69	llMoneyFund	INT64	8
+KTongInfo			struct	185	77	dwExpLevel	DWORD	4
+KTongInfo			struct	185	81	btUnionLeader	BYTE	1
+KTongInfo			struct	185	82	btUnionNum	BYTE	1
+KTongInfo			struct	185	83	szUnionName	char[32]	32
+KTongInfo			struct	185	115	nMemberCount	WORD	2
+KTongInfo			struct	185	117	nManagerCount	WORD	2
+KTongInfo			struct	185	119	nDirectorCount	WORD	2
+KTongInfo			struct	185	121	szMaleTitle	char[32]	32
+KTongInfo			struct	185	153	szFemaleTitle	char[32]	32
+KTongInfoEx			struct	239	0	(base)	KTongInfo	185
+KTongInfoEx			struct	239	185	nRetireCount	WORD	2
+KTongInfoEx			struct	239	187	dwBuildLevel	DWORD	4
+KTongInfoEx			struct	239	191	dwBuildFund	DWORD	4
+KTongInfoEx			struct	239	195	nCombatFund	DWORD	4
+KTongInfoEx			struct	239	199	dwStoredOffer	DWORD	4
+KTongInfoEx			struct	239	203	dwStoredBuildFund	DWORD	4
+KTongInfoEx			struct	239	207	nServiceFee	DWORD	4
+KTongInfoEx			struct	239	211	nStandFund	DWORD	4
+KTongInfoEx			struct	239	215	nWeekBuildFund	DWORD	4
+KTongInfoEx			struct	239	219	nOnlineMemberCount	WORD	2
+KTongInfoEx			struct	239	221	nOnlineManagerCount	WORD	2
+KTongInfoEx			struct	239	223	nOnlineDirectorCount	WORD	2
+KTongInfoEx			struct	239	225	nPauseState	BYTE	1
+KTongInfoEx			struct	239	226	nTongMap	BYTE	1
+KTongInfoEx			struct	239	227	nDay	WORD	2
+KTongInfoEx			struct	239	229	nWeek	WORD	2
+KTongInfoEx			struct	239	231	wExTaskNum	WORD	2
+KTongInfoEx			struct	239	233	TaskValue	_TaskValue[1]	6
+KTongListPageData			struct	360	0	btSortType	BYTE	1
+KTongListPageData			struct	360	1	wSortCount	WORD	2
+KTongListPageData			struct	360	3	wPageIndex	WORD	2
+KTongListPageData			struct	360	5	dwTime	DWORD	4
+KTongListPageData			struct	360	9	btCount	BYTE	1
+KTongListPageData			struct	360	10	arData	KTongBaseData[25]	350
+KTongMemberBaseData			struct	9	0	dwMemberID	DWORD	4
+KTongMemberBaseData			struct	9	4	dwValue	DWORD	4
+KTongMemberBaseData			struct	9	8	btFlags	BYTE	1
+KTongMemberPageData			struct	240	0	dwTongID	DWORD	4
+KTongMemberPageData			struct	240	4	btSortType	BYTE	1
+KTongMemberPageData			struct	240	5	btFilterFlag	BYTE	1
+KTongMemberPageData			struct	240	6	wSortCount	WORD	2
+KTongMemberPageData			struct	240	8	wPageIndex	WORD	2
+KTongMemberPageData			struct	240	10	dwTime	DWORD	4
+KTongMemberPageData			struct	240	14	btCount	BYTE	1
+KTongMemberPageData			struct	240	15	arData	KTongMemberBaseData[25]	225
 KTongShowInfo			struct	179	0	dwTongID	DWORD	4
 KTongShowInfo			struct	179	4	szName	char[32]	32
 KTongShowInfo			struct	179	36	wMemberCount	WORD	2
 KTongShowInfo			struct	179	38	wLevel	WORD	2
 KTongShowInfo			struct	179	40	nHuoYueDu	int	4
 KTongShowInfo			struct	179	44	ZhaoMuInfo	KZhaoMuInfo	135
+KTongUnionBaseData			struct	18	0	dwValue	DWORD	4
+KTongUnionBaseData			struct	18	4	dwLeaderID	DWORD	4
+KTongUnionBaseData			struct	18	8	szUnionName	char[10]	10
+KTongUnionPageData			struct	460	0	btSortType	BYTE	1
+KTongUnionPageData			struct	460	1	wSortCount	WORD	2
+KTongUnionPageData			struct	460	3	wPageIndex	WORD	2
+KTongUnionPageData			struct	460	5	dwTime	DWORD	4
+KTongUnionPageData			struct	460	9	btCount	BYTE	1
+KTongUnionPageData			struct	460	10	arData	KTongUnionBaseData[25]	450
+KUnionTongList			struct	115	0	szUnionName	char[10]	10
+KUnionTongList			struct	115	10	dwLeaderID	DWORD	4
+KUnionTongList			struct	115	14	btCount	BYTE	1
+KUnionTongList			struct	115	15	arTongID	DWORD[25]	100
 KZhaoMuInfo			struct	135	0	byQingXiang	BYTE	1
 KZhaoMuInfo			struct	135	1	byActivity	BYTE[4]	4
 KZhaoMuInfo			struct	135	5	szCustomText	char[128]	128
@@ -69,10 +159,27 @@ LocalDispatchMsgChannel			struct	10	0	ChannelId	DWORD	4
 LocalDispatchMsgChannel			struct	10	4	Cost	BYTE	1
 LocalDispatchMsgChannel			struct	10	5	ChannelFlag	BYTE	1
 LocalDispatchMsgChannel			struct	10	6	dwMsgInterval	DWORD	4
+MEMBER_SELF_MIX_DATA			struct	4	0	dwLWeekGoalOffer	DWORD	4
+MIX_PROTOCOL_u			union	128		btData	BYTE[1]	1
+MIX_PROTOCOL_u			union	128		dwData	DWORD[1]	4
+MIX_PROTOCOL_u			union	128		szReserve	char[128]	128
 MapIdIndexPair			struct	6	0	nMapId	int	4
 MapIdIndexPair			struct	6	4	nMapIndex	short int	2
+PARTNER_CTRL_INFO_u			union	1		m_byCurPartnerIdx	BYTE	1
+PARTNER_CTRL_INFO_u			union	1		m_byCurPartnerCallOut	BYTE	1
+PARTNER_CTRL_INFO_u			union	1		m_byCurPartnerFollowOnly	BYTE	1
+PARTNER_SIMPLE_INFO_2_u			union	2		m_byInfo	BYTE[2]	2
+PARTNER_SIMPLE_INFO_2_u			union	2		m_wInfo	WORD	2
+PARTNER_SIMPLE_INFO_4_u			union	4		m_byInfo	BYTE[4]	4
+PARTNER_SIMPLE_INFO_4_u			union	4		m_wInfo	WORD[2]	4
+PARTNER_SIMPLE_INFO_4_u			union	4		m_dwInfo	DWORD	4
 POS			struct	2	0	x	BYTE	1
 POS			struct	2	1	y	BYTE	1
+QUERY_TASK_RESULT			struct	48	0	nTaskID	int	4
+QUERY_TASK_RESULT			struct	48	4	nReward	int	4
+QUERY_TASK_RESULT			struct	48	8	nTotalTime	int	4
+QUERY_TASK_RESULT			struct	48	12	nRemainTime	int	4
+QUERY_TASK_RESULT			struct	48	16	szKilleeName	char[32]	32
 SALE_STORES_SHOP			struct	48	0	m_nBuyIdx	int	4
 SALE_STORES_SHOP			struct	48	4	m_ctCurrencyType	CurrencyType	4
 SALE_STORES_SHOP			struct	48	8	m_nScale	int	4
@@ -98,6 +205,104 @@ SViewItemInfo			struct	64	48	m_dwLeftUsageTime	DWORD	4
 SViewItemInfo			struct	64	52	wPlatinaMagicIdx	WORD[2]	4
 SViewItemInfo			struct	64	56	dwExchangeValue	DWORD	4
 SViewItemInfo			struct	64	60	dwFortuneValue	DWORD	4
+StallViewItemInfo			struct	92	0	(base)	SViewItemInfo	64
+StallViewItemInfo			struct	92	64	nX	int	4
+StallViewItemInfo			struct	92	68	nY	int	4
+StallViewItemInfo			struct	92	72	nWidth	int	4
+StallViewItemInfo			struct	92	76	nHeight	int	4
+StallViewItemInfo			struct	92	80	nPrice	int	4
+StallViewItemInfo			struct	92	84	m_nCurrentDur	int	4
+StallViewItemInfo			struct	92	88	m_nMaxDurability	int	4
+TLeagueCallBackScript			struct	40	0	nResult	int	4
+TLeagueCallBackScript			struct	40	4	nScriptFileID	int	4
+TLeagueCallBackScript			struct	40	8	szFunction	char[32]	32
+TLeagueDoScript			struct	4	0	byScriptFileLen	BYTE	1
+TLeagueDoScript			struct	4	1	byScriptFuncLen	BYTE	1
+TLeagueDoScript			struct	4	2	byScriptParamLen	BYTE	1
+TLeagueDoScript			struct	4	3	szBuf	char[1]	1
+TLeagueMemberData			struct	93	0	dwLeagueType	DWORD	4
+TLeagueMemberData			struct	93	4	szLeagueName	char[48]	48
+TLeagueMemberData			struct	93	52	CoreData	TLeagueRoleInfo	41
+TLeagueRoleInfo			struct	41	0	dwJob	DWORD	4
+TLeagueRoleInfo			struct	41	4	szRoleName	char[32]	32
+TLeagueRoleInfo			struct	41	36	dwBufSize	DWORD	4
+TLeagueRoleInfo			struct	41	40	szBuf	char[1]	1
+TONG_BASE			struct	901	0	m_btCount	BYTE	1
+TONG_BASE			struct	901	1	aryTongIDName	TONG_ID_NAME[25]	900
+TONG_FIGURE_COUNT			struct	21	0	dwTongID	DWORD	4
+TONG_FIGURE_COUNT			struct	21	4	btMasterOnline	BYTE	1
+TONG_FIGURE_COUNT			struct	21	5	sCountDirector	_OneFigure	4
+TONG_FIGURE_COUNT			struct	21	9	sCountManager	_OneFigure	4
+TONG_FIGURE_COUNT			struct	21	13	sCountMember	_OneFigure	4
+TONG_FIGURE_COUNT			struct	21	17	sCountRetire	_OneFigure	4
+TONG_FIGURE_MEMBER			struct	230	0	dwTongID	DWORD	4
+TONG_FIGURE_MEMBER			struct	230	4	btFigure	BYTE	1
+TONG_FIGURE_MEMBER			struct	230	5	btCount	BYTE	1
+TONG_FIGURE_MEMBER			struct	230	6	arydwMemberID	DWORD[56]	224
+TONG_ID_NAME			struct	36	0	m_dwID	DWORD	4
+TONG_ID_NAME			struct	36	4	m_szName	char[32]	32
+TONG_MEMBER_BASE			struct	905	0	m_dwTongID	DWORD	4
+TONG_MEMBER_BASE			struct	905	4	m_btCount	BYTE	1
+TONG_MEMBER_BASE			struct	905	5	aryMemberIDName	TONG_MEMBER_ID_NAME[25]	900
+TONG_MEMBER_ID_NAME			struct	36	0	m_dwID	DWORD	4
+TONG_MEMBER_ID_NAME			struct	36	4	m_szName	char[32]	32
+TONG_MEMBER_INFO			struct	68	0	m_dwTongID	DWORD	4
+TONG_MEMBER_INFO			struct	68	4	m_dwMemberID	DWORD	4
+TONG_MEMBER_INFO			struct	68	8	m_dwJoinTime	DWORD	4
+TONG_MEMBER_INFO			struct	68	12	m_dwLevel	DWORD	4
+TONG_MEMBER_INFO			struct	68	16	m_dwOffer	DWORD	4
+TONG_MEMBER_INFO			struct	68	20	m_dwWeekGoalOffer	DWORD	4
+TONG_MEMBER_INFO			struct	68	24	m_dwWeeklyOffer	DWORD	4
+TONG_MEMBER_INFO			struct	68	28	m_dwMonthlyOffer	DWORD	4
+TONG_MEMBER_INFO			struct	68	32	m_dwTotalOffer	DWORD	4
+TONG_MEMBER_INFO			struct	68	36	m_szTitle	char[32]	32
+TONG_MEMBER_TASK			struct	6	0	wID	WORD	2
+TONG_MEMBER_TASK			struct	6	2	nValue	int	4
+TONG_RECORD			struct	68	0	dwRecordTime	DWORD	4
+TONG_RECORD			struct	68	4	szRecordContent	char[64]	64
+TONG_RECORDLIST_INFO			struct	6806	0	dwTongID	DWORD	4
+TONG_RECORDLIST_INFO			struct	6806	4	wRecordCount	WORD	2
+TONG_RECORDLIST_INFO			struct	6806	6	aryRecord	TONG_RECORD[100]	6800
+TONG_TASK			struct	6	0	wID	WORD	2
+TONG_TASK			struct	6	2	nValue	int	4
+TONG_UNION_BASE			struct	926	0	m_btCount	BYTE	1
+TONG_UNION_BASE			struct	926	1	aryUnionIDName	TONG_UNION_ID_NAME[25]	925
+TONG_UNION_ID_NAME			struct	37	0	m_btCount	BYTE	1
+TONG_UNION_ID_NAME			struct	37	1	m_dwLeaderID	DWORD	4
+TONG_UNION_ID_NAME			struct	37	5	m_szName	char[32]	32
+TONG_WEEKGOAL_INFO			struct	64	0	dwTongID	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	4	btCurGoalLevel	BYTE	1
+TONG_WEEKGOAL_INFO			struct	64	5	btGoalLevel	BYTE	1
+TONG_WEEKGOAL_INFO			struct	64	6	btGoalLevel_L	BYTE	1
+TONG_WEEKGOAL_INFO			struct	64	7	btWeekDay	BYTE	1
+TONG_WEEKGOAL_INFO			struct	64	8	dwGoalType	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	12	dwGoalLevel	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	16	dwGoalTotal	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	20	dwGoalPlayer	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	24	dwFinished	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	28	dwTongPrize	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	32	dwMemberPrize	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	36	dwGoalType_L	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	40	dwGoalLevel_L	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	44	dwGoalTotal_L	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	48	dwGoalPlayer_L	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	52	dwFinished_L	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	56	dwTongPrize_L	DWORD	4
+TONG_WEEKGOAL_INFO			struct	64	60	dwMemberPrize_L	DWORD	4
+TONG_WORKSHOP_INFO			struct	23	0	dwTongID	DWORD	4
+TONG_WORKSHOP_INFO			struct	23	4	wCount	WORD	2
+TONG_WORKSHOP_INFO			struct	23	6	nTaskValue	WORD	2
+TONG_WORKSHOP_INFO			struct	23	8	sWorkshops	_OneWorkshop[1]	15
+TOneLeagueData			struct	75	0	wLen	DWORD	4
+TOneLeagueData			struct	75	4	dwLeagueType	DWORD	4
+TOneLeagueData			struct	75	8	szLeagueName	char[48]	48
+TOneLeagueData			struct	75	56	dwCreateTime	DWORD	4
+TOneLeagueData			struct	75	60	wRoleCount	WORD	2
+TOneLeagueData			struct	75	62	wTaskDataOffSet	WORD	2
+TOneLeagueData			struct	75	64	wTaskDataBufSize	WORD	2
+TOneLeagueData			struct	75	66	dwReserved1	DWORD	4
+TOneLeagueData			struct	75	70	dwReserved2	DWORD	4
+TOneLeagueData			struct	75	74	szBuf	char[1]	1
 TRoleList			struct	46	0	Name	char[32]	32
 TRoleList			struct	46	32	nValue	INT64	8
 TRoleList			struct	46	40	nSect	int	4
@@ -112,6 +317,10 @@ TTm			struct	36	20	tm_year	int	4
 TTm			struct	36	24	tm_wday	int	4
 TTm			struct	36	28	tm_yday	int	4
 TTm			struct	36	32	tm_isdst	int	4
+TongData_Tong			struct	4	0	dwTongID	DWORD	4
+TongData_TongBuffer			struct	8	0	(base)	TongData_Tong	4
+TongData_TongBuffer			struct	8	4	dwDataLen	DWORD	4
+TongData_TongBuffer			struct	8	8	buffer	BYTE[]	
 TongExHeaderBase			struct	4	0	m_wTongExLength	WORD	2
 TongExHeaderBase			struct	4	2	m_wTongExProtocol	WORD	2
 VIEW_OTHER_DETAIL_INFO			struct	140	0	nExperienceFull	INT64	8
@@ -127,10 +336,28 @@ _GUID	GUID		struct	16	0	Data1	DWORD	4
 _GUID	GUID		struct	16	4	Data2	WORD	2
 _GUID	GUID		struct	16	6	Data3	WORD	2
 _GUID	GUID		struct	16	8	Data4	BYTE[8]	8
+_OneFigure			struct	4	0	wOnline	WORD	2
+_OneFigure			struct	4	2	wAll	WORD	2
+_OneWorkshop			struct	15	0	dwWorkshopID	DWORD	4
+_OneWorkshop			struct	15	4	wTypeID	WORD	2
+_OneWorkshop			struct	15	6	btLevel	BYTE	1
+_OneWorkshop			struct	15	7	btUseLevel	BYTE	1
+_OneWorkshop			struct	15	8	btState	BYTE	1
+_OneWorkshop			struct	15	9	TaskValue	_TaskValue[1]	6
+_TaskValue			struct	6	0	wTaskID	WORD	2
+_TaskValue			struct	6	2	nTaskValue	int	4
+stall_itemprice			struct	8	0	dwItemID	DWORD	4
+stall_itemprice			struct	8	4	nPrice	int	4
+stallprotocol_header			struct	4	0	ProtocolType	BYTE	1
+stallprotocol_header			struct	4	1	wProcotolSize	WORD	2
+stallprotocol_header			struct	4	3	stallProtocolType	BYTE	1
 tagAccountUserInfo			struct	52	0	ExtPointInfo	tagExtPointInfo	32
 tagAccountUserInfo			struct	52	32	nTotalLeftTime	DWORD	4
 tagAccountUserInfo			struct	52	36	nLeftTimeOfPoint	DWORD	4
 tagAccountUserInfo			struct	52	40	LimitTimeInfo	KACCOUNT_LIMITTIME_INFO	12
+tagArenaResult	ARENARESULT		struct	37	0	wTongIndex	WORD[2]	4
+tagArenaResult	ARENARESULT		struct	37	4	byResult	BYTE	1
+tagArenaResult	ARENARESULT		struct	37	5	szComment	char[32]	32
 tagBULLETIN_CONTENT_DATA_ContentData_t			struct	804	0	nLen	int	4
 tagBULLETIN_CONTENT_DATA_ContentData_t			struct	804	4	szContent	char[800]	800
 tagBULLETIN_SUMMARY_DATA_SummaryData_t			struct	80	0	szSummary	char[64]	64
@@ -141,6 +368,33 @@ tagExtPointInfo			struct	32	0	nExtPoint	int[8]	32
 tagFOUNDRY_CLIENTSEND_NecItemPos_t			struct	12	0	nPlace	int	4
 tagFOUNDRY_CLIENTSEND_NecItemPos_t			struct	12	4	nX	int	4
 tagFOUNDRY_CLIENTSEND_NecItemPos_t			struct	12	8	nY	int	4
+tagKIB_ItemBuyInfo			struct	60	0	szAccount	char[32]	32
+tagKIB_ItemBuyInfo			struct	60	32	nPlayerDataIndex	int	4
+tagKIB_ItemBuyInfo			struct	60	36	nGoodsIndex	int	4
+tagKIB_ItemBuyInfo			struct	60	40	nItemTypeID	int	4
+tagKIB_ItemBuyInfo			struct	60	44	nItemLevel	int	4
+tagKIB_ItemBuyInfo			struct	60	48	nUseType	int	4
+tagKIB_ItemBuyInfo			struct	60	52	nPrice	int	4
+tagKIB_ItemBuyInfo			struct	60	56	dwOverdueTime	DWORD	4
+tagKIB_ItemBuyResult			struct	64	0	szAccount	char[32]	32
+tagKIB_ItemBuyResult			struct	64	32	nPlayerDataIndex	int	4
+tagKIB_ItemBuyResult			struct	64	36	nGoodsIndex	int	4
+tagKIB_ItemBuyResult			struct	64	40	nItemTypeID	int	4
+tagKIB_ItemBuyResult			struct	64	44	nItemLevel	int	4
+tagKIB_ItemBuyResult			struct	64	48	nPrice	int	4
+tagKIB_ItemBuyResult			struct	64	52	nItemGUID	INT64	8
+tagKIB_ItemBuyResult			struct	64	60	nRetCode	int	4
+tagKIB_ItemUseInfo			struct	52	0	szAccount	char[32]	32
+tagKIB_ItemUseInfo			struct	52	32	nPlayerDataIndex	int	4
+tagKIB_ItemUseInfo			struct	52	36	nItemTypeID	int	4
+tagKIB_ItemUseInfo			struct	52	40	nItemLevel	int	4
+tagKIB_ItemUseInfo			struct	52	44	nItemGUID	INT64	8
+tagKIB_ItemUseResult			struct	56	0	szAccount	char[32]	32
+tagKIB_ItemUseResult			struct	56	32	nPlayerDataIndex	int	4
+tagKIB_ItemUseResult			struct	56	36	nItemTypeID	int	4
+tagKIB_ItemUseResult			struct	56	40	nItemLevel	int	4
+tagKIB_ItemUseResult			struct	56	44	nItemGUID	INT64	8
+tagKIB_ItemUseResult			struct	56	52	nRetCode	int	4
 tagNOTIFY_CLIENT_u			union	4		nStatus	INT	4
 tagNOTIFY_CLIENT_u			union	4		cStatus	CHAR[4]	4
 tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t			struct	8	0	nTaskID	int	4
