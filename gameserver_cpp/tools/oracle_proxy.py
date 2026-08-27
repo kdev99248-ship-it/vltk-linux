@@ -61,7 +61,14 @@ def ksg_decode(table, data, key):
     esi = key & 0xFFFFFFFF
     for i in range(num_words):
         counter = num_words - 1 - i
-        esi = (table[(counter + esi) % modulus] + KSG_ADD) & 0xFFFFFFFF
+        # The & 0xFFFFFFFF on the sum is load-bearing and easy to lose in a
+        # Python transcription: the i386 original is `lea eax, [ebx+esi]`
+        # followed by `div`, so the addition wraps at 2**32 before the modulo.
+        # Python ints do not wrap, and without the mask this diverges from the
+        # binary whenever esi + counter overflows -- rare enough with real keys
+        # that live traffic never showed it, and immediate with a key near
+        # 0xFFFFFFFF. Caught by tools/check_ksg.py.
+        esi = (table[((counter + esi) & 0xFFFFFFFF) % modulus] + KSG_ADD) & 0xFFFFFFFF
         off = i * 4
         word = int.from_bytes(out[off:off + 4], "little") ^ esi
         out[off:off + 4] = word.to_bytes(4, "little")

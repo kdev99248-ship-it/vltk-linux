@@ -16,7 +16,10 @@ from that description instead.
 | Prove the proof is not vacuous | **done, verified** — negative control fails as designed |
 | Protocol ID table, client → server | **done, verified** — two independent sources, §3 |
 | Protocol ID table, server → client | **done, partial coverage** — observed, not named, §4 |
-| `KServerCore` + handshake | not started |
+| The KSG cipher and its key table | **done, verified** — 96 vectors, two implementations, §6 |
+| `main` → `KSOServer` → `KServerCore` → login | **done, runs** — §7 |
+| The handshake, end to end | **done, verified** — against the shipped engine, §8 |
+| The five outbound server links | Phase 2 — §9 |
 
 ## 1. From a packet table to a compilable header
 
@@ -363,17 +366,221 @@ verify: 93 referenced type layouts  (10 unions / empty, not applicable)
   INCONSISTENT                          0
 ```
 
+## 6. The cipher, and a bug it found in the oracle
+
+The server owns no socket code. `libheaven.so` listens, accepts and buffers;
+`librainbow.so` is the same engine's client side, used for the outbound links.
+Neither knows the cipher — the server registers one with
+`IServer::RegisterCoder` and heaven calls it on every packet in both directions.
+So `KCoder2` is the entire cryptographic surface of the port, and it is 33 bytes
+of code wrapping `KSG_DecodeEncode2`.
+
+Two details in it are easy to get wrong and impossible to notice:
+
+- **The block index counts down** while the buffer walks forward. Block 0 of the
+  buffer is keyed with `nBlocks - 1`, the last block with 0. In the binary the
+  loop is `sub ebx, 1` / `cmp ebx, 0FFFFFFFFh`.
+- **The key is chained**: each block's key is
+  `g_uPublicKeys[(i + prevKey) % 5679] + 0x2E6D23C1`, so a single wrong block
+  corrupts everything after it.
+
+The table is the 22716 bytes at `g_uPublicKeys` (`0x082AB6A0`), read out of the
+binary and committed as generated C++ rather than loaded from a file — because
+the shipped server holds it in `.rodata`, and a build that read it from disk
+would already differ. `sha256 5491f086…`, byte-identical to
+`config/reference/heaven_table.bin`.
+
+### Checking it
+
+A wrong cipher and a dead connection look exactly alike from outside, so the
+implementation is diffed against an independent one:
+`ksg_decode()` in `tools/oracle_proxy.py`, transcribed from the s3relay server
+and verified byte-exact against live `bishop_y` traffic before this port
+existed. `ksg_vectors` prints 96 vectors — every tail length, the 5-byte ping,
+the 9-byte ping reply, the 17-byte login, up to 1024 bytes, across six keys —
+and `check_ksg.py` recomputes each one:
+
+```
+$ ./build/docker/ksg_vectors > vectors.txt
+$ python3 tools/check_ksg.py vectors.txt
+table   ../config/reference/heaven_table.bin (5679 keys)
+vectors 96
+ok      every vector agrees with tools/oracle_proxy.py
+```
+
+`ksg_vectors` also re-runs the cipher over its own output and checks the
+plaintext comes back, since the whole thing is only correct if it is symmetric.
+
+**The first run disagreed on 8 of 96, and the C++ was right.** Every mismatch
+had key `0xFFFFFFFF` and a buffer of two blocks or more. The original is
+
+```asm
+lea eax, [ebx+esi]        ; counter + key -- 32-bit, wraps
+xor edx, edx
+div uNumOfPubKeys
+```
+
+so the addition wraps at 2³² *before* the modulo. Python integers do not wrap,
+and the transcription had lost the mask. With realistic keys it is unobservable
+— a 17-byte packet needs the key within 3 of 2³², about one connection in a
+billion — which is exactly why capture-diffing against live traffic never showed
+it. It is fixed in `oracle_proxy.py` with the reason written next to it.
+
+Worth stating plainly, because the oracle is the thing that decides whether the
+port is correct: this was a bug **in the oracle**, found by the port.
+
+## 7. The process half: `main` → `KSOServer`
+
+`KSOServer` is config, sockets and the clock; it knows nothing about the game.
+The order in `Initialize` is preserved from `0x0804C0A0` because it is
+observable: libraries before config, so a missing `libheaven.so` is reported
+before a missing `servercfg.ini`.
+
+The clock is the part worth reading twice. Two counters run at different rates:
+
+```
+m_dwElapseTime   milliseconds since startup
+m_dwElapseTick   144ths of a second since startup
+m_dwGameTick     advances by 8 per game loop
+```
+
+144/8 = **18 game loops per second**, and `m_nGameFPS` is the loop count measured
+back against real time. `Loop()` sleeps 1 ms whenever it is ahead of schedule,
+which is what keeps a single-threaded server off a spin loop: heaven does the
+socket work on its own thread and leaves decoded packets in per-client queues,
+so the main loop only ever drains queues and ticks.
+
+Two behaviours are reproduced rather than tidied, and both are deliberate:
+
+- **The FPS warning fires on 17 loops out of every 18.** The test is
+  `m_nGameFPS <= 17 && m_dwGameLoop % 18 != 0`, which reads like an inverted
+  rate-limit. A struggling server prints it almost every tick. That is what the
+  deployed logs look like and what they are read against.
+- **`OpenService` binds the *internet* address, not the intranet one.** On a host
+  where the two differ this is the address clients must reach, and a wrong
+  `[FixIp] InternetIp` makes the listen fail outright rather than bind the wrong
+  interface. This is the bug that produced `Failed to open service on port[6666]`
+  in the deploy tooling.
+
+`GetLocalIpAddress` takes `eth0` as the internet side and `eth1` as the intranet
+side, then swaps them if `eth0` starts `192.168` — on the reasoning that a
+private address cannot be the public one. With no interfaces at all both come
+back 0 and `[FixIp]` has to supply them, which is how the container run below
+works.
+
+## 8. The handshake
+
+It is **17 bytes: protocol 66 and a 16-byte GUID** — `tagLogicLogin`. That is
+the entire inbound login: no account name, no password, no key exchange. Those
+happened at the gateway, which loaded the character into this server's player set
+and handed the client a GUID; this message is the client saying which of the
+already-loaded characters it is.
+
+Stated plainly because the obvious guess is wrong: this is **not** the 42-byte
+`ACCOUNT_BEGIN` handshake with obfuscated keys at `0x08`/`0x11`. That one is real
+and correct, and it belongs to the relay/paysys link, not here. What the two
+share is the KSG cipher and its table, nothing else.
+
+### Testing it against the shipped engine
+
+`login_probe` speaks to the ported server through `librainbow.so` — the shipped
+client engine — so the framing, buffering and key handling are the real ones and
+the only piece from this tree on the client side is `KCoder2`. Both processes run
+in one container on `--network none`, so nothing touches the host or the deployed
+stack:
+
+```
+docker run -d --name jxtest --network none -t -v .../run:/work -w /work \
+    jx-gameserver-build ./jx_gameserver 7666
+docker exec jxtest ./login_probe 127.0.0.1 7666 4 17    # valid
+docker exec jxtest ./login_probe 127.0.0.1 7666 4 16    # one byte short
+```
+
+The server's console:
+
+```
+Intranet ip: 127.0.0.1
+Internet ip: 127.0.0.1
+[Gateway]IP:127.0.0.1, Port:5632
+[Database]IP:127.0.0.1, Port:5001
+[Transfer]IP:127.0.0.1, Port:5003
+[Tong]IP:127.0.0.1, Port:5005
+[Chat]IP:127.0.0.1, Port:5004
+[phase1] outbound server links are not opened by this build.
+----------[Warning...] GameServer' FPS=0----------
+[error]NetServer:Invalid Protocol Size! protocol(66) expect(17) actual(16)
+[ShutdownClient]	shut down client(1) - ip(127.0.0.1 : 49398) because invalid protocol!
+```
+
+and `gameserver.log`, CRLF as in the original:
+
+```
+[2026-08-27 08:40:10]Gameserver startup
+```
+
+**The negative case is the one that proves something.** The valid 17-byte login
+is accepted in silence — connect, send, no reply, no disconnect — and silence is
+weak evidence, because a server that decoded nothing at all would also be silent.
+One byte short produces `protocol(66) expect(17) actual(16)` and a disconnect,
+and those three numbers can only appear together if
+
+- heaven decoded the packet with our `KCoder2` and the first byte arrived as 66,
+- the recovered size table says protocol 66 is 17 bytes,
+- `CheckProtocolSize` ran and the shutdown path found the client's address.
+
+The valid case is then meaningful in the other direction: it got past the same
+gate and reached `ProcessLoginProtocol`, which returned 0 because `AttachPlayer`
+has no loaded characters to match the GUID against — and that is also what the
+shipped server does with an empty player set. Accepting the connection, accepting
+the packet, finding nothing and staying silent is a real match rather than an
+accident of both sides being broken.
+
+**What has not been done: a byte diff against the shipped binary.** It is not
+skipped for convenience — `jx_linux_y` will not start without its five outbound
+links, so standing up an oracle instance means standing up gateway, database,
+transfer, chat and tong, which is Phase 2 in its entirety. The engine-level test
+above is the strongest check available before that exists.
+
+## 9. What is deliberately missing
+
+Every omission carries a `// Phase 2` comment at the point where the shipped code
+does something, rather than being silently absent. The significant ones:
+
+| Where | What the shipped server does |
+|---|---|
+| `CreateClientConnections` | opens five `CClientConnection`s and **fails Initialize if any refuses** |
+| `KServerCore::Initialize` | product config, the log sinks, the timer list, `g_InitCore`, `OnLaunch` |
+| `KSOServer::Initialize` | `g_SetRootPath` / `g_InitEngine("package.ini")` — the package VFS |
+| `AttachPlayer` | walks `KPlayerSet` for a loaded character with a matching GUID |
+| `SendGameDataToClient` | seven steps of `PlayerDbLoading`, then state 2 and a one-byte 67 |
+| `ProcessSyncReplyProtocol` | `AddPlayerToWorld`, then returns 1 |
+| `OnClientClose` | the leave-the-world path: notify gateway and database, drop the role |
+| state 3 | `KPlayerSet::ProcessClientMessage` — the game |
+
+Two of those are behavioural differences a reader should know about rather than
+discover:
+
+- **This build starts without a gateway; the shipped one does not.** Temporary,
+  and the reason Phase 1 could be tested at all.
+- **`ProcessSyncReplyProtocol` returns 0 where the shipped one returns 1.**
+  Returning 1 would move the session to "in the world" with no world in it, so
+  the honest answer until `AddPlayerToWorld` exists is that the sync did not
+  complete.
+
+`KIniFile` is a reimplementation, not a port: the shipped one reads through the
+package VFS, and `servercfg.ini` is the one file loaded by plain relative path.
+Its surface is exactly the three methods the startup path calls, with the
+signatures the manglings give.
+
 ## Exit criteria
 
 - [x] The protocol layer compiles on Linux, `-m32`
 - [x] Its layouts are byte-identical to the shipped binary, checked by the compiler
 - [x] That check is shown to be non-vacuous
 - [x] Protocol IDs recovered and cross-checked against the dispatch table
-- [ ] `KServerCore` starts and accepts a connection
-- [ ] The handshake completes against the oracle
-
-The handshake specifics are already reverse-engineered and recorded in the
-s3relay work: a 42-byte `ACCOUNT_BEGIN` with obfuscated keys at offsets
-0x08/0x11, then the chained KSG cipher. That is the Linux protocol. The Windows
-source describes a 32-byte constant-XOR handshake instead, and using it
-crash-loops the gateway.
+- [x] The KSG cipher agrees with an independent implementation on 96 vectors
+- [x] `KServerCore` starts and accepts a connection
+- [x] The handshake completes against the shipped network engine, positive and
+      negative case
+- [ ] A byte diff against a running `jx_linux_y` — blocked on the five outbound
+      links, i.e. on Phase 2

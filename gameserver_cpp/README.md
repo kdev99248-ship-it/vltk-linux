@@ -48,6 +48,16 @@ src/protocol/ The protocol layer, generated from the tables above and
               committed. jx_protocol.h is the header; jx_layout.cpp is 2793
               static_asserts that it matches the binary; jx_protocol_ids.h is
               the ID table with 355 more.
+src/net/      The network boundary. heaven_abi.h is the recovered ABI of
+              libheaven.so and librainbow.so -- transcribed vtables, since
+              neither ships a header. ksg.cpp is the wire cipher and
+              ksg_table.cpp its 5679-key table, generated and committed
+              because the shipped server keeps it in .rodata, not in a file.
+src/core/     The server itself. KSOServer is config, sockets and the clock;
+              KServerCore owns the per-client session state; KClientProcess is
+              the inbound state machine, including the 17-byte login.
+src/util/     KIniFile and KThreadLock.
+src/main.cpp  Argument parsing, the core-dump limit, the loop.
 docs/         Phase notes. Start with docs/PHASE0.md.
 ```
 
@@ -96,9 +106,19 @@ Everything here runs on a bare Python 3 install.
 | `cmp_protocol_ids.py` | Puts the Windows `KProtocolDef.h` next to the binary's own enums. Reports agreement, conflicts and one-sided names separately -- 31 of the 100 shared IDs conflict. |
 | `ida/dump_dispatch.py` | Runs inside IDA. Reads the 95 assigned slots of `ProcessFunc[]` out of `KProtocolProcess`'s constructor -- there is no switch to read, the mapping is the array. |
 | `ida/dump_send_ids.py` | Runs inside IDA. Decompiles all 8401 functions and records every protocol byte the server writes together with the declared type it wrote it into, which is the only trace the outbound IDs leave. |
+| `gen_ksg_table.py` | Emits the 5679-key cipher table as committed C++, asserting the size and printing the sha256 of what it read. |
+| `check_ksg.py` | Diffs the C++ cipher against the independent Python one in `oracle_proxy.py`, using vectors printed by the `ksg_vectors` target. Found a 2³² wraparound bug -- in the Python. |
 | `oracle_proxy.py` | TCP capture proxy. Records a session against the old server, then the new one. |
 | `diff_capture.py` | Compares two captures and locates the first divergence. Exit 1 on any difference. |
 | `test_oracle.py` | Self-test for the two above. Run it before trusting them. |
+
+Two of the tools are C++ rather than Python, because they have to run against
+the shipped 32-bit libraries:
+
+| Target | What it does |
+|---|---|
+| `ksg_vectors` | Prints 96 cipher vectors for `check_ksg.py`, and checks the cipher is symmetric over its own output. |
+| `login_probe` | Drives a real login against the ported server *through `librainbow.so`*, the shipped client engine -- so the framing and key handling are the real ones and only `KCoder2` comes from this tree. |
 
 ### Method-level, not class-level
 
@@ -191,14 +211,47 @@ The five are the layout hazards worth a control: multiple inheritance under
 array DWARF records as one DIE with two subranges, and an anonymous union GCC
 flattened into its parent. The last two are bugs this phase actually had.
 
+### The handshake, end to end
+
+`jx_gameserver` starts, opens its socket and completes the client login. The
+test uses the shipped client engine as the other half, so nothing hand-rolls the
+wire format, and both processes run in one container on `--network none`:
+
+```bash
+./docker/gameserver-build/build.sh RelWithDebInfo jx_gameserver
+./docker/gameserver-build/build.sh RelWithDebInfo login_probe
+# then, in a throwaway container with libheaven.so, librainbow.so, servercfg.ini
+./jx_gameserver 7666 &
+./login_probe 127.0.0.1 7666 4 17    # valid   -> accepted, silent
+./login_probe 127.0.0.1 7666 4 16    # short   -> rejected, disconnected
+```
+
+The rejection is the case that proves something:
+
+```
+[error]NetServer:Invalid Protocol Size! protocol(66) expect(17) actual(16)
+[ShutdownClient]	shut down client(1) - ip(127.0.0.1 : 49398) because invalid protocol!
+```
+
+Those three numbers can only appear together if heaven decoded the packet with
+our `KCoder2`, the first byte arrived as 66, and the recovered size table says
+protocol 66 is 17 bytes. The valid login gets past the same gate and is then
+accepted in silence -- which is what the shipped server also does with an empty
+player set. Details in `docs/PHASE1.md` §8.
+
 ## Status
 
-**Phase 0 closed. Phase 1 in progress.** The build produces an ELF32 i386
-binary, and the protocol layer now exists: generated from the shipped binary's
-own DWARF and proven byte-identical to it at compile time. The ID table is
-recovered too -- the client-facing IDs are `#define`s and leave no trace in
-DWARF, so they came from the code instead: the inbound table from the dispatch
-array, cross-checked against the surviving `c2s_PROTOCOL` enum and agreeing on
-all 95 assigned slots; the outbound one from watching the server write each byte,
-which covers 275 of the 574 packets so far. Still open in Phase 1 are
-`KServerCore` and the handshake. See `docs/PHASE1.md`.
+**Phase 0 closed. Phase 1 closed except for the oracle diff.** The build
+produces an ELF32 i386 binary that runs, listens, and completes the 17-byte
+`c2s_logiclogin` handshake. Under it: a protocol layer generated from the shipped
+binary's own DWARF and proven byte-identical at compile time; the ID table,
+recovered from the code because the client-facing IDs are `#define`s that leave
+no trace in DWARF; the KSG cipher, agreeing with an independent implementation on
+96 vectors.
+
+What Phase 1 does **not** have is a byte diff against a running `jx_linux_y`.
+That is blocked rather than skipped: the shipped binary refuses to start without
+its five outbound links to gateway, database, transfer, chat and tong, so an
+oracle instance is Phase 2 in its entirety. This build starts without them, which
+is the one deliberate behavioural difference and the reason Phase 1 could be
+tested at all. See `docs/PHASE1.md` §9 for the full list of what is stubbed.

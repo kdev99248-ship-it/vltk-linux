@@ -161,3 +161,79 @@ add_library(negative_control OBJECT EXCLUDE_FROM_ALL
             "${JX_PROTO_DIR}/negative_control.cpp")
 target_link_libraries(negative_control PRIVATE jx_compat)
 target_include_directories(negative_control PRIVATE "${JX_PROTO_DIR}")
+
+# ---------------------------------------------------------------------------
+# jx_gameserver: the port itself.
+#
+# Phase 1 is the client-facing half -- main, KSOServer, the two dlopened
+# libraries, KServerCore and the login handshake. The five outbound server
+# links and the world are Phase 2; every place they are missing carries a
+# comment saying so rather than being silently absent. See docs/PHASE1.md.
+#
+# src/net/ksg_table.cpp is generated and committed for the same reason the
+# protocol files are: it is the wire format. It also has to BE committed --
+# the shipped server holds the table in .rodata, not in a file, so a build that
+# read heaven_table.bin at run time would already differ from the original.
+# ---------------------------------------------------------------------------
+add_executable(jx_gameserver
+    src/main.cpp
+    src/core/ksoserver.cpp
+    src/core/kservercore.cpp
+    src/core/kclientprocess.cpp
+    src/net/heaven_abi.cpp
+    src/net/kcoder2.cpp
+    src/net/ksg.cpp
+    src/net/ksg_table.cpp
+    src/util/inifile.cpp
+)
+
+target_include_directories(jx_gameserver PRIVATE
+    src/core
+    src/net
+    src/util
+)
+
+# jx_protocol carries src/protocol and jx_compat (and Threads) through as
+# PUBLIC, so this line is the whole dependency list bar libdl -- which is what
+# dlopens libheaven.so and librainbow.so.
+target_link_libraries(jx_gameserver PRIVATE jx_protocol ${CMAKE_DL_LIBS})
+
+# ---------------------------------------------------------------------------
+# ksg_vectors: prints test vectors for tools/check_ksg.py, which diffs them
+# against the independent Python implementation in tools/oracle_proxy.py. Two
+# implementations recovered from different binaries agreeing is the only real
+# evidence the cipher is right -- a wrong cipher and a dead connection look
+# identical from outside.
+#
+#   cmake --build build --target ksg_vectors
+#   ./build/ksg_vectors > vectors.txt && python3 tools/check_ksg.py vectors.txt
+# ---------------------------------------------------------------------------
+add_executable(ksg_vectors EXCLUDE_FROM_ALL
+    tools/ksg_vectors.cpp
+    src/net/ksg.cpp
+    src/net/ksg_table.cpp)
+target_include_directories(ksg_vectors PRIVATE src/net)
+target_link_libraries(ksg_vectors PRIVATE jx_compat)
+
+# ---------------------------------------------------------------------------
+# login_probe: the end-to-end test. Speaks to the ported server through
+# librainbow.so -- the shipped client engine -- so the framing and the key
+# handling are the real ones and only KCoder2 comes from this tree.
+#
+# Needs ./librainbow.so in the working directory, same as the server does.
+# ---------------------------------------------------------------------------
+add_executable(login_probe EXCLUDE_FROM_ALL
+    tools/login_probe.cpp
+    src/net/heaven_abi.cpp
+    src/net/kcoder2.cpp
+    src/net/ksg.cpp
+    src/net/ksg_table.cpp)
+target_include_directories(login_probe PRIVATE src/net)
+target_link_libraries(login_probe PRIVATE jx_compat ${CMAKE_DL_LIBS})
+
+add_custom_target(regen_ksg_table
+    COMMAND python3 "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen_ksg_table.py"
+            "${CMAKE_CURRENT_SOURCE_DIR}/../config/reference/heaven_table.bin"
+            -o "${CMAKE_CURRENT_SOURCE_DIR}/src/net/ksg_table.cpp"
+    COMMENT "Regenerating the KSG key table from heaven_table.bin"
+    VERBATIM)
