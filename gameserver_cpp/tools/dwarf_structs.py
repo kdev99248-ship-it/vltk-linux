@@ -83,6 +83,13 @@ DEFAULT_BASES = (
     "KILLER_PROTOCOLHEADER", "CITYWAR_PROTOCOLHEADER",
 )
 
+# The second rule, for the packets that inherit nothing. A struct whose first
+# byte is the protocol byte is a packet whether or not the byte arrived by
+# inheritance -- five of them are written that way, KILLER_QUERYKILLEE_RESULT0
+# and the TRYOUT pair among them, and the send-ID sweep found them by watching
+# the server fill in exactly this member.
+HEADER_MEMBERS = frozenset(("ProtocolType", "cProtocol"))
+
 # Forms whose encoded length does not depend on the value. Everything else
 # (blocks, strings, LEB128) has to be decoded to find its end.
 FIXED_FORM = {
@@ -362,7 +369,7 @@ def type_size(ref, local, depth=0):
 def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
     """Walk every CU.
 
-    Returns (sizes, conflicts, layouts, packets, types, enums):
+    Returns (sizes, conflicts, layouts, packets, types, enums, tdefs):
       sizes     {name: byte_size}
       conflicts {name: {size, ...}} for names the binary defines inconsistently
       layouts   {name: [(member, offset, type, size), ...]} for names in `want`
@@ -372,6 +379,8 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
                 A packet header is not usable without these: a packet whose
                 field is `KZhaoMuInfo` does not compile until KZhaoMuInfo does.
       enums     {name: (size, [(enumerator, value), ...])} reachable likewise
+      tdefs     {struct name: {typedef name, ...}} across the whole binary --
+                one struct commonly has several, in CUs that never meet
     """
     info = sections[".debug_info"]
     abbrev_sec = sections[".debug_abbrev"]
@@ -383,7 +392,7 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
 
     abbrev_cache = {}
     sizes, seen, layouts, packets = {}, {}, {}, {}
-    types, enums = {}, {}
+    types, enums, tdefs = {}, {}, {}
 
     pos, total, ncu = 0, len(info), 0
     while pos < total:
@@ -492,6 +501,13 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
                         record(sizes, seen, die.name, t.size)
                         if die.name in want and t.fields:
                             layouts.setdefault(die.name, resolve(t.fields, local))
+                    # One struct, several typedef names -- and the CU that
+                    # defines the struct is often not the one that names it.
+                    # tagMINIMAP_OBJ_SYNC is also TMINIMAP_OBJ_SYNC, and the
+                    # code declares locals with the second, so a table that
+                    # keeps only one name cannot be joined against the code.
+                    if t.name and t.name != die.name:
+                        tdefs.setdefault(t.name, set()).add(die.name)
                     break
                 if t.tag in (TAG_const, TAG_volatile):
                     target, hops = t.type, hops + 1
@@ -509,6 +525,7 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
 
             found = []            # (name, off, die, base) for this CU's packets
             derived = {}          # off -> (die, [base names]) for the closure
+            headerless = []       # (name, off, die) matched by HEADER_MEMBERS
             claimed = set()
             for off, die in local.items():
                 if all_enums and die.tag == TAG_enum and die.name and die.fields:
@@ -523,6 +540,10 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
                          for f in die.fields if f[0] == "(base)"]
                 if bases:
                     derived[off] = (die, bases)
+                elif (die.fields[0][0] in HEADER_MEMBERS
+                        and die.fields[0][1] == 0
+                        and type_size(die.fields[0][2], local) == 1):
+                    headerless.append((die.name or alias.get(off), off, die))
 
             # A packet is any struct that reaches a protocol header base by
             # inheritance -- at any depth, through any of its bases.
@@ -539,7 +560,7 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
             # A CU is closed under this: a complete struct definition requires
             # complete definitions of its bases, so any chain that exists is
             # visible here. No second pass over the file is needed.
-            roots = set(packet_bases)
+            roots = set(packet_bases or ())
             settled = False
             while not settled:
                 settled = True
@@ -557,6 +578,10 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
                     # Whatever derives from a header is a header for whatever
                     # derives from it.
                     roots.update(n for n in (die.name, alias.get(off)) if n)
+
+            for key, off, die in headerless:
+                if key and key not in roots:
+                    found.append((key, off, die, ""))
 
             if found:
                 closure, rename = walk_closure(found, local, alias)
@@ -582,7 +607,7 @@ def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
         print(f"\r  {ncu} CUs  100.0%  {len(sizes)} names        ", file=sys.stderr)
 
     return (sizes, {n: s for n, s in seen.items() if len(s) > 1},
-            layouts, packets, types, enums)
+            layouts, packets, types, enums, tdefs)
 
 
 def strip_type(ref, local):
@@ -782,7 +807,7 @@ def main():
               file=sys.stderr)
 
     want_packets = bool(args.packets or args.types or args.enums or args.verify)
-    sizes, conflicts, layouts, packets, types, enums = walk(
+    sizes, conflicts, layouts, packets, types, enums, tdefs = walk(
         sections, args.members, not args.quiet,
         packet_bases=bases if want_packets else None,
         all_enums=args.all_enums)
@@ -798,8 +823,14 @@ def main():
                      "fieldsize\n")
             for name in sorted(table):
                 al, base, kind, size, rows = table[name]
+                # Every typedef name the binary gives this struct, the one found
+                # in its own CU first. A generated header declares all of them,
+                # because any of them can be what the code was written against.
+                names = [al] if al else []
+                names += sorted(n for n in tdefs.get(name, ()) if n not in names)
+                al = ",".join(names)
                 for fname, off, ty, fsz in rows:
-                    fh.write(f"{name}\t{al or ''}\t{base}\t{kind}\t{size}\t"
+                    fh.write(f"{name}\t{al}\t{base}\t{kind}\t{size}\t"
                              f"{'' if off is None else off}\t"
                              f"{'' if fname is None else fname}\t{ty}\t"
                              f"{'' if fsz is None else fsz}\n")

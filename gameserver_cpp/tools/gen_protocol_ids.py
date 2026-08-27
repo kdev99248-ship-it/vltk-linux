@@ -16,6 +16,16 @@ question with three possible answers, of unequal standing:
 (1) and (2) are independent artifacts of the same build, so where they agree
 the ID is settled. (3) gets compared and reported, never used.
 
+That covers the client-to-server direction. The other way there is no enum at
+all: `s2c_PROTOCOL` is used only as a source of constants, and a constant leaves
+no type behind for GCC to describe -- the name is nowhere in the server, the
+relay or libheaven. What does survive is the server writing the ID, and DWARF
+saying what it wrote it into, so the fourth source is:
+
+  4. `protocol/send_ids.tsv`, every `x.cProtocol = N` in the binary paired with
+     the declared type of `x`. Observed, not named: it gives the byte for a
+     packet without giving the enumerator it was spelled with.
+
     python3 tools/gen_protocol_ids.py protocol/ -o src/protocol/ \\
         [--header ../../Source/Source/SwordOnline/Headers/KProtocolDef.h]
 """
@@ -78,6 +88,174 @@ def read_dispatch(path: str) -> "dict[int, str]":
     return out
 
 
+def read_packet_names(path: str) -> "dict[str, str]":
+    """Every name a packet struct answers to -> the struct itself.
+
+    A struct routinely has several typedef names and the code picks one per use
+    site, so the name the send-ID sweep reports is often not the name the layout
+    table is keyed on. One 5-byte struct is NPC_REMOVE_SYNC, NPC_REQUEST_FAIL,
+    NPC_SIT_SYNC and NPC_STATE_REQUEST_COMMAND, with a different protocol byte
+    under each -- which is also why the IDs are keyed on the name used, not on
+    the struct.
+    """
+    out: dict[str, str] = {}
+    with open(path, encoding="utf-8") as fh:
+        next(fh)
+        for row in fh:
+            r = row.rstrip("\n").split("\t")
+            out[r[0]] = r[0]
+            for a in r[1].split(","):
+                if a:
+                    out[a] = r[0]
+    return out
+
+
+def read_send_ids(path: str) -> "tuple[dict, dict]":
+    """(name -> {field: {value}}, name -> {function}) from the IDA sweep."""
+    vals: dict[str, dict[str, set]] = {}
+    where: dict[str, set] = {}
+    with open(path, encoding="utf-8") as fh:
+        for row in fh:
+            if row.startswith("#") or row.startswith("struct\t"):
+                continue
+            name, field, value, func, _count = row.rstrip("\n").split("\t")
+            # The IDs are signed char in the source: cProtocol = -99 is 157 on
+            # the wire, and the packet whose handler is at slot 157 confirms it.
+            vals.setdefault(name, {}).setdefault(field, set()).add(int(value) & 0xFF)
+            where.setdefault(name, set()).add(func)
+    return vals, where
+
+
+def demangle(sym: str) -> str:
+    """Enough of the Itanium ABI to get `Class::method` out of a symbol."""
+    if not sym.startswith("_Z"):
+        return sym
+    i = 2
+    nested = i < len(sym) and sym[i] == "N"
+    if nested:
+        i += 1
+    parts = []
+    while i < len(sym) and sym[i].isdigit():
+        j = i
+        while j < len(sym) and sym[j].isdigit():
+            j += 1
+        n = int(sym[i:j])
+        parts.append(sym[j:j + n])
+        i = j + n
+        if not nested:
+            break
+    return "::".join(parts) if parts else sym
+
+
+def emit_send(fh, vals: dict, where: dict, packets: "dict[str, str]") -> "tuple":
+    """Write the observed s2c/relay IDs. Returns (single, extended, ambiguous)."""
+    single, extended, ambiguous, unknown = {}, {}, {}, []
+    for name, fields in sorted(vals.items()):
+        if name not in packets:
+            unknown.append(name)
+            continue
+        if any(len(v) > 1 for v in fields.values()):
+            ambiguous[name] = fields
+        elif "ProtocolFamily" in fields and "ProtocolID" in fields:
+            extended[name] = (next(iter(fields["ProtocolFamily"])),
+                              next(iter(fields["ProtocolID"])))
+        else:
+            for f in ("cProtocol", "ProtocolType"):
+                if f in fields:
+                    single[name] = next(iter(fields[f]))
+                    break
+
+    w = fh.write
+    w("\n// ---- server-to-client and relay IDs -----------------------------\n"
+      "//\n"
+      "// Observed, not named. There is no s2c_PROTOCOL enum to recover: the\n"
+      "// server only ever uses those constants as constants, and a constant\n"
+      "// leaves nothing in DWARF. So these come from the other end -- every\n"
+      "// place the binary writes a protocol byte, paired with the declared\n"
+      "// type of what it wrote into. The comment on each line is a function\n"
+      "// that does it, which is where to look to check one.\n"
+      "//\n"
+      "// The name is the typedef the code used at that site, not necessarily\n"
+      "// the struct's own name: several packets share a layout and differ only\n"
+      "// in which name -- and so which ID -- a caller reaches for.\n"
+      "//\n"
+      "//   JX_ID(T)      the byte in T's one-byte header\n"
+      "//   JX_FAMILY(T)  ProtocolFamily, for the EXTEND_HEADER packets\n"
+      "//   JX_SUBID(T)   ProtocolID, likewise\n"
+      "//\n"
+      "// Absent here means unobserved, not unused: a packet the server never\n"
+      "// builds in code the decompiler could read has no row. These cover\n"
+      f"// {len({packets[n] for n in single} | {packets[n] for n in extended})}"
+      f" of the {len(set(packets.values()))} packet structs, under"
+      f" {len(single) + len(extended)} names.\n"
+      "#define JX_ID(T)     JX_ID_##T\n"
+      "#define JX_FAMILY(T) JX_FAMILY_##T\n"
+      "#define JX_SUBID(T)  JX_SUBID_##T\n\n")
+
+    for name, val in sorted(single.items()):
+        src = demangle(sorted(where[name])[0])
+        w(f"#define JX_ID_{name:<42} {val:>3}   // {src}\n")
+
+    w("\n// EXTEND_HEADER packets: the family byte selects the subsystem and the\n"
+      "// ID byte the message within it.\n")
+    for name, (fam, sub) in sorted(extended.items()):
+        src = demangle(sorted(where[name])[0])
+        w(f"#define JX_FAMILY_{name:<38} {fam:>3}   // {src}\n")
+        w(f"#define JX_SUBID_{name:<39} {sub:>3}\n")
+
+    if ambiguous:
+        w("\n// Written with more than one value. Not a contradiction to resolve\n"
+          "// by picking one -- a struct reused for several protocols is normal\n"
+          "// here, and which one applies depends on the call site. No macro is\n"
+          "// emitted; read the functions.\n")
+        for name, fields in sorted(ambiguous.items()):
+            got = "  ".join(f"{f}={sorted(v)}" for f, v in sorted(fields.items()))
+            w(f"//   {name:<32} {got}\n")
+            for func in sorted(where[name])[:4]:
+                w(f"//       {demangle(func)}\n")
+
+    if unknown:
+        w("\n// Written by the server but not in the packet table -- these are the\n"
+          "// bare header types, filled in by code that forwards a message it did\n"
+          "// not build:\n")
+        for name in unknown:
+            w(f"//   {name}\n")
+    return single, extended, ambiguous
+
+
+def emit_send_checks(path: str, single: dict, extended: dict) -> int:
+    """Tie the ID table to the layout table at compile time.
+
+    A macro proves nothing on its own -- it is text until something uses it.
+    Naming the packet type next to its ID makes the two tables one fact: rename
+    a struct in jx_protocol.h, or key an ID on a name that no longer exists, and
+    this file stops compiling. It is also the only thing that checks the IDs are
+    bytes, which matters because they are signed char in the original source and
+    arrive here as -99 rather than 157.
+    """
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        w = fh.write
+        w("// GENERATED by tools/gen_protocol_ids.py -- do not edit.\n"
+          "//\n"
+          "// One assertion per observed protocol ID: that the packet named is a\n"
+          "// type this build actually declares, and that its ID fits in the byte\n"
+          "// it is written into.\n"
+          "#include \"jx_protocol.h\"\n"
+          "#include \"jx_protocol_ids.h\"\n\n"
+          "#define JX_CHECK_ID(T, M)                                             \\\n"
+          "    static_assert(sizeof(T) >= 1 && (M) >= 0 && (M) <= 255, #T)\n\n")
+        n = 0
+        for name in sorted(single):
+            w(f"JX_CHECK_ID({name}, JX_ID({name}));\n")
+            n += 1
+        w("\n")
+        for name in sorted(extended):
+            w(f"JX_CHECK_ID({name}, JX_FAMILY({name}));\n")
+            w(f"JX_CHECK_ID({name}, JX_SUBID({name}));\n")
+            n += 2
+    return n
+
+
 def read_header_enum(path: str, want: str) -> "OrderedDict[str, int]":
     """Pull one enum out of the GBK-ish Windows header. Best effort by design."""
     text = open(path, "rb").read().decode("gbk", errors="replace")
@@ -114,7 +292,8 @@ def read_header_enum(path: str, want: str) -> "OrderedDict[str, int]":
 
 
 def emit(path: str, enum: "OrderedDict[str, int]", dispatch: "dict[int, str]",
-         reworded: "list[tuple[int, str, str, int, int]]") -> None:
+         reworded: "list[tuple[int, str, str, int, int]]",
+         send: "tuple[dict, dict, dict]") -> "tuple":
     live = {i: h for i, h in dispatch.items() if h != "0"}
     retired = sorted(i for i, h in dispatch.items() if h == "0")
 
@@ -123,16 +302,19 @@ def emit(path: str, enum: "OrderedDict[str, int]", dispatch: "dict[int, str]",
     # would turn a boundary marker into the name of a real protocol.
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
         w = fh.write
-        w("// Client-to-server protocol IDs. GENERATED -- do not edit.\n"
+        w("// Protocol IDs. GENERATED -- do not edit.\n"
           "//\n"
           "//   python3 tools/gen_protocol_ids.py protocol/ -o src/protocol/\n"
           "//\n"
-          "// Read out of the shipped binary two independent ways: the\n"
-          "// c2s_PROTOCOL enum in its DWARF, and the ProcessFunc[] table its\n"
-          "// KProtocolProcess constructor fills, which is what ProcessNetMsg\n"
-          "// indexes with the first byte of the message. The Windows\n"
-          "// KProtocolDef.h is a different version of the game and disagrees\n"
-          "// about 31 of these; it was not used. See docs/PHASE1.md.\n"
+          "// Client to server, read out of the shipped binary two independent\n"
+          "// ways: the c2s_PROTOCOL enum in its DWARF, and the ProcessFunc[]\n"
+          "// table its KProtocolProcess constructor fills, which is what\n"
+          "// ProcessNetMsg indexes with the first byte of the message. The\n"
+          "// Windows KProtocolDef.h is a different version of the game and\n"
+          "// disagrees about 31 of these; it was not used.\n"
+          "//\n"
+          "// The other direction has no enum to recover and is further down,\n"
+          "// as macros. See docs/PHASE1.md.\n"
           "#pragma once\n\n"
           "enum c2s_PROTOCOL\n{\n")
         seen: set[int] = set()
@@ -174,6 +356,8 @@ def emit(path: str, enum: "OrderedDict[str, int]", dispatch: "dict[int, str]",
               "// agree on that -- only the wording:\n")
             for val, handler, name, hit, total in reworded:
                 w(f"//   {val:>3}  {handler:<30} {name:<34} {hit}/{total}\n")
+
+        return emit_send(fh, *send)
 
 
 def main() -> int:
@@ -241,10 +425,31 @@ def main() -> int:
             print("  " + ", ".join(f"{n}({win[n]}!={enum[n]})" for n in diff[:6])
                   + (" ..." if len(diff) > 6 else ""))
 
+    # --- the other direction: IDs observed being written, with no enum -------
+    packets = read_packet_names(os.path.join(args.tables, "binary_packets.tsv"))
+    vals, where = read_send_ids(os.path.join(args.tables, "send_ids.tsv"))
+
     os.makedirs(args.out, exist_ok=True)
     out = os.path.join(args.out, "jx_protocol_ids.h")
-    emit(out, enum, dispatch, reworded)
+    single, extended, ambiguous = emit(out, enum, dispatch, reworded,
+                                       (vals, where, packets))
+
+    checks = os.path.join(args.out, "jx_protocol_ids.cpp")
+    nchecks = emit_send_checks(checks, single, extended)
+
+    unknown = [n for n in vals if n not in packets]
+    print("\nsend-side IDs, observed in the code:")
+    print(f"  packet names with one ID           {len(single):4}")
+    print(f"  ... EXTEND_HEADER family + ID      {len(extended):4}")
+    print(f"  written with several IDs           {len(ambiguous):4}")
+    print(f"  name not in the packet table       {len(unknown):4}"
+          f"  {', '.join(sorted(unknown))}")
+    print(f"  of {len(set(packets.values()))} packet structs, "
+          f"{len({packets[n] for n in single} | {packets[n] for n in extended})}"
+          f" have an observed ID")
+
     print(f"\nwrote {out}")
+    print(f"wrote {checks}: {nchecks} assertions")
     return 0
 
 

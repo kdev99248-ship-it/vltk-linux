@@ -441,6 +441,30 @@ KILLER_NOTIFY		KILLER_PROTOCOLHEADER	struct	5	4	szMsg	char[1]	1
 KILLER_PK		EXTEND_HEADER	struct	66	0	(base)	EXTEND_HEADER	2
 KILLER_PK		EXTEND_HEADER	struct	66	2	m_chKillerName	char[32]	32
 KILLER_PK		EXTEND_HEADER	struct	66	34	m_chKilleeName	char[32]	32
+KILLER_QUERYKILLEE_RESULT0			struct	50	0	ProtocolType	BYTE	1
+KILLER_QUERYKILLEE_RESULT0			struct	50	1	QueryType	BYTE	1
+KILLER_QUERYKILLEE_RESULT0			struct	50	2	m_TargetName	char[32]	32
+KILLER_QUERYKILLEE_RESULT0			struct	50	34	m_nPlayerLevel	int	4
+KILLER_QUERYKILLEE_RESULT0			struct	50	38	m_nReward	int	4
+KILLER_QUERYKILLEE_RESULT0			struct	50	42	m_nRentFee	int	4
+KILLER_QUERYKILLEE_RESULT0			struct	50	46	m_nOwnerIndex	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	0	ProtocolType	BYTE	1
+KILLER_QUERYKILLEE_RESULT1			struct	87	1	QueryType	BYTE	1
+KILLER_QUERYKILLEE_RESULT1			struct	87	2	m_TargetName	char[32]	32
+KILLER_QUERYKILLEE_RESULT1			struct	87	34	m_nPlayerLevel	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	38	m_nPosX	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	42	m_nPosY	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	46	m_nSubWorldID	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	50	m_nMapTemplateID	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	54	m_nPKValue	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	58	m_nSex	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	62	m_nWorldRank	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	66	m_nLifeMax	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	70	m_nManaMax	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	74	m_nFightState	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	78	m_nQueryLevel	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	82	m_nOwnerIndex	int	4
+KILLER_QUERYKILLEE_RESULT1			struct	87	86	m_bTargetProtect	BYTE	1
 KILLER_QUERYRESULT_S2C		KILLER_PROTOCOLHEADER	struct	57	0	(base)	KILLER_PROTOCOLHEADER	4
 KILLER_QUERYRESULT_S2C		KILLER_PROTOCOLHEADER	struct	57	4	nResultCount	int	4
 KILLER_QUERYRESULT_S2C		KILLER_PROTOCOLHEADER	struct	57	8	chTaskState	char	1
@@ -1206,6 +1230,14 @@ TRADE_REPLY_START_COMMAND		tagProtocolHeader	struct	10	0	(base)	tagProtocolHeade
 TRADE_REPLY_START_COMMAND		tagProtocolHeader	struct	10	1	m_bDecision	BYTE	1
 TRADE_REPLY_START_COMMAND		tagProtocolHeader	struct	10	2	m_nDestIdx	int	4
 TRADE_REPLY_START_COMMAND		tagProtocolHeader	struct	10	6	dwCheckValue	DWORD	4
+TRYOUT_TIMEOUT_REQ			struct	38	0	ProtocolType	BYTE	1
+TRYOUT_TIMEOUT_REQ			struct	38	1	nReason	BYTE	1
+TRYOUT_TIMEOUT_REQ			struct	38	2	szAccount	char[32]	32
+TRYOUT_TIMEOUT_REQ			struct	38	34	nPlayerIndex	int	4
+TRYOUT_TIMEOUT_RES			struct	38	0	ProtocolType	BYTE	1
+TRYOUT_TIMEOUT_RES			struct	38	1	nResult	BYTE	1
+TRYOUT_TIMEOUT_RES			struct	38	2	szAccount	char[32]	32
+TRYOUT_TIMEOUT_RES			struct	38	34	nPlayerIndex	int	4
 TRemoveLeagueCB		LEAGUE_RELAYHEADER	struct	98	0	(base)	LEAGUE_RELAYHEADER	6
 TRemoveLeagueCB		LEAGUE_RELAYHEADER	struct	98	6	dwLeagueType	DWORD	4
 TRemoveLeagueCB		LEAGUE_RELAYHEADER	struct	98	10	szLeagueName	char[48]	48
@@ -1358,7 +1390,7 @@ tagCHAT_APPLY_ADD_FRIEND_SYNC	CHAT_APPLY_ADD_FRIEND_SYNC	tagProtocolHeader	struc
 tagCHAT_APPLY_ADD_FRIEND_SYNC	CHAT_APPLY_ADD_FRIEND_SYNC	tagProtocolHeader	struct	293	37	m_szInfo	char[256]	256
 tagCHAT_APPLY_SEND_ONE_FRIEND_NAME_COMMAND	CHAT_APPLY_SEND_ONE_FRIEND_NAME_COMMAND	tagProtocolHeader	struct	5	0	(base)	tagProtocolHeader	1
 tagCHAT_APPLY_SEND_ONE_FRIEND_NAME_COMMAND	CHAT_APPLY_SEND_ONE_FRIEND_NAME_COMMAND	tagProtocolHeader	struct	5	1	m_dwID	DWORD	4
-tagCHAT_CHANNELCHAT_HEAD		tagProtocolHeader	struct	1	0	(base)	tagProtocolHeader	1
+tagCHAT_CHANNELCHAT_HEAD	CHAT_CHANNELCHAT_HEAD	tagProtocolHeader	struct	1	0	(base)	tagProtocolHeader	1
 tagCHAT_CHANNELCHAT_SYNC	CHAT_CHANNELCHAT_SYNC	tagProtocolHeader	struct	44	0	(base)	tagProtocolHeader	1
 tagCHAT_CHANNELCHAT_SYNC	CHAT_CHANNELCHAT_SYNC	tagProtocolHeader	struct	44	1	wSize	WORD	2
 tagCHAT_CHANNELCHAT_SYNC	CHAT_CHANNELCHAT_SYNC	tagProtocolHeader	struct	44	3	packageID	DWORD	4
@@ -1496,6 +1528,8 @@ tagEnterGame2		EXTEND_HEADER	struct	79	66	dwNameID	DWORD	4
 tagEnterGame2		EXTEND_HEADER	struct	79	70	dwParam	DWORD	4
 tagEnterGame2		EXTEND_HEADER	struct	79	74	lnID	long unsigned int	4
 tagEnterGame2		EXTEND_HEADER	struct	79	78	byLevel	BYTE	1
+tagExtendProtoHeader			struct	3	0	ProtocolType	BYTE	1
+tagExtendProtoHeader			struct	3	1	wLength	WORD	2
 tagFOUNDRY_CLIENTSEND	FOUNDRY_CLIENTSEND	tagProtocolHeader	struct	204	0	(base)	tagProtocolHeader	1
 tagFOUNDRY_CLIENTSEND	FOUNDRY_CLIENTSEND	tagProtocolHeader	struct	204	1	eFoundryType	BYTE	1
 tagFOUNDRY_CLIENTSEND	FOUNDRY_CLIENTSEND	tagProtocolHeader	struct	204	2	nNecItemNum	int	4
@@ -1592,11 +1626,11 @@ tagLeaveGame2		EXTEND_HEADER	struct	67	3	szAccount	char[32]	32
 tagLeaveGame2		EXTEND_HEADER	struct	67	35	szRole	char[32]	32
 tagLogicLogin		tagProtocolHeader	struct	17	0	(base)	tagProtocolHeader	1
 tagLogicLogin		tagProtocolHeader	struct	17	1	guid	GUID	16
-tagMINIMAP_OBJ_SYNC		tagProtocolHeader	struct	15	0	(base)	tagProtocolHeader	1
-tagMINIMAP_OBJ_SYNC		tagProtocolHeader	struct	15	1	wSize	WORD	2
-tagMINIMAP_OBJ_SYNC		tagProtocolHeader	struct	15	3	eType	MiniMapObjType	4
-tagMINIMAP_OBJ_SYNC		tagProtocolHeader	struct	15	7	dwMpsX	DWORD	4
-tagMINIMAP_OBJ_SYNC		tagProtocolHeader	struct	15	11	dwMpsY	DWORD	4
+tagMINIMAP_OBJ_SYNC	TMINIMAP_OBJ_SYNC	tagProtocolHeader	struct	15	0	(base)	tagProtocolHeader	1
+tagMINIMAP_OBJ_SYNC	TMINIMAP_OBJ_SYNC	tagProtocolHeader	struct	15	1	wSize	WORD	2
+tagMINIMAP_OBJ_SYNC	TMINIMAP_OBJ_SYNC	tagProtocolHeader	struct	15	3	eType	MiniMapObjType	4
+tagMINIMAP_OBJ_SYNC	TMINIMAP_OBJ_SYNC	tagProtocolHeader	struct	15	7	dwMpsX	DWORD	4
+tagMINIMAP_OBJ_SYNC	TMINIMAP_OBJ_SYNC	tagProtocolHeader	struct	15	11	dwMpsY	DWORD	4
 tagMapArrangeNotify		EXTEND_HEADER	struct	12	0	(base)	EXTEND_HEADER	2
 tagMapArrangeNotify		EXTEND_HEADER	struct	12	2	nMapCount	int	4
 tagMapArrangeNotify		EXTEND_HEADER	struct	12	6	MapIdIndexList	MapIdIndexPair[1]	6
@@ -1604,9 +1638,9 @@ tagMapIDAssign		EXTEND_HEADER	struct	14	0	(base)	EXTEND_HEADER	2
 tagMapIDAssign		EXTEND_HEADER	struct	14	2	nMapCount	int	4
 tagMapIDAssign		EXTEND_HEADER	struct	14	6	nDynMapCount	int	4
 tagMapIDAssign		EXTEND_HEADER	struct	14	10	aMapID	DWORD[1]	4
-tagNOTIFY_CLIENT	NOTIFY_CLIENT	tagProtocolHeader	struct	9	0	(base)	tagProtocolHeader	1
-tagNOTIFY_CLIENT	NOTIFY_CLIENT	tagProtocolHeader	struct	9	1	nNotifyType	INT	4
-tagNOTIFY_CLIENT	NOTIFY_CLIENT	tagProtocolHeader	struct	9	5		tagNOTIFY_CLIENT_u	4
+tagNOTIFY_CLIENT	NOTIFY_CLIENT,NOTIFY_SERVER	tagProtocolHeader	struct	9	0	(base)	tagProtocolHeader	1
+tagNOTIFY_CLIENT	NOTIFY_CLIENT,NOTIFY_SERVER	tagProtocolHeader	struct	9	1	nNotifyType	INT	4
+tagNOTIFY_CLIENT	NOTIFY_CLIENT,NOTIFY_SERVER	tagProtocolHeader	struct	9	5		tagNOTIFY_CLIENT_u	4
 tagNPC_CHGCAMP_SYNC	NPC_CHGCAMP_SYNC	tagProtocolHeader	struct	6	0	(base)	tagProtocolHeader	1
 tagNPC_CHGCAMP_SYNC	NPC_CHGCAMP_SYNC	tagProtocolHeader	struct	6	1	ID	DWORD	4
 tagNPC_CHGCAMP_SYNC	NPC_CHGCAMP_SYNC	tagProtocolHeader	struct	6	5	Camp	BYTE	1
@@ -1658,10 +1692,10 @@ tagNPC_POS_SYNC	NPC_POS_SYNC	tagProtocolHeader	struct	17	13	m_dwExParam	DWORD	4
 tagNPC_RANKID_SYNC	NPC_RANKID_SYNC	tagProtocolHeader	struct	6	0	(base)	tagProtocolHeader	1
 tagNPC_RANKID_SYNC	NPC_RANKID_SYNC	tagProtocolHeader	struct	6	1	m_btRankId	BYTE	1
 tagNPC_RANKID_SYNC	NPC_RANKID_SYNC	tagProtocolHeader	struct	6	2	m_dwNpcID	DWORD	4
-tagNPC_REMOVE_SYNC	NPC_REMOVE_SYNC	tagProtocolHeader	struct	5	0	(base)	tagProtocolHeader	1
-tagNPC_REMOVE_SYNC	NPC_REMOVE_SYNC	tagProtocolHeader	struct	5	1	ID	DWORD	4
-tagNPC_REQUEST_COMMAND	NPC_REQUEST_COMMAND	tagProtocolHeader	struct	5	0	(base)	tagProtocolHeader	1
-tagNPC_REQUEST_COMMAND	NPC_REQUEST_COMMAND	tagProtocolHeader	struct	5	1	ID	DWORD	4
+tagNPC_REMOVE_SYNC	NPC_REMOVE_SYNC,NPC_REQUEST_FAIL,NPC_SIT_SYNC,NPC_STATE_REQUEST_COMMAND	tagProtocolHeader	struct	5	0	(base)	tagProtocolHeader	1
+tagNPC_REMOVE_SYNC	NPC_REMOVE_SYNC,NPC_REQUEST_FAIL,NPC_SIT_SYNC,NPC_STATE_REQUEST_COMMAND	tagProtocolHeader	struct	5	1	ID	DWORD	4
+tagNPC_REQUEST_COMMAND	NPC_REQUEST_COMMAND,OBJ_REQUEST_COMMAND	tagProtocolHeader	struct	5	0	(base)	tagProtocolHeader	1
+tagNPC_REQUEST_COMMAND	NPC_REQUEST_COMMAND,OBJ_REQUEST_COMMAND	tagProtocolHeader	struct	5	1	ID	DWORD	4
 tagNPC_REVIVE_SYNC	NPC_REVIVE_SYNC	tagProtocolHeader	struct	6	0	(base)	tagProtocolHeader	1
 tagNPC_REVIVE_SYNC	NPC_REVIVE_SYNC	tagProtocolHeader	struct	6	1	ID	DWORD	4
 tagNPC_REVIVE_SYNC	NPC_REVIVE_SYNC	tagProtocolHeader	struct	6	5	Type	BYTE	1
@@ -1937,12 +1971,12 @@ tagPermitPlayerLogin		tagProtocolHeader2	struct	54	5	guid	GUID	16
 tagPermitPlayerLogin		tagProtocolHeader2	struct	54	21	szRoleName	char[32]	32
 tagPermitPlayerLogin		tagProtocolHeader2	struct	54	53	bPermit	bool	1
 tagProtoHeader		tagProtocolHeader	struct	1	0	(base)	tagProtocolHeader	1
-tagProtocolExtendHeader		tagProtocolLengthHeader	struct	4	0	(base)	tagProtocolLengthHeader	3
-tagProtocolExtendHeader		tagProtocolLengthHeader	struct	4	3	m_bySubProtocolType	BYTE	1
+tagProtocolExtendHeader	KSUBPROTO	tagProtocolLengthHeader	struct	4	0	(base)	tagProtocolLengthHeader	3
+tagProtocolExtendHeader	KSUBPROTO	tagProtocolLengthHeader	struct	4	3	m_bySubProtocolType	BYTE	1
 tagProtocolHeader2		tagProtocolHeader	struct	5	0	(base)	tagProtocolHeader	1
 tagProtocolHeader2		tagProtocolHeader	struct	5	1	ulIdentity	long unsigned int	4
-tagProtocolLengthHeader		tagProtocolHeader	struct	3	0	(base)	tagProtocolHeader	1
-tagProtocolLengthHeader		tagProtocolHeader	struct	3	1	m_wProcotolSize	WORD	2
+tagProtocolLengthHeader	KLENPROTOCOL	tagProtocolHeader	struct	3	0	(base)	tagProtocolHeader	1
+tagProtocolLengthHeader	KLENPROTOCOL	tagProtocolHeader	struct	3	1	m_wProcotolSize	WORD	2
 tagQueryMapInfo		tagProtocolHeader	struct	45	0	(base)	tagProtocolHeader	1
 tagQueryMapInfo		tagProtocolHeader	struct	45	1	uTime	unsigned int	4
 tagQueryMapInfo		tagProtocolHeader	struct	45	5	nClientID	int	4
@@ -2315,6 +2349,6 @@ tagWORLD_SYNC	WORLD_SYNC	tagProtocolHeader	struct	34	9	Region	int	4
 tagWORLD_SYNC	WORLD_SYNC	tagProtocolHeader	struct	34	13	Weather	BYTE	1
 tagWORLD_SYNC	WORLD_SYNC	tagProtocolHeader	struct	34	14	Frame	DWORD	4
 tagWORLD_SYNC	WORLD_SYNC	tagProtocolHeader	struct	34	18	szName	char[16]	16
-tag_STEAM_PROTOCOL_HEAD		tagProtocolHeader	struct	4	0	(base)	tagProtocolHeader	1
-tag_STEAM_PROTOCOL_HEAD		tagProtocolHeader	struct	4	1	wLength	WORD	2
-tag_STEAM_PROTOCOL_HEAD		tagProtocolHeader	struct	4	3	btMsgID	BYTE	1
+tag_STEAM_PROTOCOL_HEAD	_STEAM_PROTOCOL_HEAD	tagProtocolHeader	struct	4	0	(base)	tagProtocolHeader	1
+tag_STEAM_PROTOCOL_HEAD	_STEAM_PROTOCOL_HEAD	tagProtocolHeader	struct	4	1	wLength	WORD	2
+tag_STEAM_PROTOCOL_HEAD	_STEAM_PROTOCOL_HEAD	tagProtocolHeader	struct	4	3	btMsgID	BYTE	1

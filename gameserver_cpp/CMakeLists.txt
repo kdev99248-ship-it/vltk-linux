@@ -118,9 +118,12 @@ target_compile_definitions(struct_probe PRIVATE __linux _SERVER)
 # are wrong for 44% of the structs both trees define and missing 236 packets.
 #
 # jx_layout.cpp is the whole point of the target. It contains a static_assert
-# for every one of the 408 sizes and 1429 member offsets, so "the port agrees
+# for every one of the 656 sizes and 2137 member offsets, so "the port agrees
 # with the shipped server about the wire format" is a compile-time property
 # rather than something to be tested for later, packet by packet, over a socket.
+#
+# jx_protocol_ids.cpp does the same for the other half of the wire format: 355
+# assertions tying each recovered protocol ID to a packet type that exists.
 # ---------------------------------------------------------------------------
 # The generated files are committed rather than produced at build time. The
 # build runs in a container with the source tree mounted read-only, so nothing
@@ -128,7 +131,8 @@ target_compile_definitions(struct_probe PRIVATE __linux _SERVER)
 # cannot be reviewed in a diff, which for the file that defines the wire format
 # is the wrong trade. Regenerate deliberately:
 #
-#   python3 tools/gen_protocol.py protocol/ -o src/protocol/
+#   python3 tools/gen_protocol.py     protocol/ -o src/protocol/
+#   python3 tools/gen_protocol_ids.py protocol/ -o src/protocol/
 #
 set(JX_PROTO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/protocol")
 if(NOT EXISTS "${JX_PROTO_DIR}/jx_layout.cpp")
@@ -137,19 +141,22 @@ if(NOT EXISTS "${JX_PROTO_DIR}/jx_layout.cpp")
         "  python3 tools/gen_protocol.py protocol/ -o src/protocol/")
 endif()
 
-add_library(jx_protocol STATIC "${JX_PROTO_DIR}/jx_layout.cpp")
+add_library(jx_protocol STATIC "${JX_PROTO_DIR}/jx_layout.cpp"
+                               "${JX_PROTO_DIR}/jx_protocol_ids.cpp")
 target_include_directories(jx_protocol PUBLIC "${JX_PROTO_DIR}")
 target_link_libraries(jx_protocol PUBLIC jx_compat)
 
 add_custom_target(regen_protocol
     COMMAND python3 "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen_protocol.py"
             "${CMAKE_CURRENT_SOURCE_DIR}/protocol" -o "${JX_PROTO_DIR}"
+    COMMAND python3 "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen_protocol_ids.py"
+            "${CMAKE_CURRENT_SOURCE_DIR}/protocol" -o "${JX_PROTO_DIR}"
     COMMENT "Regenerating the protocol header from the binary's DWARF tables"
     VERBATIM)
 
 # The control that gives jx_protocol's clean build its meaning: the same claims
-# with the numbers off by one. Excluded from `all` because it is supposed to
-# fail -- build it on purpose and expect three errors.
+# with the numbers off by a known amount. Excluded from `all` because it is
+# supposed to fail -- build it on purpose and expect five errors.
 add_library(negative_control OBJECT EXCLUDE_FROM_ALL
             "${JX_PROTO_DIR}/negative_control.cpp")
 target_link_libraries(negative_control PRIVATE jx_compat)

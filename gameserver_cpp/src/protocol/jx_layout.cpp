@@ -56,6 +56,34 @@ static_assert(offsetof(KILLER_PROTOCOLHEADER, ProtocolType) == 0, "KILLER_PROTOC
 static_assert(offsetof(KILLER_PROTOCOLHEADER, wProcotolSize) == 1, "KILLER_PROTOCOLHEADER.wProcotolSize");
 static_assert(offsetof(KILLER_PROTOCOLHEADER, killerProtocolType) == 3, "KILLER_PROTOCOLHEADER.killerProtocolType");
 
+static_assert(sizeof(KILLER_QUERYKILLEE_RESULT0) == 50, "sizeof(KILLER_QUERYKILLEE_RESULT0)");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, ProtocolType) == 0, "KILLER_QUERYKILLEE_RESULT0.ProtocolType");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, QueryType) == 1, "KILLER_QUERYKILLEE_RESULT0.QueryType");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, m_TargetName) == 2, "KILLER_QUERYKILLEE_RESULT0.m_TargetName");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, m_nPlayerLevel) == 34, "KILLER_QUERYKILLEE_RESULT0.m_nPlayerLevel");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, m_nReward) == 38, "KILLER_QUERYKILLEE_RESULT0.m_nReward");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, m_nRentFee) == 42, "KILLER_QUERYKILLEE_RESULT0.m_nRentFee");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT0, m_nOwnerIndex) == 46, "KILLER_QUERYKILLEE_RESULT0.m_nOwnerIndex");
+
+static_assert(sizeof(KILLER_QUERYKILLEE_RESULT1) == 87, "sizeof(KILLER_QUERYKILLEE_RESULT1)");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, ProtocolType) == 0, "KILLER_QUERYKILLEE_RESULT1.ProtocolType");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, QueryType) == 1, "KILLER_QUERYKILLEE_RESULT1.QueryType");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_TargetName) == 2, "KILLER_QUERYKILLEE_RESULT1.m_TargetName");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nPlayerLevel) == 34, "KILLER_QUERYKILLEE_RESULT1.m_nPlayerLevel");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nPosX) == 38, "KILLER_QUERYKILLEE_RESULT1.m_nPosX");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nPosY) == 42, "KILLER_QUERYKILLEE_RESULT1.m_nPosY");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nSubWorldID) == 46, "KILLER_QUERYKILLEE_RESULT1.m_nSubWorldID");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nMapTemplateID) == 50, "KILLER_QUERYKILLEE_RESULT1.m_nMapTemplateID");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nPKValue) == 54, "KILLER_QUERYKILLEE_RESULT1.m_nPKValue");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nSex) == 58, "KILLER_QUERYKILLEE_RESULT1.m_nSex");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nWorldRank) == 62, "KILLER_QUERYKILLEE_RESULT1.m_nWorldRank");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nLifeMax) == 66, "KILLER_QUERYKILLEE_RESULT1.m_nLifeMax");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nManaMax) == 70, "KILLER_QUERYKILLEE_RESULT1.m_nManaMax");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nFightState) == 74, "KILLER_QUERYKILLEE_RESULT1.m_nFightState");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nQueryLevel) == 78, "KILLER_QUERYKILLEE_RESULT1.m_nQueryLevel");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_nOwnerIndex) == 82, "KILLER_QUERYKILLEE_RESULT1.m_nOwnerIndex");
+static_assert(offsetof(KILLER_QUERYKILLEE_RESULT1, m_bTargetProtect) == 86, "KILLER_QUERYKILLEE_RESULT1.m_bTargetProtect");
+
 static_assert(sizeof(KMagicAttrib) == 16, "sizeof(KMagicAttrib)");
 static_assert(offsetof(KMagicAttrib, nAttribType) == 0, "KMagicAttrib.nAttribType");
 static_assert(offsetof(KMagicAttrib, nValue) == 4, "KMagicAttrib.nValue");
@@ -282,6 +310,18 @@ static_assert(offsetof(TOneLeagueData, dwReserved1) == 66, "TOneLeagueData.dwRes
 static_assert(offsetof(TOneLeagueData, dwReserved2) == 70, "TOneLeagueData.dwReserved2");
 static_assert(offsetof(TOneLeagueData, szBuf) == 74, "TOneLeagueData.szBuf");
 
+static_assert(sizeof(TRYOUT_TIMEOUT_REQ) == 38, "sizeof(TRYOUT_TIMEOUT_REQ)");
+static_assert(offsetof(TRYOUT_TIMEOUT_REQ, ProtocolType) == 0, "TRYOUT_TIMEOUT_REQ.ProtocolType");
+static_assert(offsetof(TRYOUT_TIMEOUT_REQ, nReason) == 1, "TRYOUT_TIMEOUT_REQ.nReason");
+static_assert(offsetof(TRYOUT_TIMEOUT_REQ, szAccount) == 2, "TRYOUT_TIMEOUT_REQ.szAccount");
+static_assert(offsetof(TRYOUT_TIMEOUT_REQ, nPlayerIndex) == 34, "TRYOUT_TIMEOUT_REQ.nPlayerIndex");
+
+static_assert(sizeof(TRYOUT_TIMEOUT_RES) == 38, "sizeof(TRYOUT_TIMEOUT_RES)");
+static_assert(offsetof(TRYOUT_TIMEOUT_RES, ProtocolType) == 0, "TRYOUT_TIMEOUT_RES.ProtocolType");
+static_assert(offsetof(TRYOUT_TIMEOUT_RES, nResult) == 1, "TRYOUT_TIMEOUT_RES.nResult");
+static_assert(offsetof(TRYOUT_TIMEOUT_RES, szAccount) == 2, "TRYOUT_TIMEOUT_RES.szAccount");
+static_assert(offsetof(TRYOUT_TIMEOUT_RES, nPlayerIndex) == 34, "TRYOUT_TIMEOUT_RES.nPlayerIndex");
+
 static_assert(sizeof(TRoleList) == 46, "sizeof(TRoleList)");
 static_assert(offsetof(TRoleList, Name) == 0, "TRoleList.Name");
 static_assert(offsetof(TRoleList, nValue) == 32, "TRoleList.nValue");
@@ -352,6 +392,10 @@ static_assert(offsetof(tagBULLETIN_SUMMARY_DATA_SummaryData_t, szDate) == 64, "t
 
 static_assert(sizeof(tagExtPointInfo) == 32, "sizeof(tagExtPointInfo)");
 static_assert(offsetof(tagExtPointInfo, nExtPoint) == 0, "tagExtPointInfo.nExtPoint");
+
+static_assert(sizeof(tagExtendProtoHeader) == 3, "sizeof(tagExtendProtoHeader)");
+static_assert(offsetof(tagExtendProtoHeader, ProtocolType) == 0, "tagExtendProtoHeader.ProtocolType");
+static_assert(offsetof(tagExtendProtoHeader, wLength) == 1, "tagExtendProtoHeader.wLength");
 
 static_assert(sizeof(tagFOUNDRY_CLIENTSEND_NecItemPos_t) == 12, "sizeof(tagFOUNDRY_CLIENTSEND_NecItemPos_t)");
 static_assert(offsetof(tagFOUNDRY_CLIENTSEND_NecItemPos_t, nPlace) == 0, "tagFOUNDRY_CLIENTSEND_NecItemPos_t.nPlace");

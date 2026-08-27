@@ -4,7 +4,7 @@
 // Windows headers, which are wrong for 44% of the structs both trees
 // define and missing 236 of the packets this server sends.
 //
-// 661 types, 2722 fields.
+// 666 types, 2756 fields.
 // Sizes and offsets are asserted in src/protocol/jx_layout.cpp.
 
 #ifndef JX_PROTOCOL_H
@@ -146,6 +146,36 @@ struct KILLER_PROTOCOLHEADER {
     BYTE ProtocolType;
     WORD wProcotolSize;
     BYTE killerProtocolType;
+};
+
+struct KILLER_QUERYKILLEE_RESULT0 {
+    BYTE ProtocolType;
+    BYTE QueryType;
+    char m_TargetName[32];
+    int m_nPlayerLevel;
+    int m_nReward;
+    int m_nRentFee;
+    int m_nOwnerIndex;
+};
+
+struct KILLER_QUERYKILLEE_RESULT1 {
+    BYTE ProtocolType;
+    BYTE QueryType;
+    char m_TargetName[32];
+    int m_nPlayerLevel;
+    int m_nPosX;
+    int m_nPosY;
+    int m_nSubWorldID;
+    int m_nMapTemplateID;
+    int m_nPKValue;
+    int m_nSex;
+    int m_nWorldRank;
+    int m_nLifeMax;
+    int m_nManaMax;
+    int m_nFightState;
+    int m_nQueryLevel;
+    int m_nOwnerIndex;
+    BYTE m_bTargetProtect;
 };
 
 struct KMagicAttrib {
@@ -438,6 +468,20 @@ struct TOneLeagueData {
     char szBuf[1];
 };
 
+struct TRYOUT_TIMEOUT_REQ {
+    BYTE ProtocolType;
+    BYTE nReason;
+    char szAccount[32];
+    int nPlayerIndex;
+};
+
+struct TRYOUT_TIMEOUT_RES {
+    BYTE ProtocolType;
+    BYTE nResult;
+    char szAccount[32];
+    int nPlayerIndex;
+};
+
 struct TRoleList {
     char Name[32];
     INT64 nValue;
@@ -529,6 +573,11 @@ struct tagChangeExtPoint_u {
 
 struct tagExtPointInfo {
     int nExtPoint[8];
+};
+
+struct tagExtendProtoHeader {
+    BYTE ProtocolType;
+    WORD wLength;
 };
 
 struct tagFOUNDRY_CLIENTSEND_NecItemPos_t {
@@ -1701,9 +1750,11 @@ struct AUCTION_QUITREQUEST_G2R : AUCTION_RELAYHEADER_G2R {
 };
 
 struct AUCTION_REPLYSCRIPTASK_R2G : AUCTION_RELAYHEADER_R2G {
-    BYTE bState;
-    BYTE bHasAutionNow;
-    BYTE bSystemFull;
+    union {
+        BYTE bState;
+        BYTE bHasAutionNow;
+        BYTE bSystemFull;
+    };   // one offset, several names: see group_fields
     DWORD dwAuctionID;
 };
 
@@ -2382,6 +2433,7 @@ typedef tagCHAT_APPLY_SEND_ONE_FRIEND_NAME_COMMAND CHAT_APPLY_SEND_ONE_FRIEND_NA
 
 struct tagCHAT_CHANNELCHAT_HEAD : tagProtocolHeader {
 };
+typedef tagCHAT_CHANNELCHAT_HEAD CHAT_CHANNELCHAT_HEAD;
 
 struct tagCHAT_CHANNELCHAT_SYNC : tagProtocolHeader {
     WORD wSize;
@@ -2724,6 +2776,7 @@ struct tagMINIMAP_OBJ_SYNC : tagProtocolHeader {
     DWORD dwMpsX;
     DWORD dwMpsY;
 };
+typedef tagMINIMAP_OBJ_SYNC TMINIMAP_OBJ_SYNC;
 
 struct tagNOTIFY_CLIENT : tagProtocolHeader {
     INT nNotifyType;
@@ -2733,6 +2786,7 @@ struct tagNOTIFY_CLIENT : tagProtocolHeader {
     };
 };
 typedef tagNOTIFY_CLIENT NOTIFY_CLIENT;
+typedef tagNOTIFY_CLIENT NOTIFY_SERVER;
 
 struct tagNPC_CHGCAMP_SYNC : tagProtocolHeader {
     DWORD ID;
@@ -2825,11 +2879,15 @@ struct tagNPC_REMOVE_SYNC : tagProtocolHeader {
     DWORD ID;
 };
 typedef tagNPC_REMOVE_SYNC NPC_REMOVE_SYNC;
+typedef tagNPC_REMOVE_SYNC NPC_REQUEST_FAIL;
+typedef tagNPC_REMOVE_SYNC NPC_SIT_SYNC;
+typedef tagNPC_REMOVE_SYNC NPC_STATE_REQUEST_COMMAND;
 
 struct tagNPC_REQUEST_COMMAND : tagProtocolHeader {
     DWORD ID;
 };
 typedef tagNPC_REQUEST_COMMAND NPC_REQUEST_COMMAND;
+typedef tagNPC_REQUEST_COMMAND OBJ_REQUEST_COMMAND;
 
 struct tagNPC_REVIVE_SYNC : tagProtocolHeader {
     DWORD ID;
@@ -3256,6 +3314,7 @@ struct tagProtocolHeader2 : tagProtocolHeader {
 struct tagProtocolLengthHeader : tagProtocolHeader {
     WORD m_wProcotolSize;
 };
+typedef tagProtocolLengthHeader KLENPROTOCOL;
 
 struct tagQueryMapInfo : tagProtocolHeader {
     unsigned int uTime;
@@ -3787,6 +3846,7 @@ struct tag_STEAM_PROTOCOL_HEAD : tagProtocolHeader {
     WORD wLength;
     BYTE btMsgID;
 };
+typedef tag_STEAM_PROTOCOL_HEAD _STEAM_PROTOCOL_HEAD;
 
 struct AUCTION_QUERYLADDERRESULT_S2C : AUCTION_PROTOCOLHEADER {
     WORD wLadderItemCount;
@@ -4244,6 +4304,7 @@ struct tagPermitPlayerLogin : tagProtocolHeader2 {
 struct tagProtocolExtendHeader : tagProtocolLengthHeader {
     BYTE m_bySubProtocolType;
 };
+typedef tagProtocolExtendHeader KSUBPROTO;
 
 struct tagSALE_ITEMBUSSINESS : tagSALE_BOX_SYNC {
     int nShopType;

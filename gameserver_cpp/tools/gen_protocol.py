@@ -53,7 +53,8 @@ ARRAY_RE = re.compile(r"^(.*?)((?:\[\d*\])+)$")
 
 
 class Decl:
-    __slots__ = ("name", "alias", "base", "kind", "size", "fields", "bases")
+    __slots__ = ("name", "alias", "base", "kind", "size", "fields", "bases",
+                 "packet")
 
     def __init__(self, name, alias, base, kind, size):
         self.name = name
@@ -63,6 +64,7 @@ class Decl:
         self.size = size
         self.fields = []            # (name, offset|None, type, size|None)
         self.bases = []             # inherited-from type names, in order
+        self.packet = False         # came out of binary_packets.tsv
 
 
 def split_array(ty):
@@ -113,8 +115,8 @@ def alias_map(decls):
     a typedef for the alias, so the header accepts both spellings -- but the
     reference check and the declaration order have to know they are one type.
     """
-    return {d.alias: name for name, d in decls.items()
-            if d.alias and d.alias != name}
+    return {a: name for name, d in decls.items()
+            for a in d.alias.split(",") if a and a != name}
 
 
 def order(decls, aliases):
@@ -149,6 +151,29 @@ def order(decls, aliases):
     return out
 
 
+def group_fields(fields):
+    """Split a field list into runs; a run of >1 is an anonymous union.
+
+    Members that share an offset are alternative names for the same bytes, and
+    the only thing in C++ that lays out that way is a union. DWARF does not say
+    so here -- GCC flattened the union into the enclosing struct, keeping every
+    name and repeating the offset -- so the overlap is the whole of the
+    evidence. AUCTION_REPLYSCRIPTASK_R2G's byte 6 is bState, bHasAutionNow or
+    bSystemFull depending on who reads it; emitted in sequence the struct comes
+    out 13 bytes instead of 11.
+    """
+    out, i = [], 0
+    while i < len(fields):
+        j = i + 1
+        if fields[i][0] != "(base)" and fields[i][1] is not None:
+            while (j < len(fields) and fields[j][0] != "(base)"
+                   and fields[j][1] == fields[i][1]):
+                j += 1
+        out.append(fields[i:j])
+        i = j
+    return out
+
+
 def emit_struct(d, decls, inlined, out):
     """Write one struct, padding included, to the list of lines `out`."""
     head = f"struct {d.name}"
@@ -158,7 +183,8 @@ def emit_struct(d, decls, inlined, out):
 
     # Bases occupy the front of the object; members are placed after them.
     cur = 0
-    for fname, off, ty, fsz in d.fields:
+    for group in group_fields(d.fields):
+        fname, off, ty, fsz = group[0]
         if fname == "(base)":
             cur = (off or 0) + (fsz or 0)
             continue
@@ -169,7 +195,14 @@ def emit_struct(d, decls, inlined, out):
             cur = off
 
         elem, arr = split_array(ty)
-        if not fname:
+        if len(group) > 1:
+            out.append("    union {")
+            for gname, _go, gty, _gs in group:
+                gelem, garr = split_array(gty)
+                out.append(f"        {gelem} {gname}{garr};")
+            out.append("    };   // one offset, several names: see group_fields")
+            fsz = max((g[3] or 0) for g in group)
+        elif not fname:
             # An unnamed member of an anonymous aggregate -- C's anonymous union
             # idiom, which is how tagProtocolHeader carries both `cProtocol` and
             # `ProtocolType` as names for the same byte.
@@ -192,8 +225,9 @@ def emit_struct(d, decls, inlined, out):
         out.append(f"    BYTE _jxpad_{cur}[{d.size - cur}];"
                    f"   // trailing padding: this struct is not pack(1) upstream")
     out.append("};")
-    if d.alias and d.alias != d.name:
-        out.append(f"typedef {d.name} {d.alias};")
+    for a in d.alias.split(","):
+        if a and a != d.name:
+            out.append(f"typedef {d.name} {a};")
     out.append("")
 
 
@@ -314,12 +348,13 @@ def main():
     enums = load_enums(os.path.join(args.tables, "binary_enums.tsv"))
 
     decls = OrderedDict()
-    for src in (types, packets):
+    for src, is_packet in ((types, False), (packets, True)):
         for name, d in src.items():
             if name in PROVIDED:
                 continue
             if name in decls:
                 sys.exit(f"{name} is declared in both tables -- ambiguous")
+            d.packet = is_packet
             decls[name] = d
 
     aliases = alias_map(decls)
@@ -347,7 +382,7 @@ def main():
     checked = [n for n in names if n not in inlined]
     nsize, noff = emit_checks(decls, checked, cpath, "jx_protocol.h")
 
-    npackets = sum(1 for n in names if decls[n].base)
+    npackets = sum(1 for n in names if decls[n].packet)
     print(f"wrote {hpath}")
     print(f"  {npackets} packets + {len(names) - npackets} embedded types"
           f" + {len(enums)} enums")
