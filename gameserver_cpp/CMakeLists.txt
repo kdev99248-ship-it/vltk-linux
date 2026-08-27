@@ -178,6 +178,7 @@ target_include_directories(negative_control PRIVATE "${JX_PROTO_DIR}")
 add_executable(jx_gameserver
     src/main.cpp
     src/core/ksoserver.cpp
+    src/core/clientconnection.cpp
     src/core/kservercore.cpp
     src/core/kclientprocess.cpp
     src/net/heaven_abi.cpp
@@ -185,6 +186,7 @@ add_executable(jx_gameserver
     src/net/ksg.cpp
     src/net/ksg_table.cpp
     src/util/inifile.cpp
+    src/util/logfile.cpp
 )
 
 target_include_directories(jx_gameserver PRIVATE

@@ -52,14 +52,38 @@ static bool GetIpAddress(const char* pszIfName, DWORD* pAddr)
     return true;
 }
 
+// ---------------------------------------------------------------------------
+// KSOServer @ 0x0804B720.
+//
+// m_bIsRunning starts at 1, not 0: Exit() is the only thing that ever clears
+// it, and it can be called from librainbow's thread before Run() is reached.
+// ---------------------------------------------------------------------------
 KSOServer::KSOServer()
     : m_dwElapseTime(0), m_dwOriginTime(0), m_dwOriginTick(0), m_dwElapseTick(0),
       m_dwGameTick(0), m_dwGameLoop(0), m_nGameFPS(0),
       m_nInternetIp(0), m_nIntranetIp(0),
-      m_nMaxPlayer(0), m_nServerPort(0), m_bIsRunning(0),
+      m_nMaxPlayer(0), m_nServerPort(6666), m_bIsRunning(1),
       m_pServer(0), m_pServerCore(0)
 {
-    memset(m_aConnections, 0, sizeof(m_aConnections));
+    // Iteration order, not enum order -- see the note in the header. The
+    // gateway is deliberately index 4.
+    m_pClientConnections[0] = &m_connDatabase;
+    m_pClientConnections[1] = &m_connChat;
+    m_pClientConnections[2] = &m_connTong;
+    m_pClientConnections[3] = &m_connTran;
+    m_pClientConnections[4] = &m_connGateway;
+
+    for (int i = 0; i < emSERVER_COUNT; ++i)
+        m_pClientConnections[i]->m_nIndex = i;
+
+    // And here is the crossover, written once: GODDESS is the database link and
+    // BISHOP is the gateway link. It is what SendDataToServer switches on and
+    // what the core receives as the tag in ProcessServerMessage.
+    m_connDatabase.m_nType = emSERVER_GODDESS;
+    m_connGateway.m_nType  = emSERVER_BISHOP;
+    m_connTran.m_nType     = emSERVER_HOST;
+    m_connTong.m_nType     = emSERVER_TONG;
+    m_connChat.m_nType     = emSERVER_CHAT;
 }
 
 KSOServer::~KSOServer()
@@ -114,37 +138,47 @@ BOOL KSOServer::Initialize(int nPort, BOOL bOpenGm)
     if (nPort > 0)
         m_nServerPort = nPort;
 
-    // The five outbound links, read in the shipped order. 5 MB of buffer each
-    // is the default the shipped code seeds sConnection with before every call.
+    // The five outbound links, in the shipped order and with the shipped
+    // quirk. One KCONNECTION is filled in and copied out five times, and
+    // LoadConnection uses the CURRENT contents as GetInteger's defaults -- so
+    // nPort and nBufSize carry from one section to the next.
     //
-    // GODDESS is the DATABASE and BISHOP is the GATEWAY -- the enum names read
-    // backwards and they are the easiest thing in this file to get wrong. Three
-    // independent places in the binary agree:
-    //   * KSOServer::SendDataToServer @0x804b120 routes GODDESS to m_connDatabase
-    //     and BISHOP to m_connGateway;
-    //   * KGoddessProcess::Process @0x81ec7e0 calls DatabaseLargePackProcess and
-    //     prints "Protocol:(%d) -- database error";
-    //   * KBishopProcess::ProcessMessage @0x81ed9e0 calls GatewayLargePackProcess
-    //     / GatewaySmallPackProcess.
-    // Keeping the array indexed by KE_SERVERTYPE means SendDataToServer is a
-    // plain m_aConnections[nType] with no fixup, so the naming quirk is spent
-    // once, here.
-    static const struct { KE_SERVERTYPE eType; const char* pszSection; } kLinks[] = {
-        { emSERVER_GODDESS, "Database" },
-        { emSERVER_BISHOP,  "Gateway"  },
-        { emSERVER_HOST,    "Transfer" },
-        { emSERVER_CHAT,    "Chat"     },
-        { emSERVER_TONG,    "Tong"     },
-    };
-    for (size_t i = 0; i < sizeof(kLinks) / sizeof(kLinks[0]); ++i)
-    {
-        KCONNECTION conn;
-        conn.szIp[0]  = 0;
-        conn.nPort    = 0;
-        conn.nBufSize = 5242880;
-        LoadConnection(&iniFile, kLinks[i].pszSection, &conn);
-        m_aConnections[kLinks[i].eType] = conn;
-    }
+    // 5 MB is re-seeded exactly twice, before Gateway and before Database. It
+    // is not seeded again, so Transfer, Chat and Tong inherit whatever
+    // [Database] BufferSize resolved to. Reproduced rather than tidied: a
+    // config that omits BufferSize under [Chat] gets the database's value on
+    // the shipped server, and a "fix" here would allocate a different amount
+    // of memory per link than the deployment has been tuned around.
+    //
+    // The section names are the crossover again, and this is the second and
+    // last place it appears: [Database] feeds m_connDatabase, which the ctor
+    // above tagged emSERVER_GODDESS, and [Gateway] feeds m_connGateway, tagged
+    // emSERVER_BISHOP.
+    KCONNECTION sConnection;
+    sConnection.szIp[0]  = 0;
+    sConnection.nPort    = 0;
+    sConnection.nBufSize = 5242880;
+
+    LoadConnection(&iniFile, "Gateway", &sConnection);
+    m_connGateway.m_sConnection = sConnection;
+    m_connGateway.m_pServer = this;
+
+    sConnection.nBufSize = 5242880;
+    LoadConnection(&iniFile, "Database", &sConnection);
+    m_connDatabase.m_sConnection = sConnection;
+    m_connDatabase.m_pServer = this;
+
+    LoadConnection(&iniFile, "Transfer", &sConnection);
+    m_connTran.m_sConnection = sConnection;
+    m_connTran.m_pServer = this;
+
+    LoadConnection(&iniFile, "Chat", &sConnection);
+    m_connChat.m_sConnection = sConnection;
+    m_connChat.m_pServer = this;
+
+    LoadConnection(&iniFile, "Tong", &sConnection);
+    m_connTong.m_sConnection = sConnection;
+    m_connTong.m_pServer = this;
 
     int nMaxPlayerCount = 0;
     int nPrecision = 0;
@@ -351,36 +385,67 @@ BOOL KSOServer::GetLocalIpAddress(DWORD* pIntranetAddr, DWORD* pInternetAddr)
 }
 
 // ---------------------------------------------------------------------------
-// The five outbound links. Phase 2.
+// CreateClientConnections @ 0x0804B490.
 //
-// Each is a CClientConnection subclass with its own protocol against gateway,
-// database, transfer, chat and tong; opening one means an IClient from
-// librainbow, an event handler, a reconnect policy and the matching inbound
-// processor in the core. None of that is on the path from accept to login,
-// which is what Phase 1 covers, so the config above is read and reported and
-// nothing is dialled.
+// All five or none: the first link that fails to dial stops the loop and
+// Initialize fails with it. That is not defensiveness, it is the deployment
+// contract -- a game server that came up without its database would accept
+// logins it cannot persist.
 //
-// The shipped CreateClientConnections returns 0 if any link fails to connect,
-// and Initialize then fails -- so the real server does not start without its
-// gateway. That difference is deliberate and temporary; see docs/PHASE1.md.
+// ConnectionResult is called on the failing link too, before the return, so a
+// subclass sees the failure. Only the ping connection acts on it.
 // ---------------------------------------------------------------------------
 BOOL KSOServer::CreateClientConnections()
 {
-    // Indexed by KE_SERVERTYPE, so it follows the load table above: slot 0 is
-    // GODDESS, which is the database.
-    static const char* const kNames[emSERVER_COUNT] =
-        { "Database", "Gateway", "Transfer", "Tong", "Chat" };
-
     for (int i = 0; i < emSERVER_COUNT; ++i)
-        printf("[%s]IP:%s, Port:%u\n", kNames[i], m_aConnections[i].szIp,
-               (unsigned)m_aConnections[i].nPort);
-
-    puts("[phase1] outbound server links are not opened by this build.");
+    {
+        CClientConnection* pConn = m_pClientConnections[i];
+        const BOOL bResult = pConn->Open();
+        pConn->ConnectionResult(bResult);
+        if (!bResult)
+            return 0;
+    }
     return 1;
 }
 
+// @ 0x0804B450. Only links that reported success are closed -- a half-opened
+// one has no IClient to shut down.
 void KSOServer::CloseClientConnections()
 {
+    for (int i = 0; i < emSERVER_COUNT; ++i)
+    {
+        if (m_pClientConnections[i]->m_bResult)
+            m_pClientConnections[i]->Close();
+    }
+}
+
+// @ 0x0804B5E0 / 0x0804B5D0.
+void KSOServer::Lock()   { m_cLock.Lock(); }
+void KSOServer::UnLock() { m_cLock.UnLock(); }
+
+// ---------------------------------------------------------------------------
+// CreateClient @ 0x0804AF10.
+//
+// The 1 KB floor is librainbow's, enforced here rather than there. The coder
+// handed over is m_cClientLib itself: KRainbowLib IS the ICoder for every
+// outbound link, so all five share one, and it is the same cipher the inbound
+// port uses through KCoder2.
+// ---------------------------------------------------------------------------
+BOOL KSOServer::CreateClient(int nBufLen, IClient** ppClient)
+{
+    if ((unsigned int)nBufLen <= 0x3FF)
+        return 0;
+
+    IClientManager* pManager = m_cClientLib.Manager();
+    if (!pManager)
+        return 0;
+
+    IClient* pClient = 0;
+    if (!pManager->CreateClient((unsigned int)nBufLen, &pClient, &m_cClientLib) || !pClient)
+        return 0;
+
+    *ppClient = pClient;
+    return 1;
 }
 
 // ---------------------------------------------------------------------------
@@ -460,11 +525,16 @@ BOOL KSOServer::Breathe()
 
 // ProcessClientMessages @ 0x0804B400 -- "client" here means the five links this
 // process is a client OF, not the game clients. Those are the next function.
+//
+// The core's own MessageLoop runs first, before any link is drained: it flushes
+// whatever last tick's traffic queued up, so the packets read below arrive at a
+// core that has already caught up.
 void KSOServer::ProcessClientMessages()
 {
     m_pServerCore->MessageLoop();
-    // Phase 2: drain the five outbound links into
-    // IServerCore::ProcessServerMessage.
+
+    for (int i = 0; i < emSERVER_COUNT; ++i)
+        m_pClientConnections[i]->ProcessMessages(m_pServerCore);
 }
 
 // ProcessPlayerMessages @ 0x0804AF80. Sweeps every client slot every loop and
@@ -524,10 +594,20 @@ BOOL KSOServer::SendDataToClient(unsigned long nId, const void* pData, unsigned 
     return m_pServer->PackDataToClient((unsigned int)nId, pData, nLen);
 }
 
+// @ 0x0804B120. A switch rather than m_pClientConnections[nType], because that
+// array is in iteration order and this argument is a KE_SERVERTYPE. The two
+// orders differ; see the header.
 BOOL KSOServer::SendDataToServer(KE_SERVERTYPE nType, const void* pData, unsigned int nLen)
 {
-    (void)nType; (void)pData; (void)nLen;
-    return 0;   // Phase 2: no outbound links
+    switch (nType)
+    {
+    case emSERVER_GODDESS: return m_connDatabase.SendData(pData, nLen);
+    case emSERVER_BISHOP:  return m_connGateway.SendData(pData, nLen);
+    case emSERVER_HOST:    return m_connTran.SendData(pData, nLen);
+    case emSERVER_TONG:    return m_connTong.SendData(pData, nLen);
+    case emSERVER_CHAT:    return m_connChat.SendData(pData, nLen);
+    default:               return 0;
+    }
 }
 
 void KSOServer::ShutdownClient(unsigned long nId)
@@ -543,17 +623,21 @@ LPCSTR KSOServer::GetClientInfo(unsigned long nId)
     return "";
 }
 
+// @ 0x0804B100. The one link the core reads directly instead of through
+// ProcessServerMessage: database replies are pulled synchronously at the point
+// the core needs them.
 const void* KSOServer::RecvGoddessMessage(unsigned int& nLen)
 {
-    nLen = 0;
-    return 0;   // Phase 2: reads from the database link
+    return m_connDatabase.RecvData(nLen);
 }
 
 unsigned long KSOServer::GetInternetIp() const { return m_nInternetIp; }
 unsigned long KSOServer::GetIntranetIp() const { return m_nIntranetIp; }
 int           KSOServer::GetPort() const       { return m_nServerPort; }
 
-unsigned long KSOServer::GetBishopClientIp() const
+// @ 0x0804B0D0. Text, and it is the configured gateway address -- what this
+// server was told to dial, not what the socket ended up bound to.
+LPCSTR KSOServer::GetBishopClientIp() const
 {
-    return 0;   // Phase 2: the address the database link bound locally
+    return m_connGateway.m_sConnection.szIp;
 }

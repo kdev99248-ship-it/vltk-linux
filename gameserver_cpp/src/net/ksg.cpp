@@ -61,3 +61,26 @@ BOOL KSG_DecodeEncode2(unsigned int uSize, unsigned char* pbyBuf, unsigned int* 
     *puKey = 31 * *puKey + 0x08088405u;
     return 1;
 }
+
+// The outbound-link spelling. See the note in ksg.h: @0x0804D650 is a second,
+// instruction-identical copy of the function above, so forwarding is not a
+// simplification -- it is what the two copies compute.
+BOOL KSG_DecodeEncode(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey)
+{
+    return KSG_DecodeEncode2(uSize, pbyBuf, puKey);
+}
+
+// @0x0804D7B0 and @0x0804D7E0. The local copy is load-bearing: without it the
+// caller's key would be advanced by the write-back at the end of the cipher,
+// and the links -- unlike heaven's per-packet keys -- reuse theirs.
+BOOL KSG_DecodeBuf(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey)
+{
+    unsigned int uKey = *puKey;
+    return KSG_DecodeEncode(uSize, pbyBuf, &uKey);
+}
+
+BOOL KSG_EncodeBuf(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey)
+{
+    unsigned int uKey = *puKey;
+    return KSG_DecodeEncode(uSize, pbyBuf, &uKey);
+}

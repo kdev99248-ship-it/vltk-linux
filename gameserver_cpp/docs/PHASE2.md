@@ -30,7 +30,7 @@ is behind a link that has to be dialled first.
 | Workstream | State |
 |---|---|
 | Which enum is which link | **done, verified** — three sources agree, §1 |
-| `CClientConnection` | not started — §2 |
+| `CClientConnection` | **done, runs** — all five links, §2 and §5 |
 | Gateway (`emSERVER_BISHOP`) link and bring-up | not started — §3 |
 | Relay (`emSERVER_HOST`) map load | not started — §3 |
 | Database (`emSERVER_GODDESS`) link | not started |
@@ -158,10 +158,10 @@ without all five. Phase 1 deliberately deviates; that deviation ends here.
 
 ## 4. Order of work
 
-1. `CClientConnection` — the class from §2, plus `KSOServer::CreateClient`,
-   `CloseClientConnections`, and `SendDataToServer` over `m_aConnections`.
-   Five instances, none of them subclassed yet: base slot 4 returns 1, base
-   slot 6 reconnects on a timer.
+1. ~~`CClientConnection` — the class from §2, plus `KSOServer::CreateClient`,
+   `CloseClientConnections`, and `SendDataToServer` over the five links.~~
+   **Done** — see §5. All five subclasses shipped, including the ping
+   connection, because `CTongConnection` cannot be built without it.
 2. `KBishopProcess` — protocols 49, 50/51 and 0xD2 from §3. This is the
    smallest change that gets a real gateway to accept the port as a gameserver.
 3. `KHostProcess` — enough of the relay link to answer `RELAY_QUERY_MAP` and
@@ -174,3 +174,35 @@ without all five. Phase 1 deliberately deviates; that deviation ends here.
 Step 2 is also where the oracle diff that Phase 1 could not run becomes
 possible: with the gateway link up, the ported server and `jx_linux_y` can be
 pointed at the same gateway in turn and their traffic compared byte for byte.
+
+## 5. Step 1, verified
+
+Run in the build container with the five peers on 46001-46005 and both
+addresses pinned to 127.0.0.1 through `[FixIp]`.
+
+| What | Result |
+|---|---|
+| Dial order | `Goddess, Chat, Tong, Tran, Bishop` — the iteration order of `m_pClientConnections`, gateway last, **not** `KE_SERVERTYPE` order |
+| Per-link log files | `Logs/conn_{Bishop,Chat,Goddess,Tong,Tran}_<date>.log`, created by `KSG_LogFile::InitWithDate` at connect time |
+| Main loop with all five up | one `FPS=0` warning, then silence — `m_nGameFPS` is only assigned when `m_dwElapseTick` is non-zero, so loop 1 keeps the initial 0 and every loop after it reports 18 |
+| Tong heartbeat | 10 bytes, `0f 2b` = family 15 / id 43, sequence 0,1,2,3,4, timestamps 3001/6002/9003/12004/15005 ms |
+| Losing a **prime** link (Tong) | `connection[Tong] lost` → `GameServer exit...` → all five closed in iteration order |
+| Losing the **non-prime** link (Chat) | `connection[Chat] lost`, server keeps running |
+
+Two things about the rig are worth writing down, because both cost time.
+
+**A socket that only accepts is not a peer.** `librainbow.so` runs its own key
+handshake (`KClientManager::InitializeKey`) before it flushes anything the
+application queued, so against an accept-only stub `SendPackToServer` returns 1
+on every call and not one byte reaches the wire. The heartbeat above is
+invisible until the other end is a real `libheaven.so` listener — which is what
+`probe_heaven_stub.cpp` is for, and using heaven as the peer also decodes the
+traffic, so the table's `0f 2b` is plaintext read through the same KSG coder the
+gameserver encoded it with. That the two agree is a second, free check on the
+cipher.
+
+**`stdbuf` cannot unbuffer this binary.** It works by `LD_PRELOAD`, and the
+preload object is 64-bit while `jx_gameserver` is i386, so a run killed by
+`timeout` loses its entire startup banner to libc's block buffer and looks like
+a server that printed nothing. Run it under a pty instead — libc line-buffers
+when stdout is a terminal.

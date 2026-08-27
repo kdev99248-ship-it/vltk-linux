@@ -39,4 +39,25 @@ extern const unsigned int g_uNumOfPubKeys;
 // and a later caller (the relay does chain) will need it.
 BOOL KSG_DecodeEncode2(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey);
 
+// The same cipher again, under the name the OUTBOUND links reach it by.
+//
+// The shipped binary carries two copies. KSG_DecodeEncode2 @0x0804D700 is what
+// KCoder2 calls, i.e. the inbound client port; KSG_DecodeEncode @0x0804D650 is
+// what KHeavenLib and KRainbowLib call, i.e. the five server links. The two
+// bodies were diffed instruction by instruction and are identical -- same
+// descending index, same 0x2E6D23C1, same tail handling, same key advance. Two
+// translation units each emitting their own copy, nothing more.
+//
+// That is worth stating because the alternative would have been expensive: if
+// the links had used a different keystream, none of the KSG work would have
+// carried over to Phase 2 and the gateway link would have needed its own
+// cipher recovered from scratch.
+//
+// KSG_DecodeBuf @0x0804D7B0 and KSG_EncodeBuf @0x0804D7E0 are also identical to
+// each other -- both take a local copy of the key and forward. The copy is the
+// point: it makes the caller's key survive the advance the cipher writes back.
+BOOL KSG_DecodeEncode(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey);
+BOOL KSG_DecodeBuf(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey);
+BOOL KSG_EncodeBuf(unsigned int uSize, unsigned char* pbyBuf, unsigned int* puKey);
+
 #endif  // JX_NET_KSG_H

@@ -161,10 +161,27 @@ private:
     void* m_hDll;
 };
 
-class KHeavenLib
+// Both wrappers ARE coders, and that is not a design choice made here -- it is
+// the shipped layout. The DWARF gives KRainbowLib as 12 bytes:
+//
+//     +0  ICoder            (the vtable pointer)
+//     +4  IClientManager*   m_pClientManager
+//     +8  KDll              m_cDll
+//
+// and KSOServer::CreateClient @0x0804AF10 passes `this + 0xDA0` -- the address
+// of m_cClientLib itself -- as the ICoder* argument to
+// IClientManager::CreateClient. So every outbound link is coded by the library
+// wrapper, while the inbound client port is coded by the separate KCoder2 the
+// server registers with heaven. Two coder objects, one cipher: KRainbowLib and
+// KHeavenLib call KSG_DecodeBuf/KSG_EncodeBuf, KCoder2 calls
+// KSG_DecodeEncode2, and those are instruction-identical copies (see ksg.h).
+class KHeavenLib : public ICoder
 {
 public:
     KHeavenLib() : m_pfnCreate(0) {}
+
+    void Encode(void* pData, unsigned int nLen, unsigned int nKey);
+    void Decode(void* pData, unsigned int nLen, unsigned int nKey);
 
     // Loads ./libheaven.so and resolves CreateServer. Prints the same message
     // the original does on failure, because startup output is compared against
@@ -175,14 +192,17 @@ public:
     PFN_CreateServer Create() const { return m_pfnCreate; }
 
 private:
-    KDll             m_cDll;
     PFN_CreateServer m_pfnCreate;
+    KDll             m_cDll;
 };
 
-class KRainbowLib
+class KRainbowLib : public ICoder
 {
 public:
     KRainbowLib() : m_pClientManager(0) {}
+
+    void Encode(void* pData, unsigned int nLen, unsigned int nKey);
+    void Decode(void* pData, unsigned int nLen, unsigned int nKey);
 
     // Loads ./librainbow.so, resolves CreateClientManager, creates the manager
     // with the shipped argument (6) and initialises it.
@@ -192,8 +212,8 @@ public:
     IClientManager* Manager() const { return m_pClientManager; }
 
 private:
-    KDll            m_cDll;
     IClientManager* m_pClientManager;
+    KDll            m_cDll;
 };
 
 #endif  // JX_NET_HEAVEN_ABI_H

@@ -20,6 +20,7 @@
 #ifndef JX_CORE_KSOSERVER_H
 #define JX_CORE_KSOSERVER_H
 
+#include "clientconnection.h"
 #include "heaven_abi.h"
 #include "interfaces.h"
 #include "kcoder2.h"
@@ -27,15 +28,6 @@
 #include "windows.h"
 
 class KIniFile;
-
-// One of the five outbound links, as configured. 16 bytes of IP text is what
-// the shipped struct allows and what LoadConnection passes to GetString.
-struct KCONNECTION
-{
-    char szIp[16];
-    int  nPort;
-    int  nBufSize;
-};
 
 class KSOServer : public IGameServer
 {
@@ -57,7 +49,18 @@ public:
     unsigned long GetInternetIp() const;
     unsigned long GetIntranetIp() const;
     int    GetPort() const;
-    unsigned long GetBishopClientIp() const;
+    LPCSTR GetBishopClientIp() const;
+
+    // Called by CClientConnection, which runs partly on librainbow's thread.
+    // Lock/UnLock guard the same section MessageLoop and Breathe take, so a
+    // link going down cannot land in the middle of a game tick.
+    void Lock();
+    void UnLock();
+    BOOL CreateClient(int nBufLen, IClient** ppClient);
+
+    // The ping subclass times its heartbeat against the server's own clock
+    // rather than calling gettimeofday again -- one clock, one answer per tick.
+    DWORD ElapseTime() const { return m_dwElapseTime; }
 
 private:
     BOOL Loop();
@@ -79,7 +82,20 @@ private:
     static void ServerEventNotify(void* pContext, unsigned int nId, int nEvent);
     void EventNotify(unsigned int nId, int nEvent);
 
-    KCONNECTION  m_aConnections[emSERVER_COUNT];
+    // The five links, owned by value, plus an array over them. Declaration
+    // order is construction order and is the shipped one.
+    //
+    // m_pClientConnections is NOT in KE_SERVERTYPE order and is not indexed by
+    // it -- it is the iteration order, and it puts the gateway last so that the
+    // link the rest of the stack waits on is the last one dialled. Index by
+    // m_nIndex; switch on m_nType. SendDataToServer therefore switches rather
+    // than subscripting, exactly as the original does.
+    CClientConnection*  m_pClientConnections[emSERVER_COUNT];
+    CDatabaseConnection m_connDatabase;
+    CGatewayConnection  m_connGateway;
+    CChatConnection     m_connChat;
+    CTongConnection     m_connTong;
+    CTranConnection     m_connTran;
 
     DWORD        m_dwElapseTime;
     DWORD        m_dwOriginTime;

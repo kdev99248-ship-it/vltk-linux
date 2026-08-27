@@ -62,7 +62,10 @@ struct IGameServer
     virtual unsigned long GetInternetIp() const = 0;                    // [6]
     virtual unsigned long GetIntranetIp() const = 0;                    // [7]
     virtual int    GetPort() const = 0;                                 // [8]
-    virtual unsigned long GetBishopClientIp() const = 0;                // [9]
+    // Returns the gateway's IP as TEXT, not as a packed address -- the odd one
+    // out among the four getters. KBishopProcess copies the string straight
+    // into the tagGameSvrInfo it replies with at protocol 50.
+    virtual LPCSTR GetBishopClientIp() const = 0;                       // [9]
 };
 
 struct IServerCore

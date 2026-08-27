@@ -19,7 +19,7 @@ from that description instead.
 | The KSG cipher and its key table | **done, verified** — 96 vectors, two implementations, §6 |
 | `main` → `KSOServer` → `KServerCore` → login | **done, runs** — §7 |
 | The handshake, end to end | **done, verified** — against the shipped engine, §8 |
-| The five outbound server links | Phase 2 — §9, planned in [PHASE2.md](PHASE2.md) |
+| The five outbound server links | **done, runs** — Phase 2 step 1, see [PHASE2.md](PHASE2.md) §2 |
 
 ## 1. From a packet table to a compilable header
 
@@ -561,7 +561,10 @@ Two of those are behavioural differences a reader should know about rather than
 discover:
 
 - **This build starts without a gateway; the shipped one does not.** Temporary,
-  and the reason Phase 1 could be tested at all.
+  and the reason Phase 1 could be tested at all. *Superseded:* Phase 2 step 1
+  restored the shipped all-or-nothing `CreateClientConnections`, so the current
+  tree needs all five peers reachable. The transcript above is kept as the
+  record of the Phase 1 build, not as a description of HEAD.
 - **`ProcessSyncReplyProtocol` returns 0 where the shipped one returns 1.**
   Returning 1 would move the session to "in the world" with no world in it, so
   the honest answer until `AddPlayerToWorld` exists is that the sync did not

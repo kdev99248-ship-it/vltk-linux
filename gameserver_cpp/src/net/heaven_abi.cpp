@@ -3,6 +3,8 @@
 #include <dlfcn.h>
 #include <stdio.h>
 
+#include "ksg.h"
+
 // RTLD_NOW. The shipped binary passes the literal 2, and the difference is not
 // cosmetic: with RTLD_LAZY an unresolved symbol inside heaven would surface as
 // a crash on the first packet instead of a failure at startup.
@@ -33,6 +35,31 @@ void KDll::Unload()
 void* KDll::Symbol(LPCSTR pszSymbol) const
 {
     return m_hDll ? dlsym(m_hDll, pszSymbol) : 0;
+}
+
+// KHeavenLib::Encode/Decode @0x0804C920 / 0x0804C8C0 and KRainbowLib's at
+// 0x0804C950 / 0x0804C8F0. All four are the same 33-byte body, and all four
+// take nKey by value -- so the advance KSG_*Buf writes back is discarded here
+// exactly as it is in KCoder2. Encode and Decode being the same call is not an
+// oversight: the cipher is an XOR keystream.
+void KHeavenLib::Encode(void* pData, unsigned int nLen, unsigned int nKey)
+{
+    KSG_EncodeBuf(nLen, (unsigned char*)pData, &nKey);
+}
+
+void KHeavenLib::Decode(void* pData, unsigned int nLen, unsigned int nKey)
+{
+    KSG_DecodeBuf(nLen, (unsigned char*)pData, &nKey);
+}
+
+void KRainbowLib::Encode(void* pData, unsigned int nLen, unsigned int nKey)
+{
+    KSG_EncodeBuf(nLen, (unsigned char*)pData, &nKey);
+}
+
+void KRainbowLib::Decode(void* pData, unsigned int nLen, unsigned int nKey)
+{
+    KSG_DecodeBuf(nLen, (unsigned char*)pData, &nKey);
 }
 
 bool KHeavenLib::Load()
