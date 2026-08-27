@@ -111,3 +111,46 @@ target_include_directories(struct_probe PRIVATE
 
 # KProtocol.h switches to the Linux include layout when __linux is defined.
 target_compile_definitions(struct_probe PRIVATE __linux _SERVER)
+
+# ---------------------------------------------------------------------------
+# jx_protocol: the protocol layer, generated from the layouts read out of the
+# shipped binary's DWARF rather than ported from the Windows headers -- those
+# are wrong for 44% of the structs both trees define and missing 236 packets.
+#
+# jx_layout.cpp is the whole point of the target. It contains a static_assert
+# for every one of the 408 sizes and 1429 member offsets, so "the port agrees
+# with the shipped server about the wire format" is a compile-time property
+# rather than something to be tested for later, packet by packet, over a socket.
+# ---------------------------------------------------------------------------
+# The generated files are committed rather than produced at build time. The
+# build runs in a container with the source tree mounted read-only, so nothing
+# can write here; and a generated header that lives only in a build directory
+# cannot be reviewed in a diff, which for the file that defines the wire format
+# is the wrong trade. Regenerate deliberately:
+#
+#   python3 tools/gen_protocol.py protocol/ -o src/protocol/
+#
+set(JX_PROTO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/protocol")
+if(NOT EXISTS "${JX_PROTO_DIR}/jx_layout.cpp")
+    message(FATAL_ERROR
+        "src/protocol/jx_layout.cpp is missing. Generate it first:\n"
+        "  python3 tools/gen_protocol.py protocol/ -o src/protocol/")
+endif()
+
+add_library(jx_protocol STATIC "${JX_PROTO_DIR}/jx_layout.cpp")
+target_include_directories(jx_protocol PUBLIC "${JX_PROTO_DIR}")
+target_link_libraries(jx_protocol PUBLIC jx_compat)
+
+add_custom_target(regen_protocol
+    COMMAND python3 "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen_protocol.py"
+            "${CMAKE_CURRENT_SOURCE_DIR}/protocol" -o "${JX_PROTO_DIR}"
+    COMMENT "Regenerating the protocol header from the binary's DWARF tables"
+    VERBATIM)
+
+# The control that gives jx_protocol's clean build its meaning: the same claims
+# with the numbers off by one. Excluded from `all` because it is supposed to
+# fail -- build it on purpose and expect three errors.
+add_library(negative_control OBJECT EXCLUDE_FROM_ALL
+            "${JX_PROTO_DIR}/negative_control.cpp")
+target_link_libraries(negative_control PRIVATE jx_compat)
+target_include_directories(negative_control PRIVATE "${JX_PROTO_DIR}")

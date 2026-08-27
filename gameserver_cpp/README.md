@@ -31,7 +31,13 @@ protocol/     struct_sizes.tsv    sizeof for all 390 packet structs as our build
               binary_packets.tsv  the real packet set -- 377 structs, 1678
                                   fields with offsets and types. This, not the
                                   Windows headers, is the protocol.
-src/          The port itself (Phase 1 onward).
+              binary_types.tsv    the 36 non-packet structs those fields refer
+                                  to. Without them the packet table describes
+                                  the protocol but will not compile.
+              binary_enums.tsv    the 2 enums used as field types.
+src/protocol/ The protocol layer, generated from the three tables above by
+              tools/gen_protocol.py and committed. jx_protocol.h is the header;
+              jx_layout.cpp is 1837 static_asserts that it matches the binary.
 docs/         Phase notes. Start with docs/PHASE0.md.
 ```
 
@@ -75,6 +81,7 @@ Everything here runs on a bare Python 3 install.
 | `scan_lua_bindings.py` | Finds the C Lua bindings and counts how often each is called from the 6347 shipped scripts, so binding work can be ordered by real usage. |
 | `gen_struct_probe.py` | Emits a C++ program printing `sizeof()` for every packet struct. |
 | `dwarf_structs.py` | Reads struct layouts straight out of the shipped binary's DWARF -- sizes, field names, offsets, types. The ground truth everything else is checked against. |
+| `gen_protocol.py` | Turns those tables into `src/protocol/jx_protocol.h` plus an assertion file that makes "our layout matches the binary" a compile error when it stops being true. |
 | `oracle_proxy.py` | TCP capture proxy. Records a session against the old server, then the new one. |
 | `diff_capture.py` | Compares two captures and locates the first divergence. Exit 1 on any difference. |
 | `test_oracle.py` | Self-test for the two above. Run it before trusting them. |
@@ -133,10 +140,39 @@ For the structs both trees define, the Windows headers are wrong 44% of the time
 inheritance from a protocol-header base, 236 of which the Windows headers do not
 contain. Details and the checks behind the numbers are in `docs/PHASE0.md` §5.
 
+### The protocol layer is generated, and the compiler checks it
+
+Given that, the protocol header is not written by hand and not ported. It is
+generated from the tables above, and every size and offset in it is asserted:
+
+```bash
+python3 tools/gen_protocol.py protocol/ -o src/protocol/
+./docker/gameserver-build/build.sh RelWithDebInfo jx_protocol
+```
+
+```
+412 types, 1827 fields · 408 size assertions, 1429 offset assertions
+[100%] Built target jx_protocol
+```
+
+Everything is `#pragma pack(1)` with the padding emitted explicitly from the
+offsets the binary reports, so the layout never depends on this compiler
+agreeing with the one that built the server. It would not always agree:
+`VIEW_OTHER_DETAIL_INFO` has members ending at 139 and a `sizeof` of 140.
+
+A clean build of 1837 assertions is only evidence if the assertions run, so
+`negative_control` makes three of the same claims off by one and is expected to
+fail:
+
+```bash
+./docker/gameserver-build/build.sh RelWithDebInfo negative_control   # 3 errors
+```
+
 ## Status
 
-**Phase 0 closed.** The build works and produces an ELF32 i386 binary; all 390
-protocol structs compile; and their layouts have been checked against the shipped
-binary, which is how we learned the Windows protocol headers cannot be ported.
-Phase 1 generates the protocol layer from `protocol/binary_packets.tsv` instead.
-See `docs/PHASE0.md`.
+**Phase 0 closed. Phase 1 in progress.** The build produces an ELF32 i386
+binary, and the protocol layer now exists: generated from the shipped binary's
+own DWARF and proven byte-identical to it at compile time. Still open in Phase 1
+are the protocol ID table -- the client-facing IDs are `#define`s and leave no
+trace in DWARF, so they need RE -- then `KServerCore` and the handshake. See
+`docs/PHASE1.md`.

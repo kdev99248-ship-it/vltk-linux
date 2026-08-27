@@ -40,17 +40,22 @@ TAG_inheritance = 0x1C
 TAG_subrange = 0x21
 TAG_base = 0x24
 TAG_const = 0x26
+TAG_enumerator = 0x28
 TAG_volatile = 0x35
 
 AT_name = 0x03
 AT_byte_size = 0x0B
+AT_const_value = 0x1C
 AT_upper_bound = 0x2F
 AT_data_member_location = 0x38
 AT_type = 0x49
 AT_declaration = 0x3C
 
-WANTED_ATTRS = frozenset((AT_name, AT_byte_size, AT_upper_bound,
+WANTED_ATTRS = frozenset((AT_name, AT_byte_size, AT_const_value, AT_upper_bound,
                           AT_data_member_location, AT_type, AT_declaration))
+
+KIND = {TAG_structure: "struct", TAG_union: "union",
+        TAG_class: "class", TAG_enum: "enum"}
 
 AGGREGATE = (TAG_structure, TAG_union, TAG_class)
 # Only what a typedef chain can pass through on its way to a layout. Keeping
@@ -253,7 +258,8 @@ def member_offset(expr):
 
 
 class Die:
-    __slots__ = ("tag", "name", "size", "type", "decl", "fields", "loc", "ub")
+    __slots__ = ("tag", "name", "size", "type", "decl", "fields", "loc", "ub",
+                 "val")
 
     def __init__(self, tag):
         self.tag = tag
@@ -264,24 +270,32 @@ class Die:
         self.fields = None   # aggregates: [(name, offset, type_ref)] once wanted
         self.loc = None      # members: the raw DW_AT_data_member_location
         self.ub = None       # subranges: DW_AT_upper_bound, for array counts
+        self.val = None      # enumerators: DW_AT_const_value
 
 
-def type_name(ref, local, depth=0):
-    """Render a member's type as C-ish source. Best effort, never raises."""
+def type_name(ref, local, depth=0, rename=None):
+    """Render a member's type as C-ish source. Best effort, never raises.
+
+    `rename` maps a DIE offset to the name minted for an aggregate GCC left
+    anonymous, so the rendered type matches what the type table declares.
+    """
     if ref is None:
         return "void"
     t = local.get(ref)
     if t is None or depth > 12:
         return f"<{ref:#x}>"
     if t.tag == TAG_pointer:
-        return type_name(t.type, local, depth + 1) + "*"
+        return type_name(t.type, local, depth + 1, rename) + "*"
     if t.tag == TAG_const:
-        return "const " + type_name(t.type, local, depth + 1)
+        return "const " + type_name(t.type, local, depth + 1, rename)
     if t.tag == TAG_volatile:
-        return "volatile " + type_name(t.type, local, depth + 1)
+        return "volatile " + type_name(t.type, local, depth + 1, rename)
     if t.tag == TAG_array:
         n = array_count(t)
-        return f"{type_name(t.type, local, depth + 1)}[{'' if n is None else n}]"
+        inner = type_name(t.type, local, depth + 1, rename)
+        return f"{inner}[{'' if n is None else n}]"
+    if rename and ref in rename:
+        return rename[ref]
     if t.name:
         return t.name
     return {TAG_structure: "struct <anon>", TAG_union: "union <anon>",
@@ -319,26 +333,31 @@ def type_size(ref, local, depth=0):
     return t.size
 
 
-def walk(sections, want=(), progress=True, packet_bases=None):
+def walk(sections, want=(), progress=True, packet_bases=None, all_enums=False):
     """Walk every CU.
 
-    Returns (sizes, conflicts, layouts, packets):
+    Returns (sizes, conflicts, layouts, packets, types, enums):
       sizes     {name: byte_size}
       conflicts {name: {size, ...}} for names the binary defines inconsistently
       layouts   {name: [(member, offset, type, size), ...]} for names in `want`
-      packets   {name: (alias, size, fields)} for every aggregate deriving from
-                one of `packet_bases` -- i.e. the server's real packet set
+      packets   {name: (alias, base, kind, size, fields)} for every aggregate
+                deriving from one of `packet_bases` -- the real packet set
+      types     the same, for every aggregate reachable from a packet field.
+                A packet header is not usable without these: a packet whose
+                field is `KZhaoMuInfo` does not compile until KZhaoMuInfo does.
+      enums     {name: (size, [(enumerator, value), ...])} reachable likewise
     """
     info = sections[".debug_info"]
     abbrev_sec = sections[".debug_abbrev"]
     dstr = sections.get(".debug_str", b"")
     want = set(want)
     find_packets = bool(packet_bases)
-    collect_fields = bool(want) or find_packets
+    collect_fields = bool(want) or find_packets or all_enums
     keep = KEEP_FULL if collect_fields else KEEP
 
     abbrev_cache = {}
     sizes, seen, layouts, packets = {}, {}, {}, {}
+    types, enums = {}, {}
 
     pos, total, ncu = 0, len(info), 0
     while pos < total:
@@ -366,7 +385,8 @@ def walk(sections, want=(), progress=True, packet_bases=None):
 
             if tag in keep:
                 die = Die(tag)
-            elif (tag in CHILD_TAGS or (collect_fields and tag == TAG_subrange)) \
+            elif (tag in CHILD_TAGS or
+                  (collect_fields and tag in (TAG_subrange, TAG_enumerator))) \
                     and stack and stack[-1] is not None \
                     and stack[-1].fields is not None:
                 die = Die(tag)
@@ -403,12 +423,16 @@ def walk(sections, want=(), progress=True, packet_bases=None):
                     die.decl = bool(val)
                 elif at == AT_upper_bound:
                     die.ub = val
+                elif at == AT_const_value:
+                    die.val = val
                 else:
                     die.loc = val
 
             if tag == TAG_subrange:
                 # Parked in the array DIE's field list; array_count() reads it.
                 stack[-1].fields.append((None, die.ub, None))
+            elif tag == TAG_enumerator:
+                stack[-1].fields.append((die.name, die.val, None))
             elif tag in CHILD_TAGS:
                 name = die.name if tag == TAG_member else "(base)"
                 stack[-1].fields.append((name, member_offset(die.loc), die.type))
@@ -417,7 +441,7 @@ def walk(sections, want=(), progress=True, packet_bases=None):
                 if tag in AGGREGATE and die.size is not None and not die.decl:
                     if die.name:
                         record(sizes, seen, die.name, die.size)
-                if collect_fields and (tag == TAG_array or
+                if collect_fields and (tag in (TAG_array, TAG_enum) or
                                        (tag in AGGREGATE and not die.decl)):
                     # Anonymous aggregates are the dominant form here
                     # (`typedef struct {...} NAME;`), so field collection cannot
@@ -457,7 +481,10 @@ def walk(sections, want=(), progress=True, packet_bases=None):
                     if die.tag == TAG_typedef and die.name and die.type is not None:
                         alias.setdefault(die.type, die.name)
 
+            found = []            # (name, off, die, base) for this CU's packets
             for off, die in local.items():
+                if all_enums and die.tag == TAG_enum and die.name and die.fields:
+                    enums.setdefault(die.name, (die.size, list(die.fields)))
                 if die.tag not in AGGREGATE or not die.fields:
                     continue
                 if die.name in want:
@@ -475,9 +502,21 @@ def walk(sections, want=(), progress=True, packet_bases=None):
                     continue
                 key = die.name or alias.get(off)
                 if key:
+                    found.append((key, off, die, base))
+
+            if found:
+                closure, rename = walk_closure(found, local, alias)
+                for key, off, die, base in found:
                     packets.setdefault(
-                        key, (alias.get(off), base, die.size,
-                              resolve(die.fields, local)))
+                        key, (alias.get(off), base, KIND[die.tag], die.size,
+                              resolve(die.fields, local, rename)))
+                for off, (name, die) in closure.items():
+                    if die.tag == TAG_enum:
+                        enums.setdefault(name, (die.size, list(die.fields or ())))
+                    else:
+                        types.setdefault(
+                            name, (alias.get(off), "", KIND[die.tag], die.size,
+                                   resolve(die.fields or (), local, rename)))
 
         pos = cu_end
         ncu += 1
@@ -488,20 +527,95 @@ def walk(sections, want=(), progress=True, packet_bases=None):
     if progress:
         print(f"\r  {ncu} CUs  100.0%  {len(sizes)} names        ", file=sys.stderr)
 
-    return sizes, {n: s for n, s in seen.items() if len(s) > 1}, layouts, packets
+    return (sizes, {n: s for n, s in seen.items() if len(s) > 1},
+            layouts, packets, types, enums)
 
 
-def resolve(fields, local):
+def strip_type(ref, local):
+    """Follow typedef/cv/array wrappers down to the DIE that has a layout."""
+    hops = 0
+    while ref is not None and hops < 16:
+        t = local.get(ref)
+        if t is None:
+            return None, None
+        if t.tag in (TAG_typedef, TAG_const, TAG_volatile, TAG_array):
+            ref, hops = t.type, hops + 1
+            continue
+        return ref, t
+    return None, None
+
+
+def walk_closure(found, local, alias):
+    """Every aggregate and enum reachable from a packet field, in one CU.
+
+    A packet table alone cannot be turned into a compilable header: roughly
+    thirty packets have a field whose type is another struct, and a few of those
+    nest further. This collects that closure so the generated header is
+    self-contained.
+
+    Returns (closure, rename):
+      closure {die_offset: (name, die)}
+      rename  {die_offset: name} for the aggregates GCC left anonymous
+    """
+    closure, rename, taken = {}, {}, set()
+    # Packets are emitted from `found`; seeding them here stops the walk from
+    # re-emitting one that happens to be nested inside another, and terminates
+    # any cycle a self-referential type would otherwise create.
+    for key, off, _die, _base in found:
+        closure[off] = None
+        taken.add(key)
+
+    def mint(owner, field):
+        """Name an anonymous aggregate after where it is used.
+
+        GCC calls these `._157`, numbered from a counter that restarts in every
+        translation unit, so the name is both meaningless and ambiguous across
+        the binary. The use site is neither.
+        """
+        stem = f"{owner}_{field}_t" if field else f"{owner}_u"
+        name, n = stem, 2
+        while name in taken:
+            name, n = f"{stem}{n}", n + 1
+        taken.add(name)
+        return name
+
+    def visit(off, die, owner, field):
+        if off in closure:
+            return
+        name = die.name or alias.get(off)
+        if not name or name.startswith("._"):
+            name = mint(owner, field)
+            rename[off] = name
+        else:
+            taken.add(name)
+        closure[off] = (name, die)
+        for fname, _off, ref in (die.fields or ()):
+            sub_off, sub = strip_type(ref, local)
+            if sub is not None and sub.tag in AGGREGATE + (TAG_enum,):
+                visit(sub_off, sub, name, fname)
+
+    for key, _off, die, _base in found:
+        for fname, _o, ref in (die.fields or ()):
+            sub_off, sub = strip_type(ref, local)
+            if sub is not None and sub.tag in AGGREGATE + (TAG_enum,):
+                visit(sub_off, sub, key, fname)
+
+    for _key, off, _die, _base in found:
+        closure.pop(off, None)
+    return closure, rename
+
+
+def resolve(fields, local, rename=None):
     """Turn raw (name, offset, type_ref) rows into (name, offset, type, size).
 
     Done at the end of the CU that produced them, because `local` -- the only
     place the referenced type DIEs exist -- is discarded with the CU.
     """
-    return [(name, off, type_name(ref, local), type_size(ref, local))
-            for name, off, ref in fields]
+    return [(name, off, type_name(ref, local, rename=rename),
+             type_size(ref, local)) for name, off, ref in fields]
 
 
-def verify(packets):
+def verify(packets, label="packet"):
     """Check each extracted layout against sizeof. Returns 0 when all hold.
 
     A DWARF reader can be subtly wrong -- misread a form, drop a child, shift an
@@ -509,11 +623,23 @@ def verify(packets):
     that catches that: for every packet, the last field must end exactly at
     sizeof, or be a flexible array beginning exactly at sizeof. Holding across
     hundreds of independent structs is not something a broken parser does.
+
+    Unions are exempt: their members all sit at offset 0 and DWARF gives them no
+    location, so the invariant does not apply.
+
+    Trailing padding is counted separately rather than failed. Not every struct
+    a packet embeds is `#pragma pack(1)`: `VIEW_OTHER_DETAIL_INFO` ends 1 byte
+    short of its sizeof because on i386 a `long long` member gives the struct
+    4-byte alignment and 139 rounds up to 140. A generator that assumed pack(1)
+    everywhere would emit 139 and shift every field after it.
     """
-    ok = flex = bad = 0
-    failures = []
+    ok = flex = pad = bad = union = 0
+    padded, failures = [], []
     for name in sorted(packets):
-        _alias, _base, size, rows = packets[name]
+        _alias, _base, kind, size, rows = packets[name]
+        if kind == "union" or not rows:
+            union += 1
+            continue
         fname, off, _ty, fsz = rows[-1]
         if fsz is None:
             if off == size:
@@ -522,13 +648,21 @@ def verify(packets):
         elif off is not None and off + fsz == size:
             ok += 1
             continue
+        elif off is not None and 0 < size - (off + fsz) < 8:
+            pad += 1
+            padded.append((name, size, size - (off + fsz)))
+            continue
         bad += 1
         failures.append((name, size, fname, off, fsz))
 
-    print(f"\nverify: {len(packets)} packet layouts")
+    print(f"\nverify: {len(packets)} {label} layouts"
+          + (f"  ({union} unions / empty, not applicable)" if union else ""))
     print(f"  last field ends exactly at sizeof   {ok}")
     print(f"  flexible tail starting at sizeof    {flex}")
+    print(f"  trailing alignment padding          {pad}")
     print(f"  INCONSISTENT                        {bad}")
+    for name, size, n in padded[:20]:
+        print(f"    pad: {name} sizeof={size}, {n} byte(s) after the last field")
     for name, size, fname, off, fsz in failures[:20]:
         print(f"    {name}: sizeof={size} last={fname} off={off} size={fsz}")
     return 1 if bad else 0
@@ -565,6 +699,14 @@ def main():
     ap.add_argument("--packets", metavar="TSV",
                     help="enumerate every struct deriving from a protocol "
                          "header base and write their full layouts here")
+    ap.add_argument("--types", metavar="TSV",
+                    help="write the aggregates a packet field refers to -- the "
+                         "closure a generated header needs to compile")
+    ap.add_argument("--enums", metavar="TSV",
+                    help="write the enums reachable from a packet field")
+    ap.add_argument("--all-enums", action="store_true",
+                    help="with --enums, write every named enum in the binary, "
+                         "not only the ones a packet field refers to")
     ap.add_argument("--packet-base", action="append", default=None,
                     metavar="TYPE",
                     help="base type that marks a struct as a packet "
@@ -587,25 +729,44 @@ def main():
               f"({len(sections['.debug_info']) / 1e6:.1f} MB of .debug_info)",
               file=sys.stderr)
 
-    sizes, conflicts, layouts, packets = walk(
+    want_packets = bool(args.packets or args.types or args.enums or args.verify)
+    sizes, conflicts, layouts, packets, types, enums = walk(
         sections, args.members, not args.quiet,
-        packet_bases=bases if (args.packets or args.verify) else None)
+        packet_bases=bases if want_packets else None,
+        all_enums=args.all_enums)
 
     rc = 0
     if args.verify:
         rc |= verify(packets)
+        rc |= verify(types, "referenced type")
+
+    def write_layouts(path, table, label):
+        with open(path, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write("struct\talias\tbase\tkind\tsize\toffset\tfield\ttype\t"
+                     "fieldsize\n")
+            for name in sorted(table):
+                al, base, kind, size, rows = table[name]
+                for fname, off, ty, fsz in rows:
+                    fh.write(f"{name}\t{al or ''}\t{base}\t{kind}\t{size}\t"
+                             f"{'' if off is None else off}\t"
+                             f"{'' if fname is None else fname}\t{ty}\t"
+                             f"{'' if fsz is None else fsz}\n")
+        nf = sum(len(v[4]) for v in table.values())
+        print(f"wrote {path}: {len(table)} {label}, {nf} fields")
 
     if args.packets:
-        with open(args.packets, "w", encoding="utf-8", newline="\n") as fh:
-            fh.write("struct\talias\tbase\tsize\toffset\tfield\ttype\tfieldsize\n")
-            for name in sorted(packets):
-                al, base, size, rows = packets[name]
-                for fname, off, ty, fsz in rows:
-                    fh.write(f"{name}\t{al or ''}\t{base}\t{size}\t"
-                             f"{'' if off is None else off}\t{fname}\t{ty}\t"
-                             f"{'' if fsz is None else fsz}\n")
-        nf = sum(len(v[3]) for v in packets.values())
-        print(f"wrote {args.packets}: {len(packets)} packet structs, {nf} fields")
+        write_layouts(args.packets, packets, "packet structs")
+    if args.types:
+        write_layouts(args.types, types, "referenced types")
+    if args.enums:
+        with open(args.enums, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write("enum\tsize\tenumerator\tvalue\n")
+            for name in sorted(enums):
+                size, rows = enums[name]
+                for ename, val, _ in rows:
+                    fh.write(f"{name}\t{size}\t{ename}\t{val}\n")
+        nv = sum(len(v[1]) for v in enums.values())
+        print(f"wrote {args.enums}: {len(enums)} enums, {nv} enumerators")
 
     if args.out:
         with open(args.out, "w", encoding="utf-8", newline="\n") as fh:

@@ -1,0 +1,154 @@
+struct	alias	base	kind	size	offset	field	type	fieldsize
+EXTEND_HEADER			struct	2	0	ProtocolFamily	BYTE	1
+EXTEND_HEADER			struct	2	1	ProtocolID	BYTE	1
+GiveItemPos			struct	5	0	nPlace	BYTE	1
+GiveItemPos			struct	5	1	sPackPos	POS	2
+GiveItemPos			struct	5	3	sUiPos	POS	2
+KACCOUNT_INFO2			struct	84	0	(base)	tagAccountUserInfo	52
+KACCOUNT_INFO2			struct	84	52	ChangePointInfo	tagExtPointInfo	32
+KACCOUNT_LIMITTIME_INFO			struct	12	0	dwLimitTimeFlag	DWORD	4
+KACCOUNT_LIMITTIME_INFO			struct	12	4	dwLimitTimeOnlineSeconds	DWORD	4
+KACCOUNT_LIMITTIME_INFO			struct	12	8	dwLimitTimeOfflineSeconds	DWORD	4
+KEMPIRE_DATA			struct	94	0	szEmperor	char[32]	32
+KEMPIRE_DATA			struct	94	32	szTitle	char[16]	16
+KEMPIRE_DATA			struct	94	48	szTong	char[32]	32
+KEMPIRE_DATA			struct	94	80	bySex	BYTE	1
+KEMPIRE_DATA			struct	94	81	bySide	BYTE	1
+KEMPIRE_DATA			struct	94	82	dwGoodness	DWORD	4
+KEMPIRE_DATA			struct	94	86	dwBadness	DWORD	4
+KEMPIRE_DATA			struct	94	90	dwBeginTime	DWORD	4
+KEMPIRE_HISTORY			struct	98	0	(base)	KEMPIRE_DATA	94
+KEMPIRE_HISTORY			struct	98	94	dwEndTime	DWORD	4
+KEMPIRE_INFO			struct	130	0	(base)	KEMPIRE_DATA	94
+KEMPIRE_INFO			struct	130	94	szSealOwner	char[32]	32
+KEMPIRE_INFO			struct	130	126	dwTurnIdx	DWORD	4
+KMagicAttrib			struct	16	0	nAttribType	int	4
+KMagicAttrib			struct	16	4	nValue	int[3]	12
+KRESIST_ATTR			struct	100	0	nCurrentFireResist_Yin	int	4
+KRESIST_ATTR			struct	100	4	nCurrentColdResist_Yin	int	4
+KRESIST_ATTR			struct	100	8	nCurrentPoisonResist_Yin	int	4
+KRESIST_ATTR			struct	100	12	nCurrentLightResist_Yin	int	4
+KRESIST_ATTR			struct	100	16	nCurrentPhysicsResist_Yin	int	4
+KRESIST_ATTR			struct	100	20	nCurrentFireResist_Yan	int	4
+KRESIST_ATTR			struct	100	24	nCurrentColdResist_Yan	int	4
+KRESIST_ATTR			struct	100	28	nCurrentPoisonResist_Yan	int	4
+KRESIST_ATTR			struct	100	32	nCurrentLightResist_Yan	int	4
+KRESIST_ATTR			struct	100	36	nCurrentPhysicsResist_Yan	int	4
+KRESIST_ATTR			struct	100	40	nCurrentFireResistMax	int	4
+KRESIST_ATTR			struct	100	44	nCurrentColdResistMax	int	4
+KRESIST_ATTR			struct	100	48	nCurrentPoisonResistMax	int	4
+KRESIST_ATTR			struct	100	52	nCurrentLightResistMax	int	4
+KRESIST_ATTR			struct	100	56	nCurrentPhysicsResistMax	int	4
+KRESIST_ATTR			struct	100	60	nFireResist	int	4
+KRESIST_ATTR			struct	100	64	nColdResist	int	4
+KRESIST_ATTR			struct	100	68	nPoisonResist	int	4
+KRESIST_ATTR			struct	100	72	nLightResist	int	4
+KRESIST_ATTR			struct	100	76	nPhysicsResist	int	4
+KRESIST_ATTR			struct	100	80	nFireResistMax	int	4
+KRESIST_ATTR			struct	100	84	nColdResistMax	int	4
+KRESIST_ATTR			struct	100	88	nPoisonResistMax	int	4
+KRESIST_ATTR			struct	100	92	nLightResistMax	int	4
+KRESIST_ATTR			struct	100	96	nPhysicsResistMax	int	4
+KRET_APPLYINFO			struct	34	0	byLevel	BYTE	1
+KRET_APPLYINFO			struct	34	1	bIsOnline	BYTE	1
+KRET_APPLYINFO			struct	34	2	szName	char[32]	32
+KSTAT_DATA_MODIFY			struct	12	0	nID	int	4
+KSTAT_DATA_MODIFY			struct	12	4	nValue	int64_t	8
+KTongShowInfo			struct	179	0	dwTongID	DWORD	4
+KTongShowInfo			struct	179	4	szName	char[32]	32
+KTongShowInfo			struct	179	36	wMemberCount	WORD	2
+KTongShowInfo			struct	179	38	wLevel	WORD	2
+KTongShowInfo			struct	179	40	nHuoYueDu	int	4
+KTongShowInfo			struct	179	44	ZhaoMuInfo	KZhaoMuInfo	135
+KZhaoMuInfo			struct	135	0	byQingXiang	BYTE	1
+KZhaoMuInfo			struct	135	1	byActivity	BYTE[4]	4
+KZhaoMuInfo			struct	135	5	szCustomText	char[128]	128
+KZhaoMuInfo			struct	135	133	byAutoAcceptLevel	BYTE	1
+KZhaoMuInfo			struct	135	134	byRefuseApplyLevel	BYTE	1
+LocalDispatchMsgChannel			struct	10	0	ChannelId	DWORD	4
+LocalDispatchMsgChannel			struct	10	4	Cost	BYTE	1
+LocalDispatchMsgChannel			struct	10	5	ChannelFlag	BYTE	1
+LocalDispatchMsgChannel			struct	10	6	dwMsgInterval	DWORD	4
+MapIdIndexPair			struct	6	0	nMapId	int	4
+MapIdIndexPair			struct	6	4	nMapIndex	short int	2
+POS			struct	2	0	x	BYTE	1
+POS			struct	2	1	y	BYTE	1
+SALE_STORES_SHOP			struct	48	0	m_nBuyIdx	int	4
+SALE_STORES_SHOP			struct	48	4	m_ctCurrencyType	CurrencyType	4
+SALE_STORES_SHOP			struct	48	8	m_nScale	int	4
+SALE_STORES_SHOP			struct	48	12	m_bDynamicShop	BOOL	4
+SALE_STORES_SHOP			struct	48	16	m_szShopName	char[32]	32
+SIMPLE_INFO_8_u			union	8		m_byInfo	BYTE[8]	8
+SIMPLE_INFO_8_u			union	8		m_wInfo	WORD[4]	8
+SIMPLE_INFO_8_u			union	8		m_dwInfo	DWORD[2]	8
+SViewItemInfo			struct	64	0	m_nID	int	4
+SViewItemInfo			struct	64	4	m_btPattern	BYTE	1
+SViewItemInfo			struct	64	5	m_wDetail	WORD	2
+SViewItemInfo			struct	64	7	m_wParticur	WORD	2
+SViewItemInfo			struct	64	9	m_btSeries	BYTE	1
+SViewItemInfo			struct	64	10	m_btLevel	BYTE	1
+SViewItemInfo			struct	64	11	m_btLuck	BYTE	1
+SViewItemInfo			struct	64	12	m_MagicLevel	int[6]	24
+SViewItemInfo			struct	64	36	m_wVersion	WORD	2
+SViewItemInfo			struct	64	38	m_dwRandomSeed	DWORD	4
+SViewItemInfo			struct	64	42	m_btExParam0	BYTE	1
+SViewItemInfo			struct	64	43	m_btExParam1	BYTE	1
+SViewItemInfo			struct	64	44	m_ExpiredTime	DWORD	4
+SViewItemInfo			struct	64	48	m_dwLeftUsageTime	DWORD	4
+SViewItemInfo			struct	64	52	wPlatinaMagicIdx	WORD[2]	4
+SViewItemInfo			struct	64	56	dwExchangeValue	DWORD	4
+SViewItemInfo			struct	64	60	dwFortuneValue	DWORD	4
+TRoleList			struct	46	0	Name	char[32]	32
+TRoleList			struct	46	32	nValue	INT64	8
+TRoleList			struct	46	40	nSect	int	4
+TRoleList			struct	46	44	byGender	BYTE	1
+TRoleList			struct	46	45	bySort	BYTE	1
+TTm			struct	36	0	tm_sec	int	4
+TTm			struct	36	4	tm_min	int	4
+TTm			struct	36	8	tm_hour	int	4
+TTm			struct	36	12	tm_mday	int	4
+TTm			struct	36	16	tm_mon	int	4
+TTm			struct	36	20	tm_year	int	4
+TTm			struct	36	24	tm_wday	int	4
+TTm			struct	36	28	tm_yday	int	4
+TTm			struct	36	32	tm_isdst	int	4
+TongExHeaderBase			struct	4	0	m_wTongExLength	WORD	2
+TongExHeaderBase			struct	4	2	m_wTongExProtocol	WORD	2
+VIEW_OTHER_DETAIL_INFO			struct	140	0	nExperienceFull	INT64	8
+VIEW_OTHER_DETAIL_INFO			struct	140	8	nExperience	INT64	8
+VIEW_OTHER_DETAIL_INFO			struct	140	16	nCurLevelExperience	INT64	8
+VIEW_OTHER_DETAIL_INFO			struct	140	24	aiAttr	int[28]	112
+VIEW_OTHER_DETAIL_INFO			struct	140	136	btRankId	BYTE	1
+VIEW_OTHER_DETAIL_INFO			struct	140	137	btSeries	BYTE	1
+VIEW_OTHER_DETAIL_INFO			struct	140	138	nAllowDetailDetectFlag	BYTE	1
+_DataPair			struct	8	0	dwOffset	DWORD	4
+_DataPair			struct	8	4	dwLen	DWORD	4
+_GUID	GUID		struct	16	0	Data1	DWORD	4
+_GUID	GUID		struct	16	4	Data2	WORD	2
+_GUID	GUID		struct	16	6	Data3	WORD	2
+_GUID	GUID		struct	16	8	Data4	BYTE[8]	8
+tagAccountUserInfo			struct	52	0	ExtPointInfo	tagExtPointInfo	32
+tagAccountUserInfo			struct	52	32	nTotalLeftTime	DWORD	4
+tagAccountUserInfo			struct	52	36	nLeftTimeOfPoint	DWORD	4
+tagAccountUserInfo			struct	52	40	LimitTimeInfo	KACCOUNT_LIMITTIME_INFO	12
+tagBULLETIN_CONTENT_DATA_ContentData_t			struct	804	0	nLen	int	4
+tagBULLETIN_CONTENT_DATA_ContentData_t			struct	804	4	szContent	char[800]	800
+tagBULLETIN_SUMMARY_DATA_SummaryData_t			struct	80	0	szSummary	char[64]	64
+tagBULLETIN_SUMMARY_DATA_SummaryData_t			struct	80	64	szDate	char[16]	16
+tagChangeExtPoint_u			union	4		uExtPointIndex	unsigned int	4
+tagChangeExtPoint_u			union	4		uSilverType	unsigned int	4
+tagExtPointInfo			struct	32	0	nExtPoint	int[8]	32
+tagFOUNDRY_CLIENTSEND_NecItemPos_t			struct	12	0	nPlace	int	4
+tagFOUNDRY_CLIENTSEND_NecItemPos_t			struct	12	4	nX	int	4
+tagFOUNDRY_CLIENTSEND_NecItemPos_t			struct	12	8	nY	int	4
+tagNOTIFY_CLIENT_u			union	4		nStatus	INT	4
+tagNOTIFY_CLIENT_u			union	4		cStatus	CHAR[4]	4
+tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t			struct	8	0	nTaskID	int	4
+tagPLAYER_ALL_TASKVALUE_SYNC_TaskArray_t			struct	8	4	nTaskValue	int	4
+tagProtocolHeader			struct	1	0		tagProtocolHeader_u	1
+tagProtocolHeader_u			union	1		cProtocol	BYTE	1
+tagProtocolHeader_u			union	1		ProtocolType	BYTE	1
+tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t			struct	6	0	SkillId	WORD	2
+tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t			struct	6	2	CurLevel	BYTE	1
+tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t			struct	6	3	MaxLevel	BYTE	1
+tagSKILL_SEND_ALL_SYNC_m_sAllSkill_t			struct	6	4	SkillExp	WORD	2
